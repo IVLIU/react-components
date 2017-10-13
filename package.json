@@ -4,7 +4,8 @@
   "description": "tip ui",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "gulp"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
     "ui"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
 }
