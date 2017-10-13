@@ -1,0 +1,21 @@
+.label {
+    display: inline-flex;
+    // justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 5px;
+    color: #FFF;
+    
+    fill: #FFF;
+    border-radius: 5px;
+}
+
+.label-danger {
+    // @extend .label;
+    background-color: #d73e3e;
+}
+
+.label-warning {
+    background-color: #ff9e36;
+}
