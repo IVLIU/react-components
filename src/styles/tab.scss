@@ -15,9 +15,9 @@
 
 .tab-activated {
     @extend .tab;
-    color: #2e3b4b;
-    fill: #2e3b4b;
-    border-bottom: 2px solid #2e3b4b;
+    color: $basic-imp-color;
+    fill: $basic-imp-color;
+    border-bottom: 2px solid $basic-imp-color;
 }
 
 .btn-tab {
@@ -25,10 +25,10 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: #2e3b4b;
-    fill: #2e3b4b;    
+    color: $basic-imp-color;
+    fill: $basic-imp-color;    
     padding: 5px 25px;
-    background-color: #f8f8fa;
+    background-color: $basic-aid-gray-color;
 
     &:hover {
         cursor: pointer;
@@ -37,7 +37,7 @@
 
 .btn-tab-activated {
     @extend .btn-tab;
-    color: #f8f8fa;
-    fill: #f8f8fa;
-    background-color: #2e3b4b;
+    color: $basic-aid-gray-color;
+    fill: $basic-aid-gray-color;
+    background-color: $basic-imp-color;
 }

@@ -1,20 +1,20 @@
 .label {
     display: inline-flex;
-    // justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-size: 12px;
     font-weight: bold;
     padding: 3px 5px;
     color: #FFF;
     fill: #FFF;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .label-danger {
     // @extend .label;
-    background-color: #d73e3e;
+    background-color: $basic-aid-red-color;
 }
 
 .label-warning {
-    background-color: #ff9e36;
+    background-color: $basic-aid-yel-color;
 }
