@@ -1,15 +1,18 @@
 .tab {
     display: inline-flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 16px;
     font-weight: bold;
-    padding: 5px 20px 5px 2px;
+    padding: 10px 0;
+    margin-right: 10px;
     color: #999;
     fill: #999;
 
     &:hover {
         cursor: pointer;
+        color: $basic-imp-color;
+        fill: $basic-imp-color;
     }
 }
 

@@ -10,8 +10,14 @@
     border-radius: 2px;
 }
 
+.label-cavity {
+    color: $basic-aid-color;
+    fill: $basic-aid-color;
+    border-color: $basic-aid-color;
+    background-color: transparent;
+}
+
 .label-danger {
-    // @extend .label;
     background-color: $basic-aid-red-color;
 }
 
