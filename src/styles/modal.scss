@@ -1,0 +1,42 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(27, 29, 31, 0.5);
+    z-index: 1000;
+    overflow: hidden;
+    outline: 0;
+    
+}
+.modal-content {
+    position: relative;        
+    background-color: #FFF;
+    background-clip: padding-box;
+    border-radius: 2px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    .modal-header {
+        height: 50px;
+        line-height: 50px;
+        color: #FFF;
+        background-color: $basic-imp-color;
+        padding: 0 20px;
+        font-size: $font-size-16;
+        font-weight: bold;
+    }
+    .modal-body {
+        position: relative;
+        padding: 20px;
+    }
+    .modal-footer {
+        text-align: right;
+        .btn {
+            margin-left: 20px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
