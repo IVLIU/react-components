@@ -1,27 +1,30 @@
 'use strict';
-
+ 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var del = require('del');
+var bulkSass = require('gulp-sass-bulk-import');
+ 
+gulp.task('css', function() {
+	return gulp
+		.src('./styles/index.scss')
+		.pipe(bulkSass())
+		.pipe(
+			sass({
+				includePaths: ['./styles/modules/']
+			}))
+		.pipe( gulp.dest('./dist/') );
+});
 
+gulp.task('css:watch', function() {
+  gulp.watch('./styles/modules/*.scss', ['css']);
+});
+ 
 gulp.task('sass', function () {
-  return gulp.src('./src/*.scss')
+  return gulp.src('./styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist'));
 });
-
-/* 清理dist的目录里边的文件*/
-gulp.task('clean:dist', function (cb) {
-  del([
-    // 这里我们使用一个通配模式来匹配dist里
-    'dist/*',
-  ], cb);
-});
-
-
+ 
 gulp.task('sass:watch', function () {
-  gulp.watch('./src/*.scss', ['sass']);
+  gulp.watch('./styles/**/*.scss', ['sass']);
 });
-
-/*默认任务*/
-gulp.task('default', ['clean:dist', 'sass']);
