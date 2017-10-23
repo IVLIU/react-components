@@ -18,11 +18,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.5.7",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "gulp-sass-bulk-import": "^1.0.1",
     "koa": "^2.0.0-alpha.8",
-    "koa-static": "^4.0.1"
+    "koa-static": "^4.0.1",
+    "koa-views": "^6.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
