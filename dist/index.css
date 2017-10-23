@@ -812,8 +812,12 @@ header {
       padding: 0;
       display: none; }
       .menu .menu-item .sub-menu .sub-menu-item {
+        line-height: 14px;
+        margin-bottom: 20px;
         padding: 0 10px;
         background: #293448; }
+        .menu .menu-item .sub-menu .sub-menu-item:first-child {
+          margin-top: 20px; }
         .menu .menu-item .sub-menu .sub-menu-item .label-name {
           color: #6d8cb3; }
           .menu .menu-item .sub-menu .sub-menu-item .label-name:hover, .menu .menu-item .sub-menu .sub-menu-item .label-name:active {
