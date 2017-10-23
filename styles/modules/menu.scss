@@ -21,7 +21,8 @@ $subMenuTextColor: #6d8cb3;
     border-bottom: 1px solid $menuBorderColor;
     padding: 0 20px 0 10px;
     line-height: 50px;
-    &:hover {
+    &:hover,
+    &.active {
       background: $subMenuBgColor;
     }
     .label-name {
@@ -92,4 +93,21 @@ $subMenuTextColor: #6d8cb3;
       }
     }
   }
+  &.with-icon {
+    .menu-item {
+      position: relative;
+
+      .item-icon {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 15px;
+        left: 10px;
+      }
+      .label-name {
+        margin-left: 30px;
+      }
+    }
+  }
 }
+

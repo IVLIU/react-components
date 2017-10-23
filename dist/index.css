@@ -51,7 +51,7 @@ header {
     border-bottom: 1px solid #50647c;
     padding: 0 20px 0 10px;
     line-height: 50px; }
-    .menu .menu-item:hover {
+    .menu .menu-item:hover, .menu .menu-item.active {
       background: #293448; }
     .menu .menu-item .label-name {
       display: block;
@@ -104,6 +104,16 @@ header {
             color: #f3f3ff; }
           .menu .menu-item .sub-menu .sub-menu-item .label-name:after {
             display: none; }
+  .menu.with-icon .menu-item {
+    position: relative; }
+    .menu.with-icon .menu-item .item-icon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 15px;
+      left: 10px; }
+    .menu.with-icon .menu-item .label-name {
+      margin-left: 30px; }
 
 html, body, .root-app {
   margin: 0;
