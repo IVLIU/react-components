@@ -1,0 +1,50 @@
+.btn {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 2px;
+
+    color: #666;
+    background-color: #e4e4e4;
+    border: 1px solid #e0e2e1;
+
+    &:hover {
+        background-color: #f6f6f6;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}    
+
+.btn-primary {
+    background-color: #2e3b4b;
+    color: #FFF;
+    fill: #FFF;
+
+    &:hover {
+        background-color: #516379;
+    }
+}
+
+.btn-secondary {
+    background-color: #2d84e5;
+    color: #FFF;
+    fill: #FFF;
+
+    &:hover {
+        background-color: #2b75c8;
+    }
+}
+
+.btn-cancel {
+    background-color: #e0e2e1;
+    color: #999;
+    fill: #999;
+
+    &:hover {
+        background-color: #e0e2e1;
+    }
+}

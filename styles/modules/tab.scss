@@ -1,23 +1,26 @@
 .tab {
     display: inline-flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 16px;
     font-weight: bold;
-    padding: 5px 20px 5px 2px;
+    padding: 10px 0;
+    margin-right: 10px;
     color: #999;
     fill: #999;
 
     &:hover {
         cursor: pointer;
+        color: $basic-imp-color;
+        fill: $basic-imp-color;
     }
 }
 
 .tab-activated {
     @extend .tab;
-    color: #2e3b4b;
-    fill: #2e3b4b;
-    border-bottom: 2px solid #2e3b4b;
+    color: $basic-imp-color;
+    fill: $basic-imp-color;
+    border-bottom: 2px solid $basic-imp-color;
 }
 
 .btn-tab {
@@ -25,10 +28,10 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: #2e3b4b;
-    fill: #2e3b4b;    
+    color: $basic-imp-color;
+    fill: $basic-imp-color;    
     padding: 5px 25px;
-    background-color: #f8f8fa;
+    background-color: $basic-aid-gray-color;
 
     &:hover {
         cursor: pointer;
@@ -37,7 +40,7 @@
 
 .btn-tab-activated {
     @extend .btn-tab;
-    color: #f8f8fa;
-    fill: #f8f8fa;
-    background-color: #2e3b4b;
+    color: $basic-aid-gray-color;
+    fill: $basic-aid-gray-color;
+    background-color: $basic-imp-color;
 }
