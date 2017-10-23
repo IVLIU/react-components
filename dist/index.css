@@ -1,3 +1,14 @@
+.base-layout {
+  display: flex;
+  height: 100%; }
+  .base-layout .menu-column {
+    flex-basis: 200px;
+    min-height: 100%;
+    background: #3D4A5B; }
+  .base-layout .main-content {
+    flex: 1;
+    overflow: auto; }
+
 header {
   background: #2E3B4B;
   display: flex;
@@ -27,6 +38,11 @@ header {
 .menu {
   color: #f3f3ff;
   list-style: none;
+  height: 100%;
+  margin-bottom: -50px;
+  overflow: hidden;
+  background: #3D4A5B;
+  width: 200px;
   cursor: pointer;
   margin: 0;
   padding: 0; }
@@ -39,7 +55,9 @@ header {
       background: #293448; }
     .menu .menu-item .label-name {
       display: block;
-      margin-left: 10px; }
+      margin-left: 10px;
+      color: #f3f3ff;
+      text-decoration: none; }
       .menu .menu-item .label-name:after {
         content: ' ';
         display: inline-block;
@@ -63,19 +81,38 @@ header {
       border-right: 6px solid transparent;
       border-bottom: 6px solid #f3f3ff;
       transform: rotate(-90deg); }
+    .menu .menu-item.active .label-name.active {
+      color: #f3f3ff; }
     .menu .menu-item.active .label-name:after {
       transform: rotate(135deg); }
+    .menu .menu-item.active .sub-menu {
+      display: block; }
     .menu .menu-item .sub-menu {
       list-style: none;
       margin: 0 -20px 0 -10px;
       border-top: 1px solid #50647c;
-      padding: 0; }
+      padding: 0;
+      display: none; }
       .menu .menu-item .sub-menu .sub-menu-item {
-        color: #6d8cb3;
         padding: 0 10px;
         background: #293448; }
-        .menu .menu-item .sub-menu .sub-menu-item:hover, .menu .menu-item .sub-menu .sub-menu-item:active {
-          color: #f3f3ff; }
+        .menu .menu-item .sub-menu .sub-menu-item .label-name {
+          color: #6d8cb3; }
+          .menu .menu-item .sub-menu .sub-menu-item .label-name:hover, .menu .menu-item .sub-menu .sub-menu-item .label-name:active {
+            color: #f3f3ff; }
+          .menu .menu-item .sub-menu .sub-menu-item .label-name.active {
+            color: #f3f3ff; }
+          .menu .menu-item .sub-menu .sub-menu-item .label-name:after {
+            display: none; }
+
+html, body, .root-app {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+.root-app > div {
+  height: 100%;
+  overflow: hidden; }
 
 .tab, .tab-activated {
   display: inline-flex;
