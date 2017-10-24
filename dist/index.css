@@ -451,30 +451,30 @@ html, body, .root-app {
   background-color: #e4e4e4;
   border: 1px solid #e0e2e1; }
   .btn:hover {
-    background-color: #f6f6f6; }
+    background-color: #f8f8fa; }
   .btn:focus {
     outline: 0; }
 
 .btn-primary {
-  background-color: #2e3b4b;
-  color: #FFF;
-  fill: #FFF; }
-  .btn-primary:hover {
-    background-color: #516379; }
+  background-color: #2e3e4b;
+  color: #FFF; }
 
 .btn-secondary {
   background-color: #2d84e5;
-  color: #FFF;
-  fill: #FFF; }
+  color: #FFF; }
   .btn-secondary:hover {
     background-color: #2b75c8; }
 
 .btn-cancel {
   background-color: #e0e2e1;
-  color: #999;
-  fill: #999; }
+  color: #999; }
   .btn-cancel:hover {
     background-color: #e0e2e1; }
+
+.btn-link {
+  color: #999; }
+  .btn-link:hover {
+    cursor: pointer; }
 
 .input {
   font-size: 14px;
@@ -506,20 +506,30 @@ html, body, .root-app {
   padding: 0 5px;
   font-size: 12px; }
 
-.delete-icon, .delete-icon-cavity {
+.delete-icon, .delete-icon-cavity, .delete-icon-blue, .delete-icon-red {
   display: inline-block;
   width: 14px;
   height: 14px;
   line-height: 12px;
-  text-align: center;
+  text-align: center; }
+  .delete-icon:hover, .delete-icon-cavity:hover, .delete-icon-blue:hover, .delete-icon-red:hover {
+    cursor: pointer; }
+
+.delete-icon-cavity {
+  border-radius: 7px;
+  color: #2d84e5;
+  border: 1px solid #2d84e5;
+  background-color: transparent; }
+
+.delete-icon-blue {
   border-radius: 7px;
   color: #FFF;
   border: 1px solid #2d84e5;
   background-color: #2d84e5; }
 
-.delete-icon-cavity {
-  color: #2d84e5;
-  background-color: transparent; }
+.delete-icon-red {
+  color: #d73e3e;
+  font-weight: bold; }
 
 .multi-btn-select {
   display: inline-flex;
@@ -568,6 +578,17 @@ html, body, .root-app {
   border: 1px solid #e0e2e1;
   background-color: #FFF;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); }
+
+.error {
+  outline: 0;
+  border-color: #d73e3e;
+  box-shadow: inset 0 1px 1px #d73e3e, 0 0 8px #d73e3e; }
+
+.line {
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 1px solid #e0e2e1; }
 
 .container {
   margin-right: auto;
