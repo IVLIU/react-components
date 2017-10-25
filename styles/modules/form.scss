@@ -43,6 +43,14 @@
     }
 }
 
+.delete-icon-lg {
+    @extend .delete-icon;
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    font-size: 20px;
+}
+
 .delete-icon-cavity {
     @extend .delete-icon;
     border-radius: 7px;
