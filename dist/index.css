@@ -397,6 +397,30 @@ template {
 /* 基本字体大小 */
 /* 字体大小为14px */
 /* 字体大小为12px */
+.mgt20 {
+  margin-top: 20px; }
+
+.mgb20 {
+  margin-bottom: 20px; }
+
+.mgl20 {
+  margin-left: 20px; }
+
+.mgr20 {
+  margin-right: 20px; }
+
+.pdt20 {
+  padding-top: 20px; }
+
+.pdb20 {
+  padding-bottom: 20px; }
+
+.pdl20 {
+  padding-left: 20px; }
+
+.pdr20 {
+  padding-right: 20px; }
+
 /* 设置盒模型 */
 * {
   box-sizing: border-box;
@@ -841,14 +865,20 @@ html, body, .root-app {
   padding: 0 5px;
   font-size: 12px; }
 
-.delete-icon, .delete-icon-cavity, .delete-icon-blue, .delete-icon-red {
+.delete-icon, .delete-icon-lg, .delete-icon-cavity, .delete-icon-blue, .delete-icon-red {
   display: inline-block;
   width: 14px;
   height: 14px;
   line-height: 12px;
   text-align: center; }
-  .delete-icon:hover, .delete-icon-cavity:hover, .delete-icon-blue:hover, .delete-icon-red:hover {
+  .delete-icon:hover, .delete-icon-lg:hover, .delete-icon-cavity:hover, .delete-icon-blue:hover, .delete-icon-red:hover {
     cursor: pointer; }
+
+.delete-icon-lg {
+  width: 20px;
+  height: 20px;
+  line-height: 15px;
+  font-size: 20px; }
 
 .delete-icon-cavity {
   border-radius: 7px;
@@ -976,9 +1006,13 @@ html, body, .root-app {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px; }
+  margin: 20px 0; }
+  .row:first-child {
+    margin-top: 0; }
   .row:last-child {
     margin-bottom: 0; }
+  .row.vertical {
+    flex-flow: column nowrap; }
 
 .no-gutters {
   margin-right: 0;
@@ -1102,12 +1136,11 @@ header {
     flex: 1; }
 
 .label {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
   font-size: 12px;
   font-weight: bold;
-  padding: 3px 5px;
+  padding: 3px 2px;
   color: #FFF;
   fill: #FFF;
   border-radius: 2px; }
@@ -1408,14 +1441,8 @@ header {
       .modal-content .modal-footer .btn:first-child {
         margin-left: 0; }
 
-html, body, .root-app {
-  margin: 0;
-  padding: 0;
-  height: 100%; }
-
-.root-app > div {
-  height: 100%;
-  overflow: hidden; }
+.hover-shadow {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
 
 .tab, .tab-activated {
   display: inline-flex;
@@ -1431,6 +1458,10 @@ html, body, .root-app {
     cursor: pointer;
     color: #2e3e4b;
     fill: #2e3e4b; }
+  .tab.active, .active.tab-activated {
+    color: #2e3e4b;
+    fill: #2e3e4b;
+    border-bottom: 2px solid #2e3e4b; }
 
 .tab-activated {
   color: #2e3e4b;
@@ -1453,6 +1484,33 @@ html, body, .root-app {
   color: #f8f8fa;
   fill: #f8f8fa;
   background-color: #2e3e4b; }
+
+.table-head {
+  width: 100%;
+  height: 40px;
+  background-color: #f8f8fA;
+  border: 1px solid #e0e2e1;
+  color: #2e3b4b;
+  font-size: 12px;
+  font-weight: 700; }
+
+.table-body-row {
+  width: 100%;
+  height: 50px;
+  background-color: #f8f8fA;
+  border: 1px solid #e0e2e1;
+  color: #2e3b4b;
+  font-size: 12px; }
+  .table-body-row:hover {
+    background-color: #e6f2ff; }
+
+.page-max-title {
+  font-size: 16px;
+  font-weight: 700; }
+
+.page-min-title {
+  font-size: 14px;
+  font-weight: 700; }
 
 .basic-tooltip {
   position: absolute;
