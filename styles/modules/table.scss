@@ -4,6 +4,8 @@
 	background-color: #f8f8fA;
 	border: 1px solid #e0e2e1;
 	color: #2e3b4b;
+	font-size: $font-size-12;
+	font-weight: 700;
 }
 .table-body-row {
 	width: 100%;
@@ -11,6 +13,7 @@
 	background-color: #f8f8fA;
 	border: 1px solid #e0e2e1;
 	color: #2e3b4b;
+	font-size: $font-size-12;
 	&:hover {
 		background-color: #e6f2ff;
 	}

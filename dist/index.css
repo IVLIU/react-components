@@ -397,6 +397,30 @@ template {
 /* 基本字体大小 */
 /* 字体大小为14px */
 /* 字体大小为12px */
+.mgt20 {
+  margin-top: 20px; }
+
+.mgb20 {
+  margin-bottom: 20px; }
+
+.mgl20 {
+  margin-left: 20px; }
+
+.mgr20 {
+  margin-right: 20px; }
+
+.pdt20 {
+  padding-top: 20px; }
+
+.pdb20 {
+  padding-bottom: 20px; }
+
+.pdl20 {
+  padding-left: 20px; }
+
+.pdr20 {
+  padding-right: 20px; }
+
 /* 设置盒模型 */
 * {
   box-sizing: border-box;
@@ -1101,6 +1125,13 @@ header {
     text-align: right;
     flex: 1; }
 
+.head-title {
+  position: absolute;
+  left: 40px;
+  top: 18px;
+  font-size: 16px;
+  font-weight: 700; }
+
 .label {
   display: inline-flex;
   justify-content: center;
@@ -1408,14 +1439,8 @@ header {
       .modal-content .modal-footer .btn:first-child {
         margin-left: 0; }
 
-html, body, .root-app {
-  margin: 0;
-  padding: 0;
-  height: 100%; }
-
-.root-app > div {
-  height: 100%;
-  overflow: hidden; }
+.hover-shadow {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
 
 .tab, .tab-activated {
   display: inline-flex;
@@ -1453,6 +1478,22 @@ html, body, .root-app {
   color: #f8f8fa;
   fill: #f8f8fa;
   background-color: #2e3e4b; }
+
+.table-head {
+  width: 100%;
+  height: 40px;
+  background-color: #f8f8fA;
+  border: 1px solid #e0e2e1;
+  color: #2e3b4b; }
+
+.table-body-row {
+  width: 100%;
+  height: 50px;
+  background-color: #f8f8fA;
+  border: 1px solid #e0e2e1;
+  color: #2e3b4b; }
+  .table-body-row:hover {
+    background-color: #e6f2ff; }
 
 .basic-tooltip {
   position: absolute;
