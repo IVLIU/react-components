@@ -2,11 +2,21 @@
 <html>
 <head>
     <title></title>
+    <style>
+    	.center {
+    		position: relative;
+    		width: 600px;
+    		height: 600px;
+    		left: 30%;
+    		top: 30%;
+    	}
+    </style>
     <link rel="stylesheet" href="/index.css" type="text/css">
 </head>
 <body>
 		<!-- 这里引入测试的模版 -->
-    <%- include button %>
-    <%- include menu %>
+		<div class="center">
+			<%- include table %>
+		</div>
 </body>
 </html>
