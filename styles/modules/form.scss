@@ -1,10 +1,10 @@
 .input {
-    font-size: 14px;
+    font-size: $font-basic-size;
     color: #666;
-    border: 1px solid #e0e2e1;
+    border: 1px solid $basic-border-color;
     height: 30px;
     line-height: 28px;
-    background-color: #f8f8fa;
+    background-color: $basic-aid-gray-color;
     padding: 0 10px;
     border-radius: 2px;
 }
@@ -13,19 +13,19 @@
     height: 30px;
     line-height: 30px;
     padding: 0 10px;
-    background-color: #f8f8fa;
+    background-color: $basic-aid-gray-color;
     color: #666;
     &:hover {
-         background-color: #c9e2ff;
-         cursor: pointer;
+        background-color: #c9e2ff;
+        cursor: pointer;
     }
 }
 
 .multi-select-value {
     display: inline-block;
-    border: 1px solid #2d84e5;
+    border: 1px solid $basic-aid-blue-color;
     border-radius: 4px;
-    color: #2d84e5;
+    color: $basic-aid-blue-color;
     line-height: 18px;
     height: 20px;
     padding: 0 5px;
@@ -38,24 +38,48 @@
     height: 14px;
     line-height: 12px;
     text-align: center;
-    border-radius: 7px;
-    color: #FFF;
-    border: 1px solid #2d84e5;
-    background-color: #2d84e5;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.delete-icon-lg {
+    @extend .delete-icon;
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    font-size: 20px;
 }
 
 .delete-icon-cavity {
     @extend .delete-icon;
-    color: #2d84e5;
+    border-radius: 7px;
+    color: $basic-aid-blue-color;
+    border: 1px solid $basic-aid-blue-color;        
     background-color: transparent;
 }
+
+.delete-icon-blue {
+    @extend .delete-icon;
+    border-radius: 7px;
+    color: #FFF;
+    border: 1px solid $basic-aid-blue-color;
+    background-color: $basic-aid-blue-color;
+}
+
+.delete-icon-red {
+    @extend .delete-icon;
+    color: $basic-aid-red-color;
+    font-weight: bold;
+}
+
 .multi-btn-select {
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
     .multi-btn-select-item {
         display: inline-block;
-        font-size: 14px;
+        font-size: $font-basic-size;
         color: #666;
         height: 20px;
         line-height: 20px;
@@ -69,14 +93,14 @@
             margin-right: 0;
         }
         &.selected {
-            background-color: #2d84e5;
+            background-color: $basic-aid-blue-color;
             color: #FFF;
         }
     }
 }
 
 .drop-down-select {
-    border: 1px solid #e0e2e1;
+    border: 1px solid $basic-border-color;
     width: 100px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     .drop-down-select-item {
@@ -86,10 +110,10 @@
         text-align: left;
         color: #333;
         background-color: #FFF;
-        border-bottom: 1px solid #e0e2e1;
+        border-bottom: 1px solid $basic-border-color;
 
         &:hover {
-            background-color: #2d84e5;
+            background-color: $basic-aid-blue-color;
             color: #FFF;
             cursor: pointer;
         }
@@ -103,7 +127,42 @@
 .drop-down-panel {
     width: 100px;
     height: 200px;
-    border: 1px solid #e0e2e1;
+    border: 1px solid $basic-border-color;
     background-color: #FFF;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.drop-down-icon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid $basic-imp-color;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    vertical-align: middle;
+    transition: transform 0.5s;
+
+    &.up {
+        transform: rotate(180deg);
+        transform-origin: center 3px;
+    }
+}
+
+.error {
+    outline: 0;
+    border-color: $basic-aid-red-color;
+    box-shadow: inset 0 1px 1px $basic-aid-red-color, 0 0 8px $basic-aid-red-color;
+}
+
+.line {
+    width: 100%;
+    height: 0;
+    border: none;
+    border-top: 1px solid $basic-border-color;
+}
+
+.active-item {
+    border-radius: 2px;
+    background-color: $basic-aid-color;
+    color: #FFF;
 }

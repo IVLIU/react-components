@@ -14,6 +14,12 @@
         color: $basic-imp-color;
         fill: $basic-imp-color;
     }
+
+    &.active {
+        color: $basic-imp-color;
+        fill: $basic-imp-color;
+        border-bottom: 2px solid $basic-imp-color;
+    }
 }
 
 .tab-activated {
