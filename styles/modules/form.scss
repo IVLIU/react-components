@@ -1,4 +1,5 @@
 .input {
+    width: 100%;
     font-size: $font-basic-size;
     color: #666;
     border: 1px solid $basic-border-color;
@@ -7,14 +8,30 @@
     background-color: $basic-aid-gray-color;
     padding: 0 10px;
     border-radius: 2px;
+    &:focus {
+        border-color: $basic-aid-blue-color;
+        box-shadow: 0 0 5px $basic-aid-blue-color;
+    }
 }
-
+.select {
+    .select-item {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        background-color: $basic-aid-gray-color;
+        color: $basic-imp-color;
+        &:hover {
+            background-color: #c9e2ff;
+            cursor: pointer;
+        }
+    }
+}
 .select-item {
     height: 30px;
     line-height: 30px;
     padding: 0 10px;
     background-color: $basic-aid-gray-color;
-    color: #666;
+    color: $basic-imp-color;
     &:hover {
         background-color: #c9e2ff;
         cursor: pointer;
@@ -22,14 +39,19 @@
 }
 
 .multi-select-value {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     border: 1px solid $basic-aid-blue-color;
     border-radius: 4px;
-    color: $basic-aid-blue-color;
-    line-height: 18px;
+    color: $basic-aid-blue-color;    
     height: 20px;
     padding: 0 5px;
     font-size: 12px;
+    margin-left: 10px;
+
+    &:hover {
+        cursor: default;
+    }
 }
 
 .delete-icon {
@@ -37,6 +59,7 @@
     width: 14px;
     height: 14px;
     line-height: 12px;
+    font-size: 14px;
     text-align: center;
     &:hover {
         cursor: pointer;
@@ -48,12 +71,13 @@
     width: 20px;
     height: 20px;
     line-height: 15px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .delete-icon-cavity {
     @extend .delete-icon;
     border-radius: 7px;
+    margin-left: 5px;
     color: $basic-aid-blue-color;
     border: 1px solid $basic-aid-blue-color;        
     background-color: transparent;
@@ -136,15 +160,16 @@
     display: inline-block;
     width: 0;
     height: 0;
-    border-top: 6px solid $basic-imp-color;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    vertical-align: middle;
-    transition: transform 0.5s;
+    border-top: 5px solid $basic-imp-color;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 2.5px solid transparent;
+    vertical-align: middle; 
 
     &.up {
-        transform: rotate(180deg);
-        transform-origin: center 3px;
+        margin-bottom: 2.5px;
+        border-top: none;
+        border-bottom: 5px solid $basic-imp-color;        
     }
 }
 
