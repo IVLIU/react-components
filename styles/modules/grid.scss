@@ -42,10 +42,10 @@
     display: flex;
     flex-wrap: wrap;
     margin: 20px 0;
-    &:first-child {
+    &:first-of-type {
         margin-top: 0;
     }
-    &:last-child {
+    &:last-of-type {
         margin-bottom: 0;
     }
     &.vertical {
@@ -60,10 +60,16 @@
     margin-left: 0;
 }
   
-.no-gutters > .col,
-.no-gutters > [class*="col-"] {
+.no-gutters > .col {
+// .no-gutters > [class*="col-"] {
     padding-right: 0;
     padding-left: 0;
+}
+.no-gutters > [class*="col-"]:first-child {
+    padding-left: 0;
+}
+.no-gutters > [class*="col-"]:last-child {
+    padding-right: 0;
 }
   
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,

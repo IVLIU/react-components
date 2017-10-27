@@ -475,7 +475,8 @@ html, body, .root-app {
   background-color: #e4e4e4;
   border: 1px solid #e0e2e1; }
   .btn:hover {
-    background-color: #f8f8fa; }
+    background-color: #f8f8fa;
+    cursor: pointer; }
   .btn:focus {
     outline: 0; }
 
@@ -502,6 +503,7 @@ html, body, .root-app {
     text-decoration: underline; }
 
 .input {
+  width: 100%;
   font-size: 14px;
   color: #666;
   border: 1px solid #e0e2e1;
@@ -510,32 +512,49 @@ html, body, .root-app {
   background-color: #f8f8fa;
   padding: 0 10px;
   border-radius: 2px; }
+  .input:focus {
+    border-color: #2d84e5;
+    box-shadow: 0 0 5px #2d84e5; }
+
+.select .select-item {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  background-color: #f8f8fa;
+  color: #2e3e4b; }
+  .select .select-item:hover {
+    background-color: #c9e2ff;
+    cursor: pointer; }
 
 .select-item {
   height: 30px;
   line-height: 30px;
   padding: 0 10px;
   background-color: #f8f8fa;
-  color: #666; }
+  color: #2e3e4b; }
   .select-item:hover {
     background-color: #c9e2ff;
     cursor: pointer; }
 
 .multi-select-value {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   border: 1px solid #2d84e5;
   border-radius: 4px;
   color: #2d84e5;
-  line-height: 18px;
   height: 20px;
   padding: 0 5px;
-  font-size: 12px; }
+  font-size: 12px;
+  margin-left: 10px; }
+  .multi-select-value:hover {
+    cursor: default; }
 
 .delete-icon, .delete-icon-lg, .delete-icon-cavity, .delete-icon-blue, .delete-icon-red {
   display: inline-block;
   width: 14px;
   height: 14px;
   line-height: 12px;
+  font-size: 14px;
   text-align: center; }
   .delete-icon:hover, .delete-icon-lg:hover, .delete-icon-cavity:hover, .delete-icon-blue:hover, .delete-icon-red:hover {
     cursor: pointer; }
@@ -544,10 +563,11 @@ html, body, .root-app {
   width: 20px;
   height: 20px;
   line-height: 15px;
-  font-size: 20px; }
+  font-size: 25px; }
 
 .delete-icon-cavity {
   border-radius: 7px;
+  margin-left: 5px;
   color: #2d84e5;
   border: 1px solid #2d84e5;
   background-color: transparent; }
@@ -614,14 +634,15 @@ html, body, .root-app {
   display: inline-block;
   width: 0;
   height: 0;
-  border-top: 6px solid #2e3e4b;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  vertical-align: middle;
-  transition: transform 0.5s; }
+  border-top: 5px solid #2e3e4b;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 2.5px solid transparent;
+  vertical-align: middle; }
   .drop-down-icon.up {
-    transform: rotate(180deg);
-    transform-origin: center 3px; }
+    margin-bottom: 2.5px;
+    border-top: none;
+    border-bottom: 5px solid #2e3e4b; }
 
 .error {
   outline: 0;
@@ -673,9 +694,9 @@ html, body, .root-app {
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0; }
-  .row:first-child {
+  .row:first-of-type {
     margin-top: 0; }
-  .row:last-child {
+  .row:last-of-type {
     margin-bottom: 0; }
   .row.vertical {
     flex-flow: column nowrap; }
@@ -684,10 +705,15 @@ html, body, .root-app {
   margin-right: 0;
   margin-left: 0; }
 
-.no-gutters > .col,
-.no-gutters > [class*="col-"] {
+.no-gutters > .col {
   padding-right: 0;
   padding-left: 0; }
+
+.no-gutters > [class*="col-"]:first-child {
+  padding-left: 0; }
+
+.no-gutters > [class*="col-"]:last-child {
+  padding-right: 0; }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto {
@@ -807,6 +833,7 @@ header {
 .label {
   display: inline-block;
   text-align: center;
+  vertical-align: middle;
   font-size: 12px;
   font-weight: bold;
   padding: 3px 2px;
