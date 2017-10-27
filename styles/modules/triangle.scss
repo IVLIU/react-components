@@ -1,0 +1,32 @@
+.topTriangle {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 5px 8px 5px;
+	border-color: transparent transparent #2e3b4b transparent;
+}
+.leftTriangle {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 5px 8px 5px 0;
+	border-color: transparent #2e3b4b transparent transparent;
+}
+.rightTriangle {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 5px 0 5px 8px;
+	border-color: transparent transparent transparent #2e3b4b;
+}
+.bottomTrighle {
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px 5px 0 5px;
+	border-color: #2e3b4b transparent transparent transparent;
+}
