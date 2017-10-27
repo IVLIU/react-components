@@ -227,14 +227,14 @@
 
 .ranges {
   font-size: 11px;
-  float: none;
-  margin: 4px;
+  float: none;  
+  margin: 4px;  
   text-align: left; }
   .ranges ul {
     list-style: none;
     margin: 0 auto;
     padding: 0;
-    width: 100%; }
+    width: 96px; }
   .ranges li {
     font-size: 13px;
     background-color: #f5f5f5;
@@ -252,15 +252,26 @@
       background-color: #08c;
       border: 1px solid #08c;
       color: #fff; }
+.ranges .range_inputs button {
+  padding: 0 8px;
+  font-weight: normal;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  color: #2e3e4b;
+}
 
+.ranges .range_inputs .applyBtn {
+  background-color: #08C;
+  color: #FFF;
+}
 /*  Larger Screen Styling */
 @media (min-width: 564px) {
   .daterangepicker {
     width: auto;
   }
-  .daterangepicker .ranges ul {
+  /* .daterangepicker .ranges ul {
     width: 160px;
-  }
+  } */
   .daterangepicker.single .ranges ul {
     width: 100%;
   }
