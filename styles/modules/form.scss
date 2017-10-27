@@ -13,7 +13,7 @@
         box-shadow: 0 0 5px $basic-aid-blue-color;
     }
 }
-.select {
+.select {    
     .select-item {
         height: 30px;
         line-height: 30px;
@@ -24,17 +24,6 @@
             background-color: #c9e2ff;
             cursor: pointer;
         }
-    }
-}
-.select-item {
-    height: 30px;
-    line-height: 30px;
-    padding: 0 10px;
-    background-color: $basic-aid-gray-color;
-    color: $basic-imp-color;
-    &:hover {
-        background-color: #c9e2ff;
-        cursor: pointer;
     }
 }
 
