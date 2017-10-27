@@ -5,4 +5,4 @@ var t = result.map((item) => {
   var content = fs.readFileSync(item).toString();
   return '<div>' + content + '</div><div>' + item.replace('./svg/', '') + '</div>';
 }).join('');
-fs.writeFileSync('./svg.html', t);
+fs.writeFileSync('./test/svg.ejs', t);
