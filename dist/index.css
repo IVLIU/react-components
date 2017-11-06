@@ -496,7 +496,10 @@ html, body, .root-app {
     background-color: #e0e2e1; }
 
 .btn-link {
-  color: #999; }
+  background-color: transparent;
+  border: none;
+  color: #2e3b4b;
+  font-weight: normal; }
   .btn-link:hover {
     cursor: pointer;
     text-decoration: underline; }
@@ -1171,7 +1174,7 @@ header {
   vertical-align: middle;
   font-size: 12px;
   font-weight: bold;
-  padding: 3px 2px;
+  padding: 2px 4px;
   color: #FFF;
   fill: #FFF;
   border-radius: 2px; }
