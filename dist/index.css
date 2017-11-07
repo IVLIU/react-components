@@ -462,7 +462,8 @@ html, body, .root-app {
     background: #3D4A5B; }
   .base-layout .main-content {
     flex: 1;
-    overflow: auto; }
+    overflow: auto;
+    padding-bottom: 50px; }
 
 .btn {
   display: inline-block;
@@ -1547,6 +1548,9 @@ header {
     background-color: #e6f2ff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); }
 
+.text-center {
+  text-align: center; }
+
 .page-max-title {
   font-size: 16px;
   font-weight: 700;
@@ -1583,29 +1587,37 @@ header {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 5px 8px 5px;
-  border-color: transparent transparent #2e3b4b transparent; }
+  border-width: 2.5px 5px 5px 5px;
+  border-color: transparent transparent #999 transparent; }
+  .topTriangle:active {
+    border-color: transparent transparent #2d84e5 transparent; }
 
 .leftTriangle {
   display: block;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 5px 8px 5px 0;
-  border-color: transparent #2e3b4b transparent transparent; }
+  border-width: 5px 5px 5px 2.5px;
+  border-color: transparent #999 transparent transparent; }
+  .leftTriangle:active {
+    border-color: transparent #2d84e5 transparent transparent; }
 
 .rightTriangle {
   display: block;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 5px 0 5px 8px;
-  border-color: transparent transparent transparent #2e3b4b; }
+  border-width: 5px 2.5px 5px 5px;
+  border-color: transparent transparent transparent #999; }
+  .rightTriangle:active {
+    border-color: transparent transparent transparent #2d84e5; }
 
-.bottomTrighle {
+.bottomTriangle {
   display: block;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 8px 5px 0 5px;
-  border-color: #2e3b4b transparent transparent transparent; }
+  border-width: 5px 5px 2.5px 5px;
+  border-color: #999 transparent transparent transparent; }
+  .bottomTriangle:active {
+    border-color: #2d84e5 transparent transparent transparent; }
