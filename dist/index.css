@@ -1174,7 +1174,9 @@ header {
   vertical-align: middle;
   font-size: 12px;
   font-weight: bold;
-  padding: 2px 4px;
+  padding: 0 4px;
+  height: 20px;
+  line-height: 20px;
   color: #FFF;
   fill: #FFF;
   border-radius: 2px; }
