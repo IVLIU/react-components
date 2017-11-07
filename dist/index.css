@@ -1490,7 +1490,8 @@ header {
   padding: 10px 0;
   margin-right: 10px;
   color: #999;
-  fill: #999; }
+  fill: #999;
+  border-bottom: 2px solid transparent; }
   .tab:hover, .tab-activated:hover {
     cursor: pointer;
     color: #2e3e4b;
