@@ -890,10 +890,10 @@ html, body, .root-app {
 
 .delete-icon, .delete-icon-lg, .delete-icon-cavity, .delete-icon-blue, .delete-icon-red {
   display: inline-block;
-  width: 14px;
-  height: 14px;
-  line-height: 12px;
-  font-size: 14px;
+  width: 13px;
+  height: 13px;
+  line-height: 9px;
+  font-size: 13px;
   text-align: center; }
   .delete-icon:hover, .delete-icon-lg:hover, .delete-icon-cavity:hover, .delete-icon-blue:hover, .delete-icon-red:hover {
     cursor: pointer; }
@@ -901,18 +901,18 @@ html, body, .root-app {
 .delete-icon-lg {
   width: 20px;
   height: 20px;
-  line-height: 15px;
-  font-size: 25px; }
+  line-height: 18px;
+  font-size: 18px; }
 
 .delete-icon-cavity {
-  border-radius: 7px;
+  border-radius: 50%;
   margin-left: 5px;
   color: #2d84e5;
   border: 1px solid #2d84e5;
   background-color: transparent; }
 
 .delete-icon-blue {
-  border-radius: 7px;
+  border-radius: 50%;
   color: #FFF;
   border: 1px solid #2d84e5;
   background-color: #2d84e5; }
