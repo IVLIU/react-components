@@ -47,7 +47,10 @@
 }
 
 .btn-link {
-    color: #999;
+    background-color: transparent;
+    border: none;
+    color: #2e3b4b;
+    font-weight: normal;
     &:hover {
         cursor: pointer;
         text-decoration: underline;
