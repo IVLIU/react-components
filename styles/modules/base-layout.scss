@@ -1,14 +1,14 @@
-@import './colors.scss';
 .base-layout {
   display: flex;
   height: 100%;
   .menu-column {
-    flex-basis: 200px;
+    flex-basis: 160px;
     min-height: 100%;
     background: $menuBgColor;
   }
   .main-content {
     flex: 1;
     overflow: auto;
+    padding-bottom: 50px;
   }
 }

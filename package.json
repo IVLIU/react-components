@@ -4,7 +4,7 @@
   "description": "tip ui",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e html,js app.js",
+    "dev": "node generate-svg.js && nodemon -e html,js app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,13 +18,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.5.7",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "gulp-sass-bulk-import": "^1.0.1",
     "koa": "^2.0.0-alpha.8",
-    "koa-static": "^4.0.1"
+    "koa-static": "^4.0.1",
+    "koa-views": "^6.1.1"
   },
   "devDependencies": {
+    "glob": "^7.1.2",
     "nodemon": "^1.12.1"
   }
 }

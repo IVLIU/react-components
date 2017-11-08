@@ -1,17 +1,18 @@
 .btn {
     display: inline-block;
     padding: 0 10px;
-    font-size: 14px;
+    font-size: $font-basic-size;
     font-weight: bold;
     height: 30px;
     border-radius: 2px;
 
     color: #666;
     background-color: #e4e4e4;
-    border: 1px solid #e0e2e1;
+    border: 1px solid $basic-border-color;
 
-    &:hover {
-        background-color: #f6f6f6;
+    &:hover {        
+        // background-color: $basic-aid-gray-color;
+        cursor: pointer;
     }
 
     &:focus {
@@ -20,31 +21,38 @@
 }    
 
 .btn-primary {
-    background-color: #2e3b4b;
+    background-color: $basic-imp-color;
     color: #FFF;
-    fill: #FFF;
-
-    &:hover {
-        background-color: #516379;
-    }
+    // &:hover {
+        // background-color: #516379;
+    // }
 }
 
 .btn-secondary {
-    background-color: #2d84e5;
+    background-color: $basic-aid-blue-color;
     color: #FFF;
-    fill: #FFF;
 
     &:hover {
-        background-color: #2b75c8;
+        background-color: $basic-aid-color;
     }
 }
 
 .btn-cancel {
-    background-color: #e0e2e1;
+    background-color: $basic-border-color;
     color: #999;
-    fill: #999;
 
     &:hover {
-        background-color: #e0e2e1;
+        background-color: $basic-border-color;
+    }
+}
+
+.btn-link {
+    background-color: transparent;
+    border: none;
+    color: #2e3b4b;
+    font-weight: normal;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
     }
 }
