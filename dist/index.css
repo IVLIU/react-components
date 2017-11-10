@@ -999,30 +999,7 @@ html, body, .root-app {
   background-color: #2b75c8;
   color: #FFF; }
 
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%; }
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px; } }
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px; } }
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px; } }
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px; } }
-
-.container-fluid {
+.container-fluid, .container {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -1032,9 +1009,7 @@ html, body, .root-app {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 0; }
-  .row:first-of-type {
-    margin-top: 0; }
+  margin-bottom: 20px; }
   .row:last-of-type {
     margin-bottom: 0; }
   .row.vertical {
@@ -1052,6 +1027,16 @@ html, body, .root-app {
   padding-left: 0; }
 
 .no-gutters > [class*="col-"]:last-child {
+  padding-right: 0; }
+
+.no-padding > .col {
+  padding-right: 0;
+  padding-left: 0; }
+
+.no-padding > [class*="col-"]:first-child {
+  padding-left: 0; }
+
+.no-padding > [class*="col-"]:last-child {
   padding-right: 0; }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
