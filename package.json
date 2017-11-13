@@ -25,7 +25,8 @@
     "gulp-sass-bulk-import": "^1.0.1",
     "koa": "^2.0.0-alpha.8",
     "koa-static": "^4.0.1",
-    "koa-views": "^6.1.1"
+    "koa-views": "^6.1.1",
+    "node-static": "^0.7.10"
   },
   "devDependencies": {
     "glob": "^7.1.2",
