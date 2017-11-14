@@ -1,3 +1,51 @@
+/**
+ * @atom Loading
+ * @section Loading
+ * @modifiers 
+ *  .loading-sm 小loading,按钮中使用
+ *  .loading-lg 大loading,组件加载使用
+ *  .loading-bar 条形Loading，模块加载使用
+ *  .loading-logo TIP logo loading
+ *  .bar loading里的小矩形 
+ * @markup
+ *  <div class="loading-lg">
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *  </div>
+ *  <div class="loading-sm">
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *    <div class="bar"></div>
+ *  </div>
+ *  <div class="loading-logo">TIP</div>
+ *  <br />
+ *  <br />
+ *  <div class="loading-bar">
+ *    <div class="loading-bar-background"></div>
+ *    <div class="loading-bar-foreground"></div>
+ *  </div>
+ */
+
+
 $blue: $basic-aid-color;
 $blue-light: $basic-aid-blue-color;
 
@@ -8,84 +56,84 @@ $blue-light: $basic-aid-blue-color;
     .bar {
         position: absolute; 
     }        
-    .bar-1 {
+    .bar-1, .bar:nth-child(1) {
         transform: rotate(0deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0s;
         animation-iteration-count: infinite;
     }
-    .bar-2 {
+    .bar-2, .bar:nth-child(2) {
         transform: rotate(30deg);            
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.1s;
         animation-iteration-count: infinite;
     }
-    .bar-3 {
+    .bar-3, .bar:nth-child(3) {
         transform: rotate(60deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.2s;
         animation-iteration-count: infinite;
     }
-    .bar-4 {
+    .bar-4, .bar:nth-child(4) {
         transform: rotate(90deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.3s;
         animation-iteration-count: infinite;
     }
-    .bar-5 {
+    .bar-5, .bar:nth-child(5) {
         transform: rotate(120deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.4s;
         animation-iteration-count: infinite;
     }
-    .bar-6 {
+    .bar-6, .bar:nth-child(6) {
         transform: rotate(150deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.5s;
         animation-iteration-count: infinite;
     }
-    .bar-7 {
+    .bar-7, .bar:nth-child(7) {
         transform: rotate(180deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.6s;
         animation-iteration-count: infinite;
     }
-    .bar-8 {
+    .bar-8, .bar:nth-child(8) {
         transform: rotate(210deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.7s;
         animation-iteration-count: infinite;
     }
-    .bar-9 {
+    .bar-9, .bar:nth-child(9) {
         transform: rotate(240deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.8s;
         animation-iteration-count: infinite;
     }
-    .bar-10 {
+    .bar-10, .bar:nth-child(10) {
         transform: rotate(270deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 0.9s;
         animation-iteration-count: infinite;
     }
-    .bar-11 {
+    .bar-11, .bar:nth-child(11) {
         transform: rotate(300deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
         animation-delay: 1s;
         animation-iteration-count: infinite;
     }
-    .bar-12 {
+    .bar-12, .bar:nth-child(12) {
         transform: rotate(330deg);
         animation-duration: 1.1s;
         animation-timing-function: ease;
@@ -94,6 +142,7 @@ $blue-light: $basic-aid-blue-color;
     }
 }
 .loading-lg {
+    @extend .loading;
     width: 80px;
     height: 80px;
     .bar {
@@ -103,12 +152,14 @@ $blue-light: $basic-aid-blue-color;
         left: calc(50% + 18px);
         top: calc(50% - 2px);
         transform-origin: -18px center;
-    }
-    .bar-1, .bar-2, .bar-3, .bar-4, .bar-5, .bar-6, .bar-7, .bar-8, .bar-9, .bar-10, .bar-11, .bar-12 {
         animation-name: spin_lg;
     }
+    // .bar-1, .bar-2, .bar-3, .bar-4, .bar-5, .bar-6, .bar-7, .bar-8, .bar-9, .bar-10, .bar-11, .bar-12 {
+        // animation-name: spin_lg;
+    // }
 }
 .loading-sm {
+    @extend .loading;
     width: 20px;
     height: 20px;
     .bar {
@@ -118,15 +169,33 @@ $blue-light: $basic-aid-blue-color;
         left: calc(50% + 6px);
         top: 50%;
         transform-origin: -6px center;
-    }
-    .bar-1, .bar-2, .bar-3, .bar-4, .bar-5, .bar-6, .bar-7, .bar-8, .bar-9, .bar-10, .bar-11, .bar-12 {
         animation-name: spin_sm;
     }
+    // .bar-1, .bar-2, .bar-3, .bar-4, .bar-5, .bar-6, .bar-7, .bar-8, .bar-9, .bar-10, .bar-11, .bar-12 {
+        // animation-name: spin_sm;
+    // }
 }
 
-.loading-bar {
-    background-color: $blue-light;
+.loading-bar {    
     height: 4px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .loading-bar-background {
+        position: absolute;
+        background-color: #c9e2ff;
+        width: 100%;
+        height: 100%;
+    }
+    .loading-bar-foreground {
+        position: absolute;
+        top: 0;
+        right: -100%;
+        background-color: $basic-aid-color;
+        width: 20%;
+        height: 100%;
+        animation: loading-bar 1s ease-in-out 0s infinite;
+    }
 }
 
 .loading-logo {
@@ -137,45 +206,49 @@ $blue-light: $basic-aid-blue-color;
     text-align: center;
     width: 45px;    
     height: 20px;
+    line-height: 20px;
     border-radius: 5px;
     overflow: hidden;        
-    animation: loading_logo 1s linear 0s infinite;
+    animation: loading_logo 1s linear 0s infinite backwards;
 }
 
 @keyframes loading_logo {
     0% {
-        background: linear-gradient(to right, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
+        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
     }
-    10% {
+    13% {
         background: linear-gradient(to right, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
     }
-    20% {
-        background: linear-gradient(to right, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
-    }
-    30% {
+    25% {
         background: linear-gradient(to right, $blue, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
     }
-    40% {
-        background: linear-gradient(to right, $blue, $blue, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
+    38% {
+        background: linear-gradient(to right, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light);
     }
     50% {
-        background: linear-gradient(to right, $blue-light, $blue, $blue, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light);
+        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue-light, $blue-light);
     }
-    60% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light);
+    63% {
+        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue);
     }
-    70% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue, $blue-light, $blue-light);
+    75% {
+        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue);
     }
-    80% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue, $blue-light);
-    }
-    90% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue);
+    88% {
+        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
     }
     100% {
-        background: linear-gradient(to right, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
+        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
     }
+    // 80% {
+    //     background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue, $blue-light);
+    // }
+    // 90% {
+    //     background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue);
+    // }
+    // 100% {
+    //     background: linear-gradient(to right, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
+    // }
 
 }
 
@@ -199,5 +272,14 @@ $blue-light: $basic-aid-blue-color;
     }
     100% {
         background-color: $basic-aid-gray-color;
+    }
+}
+
+@keyframes loading-bar {
+    from {
+        right: 100%;
+    }
+    to {
+        right: -20%;
     }
 }

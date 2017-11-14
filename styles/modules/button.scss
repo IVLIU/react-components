@@ -1,3 +1,19 @@
+/**
+ * @atom Button
+ * @section Button
+ * @modifiers
+ *  .btn-primary  主按钮
+ *  .btn-secondary 次按钮
+ *  .btn-cancel 取消按钮
+ *  .btn-link 按钮链接
+ * @markup
+ *  <button class="btn">button</button>
+ *  <button class="btn btn-primary">button primary</button>
+ *  <button class="btn btn-secondary">button secondary</button>
+ *  <button class="btn btn-cancel">button cancel</button>
+ *  <button class="btn btn-link">button link</button>
+ */
+
 .btn {
     display: inline-block;
     padding: 0 10px;

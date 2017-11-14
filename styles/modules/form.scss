@@ -1,3 +1,81 @@
+/**
+ * @atom Input
+ * @section Form
+ * @modifiers
+ *  .input 单行文本
+ *  .input.error 表单验证错误 
+ * @markup
+ *  <input class="input" placeholder="请输入"/>
+ *  <br />
+ *  <br />
+ *  <input class="input error" placeholder="请输入"/> 
+ */
+
+/****/
+
+/**
+ * @atom Select
+ * @section Form
+ * @modifiers
+ *  .multi-btn-select 按钮型多选表单
+ *  .multi-btn-select-item 按钮型多选表单项
+ *  .multi-btn-select-item.selected 选中
+ *  .select 一般下拉框
+ *  .select-item 下拉选项
+ * @markup
+ *  <div class="select">
+ *    <span class="select-item">item1</span>
+ *    <span class="select-item">item2</span>
+ *    <span class="select-item">item3</span>
+ *  </div>
+ *  <br />
+ *  <br />
+ *  <div class="multi-btn-select">
+ *    <span class="multi-btn-select-item selected">item1</span>
+ *    <span class="multi-btn-select-item">item2</span>
+ *    <span class="multi-btn-select-item selected">item4<span class="delete-icon">&times;</span></span>
+ *  </div>
+ */
+
+/****/
+
+/**
+ * @atom Dropdown
+ * @section Form
+ * @modifiers
+ *  .drop-down-select 弹出层下拉列表
+ *  .drop-down-select-item 弹出层下拉项
+ *  .drop-down-panel 弹出层容器
+ * @markup
+ *  <div class="drop-down-select" style="vertical-align: middle;">
+ *    <span class="drop-down-select-item">item1</span>
+ *    <span class="drop-down-select-item">item2</span>
+ *    <span class="drop-down-select-item">item3</span>
+ *  </div>
+ *  <div class="drop-down-panel" style="vertical-align: middle; height: 92px;"></div>
+ */
+
+/****/
+
+/**
+ * @atom Related Icon
+ * @section Form
+ * @modifiers
+ *  .delete-icon 一般删除按钮
+ *  .delete-icon-cavity 带圆边框的删除按钮
+ *  .delete-icon-blue 实心圆形删除按钮
+ *  .delete-icon-red  红色一般删除按钮
+ *  .drop-down-icon 下拉按钮，默认朝下
+ *  .drop-down-icon.up 下拉按钮朝上
+ *  .line 分割线
+ * @markup
+ *  <span class="delete-icon-cavity">&times;</span>&nbsp;
+ *  <span class="delete-icon-blue">&times;</span>&nbsp; 
+ *  <span class="delete-icon-red">&times;</span>&nbsp;
+ *  <span class="drop-down-icon"></span>&nbsp;
+ *  <span class="drop-down-icon up"></span>&nbsp;
+ *  <span class="line"></span>
+ */
 .input {
     width: 100%;
     font-size: $font-basic-size;
@@ -15,6 +93,7 @@
 }
 .select {    
     .select-item {
+        display: inline-block;
         height: 30px;
         line-height: 30px;
         padding: 0 10px;
@@ -47,7 +126,7 @@
     display: inline-block;
     width: 13px;
     height: 13px;
-    line-height: 9px;
+    line-height: 11px;
     font-size: 13px;
     text-align: center;
     &:hover {
@@ -113,11 +192,14 @@
 }
 
 .drop-down-select {
+    display: inline-block;
     border: 1px solid $basic-border-color;
     width: 100px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     .drop-down-select-item {
+        display: inline-block;
         height: 30px;
+        width: 100%;
         line-height: 30px;
         padding: 0 20px;
         text-align: left;
@@ -138,6 +220,7 @@
 }
 
 .drop-down-panel {
+    display: inline-block;
     width: 100px;
     height: 200px;
     border: 1px solid $basic-border-color;
@@ -169,6 +252,7 @@
 }
 
 .line {
+    display: inline-block;
     width: 100%;
     height: 0;
     border: none;

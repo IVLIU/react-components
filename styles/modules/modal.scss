@@ -1,3 +1,20 @@
+/** 
+ * @section Modal
+ * @structure Modal
+ * @markup
+ *  <div style="width: 500px;">
+ *    <div class="modal-content">
+ *      <div class="modal-header">弹窗标题</div>
+ *      <div class="modal-body">弹窗内容</div>
+ *      <div class="modal-footer">
+ *        <button class="btn btn-cancel">取消</button>
+ *        <button class="btn btn-primary">确定</button> 
+ *      </div>
+ *    </div>
+ *  </div>
+ *  <br /> 
+ */
+
 .modal {
     position: fixed;
     top: 0;
@@ -32,6 +49,8 @@
     }
     .modal-footer {
         text-align: right;
+        padding-bottom: 20px;
+        padding-right: 20px;
         .btn {
             margin-left: 20px;
             &:first-child {
