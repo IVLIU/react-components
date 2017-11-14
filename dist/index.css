@@ -390,13 +390,42 @@ template {
 [hidden] {
   display: none; }
 
-/* basic constanc */
-/* 基本背景色 */
-/* 基本辅助色 */
-/* 基本边框颜色 */
-/* 基本字体大小 */
-/* 字体大小为14px */
-/* 字体大小为12px */
+/**
+ * @color
+ * @section 主色
+ */
+/**
+ * @color
+ * @section 主色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 边框色
+ */
 .mgt20 {
   margin-top: 20px; }
 
@@ -1576,7 +1605,7 @@ header {
   z-index: 1070; }
 
 .topTriangle {
-  display: inline-block;
+  display: block;
   width: 0;
   height: 0;
   border-style: solid;
@@ -1588,7 +1617,7 @@ header {
     cursor: pointer; }
 
 .leftTriangle {
-  display: inline-block;
+  display: block;
   width: 0;
   height: 0;
   border-style: solid;
@@ -1600,7 +1629,7 @@ header {
     cursor: pointer; }
 
 .rightTriangle {
-  display: inline-block;
+  display: block;
   width: 0;
   height: 0;
   border-style: solid;
@@ -1612,7 +1641,7 @@ header {
     cursor: pointer; }
 
 .bottomTriangle {
-  display: inline-block;
+  display: block;
   width: 0;
   height: 0;
   border-style: solid;

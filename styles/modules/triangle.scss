@@ -1,5 +1,5 @@
 .topTriangle {
-	display: inline-block;
+	display: block;
 	width: 0;
 	height: 0;
 	border-style: solid;
@@ -13,7 +13,7 @@
 	}
 }
 .leftTriangle {
-	display: inline-block;
+	display: block;
 	width: 0;
 	height: 0;
 	border-style: solid;
@@ -27,7 +27,7 @@
 	}
 }
 .rightTriangle {
-	display: inline-block;
+	display: block;
 	width: 0;
 	height: 0;
 	border-style: solid;
@@ -41,7 +41,7 @@
 	}
 }
 .bottomTriangle {
-	display: inline-block;
+	display: block;
 	width: 0;
 	height: 0;
 	border-style: solid;
