@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node generate-svg.js && nodemon -e html,js app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uiguide": "cp dist/index.css uiguide/styles/ && nucleus --config config.nucleus.json"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,12 @@
     "gulp-sass-bulk-import": "^1.0.1",
     "koa": "^2.0.0-alpha.8",
     "koa-static": "^4.0.1",
-    "koa-views": "^6.1.1"
+    "koa-views": "^6.1.1",
+    "node-static": "^0.7.10"
   },
   "devDependencies": {
     "glob": "^7.1.2",
+    "nucleus-styleguide": "^1.1.1",
     "nodemon": "^1.12.1"
   }
 }
