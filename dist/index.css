@@ -390,13 +390,42 @@ template {
 [hidden] {
   display: none; }
 
-/* basic constanc */
-/* 基本背景色 */
-/* 基本辅助色 */
-/* 基本边框颜色 */
-/* 基本字体大小 */
-/* 字体大小为14px */
-/* 字体大小为12px */
+/**
+ * @color
+ * @section 主色
+ */
+/**
+ * @color
+ * @section 主色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 辅助色
+ */
+/**
+ * @color
+ * @section 边框色
+ */
 .mgt20 {
   margin-top: 20px; }
 
@@ -422,14 +451,16 @@ template {
   padding-right: 20px; }
 
 /* 设置盒模型 */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box; }
 
 body {
   width: 100%;
   background-color: #eff3f6;
-  font-family: "SimHei", "黑体";
+  font-family: "Microsoft Yahei", "SimHei", "黑体";
   font-size: 14px;
   font-weight: 400;
   line-height: 1.428; }
@@ -1580,8 +1611,10 @@ header {
   border-style: solid;
   border-width: 2.5px 5px 5px 5px;
   border-color: transparent transparent #999 transparent; }
-  .topTriangle:active {
+  .topTriangle.active {
     border-color: transparent transparent #2d84e5 transparent; }
+  .topTriangle:hover {
+    cursor: pointer; }
 
 .leftTriangle {
   display: block;
@@ -1590,8 +1623,10 @@ header {
   border-style: solid;
   border-width: 5px 5px 5px 2.5px;
   border-color: transparent #999 transparent transparent; }
-  .leftTriangle:active {
+  .leftTriangle.active {
     border-color: transparent #2d84e5 transparent transparent; }
+  .leftTriangle:hover {
+    cursor: pointer; }
 
 .rightTriangle {
   display: block;
@@ -1600,8 +1635,10 @@ header {
   border-style: solid;
   border-width: 5px 2.5px 5px 5px;
   border-color: transparent transparent transparent #999; }
-  .rightTriangle:active {
+  .rightTriangle.active {
     border-color: transparent transparent transparent #2d84e5; }
+  .rightTriangle:hover {
+    cursor: pointer; }
 
 .bottomTriangle {
   display: block;
@@ -1610,5 +1647,7 @@ header {
   border-style: solid;
   border-width: 5px 5px 2.5px 5px;
   border-color: #999 transparent transparent transparent; }
-  .bottomTriangle:active {
+  .bottomTriangle.active {
     border-color: #2d84e5 transparent transparent transparent; }
+  .bottomTriangle:hover {
+    cursor: pointer; }
