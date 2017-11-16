@@ -1143,20 +1143,6 @@ html, body, .root-app {
  *      <div class="col-1">12</div>
  *    </div>
  *    <div class="row">
- *      <div class="col-1 order-12">1</div>
- *      <div class="col-1 order-11">2</div>
- *      <div class="col-1 order-10">3</div>
- *      <div class="col-1 order-9">4</div>
- *      <div class="col-1 order-8">5</div>
- *      <div class="col-1 order-7">6</div>
- *      <div class="col-1 order-6">7</div>
- *      <div class="col-1 order-5">8</div>
- *      <div class="col-1 order-4">9</div>
- *      <div class="col-1 order-3">10</div>
- *      <div class="col-1 order-2">11</div>
- *      <div class="col-1 order-1">12</div>
- *    </div>
- *    <div class="row">
  *      <div class="col-2">1</div>
  *      <div class="col-2">2</div>
  *      <div class="col-2">3</div>
@@ -1230,6 +1216,12 @@ html, body, .root-app {
 .no-padding > [class*="col-"]:last-child {
   padding-right: 0; }
 
+[class*="col-"]:first-child {
+  padding-left: 0; }
+
+[class*="col-"]:last-child {
+  padding-right: 0; }
+
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto {
   position: relative;
@@ -1295,42 +1287,6 @@ html, body, .root-app {
 .col-12 {
   flex: 0 0 100%;
   max-width: 100%; }
-
-.order-1 {
-  order: 1; }
-
-.order-2 {
-  order: 2; }
-
-.order-3 {
-  order: 3; }
-
-.order-4 {
-  order: 4; }
-
-.order-5 {
-  order: 5; }
-
-.order-6 {
-  order: 6; }
-
-.order-7 {
-  order: 7; }
-
-.order-8 {
-  order: 8; }
-
-.order-9 {
-  order: 9; }
-
-.order-10 {
-  order: 10; }
-
-.order-11 {
-  order: 11; }
-
-.order-12 {
-  order: 12; }
 
 header {
   background: #2E3B4B;
