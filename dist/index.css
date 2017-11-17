@@ -1393,79 +1393,47 @@ header {
   position: relative;
   background-color: transparent; }
   .loading .bar, .loading-lg .bar, .loading-sm .bar {
-    position: absolute; }
+    position: absolute;
+    animation-duration: 1.1s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards; }
   .loading .bar-1, .loading-lg .bar-1, .loading-sm .bar-1, .loading .bar:nth-child(1), .loading-lg .bar:nth-child(1), .loading-sm .bar:nth-child(1) {
     transform: rotate(0deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0s; }
   .loading .bar-2, .loading-lg .bar-2, .loading-sm .bar-2, .loading .bar:nth-child(2), .loading-lg .bar:nth-child(2), .loading-sm .bar:nth-child(2) {
     transform: rotate(30deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.1s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.1s; }
   .loading .bar-3, .loading-lg .bar-3, .loading-sm .bar-3, .loading .bar:nth-child(3), .loading-lg .bar:nth-child(3), .loading-sm .bar:nth-child(3) {
     transform: rotate(60deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.2s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.2s; }
   .loading .bar-4, .loading-lg .bar-4, .loading-sm .bar-4, .loading .bar:nth-child(4), .loading-lg .bar:nth-child(4), .loading-sm .bar:nth-child(4) {
     transform: rotate(90deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.3s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.3s; }
   .loading .bar-5, .loading-lg .bar-5, .loading-sm .bar-5, .loading .bar:nth-child(5), .loading-lg .bar:nth-child(5), .loading-sm .bar:nth-child(5) {
     transform: rotate(120deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.4s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.4s; }
   .loading .bar-6, .loading-lg .bar-6, .loading-sm .bar-6, .loading .bar:nth-child(6), .loading-lg .bar:nth-child(6), .loading-sm .bar:nth-child(6) {
     transform: rotate(150deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.5s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.5s; }
   .loading .bar-7, .loading-lg .bar-7, .loading-sm .bar-7, .loading .bar:nth-child(7), .loading-lg .bar:nth-child(7), .loading-sm .bar:nth-child(7) {
     transform: rotate(180deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.6s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.6s; }
   .loading .bar-8, .loading-lg .bar-8, .loading-sm .bar-8, .loading .bar:nth-child(8), .loading-lg .bar:nth-child(8), .loading-sm .bar:nth-child(8) {
     transform: rotate(210deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.7s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.7s; }
   .loading .bar-9, .loading-lg .bar-9, .loading-sm .bar-9, .loading .bar:nth-child(9), .loading-lg .bar:nth-child(9), .loading-sm .bar:nth-child(9) {
     transform: rotate(240deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.8s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.8s; }
   .loading .bar-10, .loading-lg .bar-10, .loading-sm .bar-10, .loading .bar:nth-child(10), .loading-lg .bar:nth-child(10), .loading-sm .bar:nth-child(10) {
     transform: rotate(270deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 0.9s;
-    animation-iteration-count: infinite; }
+    animation-delay: 0.9s; }
   .loading .bar-11, .loading-lg .bar-11, .loading-sm .bar-11, .loading .bar:nth-child(11), .loading-lg .bar:nth-child(11), .loading-sm .bar:nth-child(11) {
     transform: rotate(300deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 1s;
-    animation-iteration-count: infinite; }
+    animation-delay: 1s; }
   .loading .bar-12, .loading-lg .bar-12, .loading-sm .bar-12, .loading .bar:nth-child(12), .loading-lg .bar:nth-child(12), .loading-sm .bar:nth-child(12) {
     transform: rotate(330deg);
-    animation-duration: 1.1s;
-    animation-timing-function: ease;
-    animation-delay: 1.1s;
-    animation-iteration-count: infinite; }
+    animation-delay: 1.1s; }
 
 .loading-lg {
   width: 80px;
