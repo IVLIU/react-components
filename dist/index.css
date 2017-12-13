@@ -457,7 +457,6 @@ html, body, .root-app {
   display: flex;
   height: 100%; }
   .base-layout .menu-column {
-    flex-basis: 160px;
     min-height: 100%;
     background: #3D4A5B; }
   .base-layout .main-content {
@@ -1358,6 +1357,115 @@ header {
   100% {
     background-color: #f8f8fa; } }
 
+.menu-mini {
+  color: #f3f3ff;
+  list-style: none;
+  height: 100%;
+  margin-bottom: -50px;
+  background: #3D4A5B;
+  width: 50px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0; }
+  .menu-mini .menu-switcher {
+    position: absolute;
+    left: 10px;
+    bottom: 7px; }
+    .menu-mini .menu-switcher:before {
+      display: inline-block;
+      content: ' ';
+      border: 2px solid #ccc;
+      transform: rotate(45deg);
+      width: 10px;
+      height: 10px;
+      border-left-width: 0;
+      border-bottom-width: 0; }
+    .menu-mini .menu-switcher:after {
+      display: inline-block;
+      content: ' ';
+      border: 2px solid #ccc;
+      transform: rotate(45deg);
+      width: 10px;
+      height: 10px;
+      border-left-width: 0;
+      border-bottom-width: 0; }
+  .menu-mini .menu-item {
+    background: #3D4A5B;
+    border-bottom: 1px solid #50647c;
+    padding: 0 20px 0 10px;
+    line-height: 50px; }
+    .menu-mini .menu-item:hover, .menu-mini .menu-item.active {
+      background: #293448; }
+    .menu-mini .menu-item:hover .sub-menu {
+      display: block; }
+    .menu-mini .menu-item .label-name {
+      display: block;
+      color: #f3f3ff;
+      text-decoration: none;
+      /*
+      &:after {
+        content: ' ';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid $textColor;
+        border-right: 2px solid $textColor;
+        transform: rotate(45deg);
+        float: right;
+        margin-top: 21px;
+      }
+      */ }
+      .menu-mini .menu-item .label-name .label-txt {
+        display: none; }
+    .menu-mini .menu-item.active::before {
+      display: inline-block;
+      float: right;
+      content: ' ';
+      width: 0;
+      height: 0;
+      margin-top: 24px;
+      margin-right: -24px;
+      border-color: transparent;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid #f3f3ff;
+      transform: rotate(-90deg); }
+    .menu-mini .menu-item.active .label-name.active {
+      color: #f3f3ff; }
+    .menu-mini .menu-item.active .label-name:after {
+      transform: rotate(135deg); }
+    .menu-mini .menu-item .sub-menu {
+      list-style: none;
+      border-top: 1px solid #50647c;
+      position: absolute;
+      left: 50px;
+      top: 0;
+      margin: 0;
+      width: 160px;
+      z-index: 101;
+      padding: 0;
+      display: none; }
+      .menu-mini .menu-item .sub-menu .sub-menu-item {
+        line-height: 50px;
+        padding: 0 10px;
+        background: #293448; }
+        .menu-mini .menu-item .sub-menu .sub-menu-item .label-name {
+          color: #6d8cb3; }
+          .menu-mini .menu-item .sub-menu .sub-menu-item .label-name:hover, .menu-mini .menu-item .sub-menu .sub-menu-item .label-name:active {
+            color: #f3f3ff; }
+          .menu-mini .menu-item .sub-menu .sub-menu-item .label-name.active {
+            color: #f3f3ff; }
+          .menu-mini .menu-item .sub-menu .sub-menu-item .label-name:after {
+            display: none; }
+  .menu-mini.with-icon .menu-item {
+    position: relative; }
+    .menu-mini.with-icon .menu-item .item-icon {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      margin-left: 5px;
+      top: 5px; }
+
 .menu {
   color: #f3f3ff;
   list-style: none;
@@ -1369,6 +1477,28 @@ header {
   cursor: pointer;
   margin: 0;
   padding: 0; }
+  .menu .menu-switcher {
+    position: absolute;
+    bottom: 7px;
+    left: 126px; }
+    .menu .menu-switcher:before {
+      display: inline-block;
+      content: ' ';
+      border: 2px solid #ccc;
+      transform: rotate(-135deg);
+      width: 10px;
+      height: 10px;
+      border-left-width: 0;
+      border-bottom-width: 0; }
+    .menu .menu-switcher:after {
+      display: inline-block;
+      content: ' ';
+      border: 2px solid #ccc;
+      transform: rotate(-135deg);
+      width: 10px;
+      height: 10px;
+      border-left-width: 0;
+      border-bottom-width: 0; }
   .menu .menu-item {
     background: #3D4A5B;
     border-bottom: 1px solid #50647c;
@@ -1378,7 +1508,6 @@ header {
       background: #293448; }
     .menu .menu-item .label-name {
       display: block;
-      margin-left: 10px;
       color: #f3f3ff;
       text-decoration: none; }
       .menu .menu-item .label-name:after {
@@ -1417,9 +1546,10 @@ header {
       padding: 0;
       display: none; }
       .menu .menu-item .sub-menu .sub-menu-item {
+        padding-left: 40px;
         line-height: 14px;
         margin-bottom: 20px;
-        padding: 0 10px;
+        padding: 0 10px 0 40px;
         background: #293448; }
         .menu .menu-item .sub-menu .sub-menu-item:first-child {
           margin-top: 20px; }
@@ -1434,13 +1564,11 @@ header {
   .menu.with-icon .menu-item {
     position: relative; }
     .menu.with-icon .menu-item .item-icon {
-      position: absolute;
+      position: relative;
+      top: 5px;
+      margin-right: 10px;
       width: 20px;
-      height: 20px;
-      top: 15px;
-      left: 10px; }
-    .menu.with-icon .menu-item .label-name {
-      margin-left: 30px; }
+      height: 20px; }
 
 .modal {
   position: fixed;
@@ -1595,8 +1723,10 @@ header {
   border-style: solid;
   border-width: 2.5px 5px 5px 5px;
   border-color: transparent transparent #999 transparent; }
-  .topTriangle:active {
+  .topTriangle.active {
     border-color: transparent transparent #2d84e5 transparent; }
+  .topTriangle:hover {
+    cursor: pointer; }
 
 .leftTriangle {
   display: block;
@@ -1605,8 +1735,10 @@ header {
   border-style: solid;
   border-width: 5px 5px 5px 2.5px;
   border-color: transparent #999 transparent transparent; }
-  .leftTriangle:active {
+  .leftTriangle.active {
     border-color: transparent #2d84e5 transparent transparent; }
+  .leftTriangle:hover {
+    cursor: pointer; }
 
 .rightTriangle {
   display: block;
@@ -1615,8 +1747,10 @@ header {
   border-style: solid;
   border-width: 5px 2.5px 5px 5px;
   border-color: transparent transparent transparent #999; }
-  .rightTriangle:active {
+  .rightTriangle.active {
     border-color: transparent transparent transparent #2d84e5; }
+  .rightTriangle:hover {
+    cursor: pointer; }
 
 .bottomTriangle {
   display: block;
@@ -1625,5 +1759,7 @@ header {
   border-style: solid;
   border-width: 5px 5px 2.5px 5px;
   border-color: #999 transparent transparent transparent; }
-  .bottomTriangle:active {
+  .bottomTriangle.active {
     border-color: #2d84e5 transparent transparent transparent; }
+  .bottomTriangle:hover {
+    cursor: pointer; }

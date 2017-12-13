@@ -8,25 +8,24 @@ $subMenuTextColor: #6d8cb3;
   display: inline-block;
   content: ' ';
   border: 2px solid #ccc;
-  transform: rotate(-135deg);
+  transform: rotate(45deg);
   width: 10px;
   height: 10px;
 }
-.menu {
+.menu-mini {
   color: $textColor;
   list-style: none;
   height: 100%;
   margin-bottom: -50px;
-  overflow: hidden;
   background: $menuBgColor;
-  width: 160px;
+  width: 50px;
   cursor: pointer;
   margin: 0;
   padding: 0;
   .menu-switcher {
     position: absolute;
+    left: 10px;
     bottom: 7px;
-    left: 126px;
     &:before {
       @include mx-menu-switcher-arrow
       border-left-width: 0;
@@ -47,10 +46,16 @@ $subMenuTextColor: #6d8cb3;
     &.active {
       background: $subMenuBgColor;
     }
+    &:hover {
+      .sub-menu {
+        display: block;
+      }
+    }
     .label-name {
       display: block;
       color: $textColor;
       text-decoration: none;
+      /*
       &:after {
         content: ' ';
         display: inline-block;
@@ -61,6 +66,11 @@ $subMenuTextColor: #6d8cb3;
         transform: rotate(45deg);
         float: right;
         margin-top: 21px;
+      }
+      */
+
+      .label-txt {
+        display: none;
       }
     }
     &.active {
@@ -86,23 +96,20 @@ $subMenuTextColor: #6d8cb3;
           transform: rotate(135deg);
         }
       }
-      .sub-menu {
-        display: block;
-      }
     }
     .sub-menu {
       list-style: none;
-      margin: 0 -20px 0 -10px;
       border-top: 1px solid $menuBorderColor;
+      position: absolute;
+      left: 50px;
+      top: 0;
+      margin: 0;
+      width: 160px;
+      z-index: 101;
       padding: 0;
       display: none;
       .sub-menu-item {
-        padding-left: 40px;
-        line-height: 14px;
-        margin-bottom: 20px;
-        &:first-child {
-          margin-top: 20px;
-        }
+        line-height: 50px;
         .label-name {
           color: $subMenuTextColor;
           &:hover,&:active {
@@ -115,7 +122,7 @@ $subMenuTextColor: #6d8cb3;
             display: none;
           }
         }
-        padding: 0 10px 0 40px;
+        padding: 0 10px;
         background: $subMenuBgColor;
       }
     }
@@ -126,10 +133,10 @@ $subMenuTextColor: #6d8cb3;
 
       .item-icon {
         position: relative;
-        top: 5px;
-        margin-right: 10px;
         width: 20px;
         height: 20px;
+        margin-left: 5px;
+        top: 5px;
       }
     }
   }
