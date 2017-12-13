@@ -1,3 +1,16 @@
+/**
+ * @atom Label
+ * @section Label
+ * @modifiers
+ *  .label-cavity
+ *  .label-danger
+ *  .label-warning
+ * @markup
+ *  <span class="label">label</span>
+ *  <span class="label label-cavity">label cavity</span>
+ *  <span class="label label-danger">label danger</span>
+ *  <span class="label label-warning">label warning</span>
+ */
 .label {    
     display: inline-block;
     text-align: center;

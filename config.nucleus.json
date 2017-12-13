@@ -1,0 +1,12 @@
+{
+  "title":"TIP-UI",
+  "files":["./styles/**/*.scss"],
+  "target":"uiguide",
+  "css":["/styles/index.css", "/styles/uiguide.css"],
+  "namespace":"page",
+  "verbose":3,
+  "counterCSS":null,
+  "staticLipsum":false,
+  "template": "./template",
+  "placeholderService":false
+}
