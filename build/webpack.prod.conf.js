@@ -25,8 +25,10 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash:8].js')
+    filename: utils.assetsPath('js/[name].js'),
+    chunkFilename: utils.assetsPath('js/[id].js'),
+    library: 'TipUi',
+    libraryTarget: 'umd'
   },
   plugins: [
     new NyanProgressPlugin(),
