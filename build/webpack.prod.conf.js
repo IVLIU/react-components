@@ -93,14 +93,6 @@ var webpackConfig = merge(baseWebpackConfig, {
     //   name: 'manifest',
     //   chunks: ['vendor']
     // }),
-    // copy custom static assets
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, '../static'),
-    //     to: config.build.assetsSubDirectory,
-    //     ignore: ['.*']
-    //   }
-    // ]),
     new webpack.optimize.ModuleConcatenationPlugin()
   ]
 })

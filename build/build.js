@@ -9,6 +9,7 @@ var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
 var webpackConfig = require('./webpack.prod.conf')
+var shelljs = require('shelljs')
 
 var spinner = ora('building for production...')
 spinner.start()
@@ -25,7 +26,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       chunks: false,
       chunkModules: false
     }) + '\n\n')
-
+    shelljs.cp('-R', path.resolve(__dirname, '../dist/static/*'), path.resolve(__dirname, '../../tip/src/common/lib/'))
     console.log(chalk.cyan('  Build complete.\n'))
     console.log(chalk.yellow(
       '  Tip: built files are meant to be served over an HTTP server.\n' +
