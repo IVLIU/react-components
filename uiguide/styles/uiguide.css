@@ -1,0 +1,47 @@
+.grid-guide {
+    border: 1px solid #CCC;
+}
+.grid-guide [class^=col-] {    
+    height: 40px;
+    background-clip: content-box;    
+}
+.grid-guide .row.vertical .row {
+    background: #FFF;
+    height: 40px;
+}
+.grid-guide [class^=col-]:nth-child(1) {
+    background-color: #FFF;
+}
+.grid-guide [class^=col-]:nth-child(2) {
+    background-color: #e3e3e3;
+}
+.grid-guide [class^=col-]:nth-child(3) {
+    background-color: #DDD
+}
+.grid-guide [class^=col-]:nth-child(4) {
+    background-color: #CCC;
+}
+.grid-guide [class^=col-]:nth-child(5) {
+    background-color: #BBB;
+}
+.grid-guide [class^=col-]:nth-child(6) {
+    background-color: #AAA;
+}
+.grid-guide [class^=col-]:nth-child(7) {
+    background-color: #999;
+}
+.grid-guide [class^=col-]:nth-child(8) {
+    background-color: #888;
+}
+.grid-guide [class^=col-]:nth-child(9) {
+    background-color: #777;
+}
+.grid-guide [class^=col-]:nth-child(10) {
+    background-color: #666;
+}
+.grid-guide [class^=col-]:nth-child(11) {
+    background-color: #555;
+}
+.grid-guide [class^=col-]:nth-child(12) {
+    background-color: #444;
+}
