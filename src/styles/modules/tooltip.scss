@@ -1,0 +1,21 @@
+.basic-tooltip {
+	position: absolute;
+	display: block;
+	text-align: left;
+	width: 280px;
+	padding: 10px;
+	font-size: $font-size-12;
+	border: 0;
+	color: #efefef;
+	background: rgba(47, 74, 93, 0.7);
+	pointer-events: none;
+	text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+	z-index: 1070;
+}

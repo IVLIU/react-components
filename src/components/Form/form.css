@@ -1,0 +1,33 @@
+.form-item-group{
+  width: 100%;
+  display: flex;
+}
+.form-item-group .form-item-title-label{
+  line-height: 1;
+  padding-top: 7px;
+  padding-right: 10px; 
+  font-weight: bold;
+  flex: 0 0 100px;
+  text-align: right;
+  color: #2f495d;
+  font-size: 14px;
+}
+.form-item-group .form-item-title-label.required span{
+  position: relative;
+}
+.form-item-group .form-item-title-label.required span::after{
+  content: '*';
+  position: absolute;
+  top: 0;
+  left: -8px;
+}
+.form-item-group .form-item-input{
+  flex: 1;
+}
+.form-item-group .form-item-input.has-error input,
+.form-item-group .form-item-input.has-error .textarea,
+.form-item-group .form-item-input.has-error textarea,
+.form-item-group .form-item-input.has-error .Select-control{
+  border-color: #d73e3e!important;
+  box-shadow: none;
+}
