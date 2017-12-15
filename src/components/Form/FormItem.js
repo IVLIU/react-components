@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 11:09:52
+ * @Last Modified time: 2017-12-15 16:54:17
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -87,7 +87,7 @@ export default class FormItem extends Component {
       <div className={classes}>
         <div className={`form-item-title-label ${this.isRequired ? 'required' : ''}`}
           style={{ flex: `0 0 ${lwidth}`, ...labelStyle }}>
-          <span>{label}</span>:
+          <span>{label}</span> :
         </div>
         <div className={`form-item-input ${hasError ? 'has-error' : ''}`}>
           {this.renderChildren()}
