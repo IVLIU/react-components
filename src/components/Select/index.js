@@ -1,8 +1,15 @@
+/*
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2017-12-15 11:03:03
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2017-12-15 11:03:53
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import RSelect from 'react-select'
 import MultiSelectValue from '../MultiInput/MultiSelectValue'
+import Icon from '../Icon'
 import delIcon from '@/images/svg/del_icon.svg'
 
 export default class Select extends Component {
@@ -64,7 +71,7 @@ export default class Select extends Component {
         value={this.state.value}
         options={options}
         {...config}
-        clearRenderer={() => <svg className="del-icon"><use xlinkHref={delIcon} /></svg>}
+        clearRenderer={() => <Icon className="del-icon" link={delIcon} />}
         arrowRenderer={({ isOpen }) => <span className={`drop-down-icon ${isOpen ? 'up' : ''}`}></span>}
         onChange={this.handleChange.bind(this)}/>
     )

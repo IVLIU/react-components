@@ -1,5 +1,12 @@
+/*
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2017-12-15 11:02:00
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2017-12-15 11:08:11
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 let count = 0
 export default class Checkbox extends Component {
@@ -17,9 +24,10 @@ export default class Checkbox extends Component {
     onChange && onChange(e, value, this)
   }
   render () {
-    const { label, defaultChecked, name, value } = this.props
+    const { label, defaultChecked, name, value, className } = this.props
+    const classes = classNames('checkbox-label', className)
     return (
-      <label htmlFor={this.id} className="checkbox-label">
+      <label htmlFor={this.id} className={classes}>
         <input
           className="checkbox"
           type="checkbox"

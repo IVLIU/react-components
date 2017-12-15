@@ -1,3 +1,9 @@
+/*
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2017-12-15 11:02:10
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2017-12-15 11:08:26
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -38,9 +44,7 @@ export default class CheckBoxGroup extends Component {
   }
   render () {
     const { className } = this.props
-    const classes = classNames('checkbox-group', {
-      ...className
-    })
+    const classes = classNames('checkbox-group', className)
     return (
       <div className={classes}>
         {

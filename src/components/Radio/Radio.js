@@ -1,5 +1,12 @@
+/*
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2017-12-15 11:02:29
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2017-12-15 11:11:46
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 let count = 0
 export default class Radio extends Component {
@@ -11,9 +18,10 @@ export default class Radio extends Component {
     onChange && onChange(e, value)
   }
   render () {
-    const { label, defaultChecked, name, value } = this.props
+    const { label, defaultChecked, name, className, value } = this.props
+    const classes = classNames('radio-label', className)
     return (
-      <label htmlFor={this.id} className="radio-label">
+      <label htmlFor={this.id} className={classes}>
         <input
           className="radio"
           type="radio"

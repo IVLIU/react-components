@@ -1,8 +1,14 @@
+/*
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2017-12-15 11:01:33
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2017-12-15 11:09:52
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import event from '../../lib/eventProxy'
 import validate from './validators'
-// import './form.css'
+import classNames from 'classnames'
 
 export default class FormItem extends Component {
   constructor () {
@@ -64,18 +70,21 @@ export default class FormItem extends Component {
   }
   renderChildren () {
     const {children, defaultValue, placeholder} = this.props
+    const { hasError } = this.state
     return children ? React.cloneElement(children, {
       onChange: this.handleInput,
       defaultValue,
-      placeholder
+      placeholder,
+      hasError
     }) : ''
   }
   render () {
-    const { label, labelWidth = '100px', labelStyle } = this.props
+    const { label, labelWidth = '100px', labelStyle, className } = this.props
     const { hasError } = this.state
     const lwidth = labelWidth.indexOf('px') > 0 ? labelWidth : labelWidth + 'px'
+    const classes = classNames('form-group form-item-group', className)
     return (
-      <div className="form-group form-item-group">
+      <div className={classes}>
         <div className={`form-item-title-label ${this.isRequired ? 'required' : ''}`}
           style={{ flex: `0 0 ${lwidth}`, ...labelStyle }}>
           <span>{label}</span>:

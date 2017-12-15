@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-30 17:11:32
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-11 19:08:12
+ * @Last Modified time: 2017-12-15 11:10:57
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -16,6 +16,14 @@ export default class InputText extends Component {
       focus: false
     }
     this.changeInputText = this.changeInputText.bind(this)
+  }
+  componentWillMount () {
+    const { defaultValue } = this.props
+    if (defaultValue && defaultValue !== 0) {
+      this.setState({
+        value: defaultValue
+      })
+    }
   }
   handleFocus () {
     this.setState({
@@ -37,7 +45,7 @@ export default class InputText extends Component {
   }
   renderTextArea () {
     const { defaultValue, max, onChange,
-      onInput, className = {}, placeholder,
+      onInput, className, placeholder,
       hasError, disabled, ...others } = this.props
     const { value, focus } = this.state
 
@@ -48,7 +56,7 @@ export default class InputText extends Component {
           'is-disabled': disabled,
           focus
         },
-        ...className
+        className
       )
       return (
         <div className={classes}>
@@ -68,7 +76,7 @@ export default class InputText extends Component {
     }
     const classes = classNames('input', 'textarea', {
       error: hasError,
-      ...className
+      className
     })
     return (
       <textarea defaultValue={defaultValue} className={classes}
@@ -81,13 +89,14 @@ export default class InputText extends Component {
     )
   }
   render () {
-    const { defaultValue, type, onChange, onInput, hasError, ...others } = this.props
+    const { defaultValue, type, onChange, onInput, hasError, className,  ...others } = this.props
 
     if (type === 'textarea') {
       return this.renderTextArea()
     }
     const classes = classNames('input', {
-      'error': hasError
+      'error': hasError,
+      className
     })
     return (
       <input defaultValue={defaultValue}

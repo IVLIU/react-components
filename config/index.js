@@ -32,7 +32,7 @@ module.exports = {
       lib: './example/index.js'
     },
     env: require('./dev.env'),
-    port: 8080,
+    port: 8089,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

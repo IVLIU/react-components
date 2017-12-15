@@ -88,6 +88,36 @@
   color: $font-color-low;
   cursor: not-allowed;
 }
+
+.form-item-group{
+  width: 100%;
+  display: flex;
+
+  .form-item-title-label{
+    line-height: 1;
+    padding-top: 7px;
+    padding-right: 10px; 
+    font-weight: bold;
+    flex: 0 0 100px;
+    text-align: right;
+    color: #2f495d;
+    font-size: 14px;
+
+    &.required span {
+      position: relative;
+
+      &::after{
+        content: '*';
+        position: absolute;
+        top: 0;
+        left: -8px;
+      }
+    }
+  }
+  .form-item-input{
+    flex: 1;
+  }
+}
 .input {
   width: 100%;
   font-size: $font-basic-size;
@@ -311,52 +341,52 @@
 }
 
 .delete-icon-cavity {
-    @extend .delete-icon;
-    border-radius: 50%;
-    margin-left: 5px;
-    color: $basic-aid-blue-color;
-    border: 1px solid $basic-aid-blue-color;
-    background-color: transparent;
+  @extend .delete-icon;
+  border-radius: 50%;
+  margin-left: 5px;
+  color: $basic-aid-blue-color;
+  border: 1px solid $basic-aid-blue-color;
+  background-color: transparent;
 }
 
 .delete-icon-blue {
-    @extend .delete-icon;
-    border-radius: 50%;
-    color: #FFF;
-    border: 1px solid $basic-aid-blue-color;
-    background-color: $basic-aid-blue-color;
+  @extend .delete-icon;
+  border-radius: 50%;
+  color: #FFF;
+  border: 1px solid $basic-aid-blue-color;
+  background-color: $basic-aid-blue-color;
 }
 
 .delete-icon-red {
-    @extend .delete-icon;
-    color: $basic-aid-red-color;
-    font-weight: bold;
+  @extend .delete-icon;
+  color: $basic-aid-red-color;
+  font-weight: bold;
 }
 
 .multi-btn-select {
-    display: inline-flex;
-    justify-content: flex-start;
-    align-items: center;
-    .multi-btn-select-item {
-        display: inline-block;
-        font-size: $font-basic-size;
-        color: #666;
-        height: 20px;
-        line-height: 20px;
-        text-align: center;
-        padding: 0 5px;
-        border-radius: 2px;
-        background-color: transparent;
-        cursor: pointer;
-        margin-right: 20px;
-        &:last-child {
-            margin-right: 0;
-        }
-        &.selected {
-            background-color: $basic-aid-blue-color;
-            color: #FFF;
-        }
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  .multi-btn-select-item {
+    display: inline-block;
+    font-size: $font-basic-size;
+    color: #666;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    padding: 0 5px;
+    border-radius: 2px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
     }
+    &.selected {
+      background-color: $basic-aid-blue-color;
+      color: #FFF;
+    }
+  }
 }
 
 .drop-down-select {

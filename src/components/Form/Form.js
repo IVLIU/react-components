@@ -1,3 +1,9 @@
+/*
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2017-12-15 11:00:25
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2017-12-15 11:01:26
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import event from '../../lib/eventProxy'
@@ -48,7 +54,7 @@ export default class Form extends Component {
   render () {
     const { children } = this.props
     return (
-      <div>
+      <div className="form">
         {children}
       </div>
     )

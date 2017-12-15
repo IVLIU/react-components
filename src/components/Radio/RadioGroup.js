@@ -1,3 +1,9 @@
+/*
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2017-12-15 11:02:41
+ * @Last Modified by:   wangweixin@threatbook.cn
+ * @Last Modified time: 2017-12-15 11:02:41
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
