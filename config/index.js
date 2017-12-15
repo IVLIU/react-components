@@ -4,7 +4,7 @@ var path = require('path')
 module.exports = {
   build: {
     entry: {
-      lib: './src/index.js'
+      lib: './src/index.js',
     },
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
