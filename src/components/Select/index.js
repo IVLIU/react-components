@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:03:03
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 11:03:53
+ * @Last Modified time: 2017-12-15 15:05:43
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -53,9 +53,8 @@ export default class Select extends Component {
   render () {
     const { options, className, hasError, multi, disabled } = this.props
     const classes = classNames('select', {
-      error: hasError,
-      ...className
-    })
+      error: hasError
+    }, className)
     const config = {
       multi,
       disabled,

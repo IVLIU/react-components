@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-04 19:40:52
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-13 15:54:04
+ * @Last Modified time: 2017-12-15 15:05:13
  */
 import React, { Component } from 'react'
 import { Creatable } from 'react-select'
@@ -52,9 +52,8 @@ export default class MultiINput extends Component {
     const { placeholder, hasError, className, disabled } = this.props
     const { value } = this.state
     const classes = classNames('select', 'no-arrow', {
-      error: hasError,
-      ...className
-    })
+      error: hasError
+    }, className)
     return (
       <Creatable
         className={classes}
