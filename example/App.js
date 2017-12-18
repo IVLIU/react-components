@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import {
   Button, Input, MultiInput, Select,
-  Radio, Checkbox, Form
+  Radio, Checkbox, Form, Modal
 } from '../src/index'
 const RadioGroup = Radio.RadioGroup
 const CheckboxGroup = Checkbox.CheckboxGroup
@@ -18,6 +18,12 @@ const options = [{
   value: '333'
 }]
 export default class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      showModal: false
+    }
+  }
   handleChange (value) {
     console.log(value)
   }
@@ -111,6 +117,34 @@ export default class App extends Component {
         </div>
         <Button onClick={this.Submit.bind(this)} type="secondary">提交</Button>
       </Form>
+    )
+  }
+  showModal () {
+    this.setState({
+      showModal: true
+    })
+  }
+  closeModal () {
+    this.setState({
+      showModal: false
+    })
+  }
+  renderModal () {
+    const { showModal } = this.state
+    return (
+      <div className="row mgb20">
+        <button onClick={this.showModal.bind(this)} className="btn btn-secondary">
+          点我显示Modal
+        </button>
+        <Modal isOpen={showModal} title="测试Modal"
+          handleEnsure={this.closeModal.bind(this)}
+          handleCancel={this.closeModal.bind(this)}
+          contentLabel="TestModal">
+          <div>
+            这是Modal里面的内容
+          </div>
+        </Modal>
+      </div>
     )
   }
   render () {
@@ -207,6 +241,7 @@ export default class App extends Component {
             }
           </div>
         </div>
+        { this.renderModal()}
       </div>
     )
   }
