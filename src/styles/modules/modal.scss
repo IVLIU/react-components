@@ -51,7 +51,6 @@
     }
   }
   .modal-body {
-    position: relative;
     padding: 20px;
   }
   .modal-footer {
@@ -59,10 +58,10 @@
     padding-bottom: 20px;
     padding-right: 20px;
     .btn {
-        margin-left: 20px;
-        &:first-child {
-            margin-left: 0;
-        }
+      margin-left: 20px;
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 }

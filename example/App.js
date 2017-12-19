@@ -189,7 +189,7 @@ export default class App extends Component {
         <p>Select</p>
         <div className="row mgb20">
           <div className="col-6 mgb20">
-            <Select onChange={handleChange} options={options} />
+            <Select onChange={handleChange} options={options} clearable={false} />
           </div>
           <div className="col-6 mgb20">
             <Select onChange={handleChange} options={options} multi />
