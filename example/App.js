@@ -21,11 +21,15 @@ export default class App extends Component {
   constructor () {
     super()
     this.state = {
-      showModal: false
+      showModal: false,
+      value: '222'
     }
   }
   handleChange (value) {
     console.log(value)
+    this.setState({
+      value
+    })
   }
   Submit () {
     const res = this.refs.input.validateAndSubmit()
@@ -148,7 +152,7 @@ export default class App extends Component {
     )
   }
   render () {
-    const handleChange = this.handleChange
+    const handleChange = this.handleChange.bind(this)
     const dfValue = { a: 1 }
     return (
       <div className="container" style={{width: '1200px'}}>
@@ -170,6 +174,7 @@ export default class App extends Component {
           <div className="col-6 mgb20"><Input onChange={handleChange} type="textarea" max="200" /></div>
           <div className="col-6 mgb20"><Input onChange={handleChange} type="textarea" max="200" hasError /></div>
           <div className="col-6 mgb20"><Input onChange={handleChange} type="textarea" max="200" disabled defaultValue="默认值，disabled" /></div>
+          <div className="col-6 mgb20"><Input onChange={handleChange} value={this.state.value}/></div>
         </div>
         <p>multiInput</p>
         <div className="row mgb20">
