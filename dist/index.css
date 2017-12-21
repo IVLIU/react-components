@@ -460,6 +460,7 @@ template {
 body {
   width: 100%;
   background-color: #eff3f6;
+  overflow: hidden;
   font-family: "Microsoft Yahei", "SimHei", "黑体";
   font-size: 14px;
   font-weight: 400;
