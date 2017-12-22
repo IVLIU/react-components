@@ -26,15 +26,14 @@ const eventProxy = {
     const key = args[0]
     args = [].concat(Array.prototype.slice.call(args, 1))
 
-    if (this.onObj[key] !== undefined
-      && this.onObj[key].length > 0) {
-
+    if (this.onObj[key] !== undefined &&
+      this.onObj[key].length > 0) {
       return this.onObj[key].map(fn => {
         return fn.apply(null, args)
       })
     }
-    if (this.oneObj[key] !== undefined
-      && this.oneObj[key].length > 0) {
+    if (this.oneObj[key] !== undefined &&
+      this.oneObj[key].length > 0) {
       const ret = this.oneObj[key].map(fn => {
         return fn.apply(null, args)
       })
