@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import {
   Button, Input, MultiInput, Select,
-  Radio, Checkbox, Form
+  Radio, Checkbox, Form, Modal
 } from '../src/index'
 const RadioGroup = Radio.RadioGroup
 const CheckboxGroup = Checkbox.CheckboxGroup
@@ -18,8 +18,18 @@ const options = [{
   value: '333'
 }]
 export default class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      showModal: false,
+      value: '222'
+    }
+  }
   handleChange (value) {
     console.log(value)
+    this.setState({
+      value
+    })
   }
   Submit () {
     const res = this.refs.input.validateAndSubmit()
@@ -113,8 +123,36 @@ export default class App extends Component {
       </Form>
     )
   }
+  showModal () {
+    this.setState({
+      showModal: true
+    })
+  }
+  closeModal () {
+    this.setState({
+      showModal: false
+    })
+  }
+  renderModal () {
+    const { showModal } = this.state
+    return (
+      <div className="row mgb20">
+        <button onClick={this.showModal.bind(this)} className="btn btn-secondary">
+          点我显示Modal
+        </button>
+        <Modal isOpen={showModal} title="测试Modal"
+          handleEnsure={this.closeModal.bind(this)}
+          handleCancel={this.closeModal.bind(this)}
+          contentLabel="TestModal">
+          <div>
+            这是Modal里面的内容
+          </div>
+        </Modal>
+      </div>
+    )
+  }
   render () {
-    const handleChange = this.handleChange
+    const handleChange = this.handleChange.bind(this)
     const dfValue = { a: 1 }
     return (
       <div className="container" style={{width: '1200px'}}>
@@ -136,6 +174,7 @@ export default class App extends Component {
           <div className="col-6 mgb20"><Input onChange={handleChange} type="textarea" max="200" /></div>
           <div className="col-6 mgb20"><Input onChange={handleChange} type="textarea" max="200" hasError /></div>
           <div className="col-6 mgb20"><Input onChange={handleChange} type="textarea" max="200" disabled defaultValue="默认值，disabled" /></div>
+          <div className="col-6 mgb20"><Input onChange={handleChange} value={this.state.value}/></div>
         </div>
         <p>multiInput</p>
         <div className="row mgb20">
@@ -155,7 +194,7 @@ export default class App extends Component {
         <p>Select</p>
         <div className="row mgb20">
           <div className="col-6 mgb20">
-            <Select onChange={handleChange} options={options} />
+            <Select onChange={handleChange} options={options} clearable={false} />
           </div>
           <div className="col-6 mgb20">
             <Select onChange={handleChange} options={options} multi />
@@ -207,6 +246,7 @@ export default class App extends Component {
             }
           </div>
         </div>
+        { this.renderModal()}
       </div>
     )
   }

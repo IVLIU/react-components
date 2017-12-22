@@ -118,6 +118,10 @@
     flex: 1;
   }
 }
+.radio {
+  margin-right: 5px;
+  margin-left: 1px;
+}
 .input {
   width: 100%;
   font-size: $font-basic-size;
@@ -233,6 +237,15 @@
 
     input {
       padding: 0;
+    }
+  }
+  .Select-option{
+    background-color: $subBgColor;
+    color: $font-color-normal;
+
+    &.is-focused{
+      background-color: $subBlueColor;
+      color: #fff;
     }
   }
   &.Select--multi .Select-multi-value-wrapper {

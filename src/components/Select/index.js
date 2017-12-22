@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:03:03
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 11:03:53
+ * @Last Modified time: 2017-12-15 17:38:34
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -40,25 +40,28 @@ export default class Select extends Component {
     }
   }
   handleChange (value) {
-    const { onChange, disabled } = this.props
+    const { onChange, disabled, multi } = this.props
     if (disabled) {
       return
     }
     this.setState({
       value
     })
-    onChange && onChange(value)
+    const ret = multi
+      ? value.map(item => item.value)
+      : value.value
+    onChange && onChange(ret)
   }
 
   render () {
-    const { options, className, hasError, multi, disabled } = this.props
+    const { options, className, hasError, multi, disabled, clearable } = this.props
     const classes = classNames('select', {
-      error: hasError,
-      ...className
-    })
+      error: hasError
+    }, className)
     const config = {
       multi,
       disabled,
+      clearable,
       valueComponent: d => <MultiSelectValue {...d} />
     }
 

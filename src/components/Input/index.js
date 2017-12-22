@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-30 17:11:32
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 11:10:57
+ * @Last Modified time: 2017-12-19 20:01:45
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -16,6 +16,14 @@ export default class InputText extends Component {
       focus: false
     }
     this.changeInputText = this.changeInputText.bind(this)
+  }
+  componentWillReceiveProps (nextProps) {
+    const { value } = nextProps
+    if (value && value !== 0) {
+      this.setState({
+        value
+      })
+    }
   }
   componentWillMount () {
     const { defaultValue } = this.props
@@ -75,9 +83,8 @@ export default class InputText extends Component {
       )
     }
     const classes = classNames('input', 'textarea', {
-      error: hasError,
-      className
-    })
+      error: hasError
+    }, className)
     return (
       <textarea defaultValue={defaultValue} className={classes}
         {...others}
@@ -89,19 +96,20 @@ export default class InputText extends Component {
     )
   }
   render () {
-    const { defaultValue, type, onChange, onInput, hasError, className,  ...others } = this.props
-
+    const { defaultValue, value: v, type, onChange, onInput, hasError, className, ...others } = this.props
+    const { value } = this.state
     if (type === 'textarea') {
       return this.renderTextArea()
     }
     const classes = classNames('input', {
-      'error': hasError,
-      className
-    })
+      'error': hasError
+    }, className)
     return (
-      <input defaultValue={defaultValue}
+      <input
+        onChange={this.changeInputText || onInput || onChange}
+        value={value}
         className={classes}
-        onChange={this.changeInputText || onChange || onInput}
+        value={value}
         type="text"
         {...others}
       />
