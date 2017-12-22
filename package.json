@@ -17,9 +17,13 @@
     "precommit-msg",
     "eslint"
   ],
-  "pre-commit": [
-    "precommit-msg",
-    "eslint"
+  "repository": {
+    "type": "git",
+    "url": "https://git.threatbook.cn/yikuan/tip-ui"
+  },
+  "keywords": [
+    "tip",
+    "ui"
   ],
   "dependencies": {
     "axios": "^0.17.0",
