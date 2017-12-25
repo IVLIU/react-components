@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:03:03
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 17:38:34
+ * @Last Modified time: 2017-12-25 18:00:21
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -12,6 +12,10 @@ import MultiSelectValue from '../MultiInput/MultiSelectValue'
 import Icon from '../Icon'
 import delIcon from '@/images/svg/del_icon.svg'
 
+/**
+ * react-select二次封装
+ * @see https://github.com/JedWatson/react-select
+ */
 export default class Select extends Component {
   constructor (props) {
     super(props)

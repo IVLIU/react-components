@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-04 19:40:52
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 15:05:13
+ * @Last Modified time: 2017-12-25 17:47:18
  */
 import React, { Component } from 'react'
 import { Creatable } from 'react-select'
@@ -12,7 +12,7 @@ import PropTypes from 'prop-types'
 import delIcon from '@/images/svg/del_icon.svg'
 import classNames from 'classnames'
 
-export default class MultiINput extends Component {
+export default class MultiInput extends Component {
   constructor () {
     super()
     this.state = {
@@ -71,10 +71,14 @@ export default class MultiINput extends Component {
     )
   }
 }
-MultiINput.propTypes = {
-  value: PropTypes.any,
+MultiInput.displayName = 'MultiInput'
+MultiInput.propTypes = {
+  /** 输入内容改变时的回调 */
   onChange: PropTypes.func,
-  defaultValue: PropTypes.array,
-  placeholder: PropTypes.string,
-  hasError: PropTypes.bool
+  /** 默认值 */
+  defaultValue: PropTypes.string,
+  /** 是否Error, 自带error样式 */
+  hasError: PropTypes.bool,
+  /** placeholder */
+  placeholder: PropTypes.string
 }

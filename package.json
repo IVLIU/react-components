@@ -11,7 +11,9 @@
     "build:qa": "node build/build.js",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "eslint": "eslint --ext .js src",
-    "fix": "eslint --ext .js src  --fix"
+    "fix": "eslint --ext .js src  --fix",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "precommit": [
     "precommit-msg",
@@ -26,16 +28,11 @@
     "ui"
   ],
   "dependencies": {
-    "axios": "^0.17.0",
     "babel-plugin-import": "^1.6.2",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bundle-loader": "^0.5.5",
     "classnames": "^2.2.5",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.8.0",
-    "less": "^3.0.0-pre.4",
-    "less-loader": "^4.0.5",
     "nyan-progress-webpack-plugin": "^1.2.0",
     "portfinder": "^1.0.13",
     "postcss-cssnext": "^3.0.2",
@@ -65,6 +62,9 @@
     "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -97,6 +97,7 @@
     "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.3.0",
+    "react-styleguidist": "^6.0.33",
     "react-svg-loader": "^2.1.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",

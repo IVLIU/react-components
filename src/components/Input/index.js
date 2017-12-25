@@ -2,13 +2,17 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-30 17:11:32
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-19 20:01:45
+ * @Last Modified time: 2017-12-25 17:34:56
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-export default class InputText extends Component {
+/**
+ * 基本的输入框组件
+ * 包括text, textarea两种类型
+ */
+export default class Input extends Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
@@ -117,9 +121,19 @@ export default class InputText extends Component {
   }
 }
 
-InputText.displayName = 'InputText'
-InputText.propTypes = {
+Input.displayName = 'Input'
+Input.propTypes = {
+  /** 输入内容改变时的回调 */
   onChange: PropTypes.func,
-  defaultValue: PropTypes.string
+  /** 默认值 */
+  defaultValue: PropTypes.string,
+  /** 主动修改组件值时候的值， @see controled input */
+  value: PropTypes.string,
+  /** 类型 */
+  type: PropTypes.oneOf(['text', 'textarea']),
+  /** 是否Error, 自带error样式 */
+  hasError: PropTypes.bool,
+  /** 当type为textarea时，设置max,则会显示当前输入的字数 */
+  max: PropTypes.num || null
 }
-InputText.defaultProps = {}
+Input.defaultProps = {}

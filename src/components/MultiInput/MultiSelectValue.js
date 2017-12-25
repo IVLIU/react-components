@@ -22,7 +22,7 @@ export default class MultiSelectValue extends React.Component {
     )
   }
 }
-
+MultiSelectValue.displayName = 'MultiSelectValue'
 MultiSelectValue.propTypes = {
   value: PropTypes.object,
   onRemove: PropTypes.func
