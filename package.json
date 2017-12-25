@@ -13,7 +13,8 @@
     "eslint": "eslint --ext .js src",
     "fix": "eslint --ext .js src  --fix",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "style": "nohup styleguidist server"
   },
   "precommit": [
     "precommit-msg",
