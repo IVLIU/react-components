@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:03:03
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-25 18:00:21
+ * @Last Modified time: 2017-12-26 10:09:54
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -85,6 +85,24 @@ export default class Select extends Component {
   }
 }
 Select.propTypes = {
+  /** 是否是多选 */
   multi: PropTypes.bool,
-  options: PropTypes.array
+  /**
+   * 选项
+   * {
+   *   label: '标签',
+   *   value: '值'
+   * }
+   */
+  options: PropTypes.array,
+  /** 错误状态 */
+  hasError: PropTypes.bool,
+  /** disabled状态 */
+  disabled: PropTypes.bool,
+  /** 是否可清空 */
+  clearable: PropTypes.bool,
+  /** 默认值 */
+  defaultValue: PropTypes.any,
+  /** change回调 */
+  onChange: PropTypes.func
 }

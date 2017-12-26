@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:00
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 11:08:11
+ * @Last Modified time: 2017-12-26 11:21:22
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -24,8 +24,10 @@ export default class Checkbox extends Component {
     onChange && onChange(e, value, this)
   }
   render () {
-    const { label, defaultChecked, name, value, className } = this.props
-    const classes = classNames('checkbox-label', className)
+    const { label, defaultChecked, name, value, className, disabled } = this.props
+    const classes = classNames('checkbox-label', className, {
+      disabled
+    })
     return (
       <label htmlFor={this.id} className={classes}>
         <input
@@ -35,6 +37,7 @@ export default class Checkbox extends Component {
           defaultChecked={defaultChecked}
           name={name}
           value={value}
+          disabled={disabled}
           onChange={this.handleChange.bind(this)} />
         {label}
       </label>
@@ -42,6 +45,16 @@ export default class Checkbox extends Component {
   }
 }
 Checkbox.propTypes = {
+  /** checkbox标签描述 */
   label: PropTypes.string,
-  onChange: PropTypes.func
+  /** 是否默认选中 */
+  defaultChecked: PropTypes.bool,
+  /** 表单name属性 */
+  name: PropTypes.string,
+  /** 该选项对应的值，会在onChange时传入回调 */
+  value: PropTypes.any,
+  /** 值更改时的回调 */
+  onChange: PropTypes.func,
+  /** 禁用状态 */
+  disabled: PropTypes.bool
 }

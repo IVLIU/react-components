@@ -122,6 +122,16 @@
   margin-right: 5px;
   margin-left: 1px;
 }
+.radio-label {
+  &.disabled {
+    @include disabledStyle();
+  }
+}
+.checkbox-label {
+  &.disabled {
+    @include disabledStyle();
+  }
+}
 .input {
   width: 100%;
   font-size: $font-basic-size;

@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-20 17:21:30
+ * @Last Modified time: 2017-12-26 14:42:38
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -10,6 +10,11 @@ import event from '../../lib/eventProxy'
 import validate from './validators'
 import classNames from 'classnames'
 
+/**
+ * 单个表单元素
+ * 自带样式，规则验证等
+ * 直接填充表单组件的内容即可
+ */
 export default class FormItem extends Component {
   constructor () {
     super()
@@ -98,10 +103,18 @@ export default class FormItem extends Component {
   }
 }
 FormItem.propTypes = {
+  /** 表单元素的标签 */
   label: PropTypes.any,
-  children: PropTypes.any,
+  /** 标签宽度 */
+  labelWidth: PropTypes.string,
+  /** 标签的特殊样式 */
+  labelStyle: PropTypes.object,
+  /** 标签对应的field, 即最终数据中的属性 */
   field: PropTypes.string.isRequired,
+  /** 默认值 */
   defaultValue: PropTypes.any,
+  /** 验证规则 */
   validators: PropTypes.array,
-  labelWidth: PropTypes.string
+  /** placeholder */
+  placeholder: PropTypes.string
 }

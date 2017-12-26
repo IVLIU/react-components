@@ -5,3 +5,11 @@ body {
   background-color: #432521;
   color: green;
 }
+.example-btn-submit{
+  width: 80px;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+.example-sex{
+  padding-top: 5px;
+}

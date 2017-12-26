@@ -2,13 +2,17 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:00:25
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-15 16:25:11
+ * @Last Modified time: 2017-12-26 14:24:03
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import event from '../../lib/eventProxy'
 import classNames from 'classnames'
 
+/**
+ * 表单封装
+ * 包含默认样式，表单验证的功能
+ */
 export default class Form extends Component {
   constructor () {
     super()
@@ -31,6 +35,10 @@ export default class Form extends Component {
       }
     })
   }
+  /**
+   * 验证当前内容并返回表单的值
+   * @public
+   */
   validateAndSubmit () {
     const hasFalse = Object.keys(this.dataMap).some(key => {
       const item = this.dataMap[key]
@@ -53,17 +61,19 @@ export default class Form extends Component {
     return ret
   }
   render () {
-    const { children, className } = this.props
+    const { children, className, ...others } = this.props
     const classes = classNames('form', className)
     return (
-      <div className={classes}>
+      <div className={classes} {...others}>
         {children}
       </div>
     )
   }
 }
 Form.propTypes = {
-  handleSubmit: PropTypes.func,
-  children: PropTypes.any,
-  data: PropTypes.object
+  /**
+   * 表单对应的数据
+   * 针对该数据会生成最终的表单数据
+   */
+  data: PropTypes.object.isRequired
 }

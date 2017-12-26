@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-04 19:40:52
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-25 17:47:18
+ * @Last Modified time: 2017-12-26 10:54:13
  */
 import React, { Component } from 'react'
 import { Creatable } from 'react-select'
@@ -76,7 +76,7 @@ MultiInput.propTypes = {
   /** 输入内容改变时的回调 */
   onChange: PropTypes.func,
   /** 默认值 */
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.any,
   /** 是否Error, 自带error样式 */
   hasError: PropTypes.bool,
   /** placeholder */

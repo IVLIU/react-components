@@ -2,9 +2,17 @@ const path = require('path')
 const join = p => path.join('./src/components/', p)
 const resolve = p => path.resolve(__dirname, '..', p)
 const components = {
+  icon: join('Icon/index.js'),
   button: join('Button/index.js'),
   input: join('Input/index.js'),
-  multiInput: join('MultiInput/index.js')
+  multiInput: join('MultiInput/index.js'),
+  select: join('Select/index.js'),
+  radio: join('Radio/Radio.js'),
+  radioGroup: join('Radio/radioGroup.js'),
+  checkbox: join('Checkbox/Checkbox.js'),
+  checkboxGroup: join('Checkbox/CheckboxGroup.js'),
+  form: join('Form/Form.js'),
+  formItem: join('Form/FormItem.js')
 }
 module.exports = {
   components: () => {

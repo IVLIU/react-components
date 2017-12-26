@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-30 17:11:32
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-25 17:34:56
+ * @Last Modified time: 2017-12-26 10:54:36
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -134,6 +134,6 @@ Input.propTypes = {
   /** 是否Error, 自带error样式 */
   hasError: PropTypes.bool,
   /** 当type为textarea时，设置max,则会显示当前输入的字数 */
-  max: PropTypes.num || null
+  max: PropTypes.number
 }
 Input.defaultProps = {}
