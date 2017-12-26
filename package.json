@@ -12,9 +12,8 @@
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "eslint": "eslint --ext .js src",
     "fix": "eslint --ext .js src  --fix",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
-    "style": "nohup styleguidist server"
+    "styleguide": "node doc/generateIcon.js && styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "precommit": [
     "precommit-msg",

@@ -16,12 +16,18 @@ const components = {
 }
 module.exports = {
   serverPort: 8080,
-  components: () => {
-    const ret = Object.keys(components).map(key => {
-      return components[key]
-    })
-    return ret
-  },
+  sections: [{
+    name: 'icon',
+    content: resolve('./doc/IconList.md')
+  }, {
+    name: 'components',
+    components: () => {
+      const ret = Object.keys(components).map(key => {
+        return components[key]
+      })
+      return ret
+    }
+  }],
   showUsage: true,
   webpackConfig: {
     resolve: {
@@ -58,7 +64,7 @@ module.exports = {
               }
             }
           }],
-          exclude: [resolve('./node_modules/'), resolve('./src/fonts/'), resolve('./src/images/svg/'), resolve('./src/flags/')]
+          exclude: [resolve('./node_modules/'), resolve('./'), resolve('./src/images/svg/'), resolve('./src/flags/')]
         },
         {
           test: /\.svg$/,
@@ -66,7 +72,7 @@ module.exports = {
           options: {
             runtimeCompat: true
           },
-          include: resolve('./src/images/svg/')
+          // include: resolve('./src/images/svg/')
         }
       ]
     }

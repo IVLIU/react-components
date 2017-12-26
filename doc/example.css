@@ -13,3 +13,23 @@ body {
 .example-sex{
   padding-top: 5px;
 }
+
+.example-icons{
+  width: 20px;
+  height: 20px;
+}
+.icon-wrap {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 10px 0;
+  width: 100px;
+  float: left;
+  text-align: center;
+}
+.icon-name{
+  margin: 0;
+  line-height: 2;
+}
+.clear{
+  clear: both;
+}
