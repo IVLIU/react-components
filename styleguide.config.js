@@ -1,6 +1,6 @@
 const path = require('path')
 const join = p => path.join('./src/components/', p)
-const resolve = p => path.resolve(__dirname, '..', p)
+const resolve = p => path.resolve(__dirname, p)
 const components = {
   icon: join('Icon/index.js'),
   button: join('Button/index.js'),
