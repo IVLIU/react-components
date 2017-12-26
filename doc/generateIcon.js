@@ -1,10 +1,10 @@
 var glob = require('glob')
 var fs = require('fs')
-var result = glob.sync('../src/images/svg/*.svg')
+var result = glob.sync('./src/images/svg/*.svg')
 var t = result.map((item) => {
   return {
-    name: 'icon' + item.replace('../src/images/svg/', '').replace('.svg', '').replace(/-/g, '_'),
-    url: item.replace('../src', '@')
+    name: 'icon' + item.replace('./src/images/svg/', '').replace('.svg', '').replace(/-/g, '_'),
+    url: item.replace('./src', '@')
   }
 }).filter(item => item.name !== 'icon2')
 const imp = t.map(item => {
@@ -23,7 +23,7 @@ const iconList = t.map(item => {
 const ret = `
 ${imp}
 import React, { Component } from 'react'
-import Icon from '../src/components/Icon'
+import Icon from './src/components/Icon'
 
 export default class IconList extends Component {
   render () {
