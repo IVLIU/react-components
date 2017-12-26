@@ -8,7 +8,7 @@ const components = {
   multiInput: join('MultiInput/index.js'),
   select: join('Select/index.js'),
   radio: join('Radio/Radio.js'),
-  radioGroup: join('Radio/radioGroup.js'),
+  radioGroup: join('Radio/RadioGroup.js'),
   checkbox: join('Checkbox/Checkbox.js'),
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
   form: join('Form/Form.js'),
