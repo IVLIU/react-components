@@ -23,7 +23,7 @@ const iconList = t.map(item => {
 const ret = `
 ${imp}
 import React, { Component } from 'react'
-import Icon from './src/components/Icon'
+import Icon from '../src/components/Icon'
 
 export default class IconList extends Component {
   render () {
