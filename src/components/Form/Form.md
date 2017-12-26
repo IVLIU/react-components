@@ -129,36 +129,41 @@ class FormDatas extends React.Component {
   }
   render () {
     return (
-      <Form data={field} ref="form" style={{ width: '400px' }}>
-        <div className="row">
-          <FormItem label="姓名" field="name" placeholder="填写您的姓名" defaultValue={field.name.value} validators={field.name.validators}>
+      <Form data={field} ref="input">
+        <div className="row mgb20">
+          <FormItem label="姓名" field="name" placeholder="填写您的姓名">
             <Input/>
           </FormItem>
         </div>
         <div className="row mgb20">
-          <FormItem label="性别" field="sex" defaultValue={field.sex.value}>
-            <RadioGroup className="example-sex">
+          <FormItem label="性别" field="sex">
+            <RadioGroup>
               <Radio label="男" value="male" />
               <Radio label="女" value="female" />
             </RadioGroup>
           </FormItem>
         </div>
         <div className="row mgb20">
-          <FormItem label="爱好" field="hobby" defaultValue={field.hobby.value}>
+          <FormItem label="爱好" field="hobby">
             <Select options={field.hobby.options}></Select>
           </FormItem>
         </div>
         <div className="row mgb20">
-          <FormItem label="电话" placeholder="填写您的电话" field="phone" defaultValue={field.phone.value} validators={field.phone.validators}>
+          <FormItem label="自我介绍" placeholder="填写您的姓名" field="description">
+            <Input type="textarea" max="200"/>
+          </FormItem>
+        </div>
+        <div className="row mgb20">
+          <FormItem label="电话" placeholder="填写您的电话" field="phone">
             <Input />
           </FormItem>
         </div>
         <div className="row mgb20">
-          <FormItem label="邮箱" placeholder="填写您的邮箱" field="emails" defaultValue={field.emails.value} validators={field.emails.validators}>
+          <FormItem label="邮箱" placeholder="填写您的邮箱" field="emails">
             <MultiInput />
           </FormItem>
         </div>
-        <Button className="example-btn-submit" onClick={this.handleSubmit.bind(this)} type="secondary">提交</Button>
+        <Button onClick={this.handleSubmit.bind(this)} type="secondary">提交</Button>
       </Form>
     )
   }

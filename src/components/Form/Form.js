@@ -2,9 +2,9 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:00:25
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-26 14:24:03
+ * @Last Modified time: 2017-12-26 19:46:07
  */
-import React, { Component } from 'react'
+import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import event from '../../lib/eventProxy'
 import classNames from 'classnames'
@@ -13,6 +13,7 @@ import classNames from 'classnames'
  * 表单封装
  * 包含默认样式，表单验证的功能
  */
+let id = 0
 export default class Form extends Component {
   constructor () {
     super()
@@ -26,8 +27,8 @@ export default class Form extends Component {
         isOk: true
       }
     })
-
-    event.on('form-field-change', ({key, config, context}) => {
+    this.id = `form-id-${++id}`
+    event.on(`form-field-change-${this.id}`, ({key, config, context}) => {
       this.dataMap[key] = {
         value: config.value,
         isOk: config.isOk,
@@ -60,12 +61,39 @@ export default class Form extends Component {
     })
     return ret
   }
+  renderChildrens (children) {
+    const { data } = this.props
+    if (Array.isArray(children)) {
+      return Children.map(children, child => {
+        return this.renderChildrens(child)
+      })
+    }
+
+    // 遇到FormItem,则绑定id
+    if (children.type && children.type.name === 'FormItem') {
+      return cloneElement(children, {
+        id: this.id,
+        data
+      })
+    }
+
+    // 循环处理
+    if (children.props && children.props.children) {
+      const props = Object.assign({}, children.props, {
+        children: this.renderChildrens(children.props.children)
+      })
+      return Object.assign({}, children, {
+        props
+      })
+    }
+    return children
+  }
   render () {
     const { children, className, ...others } = this.props
     const classes = classNames('form', className)
     return (
       <div className={classes} {...others}>
-        {children}
+        {this.renderChildrens(children)}
       </div>
     )
   }

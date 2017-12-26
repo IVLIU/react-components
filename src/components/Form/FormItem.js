@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-26 14:42:38
+ * @Last Modified time: 2017-12-26 19:52:13
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -24,16 +24,25 @@ export default class FormItem extends Component {
     }
   }
   componentWillMount () {
-    const { defaultValue, validators } = this.props
-    this.handleInput(defaultValue, true)
+    const { data, field, id } = this.props
+    const fieldData = data[field]
+
+    if (!fieldData) {
+      throw new Error(`data中缺少正确的field：${field}`)
+    }
+
+    const { value, validators } = fieldData
+    this.handleInput(value, true)
+    this.validators = validators
     this.isRequired = validators
       ? validators.some(validator => {
         return validator.required
       })
       : false
+    this.id = id
   }
   validateItem (value) {
-    const { validators } = this.props
+    const { validators } = this
 
     if (!validators) {
       return true
@@ -64,7 +73,7 @@ export default class FormItem extends Component {
         hasError: false
       })
     }
-    event.trigger('form-field-change', {
+    event.trigger(`form-field-change-${this.id}`, {
       key: field,
       config: {
         value,
@@ -75,11 +84,12 @@ export default class FormItem extends Component {
     onChange && onChange(value)
   }
   renderChildren () {
-    const {children, defaultValue, placeholder} = this.props
+    const { children, placeholder, data, field } = this.props
     const { hasError } = this.state
+    const { value } = data[field]
     return children ? React.cloneElement(children, {
       onChange: this.handleInput,
-      defaultValue,
+      defaultValue: value,
       placeholder,
       hasError
     }) : ''
@@ -109,7 +119,11 @@ FormItem.propTypes = {
   labelWidth: PropTypes.string,
   /** 标签的特殊样式 */
   labelStyle: PropTypes.object,
-  /** 标签对应的field, 即最终数据中的属性 */
+  /**
+   * 标签对应的field, 即最终数据中的属性
+   * 若data中包含对应field的defaultValue,validators
+   * 后续可不用传入
+   */
   field: PropTypes.string.isRequired,
   /** 默认值 */
   defaultValue: PropTypes.any,
