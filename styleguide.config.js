@@ -15,6 +15,7 @@ const components = {
   formItem: join('Form/FormItem.js')
 }
 module.exports = {
+  serverPort: 8080,
   components: () => {
     const ret = Object.keys(components).map(key => {
       return components[key]
