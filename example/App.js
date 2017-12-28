@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import {
   Button, Input, MultiInput, Select,
-  Radio, Checkbox, Form, Modal
+  Radio, Checkbox, Form, Modal,
+  Code, Tab, Icon
 } from '../src/index'
+import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
 const CheckboxGroup = Checkbox.CheckboxGroup
 const FormItem = Form.Item
+const TabPanel = Tab.TabPanel
 const options = [{
   label: '111',
   value: '111'
@@ -17,6 +20,83 @@ const options = [{
   label: '333',
   value: '333'
 }]
+const field = {
+  name: {
+    value: '王卫新',
+    validators: [{
+      required: true
+    }, {
+      length: [0, 4]
+    }]
+  },
+  sex: {
+    value: 'male'
+  },
+  description: {
+    value: '这是描述',
+    validators: [{
+      length: [0, 200]
+    }]
+  },
+  phone: {
+    value: '13022423521',
+    validators: [{
+      required: true
+    }, {
+      type: 'phone'
+    }]
+  },
+  hobby: {
+    value: 'football',
+    options: [{
+      label: '篮球',
+      value: 'basketball'
+    }, {
+      label: '足球',
+      value: 'football'
+    }, {
+      label: '乒乓球',
+      value: 'pingpang'
+    }]
+  },
+  emails: {
+    value: ['11@qq.com'],
+    validators: [{
+      required: true
+    }, {
+      type: 'email'
+    }]
+  }
+}
+const code = {
+  '@timestamp': '2017-12-27T19:38:39+08:00',
+  'input_name': 'sensor_input',
+  'input_type': 'sensor',
+  'data': '10.10.169.184',
+  'data_type': 'ip',
+  'behave_uuid': 'sensor-1273069213273718',
+  'input_uuid': '1514374719-sensor-93579900-80545624',
+  'machine': '10.9.154.22',
+  'time': 1514374719,
+  'input_time': 1514374719,
+  'related_ip': '10.10.169.184',
+  'source_ip': '10.9.154.22',
+  'event_type': 'net',
+  'net': {
+    'src_ip': '10.9.154.22',
+    'src_port': 42065,
+    'dest_ip': '10.10.169.184',
+    'dest_port': 1514,
+    'proto': 'UDP',
+    'type': 'flow',
+    'flow': {
+      'app_proto': 'failed',
+      'pkts_toserver': 1,
+      'bytes_toserver': 478,
+      'state': 'new'
+    }
+  }
+}
 export default class App extends Component {
   constructor () {
     super()
@@ -36,54 +116,6 @@ export default class App extends Component {
     console.log(res)
   }
   renderForm () {
-    const field = {
-      name: {
-        value: '王卫新',
-        validators: [{
-          required: true
-        }, {
-          length: [0, 4]
-        }]
-      },
-      sex: {
-        value: 'male'
-      },
-      description: {
-        value: '这是描述',
-        validators: [{
-          length: [0, 200]
-        }]
-      },
-      phone: {
-        value: '13022423521',
-        validators: [{
-          required: true
-        }, {
-          type: 'phone'
-        }]
-      },
-      hobby: {
-        value: 'football',
-        options: [{
-          label: '篮球',
-          value: 'basketball'
-        }, {
-          label: '足球',
-          value: 'football'
-        }, {
-          label: '乒乓球',
-          value: 'pingpang'
-        }]
-      },
-      emails: {
-        value: ['11@qq.com'],
-        validators: [{
-          required: true
-        }, {
-          type: 'email'
-        }]
-      }
-    }
     return (
       <Form data={field} ref="input">
         <div className="row mgb20">
@@ -247,6 +279,15 @@ export default class App extends Component {
           </div>
         </div>
         { this.renderModal()}
+        <div className="row mgb20">
+          <Code data={code}/>
+        </div>
+        <div className="row mgb20">
+          <Tab tabStyle={{ marginRight: '10px' }} activeStyle={{ borderRight: '1px solid red' }}>
+            <TabPanel header="告警明细" keys="1">111</TabPanel>
+            <TabPanel header={<div><Icon className="example-icons" link={iconText}/>可疑活动明细</div>} keys="2">222</TabPanel>
+          </Tab>
+        </div>
       </div>
     )
   }

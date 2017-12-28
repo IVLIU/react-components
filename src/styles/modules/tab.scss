@@ -72,3 +72,36 @@
     fill: $basic-aid-gray-color;
     background-color: $basic-imp-color;
 }
+
+.tab-header{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 16px;
+  font-weight: bold;
+  color: #999;
+  fill: #999;
+
+  .tab-header-item {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: $basic-imp-color;
+      fill: $basic-imp-color;
+    }
+
+    &.active {
+      color: $basic-imp-color;
+      fill: $basic-imp-color;
+      border-bottom: 2px solid $basic-imp-color;
+    }
+  }
+}
+.tab-panel{
+  display: none;
+
+  &.active{
+    display: block;
+  }
+}
