@@ -288,6 +288,16 @@ export default class App extends Component {
             <TabPanel header={<div><Icon className="example-icons" link={iconText}/>可疑活动明细</div>} keys="2">222</TabPanel>
           </Tab>
         </div>
+        <div className="row mgb20">
+          <Tab>
+            <TabPanel header="表格" keys="table">
+              <Code data={code}></Code>
+            </TabPanel>
+            <TabPanel header="JSON" keys="json">
+              <Code data={code} type="json"></Code>
+            </TabPanel>
+          </Tab>
+        </div>
       </div>
     )
   }

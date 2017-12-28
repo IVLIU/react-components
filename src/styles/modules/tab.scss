@@ -72,7 +72,9 @@
     fill: $basic-aid-gray-color;
     background-color: $basic-imp-color;
 }
-
+.tab-wrap{
+  width: 100%;
+}
 .tab-header{
   display: flex;
   justify-content: flex-start;
