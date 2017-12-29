@@ -33,3 +33,20 @@ body {
 .clear{
   clear: both;
 }
+
+.code-tab{
+  background-color: '#e8e8e8';
+  color: '#1b3247';
+  font-size: '14px';
+  border: 'none';
+  width: '90px';
+  text-align: 'center';
+  font-weight: 'normal';
+  height: '30px';
+  line-height: '30px';
+  padding: 0;
+}
+.code-tab-active{
+  background-color: '#394045';
+  color: '#fff';
+}

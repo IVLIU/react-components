@@ -3,8 +3,12 @@ import PropTypes from 'prop-types'
 import jsonFormat from 'json-format'
 import JSONPretty from 'react-json-pretty'
 
+/**
+ * 针对代码块的统一封装，提供table,json两种格式
+ */
 export default class Code extends Component {
   renderCodeTable (data) {
+    const { labelWidth } = this.props
     return (<table className="code-table">
       <thead className="code-thead">
         <tr>
@@ -17,7 +21,7 @@ export default class Code extends Component {
           Object.keys(data).map((item, index) => {
             return (
               <tr className="code-tr-content" key={index}>
-                <td className="key">{item}</td>
+                <td className="key" style={{ width: labelWidth }}>{item}</td>
                 <td className="value">
                   {
                     typeof data[item] === 'string'
@@ -55,8 +59,13 @@ export default class Code extends Component {
   }
 }
 Code.defaultProps = {
-  type: ''
+  type: 'table'
 }
 Code.propTypes = {
-  data: PropTypes.object
+  /** 要展示的代码 */
+  data: PropTypes.object,
+  /** 展示的数据类型 */
+  type: PropTypes.oneOf(['table', 'json']),
+  /** 表格的标签宽度 */
+  labelWidth: PropTypes.string
 }

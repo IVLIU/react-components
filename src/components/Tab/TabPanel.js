@@ -24,9 +24,10 @@ export default class TabPanel extends Component {
   }
 }
 TabPanel.propTypes = {
-  /** 头部内容 */
+  /** 头部内容, 可以传入节点 */
   header: PropTypes.any,
   /** 特有的key */
   keys: PropTypes.string.isRequired,
+  /** 是否active, 会被父组件自动传入，不用关心 */
   active: PropTypes.bool
 }

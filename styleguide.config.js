@@ -12,10 +12,13 @@ const components = {
   checkbox: join('Checkbox/Checkbox.js'),
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
   form: join('Form/Form.js'),
-  formItem: join('Form/FormItem.js')
+  formItem: join('Form/FormItem.js'),
+  code: join('Code/index.js'),
+  tab: join('Tab/Tab.js'),
+  tabPanel: join('Tab/TabPanel.js')
 }
 module.exports = {
-  serverPort: 8080,
+  serverPort: 6060,
   sections: [{
     name: 'icon',
     content: resolve('./doc/IconList.md')
