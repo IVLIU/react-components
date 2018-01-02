@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-26 19:52:13
+ * @Last Modified time: 2018-01-02 16:51:40
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -27,11 +27,15 @@ export default class FormItem extends Component {
     const { data, field, id } = this.props
     const fieldData = data[field]
 
+    if (!field) {
+      return
+    }
     if (!fieldData) {
       throw new Error(`data中缺少正确的field：${field}`)
     }
-
+    console.log(1)
     const { value, validators } = fieldData
+    console.log(2)
     this.handleInput(value, true)
     this.validators = validators
     this.isRequired = validators
@@ -86,7 +90,7 @@ export default class FormItem extends Component {
   renderChildren () {
     const { children, placeholder, data, field } = this.props
     const { hasError } = this.state
-    const { value } = data[field]
+    const { value } = data[field] || {}
     return children ? React.cloneElement(children, {
       onChange: this.handleInput,
       defaultValue: value,
@@ -112,6 +116,7 @@ export default class FormItem extends Component {
     )
   }
 }
+FormItem.displayName = 'FormItem'
 FormItem.propTypes = {
   /** 表单元素的标签 */
   label: PropTypes.any,

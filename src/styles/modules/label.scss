@@ -26,16 +26,35 @@
 }
 
 .label-cavity {
-    color: $basic-aid-color;
-    fill: $basic-aid-color;
-    border-color: $basic-aid-color;
-    background-color: transparent;
+  color: $basic-aid-color;
+  fill: $basic-aid-color;
+  border-color: $basic-aid-color;
+  background-color: transparent;
 }
 
 .label-danger {
     background-color: $basic-aid-red-color;
 }
 
+@mixin labelStyle ($color) {
+  background-color: $color;
+
+  &.light {
+    background-color: transparent;
+    color: $color;
+    border: 1px solid $color;
+  }
+}
+
 .label-warning {
-    background-color: $basic-aid-yel-color;
+  @include labelStyle($basic-aid-yel-color);
+}
+.label-info {
+  @include labelStyle($subBlueColor);
+}
+.label-error {
+  @include labelStyle($subRedColor);
+}
+.label-alarm {
+  @include labelStyle($subBrownColor);
 }

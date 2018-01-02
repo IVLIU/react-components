@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import {
   Button, Input, MultiInput, Select,
   Radio, Checkbox, Form, Modal,
-  Code, Tab, Icon
+  Code, Tab, Icon, Table, Label
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -97,6 +97,33 @@ const code = {
     }
   }
 }
+const columns = [{
+  title: '1',
+  key: '',
+  render (item, row, index) {
+    index += 1
+    return <span className="table-sequence">{index > 9 ? index : `0${index}`}</span>
+  }
+}, {
+  key: 'labels',
+  title: '2',
+  render (items) {
+    return (
+      items.map(item => {
+        return <Label className="table-label" light key={item.desc} type={item.type}>{item.desc}</Label>
+      })
+    )
+  }
+}, {
+  key: 'type',
+  title: '3',
+  render (item) {
+    return <span className="color-error">{item}</span>
+  }
+}, {
+  key: 'times',
+  title: '4'
+}]
 export default class App extends Component {
   constructor () {
     super()
@@ -110,6 +137,69 @@ export default class App extends Component {
     this.setState({
       value
     })
+  }
+  renderTable () {
+    const tableData = [{
+      ip: '87.101.12.12',
+      labels: [{
+        type: 'error',
+        desc: 'IDC机房'
+      }, {
+        type: 'info',
+        desc: '辣鸡邮件'
+      }],
+      type: '阻断',
+      times: '32342342次'
+    }, {
+      ip: '87.101.12.12',
+      labels: [{
+        type: 'error',
+        desc: 'IDC机房'
+      }, {
+        type: 'info',
+        desc: '辣鸡邮件'
+      }],
+      type: '阻断',
+      times: '32342342次'
+    }, {
+      ip: '87.101.12.12',
+      labels: [{
+        type: 'error',
+        desc: 'IDC机房'
+      }, {
+        type: 'info',
+        desc: '辣鸡邮件'
+      }],
+      type: '阻断',
+      times: '32342342次'
+    }, {
+      ip: '87.101.12.12',
+      labels: [{
+        type: 'error',
+        desc: 'IDC机房'
+      }, {
+        type: 'info',
+        desc: '辣鸡邮件'
+      }],
+      type: '阻断',
+      times: '32342342次'
+    }]
+    return (
+      <div className="row">
+        <div className="col-6">
+          <Table columns={columns}
+            hover={false}
+            border={false}
+            showHeader={false}
+            lineHeight={30}
+            data={tableData} />
+        </div>
+        <div className="col-6">
+          <Table columns={columns}
+            data={tableData} />
+        </div>
+      </div>
+    )
   }
   Submit () {
     const res = this.refs.input.validateAndSubmit()
@@ -298,6 +388,7 @@ export default class App extends Component {
             </TabPanel>
           </Tab>
         </div>
+        {this.renderTable()}
       </div>
     )
   }

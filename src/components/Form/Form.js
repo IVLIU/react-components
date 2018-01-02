@@ -2,12 +2,13 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:00:25
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-26 19:46:07
+ * @Last Modified time: 2018-01-02 16:45:21
  */
 import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import event from '../../lib/eventProxy'
 import classNames from 'classnames'
+import FormItem from './FormItem'
 
 /**
  * 表单封装
@@ -68,9 +69,8 @@ export default class Form extends Component {
         return this.renderChildrens(child)
       })
     }
-
     // 遇到FormItem,则绑定id
-    if (children.type && children.type.name === 'FormItem') {
+    if (children.type && children.type.name === FormItem.name) {
       return cloneElement(children, {
         id: this.id,
         data

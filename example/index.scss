@@ -6,3 +6,21 @@ body {
   height: 16px;
   margin-right: 5px;
 }
+
+
+
+.table-sequence{
+  display: inline-block;
+  background-color: #394045;
+  color: #fff;
+  border-radius: 2px;
+  padding: 0 2px;
+  transform: scale(0.8);
+}
+.table-label{
+  margin-right: 20px;
+}
+.color-error{
+  color: #D73E3E;
+  font-weight: bold;
+}
