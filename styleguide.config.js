@@ -20,7 +20,7 @@ const components = {
   table: join('Table/Base.js')
 }
 module.exports = {
-  serverPort: 8081,
+  serverPort: 8080,
   sections: [{
     name: 'icon',
     content: resolve('./doc/IconList.md')
