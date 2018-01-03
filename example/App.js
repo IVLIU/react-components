@@ -98,15 +98,8 @@ const code = {
   }
 }
 const columns = [{
-  title: '1',
-  key: '',
-  render (item, row, index) {
-    index += 1
-    return <span className="table-sequence">{index > 9 ? index : `0${index}`}</span>
-  }
-}, {
   key: 'labels',
-  title: '2',
+  title: '1',
   render (items) {
     return (
       items.map(item => {
@@ -116,13 +109,18 @@ const columns = [{
   }
 }, {
   key: 'type',
-  title: '3',
+  title: '2',
   render (item) {
     return <span className="color-error">{item}</span>
   }
 }, {
   key: 'times',
-  title: '4'
+  title: '3'
+}, {
+  title: '操作',
+  render (item, row, { expandShow }) {
+    return <span>{expandShow ? '收起' : '展开'}</span>
+  }
 }]
 export default class App extends Component {
   constructor () {
@@ -137,6 +135,14 @@ export default class App extends Component {
     this.setState({
       value
     })
+  }
+  expandRowRender () {
+    return (
+      <div>
+        这是扩展的内容
+        <p>可以各种自定义</p>
+      </div>
+    )
   }
   renderTable () {
     const tableData = [{
@@ -184,19 +190,70 @@ export default class App extends Component {
       type: '阻断',
       times: '32342342次'
     }]
+    const tableData2 = tableData.slice(0).map(item => {
+      return Object.assign({}, item, {
+        children: [{
+          ip: '87.101.12.12',
+          labels: [{
+            type: 'error',
+            desc: 'IDC机房'
+          }, {
+            type: 'info',
+            desc: '辣鸡邮件'
+          }],
+          type: '阻断',
+          times: '32342342次'
+        }, {
+          ip: '87.101.12.12',
+          labels: [{
+            type: 'error',
+            desc: 'IDC机房'
+          }, {
+            type: 'info',
+            desc: '辣鸡邮件'
+          }],
+          type: '阻断',
+          times: '32342342次'
+        }]
+      })
+    })
+    console.log(tableData2)
     return (
-      <div className="row">
-        <div className="col-6">
-          <Table columns={columns}
-            hover={false}
-            border={false}
-            showHeader={false}
-            lineHeight={30}
-            data={tableData} />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-6">
+            <Table columns={columns}
+              hover={false}
+              border={false}
+              showHeader={false}
+              lineHeight={30}
+              data={tableData} />
+          </div>
+          <div className="col-6">
+            <Table columns={columns}
+              data={tableData} />
+          </div>
         </div>
-        <div className="col-6">
-          <Table columns={columns}
-            data={tableData} />
+        <div className="row">
+          <div className="col-6">
+            <Table columns={columns}
+              expandRowRender={this.expandRowRender}
+              data={tableData} />
+          </div>
+          <div className="col-6">
+            <Table columns={columns}
+              hasChild={true}
+              // expandRowRender={this.expandRowRender}
+              data={tableData2} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-6">
+            <Table columns={columns}
+              hasChild={true}
+              expandRowRender={this.expandRowRender}
+              data={tableData2} />
+          </div>
         </div>
       </div>
     )

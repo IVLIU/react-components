@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import Row from './ChildRows'
 
+/**
+ * 基本的表格
+ */
 export default class BaseTable extends Component {
   render () {
-    const { columns, data, border, hover, lineHeight, showHeader, className } = this.props
+    const { columns, data, border,
+      hover, lineHeight, showHeader,
+      className, expandRowRender,
+      hasChild, ...others
+    } = this.props
     const classes = classNames({
       'table': true,
       border,
       hover
     }, className)
     return (
-      <table className={classes}>
+      <table className={classes} {...others}>
         {
           showHeader
             ? <thead className="table-head">
@@ -19,6 +27,7 @@ export default class BaseTable extends Component {
                 {
                   columns.map((column, index) => (<th
                     key={column.key + index}
+                    colSpan={hasChild && index === 0 ? 2 : 1}
                     className="table-head-item"
                     width={column.width}>
                     {column.title}
@@ -32,24 +41,13 @@ export default class BaseTable extends Component {
           {
             data.map((row, index) => {
               return (
-                <tr className="table-body-row" key={'table-body-row-' + index} style={{ height: lineHeight + 'px' }}>
-                  {
-                    columns.map((column, i) => {
-                      const { key, render, align } = column
-                      const rowData = row[key]
-                      const ret = render ? render(rowData, row, index, i) : rowData
-                      return <td className="table-row-item"
-                        style={{
-                          height: lineHeight + 'px',
-                          textAlign: align || 'center'
-                        }}
-                        width={column.width}
-                        key={'row' + index + i}>
-                        {ret}
-                      </td>
-                    })
-                  }
-                </tr>
+                <Row key={'table-body-row-' + index}
+                  row={row}
+                  index={index}
+                  columns={columns}
+                  expandRowRender={expandRowRender}
+                  lineHeight={lineHeight}
+                  style={{ height: lineHeight + 'px' }}/>
               )
             })
           }
@@ -67,10 +65,18 @@ BaseTable.defaultProps = {
   lineHeight: 50
 }
 BaseTable.propTypes = {
+  /** 内容数据 */
   data: PropTypes.array,
+  /** 列的规则 */
   columns: PropTypes.array,
+  /** 是否带边框 */
   border: PropTypes.bool,
+  /** 是否带有hover样式 */
   hover: PropTypes.bool,
+  /** 是否展示头 */
   showHeader: PropTypes.bool,
-  lineHeight: PropTypes.number
+  /** 每行的高度 */
+  lineHeight: PropTypes.number,
+  /** 可展开表格的渲染 */
+  expandRowRender: PropTypes.func
 }

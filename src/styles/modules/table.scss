@@ -13,6 +13,15 @@
 		.table-head, .table-body-row {
 			border-bottom: 1px solid $basic-border-color;
 		}
+		.table-body-child-row, .child-open{
+			border-bottom: none;
+		}
+		.child-open ~ .table-body-row:not(.table-body-child-row) {
+			border-top: 1px solid $basic-border-color;
+		}
+		.table-body-expand-row ~ .table-body-row:not(.table-body-child-row){
+			border-top: 1px solid $basic-border-color;
+		}
 		th {
 			border-right: 1px solid $basic-border-color;
 			&:last-child {
@@ -47,5 +56,16 @@
 	>td {
 		height: 50px;
     text-align: center;
+	}
+	&.has-expand {
+		cursor: pointer;
+	}
+	.table-body-has-child-icon{
+		cursor: pointer;
+		margin-top: 2px;
+		width: 16px;
+		height: 16px;
+		margin-right: 10px;
+		vertical-align: top;
 	}
 }
