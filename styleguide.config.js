@@ -4,6 +4,7 @@ const resolve = p => path.resolve(__dirname, p)
 const components = {
   icon: join('Icon/index.js'),
   button: join('Button/index.js'),
+  label: join('Label/index.js'),
   input: join('Input/index.js'),
   multiInput: join('MultiInput/index.js'),
   select: join('Select/index.js'),
@@ -15,7 +16,8 @@ const components = {
   formItem: join('Form/FormItem.js'),
   code: join('Code/index.js'),
   tab: join('Tab/Tab.js'),
-  tabPanel: join('Tab/TabPanel.js')
+  tabPanel: join('Tab/TabPanel.js'),
+  table: join('Table/Base.js')
 }
 module.exports = {
   serverPort: 8081,

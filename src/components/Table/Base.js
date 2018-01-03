@@ -45,6 +45,7 @@ export default class BaseTable extends Component {
                   row={row}
                   index={index}
                   columns={columns}
+                  hasChild={hasChild}
                   expandRowRender={expandRowRender}
                   lineHeight={lineHeight}
                   style={{ height: lineHeight + 'px' }}/>

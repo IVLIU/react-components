@@ -28,7 +28,8 @@ export default class Row extends Component {
     const { columns, row, index,
       lineHeight, expandRowRender,
       hasChild, handleChildToggle,
-      isChild, showChild, ...others
+      isChild, showChild, hasChildren,
+      ...others
     } = this.props
     const { show } = this.state
     const classes = classNames({
@@ -46,12 +47,9 @@ export default class Row extends Component {
               ? <td>
                 <Icon className="table-body-has-child-icon" onClick={handleChildToggle} link={showChild ? subIcon : addIcon} />
               </td>
-              : null
-          }
-          {
-            isChild
-              ? <td></td>
-              : null
+              : isChild || hasChildren
+                ? <td></td>
+                : null
           }
           {
             columns.map((column, i) => {
@@ -77,7 +75,7 @@ export default class Row extends Component {
         {
           show && expandRowRender
             ? <tr className="table-body-expand-row">
-              <td colSpan={hasChild ? columns.length + 1 : columns.length}>
+              <td colSpan={hasChildren ? columns.length + 1 : columns.length}>
                 {expandRowRender(row, index, columns)}
               </td>
             </tr>

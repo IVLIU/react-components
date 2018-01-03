@@ -20,7 +20,7 @@ export default class ChildRows extends Component {
     })
   }
   render () {
-    const { columns, row, index, lineHeight, expandRowRender } = this.props
+    const { columns, row, index, hasChild, lineHeight, expandRowRender } = this.props
     const { show } = this.state
     return (
       <Fragment>
@@ -30,6 +30,7 @@ export default class ChildRows extends Component {
           columns={columns}
           expandRowRender={expandRowRender}
           lineHeight={lineHeight}
+          hasChildren={hasChild}
           hasChild={row.children && row.children.length}
           handleChildToggle={this.toggleRow}
           showChild={show}
