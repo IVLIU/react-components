@@ -222,6 +222,7 @@ export default class App extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-6">
+            不带边框不带hover
             <Table columns={columns}
               hover={false}
               border={false}
@@ -230,17 +231,20 @@ export default class App extends Component {
               data={tableData} />
           </div>
           <div className="col-6">
+            带边框hover的普通table
             <Table columns={columns}
               data={tableData} />
           </div>
         </div>
         <div className="row">
           <div className="col-6">
+            可展开的table
             <Table columns={columns}
               expandRowRender={this.expandRowRender}
               data={tableData} />
           </div>
           <div className="col-6">
+            带子行的table
             <Table columns={columns}
               hasChild={true}
               // expandRowRender={this.expandRowRender}
@@ -249,6 +253,7 @@ export default class App extends Component {
         </div>
         <div className="row">
           <div className="col-6">
+            可展开带子行的table
             <Table columns={columns}
               hasChild={true}
               expandRowRender={this.expandRowRender}

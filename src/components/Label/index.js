@@ -19,5 +19,8 @@ export default class Label extends Component {
   }
 }
 Label.propTypes = {
-  type: PropTypes.string
+  /** 标签类型 */
+  type: PropTypes.string,
+  /** 轻版label */
+  light: PropTypes.bool
 }

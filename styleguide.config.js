@@ -18,7 +18,7 @@ const components = {
   tabPanel: join('Tab/TabPanel.js')
 }
 module.exports = {
-  serverPort: 8080,
+  serverPort: 8081,
   sections: [{
     name: 'icon',
     content: resolve('./doc/IconList.md')
