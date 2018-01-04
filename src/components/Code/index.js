@@ -46,7 +46,7 @@ export default class Code extends Component {
     return <JSONPretty json={data} />
   }
   render () {
-    const { data, type, ...others } = this.props
+    const { data, type, labelWidth, ...others } = this.props
     return (
       <div className="code-wrap" {...others}>
         {
