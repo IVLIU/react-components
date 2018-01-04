@@ -14,6 +14,7 @@ body {
 	font-size: $font-basic-size;
 	font-weight: 400;
 	line-height: 1.428;
+	overflow-y: hidden;
 }
 .container {
 	width: 1200px;
