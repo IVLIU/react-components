@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import {
   Button, Input, MultiInput, Select,
   Radio, Checkbox, Form, Modal,
-  Code, Tab, Icon, Table, Label
+  Code, Tab, Icon, Table, Label,
+  Box, Alert
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -340,6 +341,31 @@ export default class App extends Component {
     const dfValue = { a: 1 }
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Box data={true}>
+          这是一个小盒子
+        </Box>
+        <Box data={true} border title="这是盒子标题" contentHeight="200">
+          这是一个小盒子
+        </Box>
+        <Box data={true} isLoading title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box data={true} collapse title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box data={true} collapse toggleRender={open => {
+          return open ? '关闭！' : '打开！'
+        }} title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box border data={[]} title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box border data={undefined} title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Alert className="mgb20" message="这是个消息" type="success" description="束带结发了桑德菲杰圣诞节疯狂水电费"/>
+        <Alert className="mgb20" message="这是个消息" type="error" description="束带结发了桑德菲杰圣诞节疯狂水电费"/>
         <div className="row mgb20">
           <Button>按钮</Button>
           <Button type="primary" className="test">按钮</Button>

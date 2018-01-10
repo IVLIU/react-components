@@ -3,6 +3,8 @@ const join = p => path.join('./src/components/', p)
 const resolve = p => path.resolve(__dirname, p)
 const components = {
   icon: join('Icon/index.js'),
+  box: join('Box/index.js'),
+  alert: join('Alert/index.js'),
   button: join('Button/index.js'),
   label: join('Label/index.js'),
   input: join('Input/index.js'),
@@ -76,7 +78,7 @@ module.exports = {
           loader: 'svg-sprite-loader',
           options: {
             runtimeCompat: true
-          },
+          }
           // include: resolve('./src/images/svg/')
         }
       ]
