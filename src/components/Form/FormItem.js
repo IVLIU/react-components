@@ -2,11 +2,10 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-11 11:36:08
+ * @Last Modified time: 2018-01-11 17:17:21
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import event from '../../lib/eventProxy'
 import validate from './validators'
 import classNames from 'classnames'
 import formDataMap from './formDataMap'

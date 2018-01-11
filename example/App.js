@@ -4,7 +4,7 @@ import {
   Button, Input, MultiInput, Select,
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
-  Box, Alert, Dropdown, DropdownList
+  Box, Alert, Dropdown, DropdownList, Loading
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -338,6 +338,7 @@ export default class App extends Component {
     const { showModal } = this.state
     return (
       <div className="row mgb20">
+
         <button onClick={this.showModal.bind(this)} className="btn btn-secondary">
           点我显示Modal
         </button>
@@ -369,6 +370,9 @@ export default class App extends Component {
     }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Loading size="lg"/>
+        <Loading/>
+        <Loading type="bar"/>
         <Dropdown overlay={overlay} >
           <Button type="secondary">点我</Button>
         </Dropdown>

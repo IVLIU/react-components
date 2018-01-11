@@ -4,7 +4,7 @@ import Circle from './Loading'
 import Bar from './LoadingBar'
 
 export default function Loading (props) {
-  const { type = 'default', ...others } = this.props
+  const { type = 'default', ...others } = props
 
   switch (type) {
     case 'bar':
