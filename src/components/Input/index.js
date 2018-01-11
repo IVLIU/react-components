@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-30 17:11:32
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-26 19:48:19
+ * @Last Modified time: 2018-01-11 10:52:24
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -139,4 +139,6 @@ Input.propTypes = {
     PropTypes.string
   ])
 }
-Input.defaultProps = {}
+Input.defaultProps = {
+  type: 'text'
+}

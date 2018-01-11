@@ -4,7 +4,7 @@ import {
   Button, Input, MultiInput, Select,
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
-  Box, Alert
+  Box, Alert, Dropdown, DropdownList
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -40,12 +40,23 @@ const field = {
     }]
   },
   phone: {
-    value: '13022423521',
+    value: '',
     validators: [{
       required: true
     }, {
       type: 'phone'
     }]
+  },
+  phone_ensure: {
+    value: '13022423521',
+    validators: [{
+      required: true
+    }, {
+      fn (item, data) {
+        return true
+      }
+    }],
+    trigger: 'blur'
   },
   hobby: {
     value: 'football',
@@ -304,6 +315,11 @@ export default class App extends Component {
             <MultiInput />
           </FormItem>
         </div>
+        <div className="row mgb20">
+          <FormItem label="电话" placeholder="填写您的邮箱" field="phone_ensure">
+            <Input />
+          </FormItem>
+        </div>
         <Button onClick={this.Submit.bind(this)} type="secondary">提交</Button>
       </Form>
     )
@@ -339,8 +355,31 @@ export default class App extends Component {
   render () {
     const handleChange = this.handleChange.bind(this)
     const dfValue = { a: 1 }
+    const overlay = (
+      <Box data={true} border title="这是盒子标题" contentHeight="200">
+        这是一个小盒子
+      </Box>
+    )
+    const listItems = [{
+      label: '修改密码',
+      value: 'edit'
+    }, {
+      label: '删除',
+      value: 'delete'
+    }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Dropdown overlay={overlay} >
+          <Button type="secondary">点我</Button>
+        </Dropdown>
+        <DropdownList trigger="hover" onChange={console.log} className="mgb20" listItems={listItems}>
+          操作
+        </DropdownList>
+        <DropdownList style={{
+          width: 300
+        }} onChange={console.log} className="mgb20" listItems={listItems}>
+          操作
+        </DropdownList>
         <Box data={true}>
           这是一个小盒子
         </Box>

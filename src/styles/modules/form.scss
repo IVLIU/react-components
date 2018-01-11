@@ -286,6 +286,15 @@
   &.Select--multi .Select-clear-zone {
     line-height: 0;
   }
+  &.white {
+    .Select-control {
+      background-color: #fff;
+    }
+    .Select-option{
+      background-color: #fff;
+      color: $font-color-normal;
+    }
+  }
   .del-icon {
     width: 14px;
     height: 14px;

@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:03:03
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-26 10:09:54
+ * @Last Modified time: 2018-01-11 11:32:59
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -58,9 +58,10 @@ export default class Select extends Component {
   }
 
   render () {
-    const { options, className, hasError, multi, disabled, clearable } = this.props
+    const { options, className, hasError, multi, disabled, clearable, theme } = this.props
     const classes = classNames('select', {
-      error: hasError
+      error: hasError,
+      [theme]: true
     }, className)
     const config = {
       multi,
@@ -84,6 +85,9 @@ export default class Select extends Component {
     )
   }
 }
+Select.defaultProps = {
+  theme: 'default'
+}
 Select.propTypes = {
   /** 是否是多选 */
   multi: PropTypes.bool,
@@ -104,5 +108,7 @@ Select.propTypes = {
   /** 默认值 */
   defaultValue: PropTypes.any,
   /** change回调 */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /** 可选主题颜色 default, white */
+  theme: PropTypes.string
 }

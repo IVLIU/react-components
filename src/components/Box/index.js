@@ -84,7 +84,7 @@ export default class Box extends Component {
             : null
         }
         <div className="box-content" style={{
-          height: parseInt(contentHeight)
+          height: contentHeight ? parseInt(contentHeight) : ''
         }}>
           {
             isLoading ? 'loading...' : children
