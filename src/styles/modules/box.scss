@@ -28,6 +28,12 @@
       }
     }
   }
+
+  .box-loading {
+    display: block;
+    margin: 50px auto;
+    transform: scale(0.6);
+  }
 }
 .box-title {
   padding-bottom: 10px;

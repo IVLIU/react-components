@@ -166,6 +166,25 @@ $blue-light: $basic-aid-blue-color;
     }
 }
 
+.loading-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 70px;
+    color: $primaryBlueColor;
+    font-size: 16px;
+    background-color: #fff;
+    padding: 0 20px;
+    border-radius: 2px;
+
+    .loading-box-icon{
+        transform: scale(0.5);
+        margin-right: -30px; 
+        transform-origin: center left;
+    }
+}
+
 .loading-logo {
     display: inline-block;
     position: relative;

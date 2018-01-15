@@ -372,6 +372,7 @@ export default class App extends Component {
       <div className="container" style={{width: '1200px'}}>
         <Loading size="lg"/>
         <Loading/>
+        <Loading type="box">正在提交...</Loading>
         <Loading type="bar"/>
         <Dropdown overlay={overlay} >
           <Button type="secondary">点我</Button>

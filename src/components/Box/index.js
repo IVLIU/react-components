@@ -5,6 +5,7 @@ import Icon from '../Icon'
 import iconArrow from '@/images/svg/coor-arrow.svg'
 import pureRender from 'pure-render-decorator'
 import autobind from 'autobind-decorator'
+import Loading from '../Loading'
 
 /**
  * 基本的盒子，用于组成页面的各个小容器
@@ -87,7 +88,7 @@ export default class Box extends Component {
           height: contentHeight ? parseInt(contentHeight) : ''
         }}>
           {
-            isLoading ? 'loading...' : children
+            isLoading ? <Loading className="box-loading" size="lg"/> : children
           }
         </div>
       </div>
