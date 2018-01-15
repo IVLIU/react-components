@@ -29,7 +29,7 @@ const validators = {
   }
 }
 
-export default function (value, rule) {
+export default function (value, rule, data) {
   if (rule.required) {
     return validators.required(value)
   }
@@ -42,6 +42,16 @@ export default function (value, rule) {
       return true
     }
     return validators[rule.type](value)
+  }
+
+  // 验证函数
+  if (rule.fn) {
+    return rule.fn(value, data)
+  }
+
+  // 正则
+  if (rule.reg) {
+    return rule.reg.test(value)
   }
 
   return true

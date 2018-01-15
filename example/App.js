@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import {
   Button, Input, MultiInput, Select,
   Radio, Checkbox, Form, Modal,
-  Code, Tab, Icon, Table, Label
+  Code, Tab, Icon, Table, Label,
+  Box, Alert, Dropdown, DropdownList, Loading
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -39,12 +40,23 @@ const field = {
     }]
   },
   phone: {
-    value: '13022423521',
+    value: '',
     validators: [{
       required: true
     }, {
       type: 'phone'
     }]
+  },
+  phone_ensure: {
+    value: '13022423521',
+    validators: [{
+      required: true
+    }, {
+      fn (item, data) {
+        return true
+      }
+    }],
+    trigger: 'blur'
   },
   hobby: {
     value: 'football',
@@ -303,6 +315,11 @@ export default class App extends Component {
             <MultiInput />
           </FormItem>
         </div>
+        <div className="row mgb20">
+          <FormItem label="电话" placeholder="填写您的邮箱" field="phone_ensure">
+            <Input />
+          </FormItem>
+        </div>
         <Button onClick={this.Submit.bind(this)} type="secondary">提交</Button>
       </Form>
     )
@@ -321,6 +338,7 @@ export default class App extends Component {
     const { showModal } = this.state
     return (
       <div className="row mgb20">
+
         <button onClick={this.showModal.bind(this)} className="btn btn-secondary">
           点我显示Modal
         </button>
@@ -338,8 +356,60 @@ export default class App extends Component {
   render () {
     const handleChange = this.handleChange.bind(this)
     const dfValue = { a: 1 }
+    const overlay = (
+      <Box data={true} border title="这是盒子标题" contentHeight="200">
+        这是一个小盒子
+      </Box>
+    )
+    const listItems = [{
+      label: '修改密码',
+      value: 'edit'
+    }, {
+      label: '删除',
+      value: 'delete'
+    }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Loading size="lg"/>
+        <Loading/>
+        <Loading type="box">正在提交...</Loading>
+        <Loading type="bar"/>
+        <Dropdown overlay={overlay} >
+          <Button type="secondary">点我</Button>
+        </Dropdown>
+        <DropdownList trigger="hover" onChange={console.log} className="mgb20" listItems={listItems}>
+          操作
+        </DropdownList>
+        <DropdownList style={{
+          width: 300
+        }} onChange={console.log} className="mgb20" listItems={listItems}>
+          操作
+        </DropdownList>
+        <Box data={true}>
+          这是一个小盒子
+        </Box>
+        <Box data={true} border title="这是盒子标题" contentHeight="200">
+          这是一个小盒子
+        </Box>
+        <Box data={true} isLoading title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box data={true} collapse title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box data={true} collapse toggleRender={open => {
+          return open ? '关闭！' : '打开！'
+        }} title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box border data={[]} title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Box border data={undefined} title="这是盒子标题">
+          这是一个小盒子
+        </Box>
+        <Alert className="mgb20" message="这是个消息" type="success" description="束带结发了桑德菲杰圣诞节疯狂水电费"/>
+        <Alert className="mgb20" message="这是个消息" type="error" description="束带结发了桑德菲杰圣诞节疯狂水电费"/>
         <div className="row mgb20">
           <Button>按钮</Button>
           <Button type="primary" className="test">按钮</Button>

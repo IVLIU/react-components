@@ -2,13 +2,13 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-02 16:51:40
+ * @Last Modified time: 2018-01-11 17:17:21
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import event from '../../lib/eventProxy'
 import validate from './validators'
 import classNames from 'classnames'
+import formDataMap from './formDataMap'
 
 /**
  * 单个表单元素
@@ -19,6 +19,7 @@ export default class FormItem extends Component {
   constructor () {
     super()
     this.handleInput = this.handleInput.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
     this.state = {
       hasError: false
     }
@@ -26,66 +27,84 @@ export default class FormItem extends Component {
   componentWillMount () {
     const { data, field, id } = this.props
     const fieldData = data[field]
-
+    this.id = id
+    this.trigger = fieldData ? (fieldData.trigger || 'input') : 'input'
     if (!field) {
       return
     }
     if (!fieldData) {
       throw new Error(`data中缺少正确的field：${field}`)
     }
-    console.log(1)
     const { value, validators } = fieldData
-    console.log(2)
-    this.handleInput(value, true)
     this.validators = validators
+    this.handleInput(value, true)
     this.isRequired = validators
       ? validators.some(validator => {
         return validator.required
       })
       : false
-    this.id = id
   }
   validateItem (value) {
     const { validators } = this
-
+    const curDataMap = formDataMap.get(this.id)
+    const curData = this.getCurData(curDataMap)
     if (!validators) {
       return true
     }
-
     return !validators.some(rule => {
       if (Array.isArray(value)) {
         if (rule.required) {
           return !validate(value, rule)
         }
         return value.some(i => {
-          return !validate(i, rule)
+          return !validate(i, rule, curData)
         })
       }
-      return !validate(value, rule)
+      return !validate(value, rule, curData)
     })
+  }
+  getCurData (dataMap) {
+    let ret = {}
+    Object.keys(dataMap).forEach(key => {
+      ret[key] = dataMap[key].value
+    })
+    return ret
   }
   handleInput (value, first) {
     const { field, onChange } = this.props
-    const isOk = this.validateItem(value)
+    let isOk = this.validateItem(value, 'input')
 
-    if (!isOk && !first) {
-      this.setState({
-        hasError: true
-      })
-    } else {
-      this.setState({
-        hasError: false
-      })
+    if (this.trigger === 'input') {
+      if (!isOk && !first) {
+        this.setState({
+          hasError: true
+        })
+      } else {
+        this.setState({
+          hasError: false
+        })
+      }
     }
-    event.trigger(`form-field-change-${this.id}`, {
-      key: field,
-      config: {
-        value,
-        isOk
-      },
+    formDataMap.setByItemKey(this.id, field, {
+      value,
+      isOk,
       context: this
     })
     onChange && onChange(value)
+  }
+  handleBlur (e) {
+    const value = e.target.value
+    const { field } = this.props
+    if (this.trigger !== 'blur') return
+    const isOk = this.validateItem(value)
+    this.setState({
+      hasError: !isOk
+    })
+    formDataMap.setByItemKey(this.id, field, {
+      value,
+      isOk,
+      context: this
+    })
   }
   renderChildren () {
     const { children, placeholder, data, field } = this.props
@@ -93,6 +112,7 @@ export default class FormItem extends Component {
     const { value } = data[field] || {}
     return children ? React.cloneElement(children, {
       onChange: this.handleInput,
+      onBlur: this.handleBlur,
       defaultValue: value,
       placeholder,
       hasError
@@ -117,6 +137,9 @@ export default class FormItem extends Component {
   }
 }
 FormItem.displayName = 'FormItem'
+FormItem.defaultProps = {
+  trigger: 'input'
+}
 FormItem.propTypes = {
   /** 表单元素的标签 */
   label: PropTypes.any,

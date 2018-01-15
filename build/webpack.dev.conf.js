@@ -6,12 +6,14 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var env = process.env.NODE_ENV.trim()
+var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+var path = require('path')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = [
-    'react-hot-loader/patch',
-    './build/dev-client'
+    // 'react-hot-loader/patch',
+    // './build/dev-client'
   ].concat(baseWebpackConfig.entry[name])
 })
 
@@ -27,13 +29,22 @@ module.exports = merge(baseWebpackConfig, {
       __ENV__: JSON.stringify('dev')
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./dll/manifest.json'),
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
       inject: true
     }),
-    new FriendlyErrorsPlugin()
+    new AddAssetHtmlPlugin([{
+      filepath: path.resolve(__dirname, './dll/dll.js'),
+      includeSourcemap: false
+    }]),
+    new FriendlyErrorsPlugin(),
   ]
 })

@@ -2,13 +2,13 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:00:25
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-02 16:45:21
+ * @Last Modified time: 2018-01-11 16:28:03
  */
 import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
-import event from '../../lib/eventProxy'
 import classNames from 'classnames'
 import FormItem from './FormItem'
+import formDataMap from './formDataMap'
 
 /**
  * 表单封装
@@ -16,34 +16,26 @@ import FormItem from './FormItem'
  */
 let id = 0
 export default class Form extends Component {
-  constructor () {
-    super()
-    this.dataMap = {}
-  }
   componentWillMount () {
     const { data } = this.props
+    let dataMap = {}
     Object.keys(data).forEach(key => {
-      this.dataMap[key] = {
+      dataMap[key] = {
         value: data[key].value,
         isOk: true
       }
     })
     this.id = `form-id-${++id}`
-    event.on(`form-field-change-${this.id}`, ({key, config, context}) => {
-      this.dataMap[key] = {
-        value: config.value,
-        isOk: config.isOk,
-        context
-      }
-    })
+    formDataMap.set(this.id, dataMap)
   }
   /**
    * 验证当前内容并返回表单的值
    * @public
    */
   validateAndSubmit () {
-    const hasFalse = Object.keys(this.dataMap).some(key => {
-      const item = this.dataMap[key]
+    const dataMap = formDataMap.get(this.id)
+    const hasFalse = Object.keys(dataMap).some(key => {
+      const item = dataMap[key]
 
       if (!item.isOk) {
         item.context.setState({
@@ -56,9 +48,12 @@ export default class Form extends Component {
       return false
     }
 
+    return this.getCurData(dataMap)
+  }
+  getCurData (dataMap) {
     let ret = {}
-    Object.keys(this.dataMap).forEach(key => {
-      ret[key] = this.dataMap[key].value
+    Object.keys(dataMap).forEach(key => {
+      ret[key] = dataMap[key].value
     })
     return ret
   }
@@ -89,7 +84,7 @@ export default class Form extends Component {
     return children
   }
   render () {
-    const { children, className, ...others } = this.props
+    const { children, className, data, ...others } = this.props
     const classes = classNames('form', className)
     return (
       <div className={classes} {...others}>

@@ -30,6 +30,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     }) + '\n\n')
     shelljs.cp(path.resolve(__dirname, '../dist/static/css/lib.css'), path.join(target, 'styles/index.css'))
     shelljs.cp('-R', path.resolve(__dirname, '../dist/static/js/lib.js'), path.join(target, 'common/lib.js'))
+    shelljs.cp('-R', path.resolve(__dirname, './dll'), target)
     console.log(chalk.cyan('  Build complete.\n'))
     console.log(chalk.yellow(
       '  Tip: built files are meant to be served over an HTTP server.\n' +
