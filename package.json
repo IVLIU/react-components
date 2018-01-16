@@ -50,6 +50,7 @@
     "pre-commit": "^1.2.2",
     "precss": "^2.0.0",
     "pure-render-decorator": "^1.2.1",
+    "rc-pagination": "^1.14.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-hot-loader": "next",

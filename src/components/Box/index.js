@@ -63,7 +63,7 @@ export default class Box extends Component {
   render () {
     const { className, title, children,
       isLoading, border, contentHeight,
-      collapse, ...others } = this.props
+      collapse, data, ...others } = this.props
     const { open } = this.state
     const classes = classNames(
       'box',

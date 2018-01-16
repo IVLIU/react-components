@@ -4,7 +4,8 @@ import {
   Button, Input, MultiInput, Select,
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
-  Box, Alert, Dropdown, DropdownList, Loading
+  Box, Alert, Dropdown, DropdownList, Loading,
+  Pagination
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -139,7 +140,8 @@ export default class App extends Component {
     super()
     this.state = {
       showModal: false,
-      value: '222'
+      value: '222',
+      current: 1
     }
   }
   handleChange (value) {
@@ -353,6 +355,11 @@ export default class App extends Component {
       </div>
     )
   }
+  handlePageChange (current) {
+    this.setState({
+      current
+    })
+  }
   render () {
     const handleChange = this.handleChange.bind(this)
     const dfValue = { a: 1 }
@@ -361,6 +368,7 @@ export default class App extends Component {
         这是一个小盒子
       </Box>
     )
+    const { current } = this.state
     const listItems = [{
       label: '修改密码',
       value: 'edit'
@@ -370,6 +378,7 @@ export default class App extends Component {
     }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Pagination current={current} total={25} onChange={this.handlePageChange.bind(this)}/>
         <Loading size="lg"/>
         <Loading/>
         <Loading type="box">正在提交...</Loading>
