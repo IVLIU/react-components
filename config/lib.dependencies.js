@@ -10,11 +10,11 @@ const lib = [
   'react-modal',
   'react-select',
   'moment',
-  'echarts',
-  'zrender',
-  'lodash',
-  '@blueprintjs/core',
-  '@blueprintjs/datetime'
+  // 'echarts',
+  // 'zrender',
+  // 'lodash',
+  // '@blueprintjs/core',
+  // '@blueprintjs/datetime'
 ];
 
 module.exports = lib;
