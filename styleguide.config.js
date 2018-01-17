@@ -1,12 +1,30 @@
 const path = require('path')
 const join = p => path.join('./src/components/', p)
 const resolve = p => path.resolve(__dirname, p)
-const components = {
+const componentMap = component => {
+  return Object.keys(component).map(key => {
+    return component[key]
+  })
+}
+const baseComponents = {
   icon: join('Icon/index.js'),
-  box: join('Box/index.js'),
-  alert: join('Alert/index.js'),
   button: join('Button/index.js'),
   label: join('Label/index.js'),
+  Loading: join('Loading/index.js'),
+  Modal: join('Modal/index.js'),
+}
+const dataComponents = {
+  alert: join('Alert/index.js'),
+  box: join('Box/index.js'),
+  table: join('Table/Base.js'),
+  tab: join('Tab/Tab.js'),
+  tabPanel: join('Tab/TabPanel.js'),
+  code: join('Code/index.js'),
+  Pagination: join('Pagination/index.js'),
+  dropdown: join('Dropdown/index.js'),
+  dropdownList: join('DropdownList/index.js')
+}
+const formComponents = {
   input: join('Input/index.js'),
   multiInput: join('MultiInput/index.js'),
   select: join('Select/index.js'),
@@ -16,24 +34,24 @@ const components = {
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
   form: join('Form/Form.js'),
   formItem: join('Form/FormItem.js'),
-  code: join('Code/index.js'),
-  tab: join('Tab/Tab.js'),
-  tabPanel: join('Tab/TabPanel.js'),
-  table: join('Table/Base.js')
 }
 module.exports = {
-  serverPort: 8080,
+  serverPort: 8081,
   sections: [{
-    name: 'icon',
+    name: 'Startup',
+    content: resolve('./doc/base.md')
+  },{
+    name: 'IconList',
     content: resolve('./doc/IconList.md')
   }, {
-    name: 'components',
-    components: () => {
-      const ret = Object.keys(components).map(key => {
-        return components[key]
-      })
-      return ret
-    }
+    name: 'General',
+    components: () => componentMap(baseComponents)
+  }, {
+    name: 'DataDisplay',
+    components: () => componentMap(dataComponents)
+  }, {
+    name: 'FormInput',
+    components: () => componentMap(formComponents)
   }],
   showUsage: true,
   webpackConfig: {

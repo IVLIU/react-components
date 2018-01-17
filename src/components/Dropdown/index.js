@@ -4,8 +4,11 @@ import classNames from 'classnames'
 import autobind from 'autobind-decorator'
 import pureRender from 'pure-render-decorator'
 
+/**
+ * 基本的Dropdown组件，可在其上针对业务逻辑进行封装
+ */
 @pureRender
-export default class DropDown extends Component {
+export default class Dropdown extends Component {
   constructor () {
     super()
     this.state = {
@@ -24,7 +27,9 @@ export default class DropDown extends Component {
   @autobind
   handleWindowClick (e) {
     const { open } = this.state
-    if (e.target === this.trigger) {
+    const wrap = this.refs.wrap
+
+    if (wrap.contains(e.target)) {
       return
     }
     if (open) {
@@ -81,6 +86,7 @@ export default class DropDown extends Component {
     })
     return (
       <div className={classes}
+        ref="wrap"
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
         onClick={this.toggleShow}
@@ -94,10 +100,12 @@ export default class DropDown extends Component {
     )
   }
 }
-DropDown.defaultProps = {
+Dropdown.defaultProps = {
   trigger: 'click'
 }
-DropDown.propTypes = {
+Dropdown.propTypes = {
+  /** dropdown展示的内容 */
   overlay: PropTypes.any,
-  trigger: PropTypes.string
+  /** 触发展示的方式 */
+  trigger: PropTypes.oneOf(['click', 'hover'])
 }
