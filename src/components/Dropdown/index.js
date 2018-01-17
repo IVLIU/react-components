@@ -14,7 +14,6 @@ export default class DropDown extends Component {
   }
   componentDidMount () {
     const { trigger } = this.props
-    
     if (trigger === 'click') {
       window.addEventListener('click', this.handleWindowClick)
     }
@@ -25,7 +24,6 @@ export default class DropDown extends Component {
   @autobind
   handleWindowClick (e) {
     const { open } = this.state
-    
     if (e.target === this.trigger) {
       return
     }
