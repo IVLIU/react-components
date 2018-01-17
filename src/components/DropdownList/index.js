@@ -5,6 +5,9 @@ import DropDown from '../Dropdown'
 import classNames from 'classnames'
 import autobind from 'autobind-decorator'
 
+/**
+ * 在Dropdown组件上封装的list组件
+ */
 @pureRender
 export default class DropdownList extends Component {
   constructor (props) {
@@ -39,7 +42,7 @@ export default class DropdownList extends Component {
   }
 
   render () {
-    const { triggerItem, trigger, listItems, className, ...others } = this.props
+    const { trigger, listItems, className, changeValue, ...others } = this.props
     const { curValue } = this.state
     const classes = classNames('dropdown-list', className)
     return (
@@ -56,8 +59,12 @@ export default class DropdownList extends Component {
   }
 }
 DropdownList.propTypes = {
-  triggerItem: PropTypes.any,
+  /** 触发展示的方式 */
+  trigger: PropTypes.oneOf(['click', 'hover']),
+  /** 列表内容 */
   listItems: PropTypes.array,
+  /** 点击内容的回调事件 */
   onChange: PropTypes.func,
+  /** 值改变时，是否点击按钮的内容 */
   changeValue: PropTypes.bool
 }

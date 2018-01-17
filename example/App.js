@@ -340,7 +340,6 @@ export default class App extends Component {
     const { showModal } = this.state
     return (
       <div className="row mgb20">
-
         <button onClick={this.showModal.bind(this)} className="btn btn-secondary">
           点我显示Modal
         </button>

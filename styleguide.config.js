@@ -7,6 +7,11 @@ const components = {
   alert: join('Alert/index.js'),
   button: join('Button/index.js'),
   label: join('Label/index.js'),
+  dropdown: join('Dropdown/index.js'),
+  dropdownList: join('DropdownList/index.js'),
+  Loading: join('Loading/index.js'),
+  Modal: join('Modal/index.js'),
+  Pagination: join('Pagination/index.js'),
   input: join('Input/index.js'),
   multiInput: join('MultiInput/index.js'),
   select: join('Select/index.js'),
@@ -22,7 +27,7 @@ const components = {
   table: join('Table/Base.js')
 }
 module.exports = {
-  serverPort: 8080,
+  serverPort: 8081,
   sections: [{
     name: 'icon',
     content: resolve('./doc/IconList.md')

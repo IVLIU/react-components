@@ -30,8 +30,6 @@
 
 #### 带Loading的盒子
 
-loading样式还没加
-
 ``` js
 <Box data={true} isLoading title="这是盒子标题">
   这是一个小盒子

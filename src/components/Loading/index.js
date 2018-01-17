@@ -4,8 +4,11 @@ import Circle from './Loading'
 import Bar from './LoadingBar'
 import Box from './LoadingBox'
 
+/**
+ * 各种Loading样式
+ */
 export default function Loading (props) {
-  const { type = 'default', ...others } = props
+  const { type, ...others } = props
 
   switch (type) {
     case 'bar':
@@ -16,6 +19,10 @@ export default function Loading (props) {
       return <Circle {...others}/>
   }
 }
+Loading.defaultProps = {
+  type: 'default'
+}
 Loading.propTypes = {
-  type: PropTypes.string
+  /** loaing的不同样式 */
+  type: PropTypes.oneOf(['bar', 'box', 'default'])
 }
