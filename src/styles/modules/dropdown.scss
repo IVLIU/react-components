@@ -37,6 +37,7 @@
   border: 1px solid $borderColor;
   cursor: pointer;
   text-align: left;
+  position: relative;
 
   &:after{
     position: absolute;
@@ -57,6 +58,7 @@
   list-style: none;
   border: 1px solid $borderColor;
   background-color: #fff;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
 }
 .dropdown-list-item{
   position: relative;

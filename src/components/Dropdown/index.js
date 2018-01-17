@@ -12,6 +12,29 @@ export default class DropDown extends Component {
       open: false
     }
   }
+  componentDidMount () {
+    const { trigger } = this.props
+    
+    if (trigger === 'click') {
+      window.addEventListener('click', this.handleWindowClick)
+    }
+  }
+  componentWillUnmount () {
+    window.removeEventListener('click', this.handleWindowClick)
+  }
+  @autobind
+  handleWindowClick (e) {
+    const { open } = this.state
+    
+    if (e.target === this.trigger) {
+      return
+    }
+    if (open) {
+      this.setState({
+        open: false
+      })
+    }
+  }
   @autobind
   toggleShow (e) {
     e.preventDefault()
