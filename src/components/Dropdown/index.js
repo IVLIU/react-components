@@ -27,7 +27,7 @@ export default class Dropdown extends Component {
   @autobind
   handleWindowClick (e) {
     const { open } = this.state
-    const wrap = this.refs.wrap
+    const wrap = this.wrap
 
     if (wrap.contains(e.target)) {
       return
@@ -86,7 +86,7 @@ export default class Dropdown extends Component {
     })
     return (
       <div className={classes}
-        ref="wrap"
+        ref={ wrap => { this.wrap = wrap }}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
         onClick={this.toggleShow}
