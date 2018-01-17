@@ -36,7 +36,7 @@ const formComponents = {
   formItem: join('Form/FormItem.js'),
 }
 module.exports = {
-  serverPort: 8081,
+  serverPort: 8080,
   sections: [{
     name: 'Startup',
     content: resolve('./doc/base.md')
