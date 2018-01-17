@@ -394,6 +394,11 @@ export default class App extends Component {
         }} onChange={console.log} className="mgb20" listItems={listItems}>
           操作
         </DropdownList>
+        <DropdownList style={{
+          width: 300
+        }} onChange={console.log} className="mgb20" listItems={listItems}>
+          操作
+        </DropdownList>
         <Box data={true}>
           这是一个小盒子
         </Box>
