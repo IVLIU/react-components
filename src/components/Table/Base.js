@@ -25,13 +25,23 @@ export default class BaseTable extends Component {
             ? <thead className="table-head">
               <tr>
                 {
-                  columns.map((column, index) => (<th
-                    key={column.key + index}
-                    colSpan={hasChild && index === 0 ? 2 : 1}
-                    className="table-head-item"
-                    width={column.width}>
-                    {column.title}
-                  </th>))
+                  columns.map((column, index) => {
+                    const cls = [
+                      'table-head-item',
+                      column.align === 'left' ? 'pdl20' : '',
+                      column.align === 'right' ? 'pdlr20' : ''
+                    ].filter(i => i).join(' ')
+                    return (<th
+                      key={column.key + index}
+                      colSpan={hasChild && index === 0 ? 2 : 1}
+                      className={cls}
+                      style={{
+                        textAlign: column.align || 'center'
+                      }}
+                      width={column.width}>
+                      {column.title}
+                    </th>)
+                  })
                 }
               </tr>
             </thead>

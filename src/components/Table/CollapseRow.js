@@ -60,7 +60,12 @@ export default class Row extends Component {
                 columnIndex: i,
                 expandShow: show
               }) : rowData
-              return <td className="table-row-item"
+              const classes = [
+                `table-row-item`,
+                align === 'left' ? 'pdl20' : '',
+                align === 'right' ? 'pdr20' : ''
+              ].filter(i => i).join(' ')
+              return <td className={classes}
                 style={{
                   height: lineHeight + 'px',
                   textAlign: align || 'center'
