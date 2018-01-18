@@ -284,3 +284,5 @@ You can now view your style guide in the browser:
 Module build failed: Error: ENOENT: no such file or directory, open '/opt/threatbook/tip-ui/dist/static/css/lib.css'
 
  DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
