@@ -31,9 +31,9 @@ export default class DropdownList extends Component {
     return (
       <ul className="dropdown-list-content">
         {
-          listItems.map(item => {
+          listItems.map((item, index) => {
             return (
-              <li className="dropdown-list-item" onClick={() => this.handleChange(item)}>{item.label}</li>
+              <li className="dropdown-list-item" key={index} onClick={() => this.handleChange(item)}>{item.label}</li>
             )
           })
         }
