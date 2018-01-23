@@ -6,9 +6,11 @@ import iconanalysis_service from '@/images/svg/analysis-service.svg'
 import iconanalysis from '@/images/svg/analysis.svg'
 import iconatk_event from '@/images/svg/atk_event.svg'
 import iconattack from '@/images/svg/attack.svg'
+import iconattack1 from '@/images/svg/attack1.svg'
 import iconavatar from '@/images/svg/avatar.svg'
 import iconchart from '@/images/svg/chart.svg'
 import iconcheck from '@/images/svg/check.svg'
+import iconcheckmark from '@/images/svg/checkmark.svg'
 import iconclose from '@/images/svg/close.svg'
 import iconconfig from '@/images/svg/config.svg'
 import iconcoor_arrow from '@/images/svg/coor-arrow.svg'
@@ -32,10 +34,12 @@ import iconemmit2 from '@/images/svg/emmit2.svg'
 import iconentry from '@/images/svg/entry.svg'
 import iconerror from '@/images/svg/error.svg'
 import iconevent_tracing from '@/images/svg/event_tracing.svg'
+import iconexclarmationmark from '@/images/svg/exclarmationmark.svg'
 import iconexpand from '@/images/svg/expand.svg'
 import iconeye from '@/images/svg/eye.svg'
 import iconfall_host_2 from '@/images/svg/fall_host_2.svg'
 import iconfall_host from '@/images/svg/fall_host.svg'
+import iconfamily from '@/images/svg/family.svg'
 import iconfamily2 from '@/images/svg/family2.svg'
 import iconfile from '@/images/svg/file.svg'
 import iconfilter from '@/images/svg/filter.svg'
@@ -44,7 +48,9 @@ import icongangs from '@/images/svg/gangs.svg'
 import iconguide1 from '@/images/svg/guide1.svg'
 import iconguide2 from '@/images/svg/guide2.svg'
 import iconguide3 from '@/images/svg/guide3.svg'
+import iconhacker from '@/images/svg/hacker.svg'
 import iconhacker2 from '@/images/svg/hacker2.svg'
+import iconhackgroups from '@/images/svg/hackgroups.svg'
 import iconhandled from '@/images/svg/handled.svg'
 import iconhelp from '@/images/svg/help.svg'
 import iconhit from '@/images/svg/hit.svg'
@@ -61,6 +67,7 @@ import iconnet_activity from '@/images/svg/net_activity.svg'
 import iconnetActive from '@/images/svg/netActive.svg'
 import iconnew_active_time from '@/images/svg/new-active-time.svg'
 import iconnew from '@/images/svg/new.svg'
+import iconnewHitIntel from '@/images/svg/newHitIntel.svg'
 import iconnflag_default from '@/images/svg/nflag_default.svg'
 import iconnotice from '@/images/svg/notice.svg'
 import iconop_win from '@/images/svg/op_win.svg'
@@ -70,6 +77,7 @@ import iconreason8 from '@/images/svg/reason8.svg'
 import iconremediation from '@/images/svg/remediation.svg'
 import iconrestore_log_2 from '@/images/svg/restore_log_2.svg'
 import iconrestore_log from '@/images/svg/restore_log.svg'
+import iconrun from '@/images/svg/run.svg'
 import iconsearch from '@/images/svg/search.svg'
 import iconsheild_active from '@/images/svg/sheild_active.svg'
 import iconsheild from '@/images/svg/sheild.svg'
@@ -80,6 +88,7 @@ import iconsuccess from '@/images/svg/success.svg'
 import icontext from '@/images/svg/text.svg'
 import iconthreat_type from '@/images/svg/threat_type.svg'
 import icontracing from '@/images/svg/tracing.svg'
+import icontrash from '@/images/svg/trash.svg'
 import icontype_file_bg from '@/images/svg/type-file-bg.svg'
 import icontype_zip_bg from '@/images/svg/type-zip-bg.svg'
 import iconupload from '@/images/svg/upload.svg'
@@ -134,6 +143,12 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={iconattack1}/>
+      <p className="icon-name">attack1</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={iconavatar}/>
       <p className="icon-name">avatar</p>
     </div> 
@@ -148,6 +163,12 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconcheck}/>
       <p className="icon-name">check</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconcheckmark}/>
+      <p className="icon-name">checkmark</p>
     </div> 
   
 
@@ -290,6 +311,12 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={iconexclarmationmark}/>
+      <p className="icon-name">exclarmationmark</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={iconexpand}/>
       <p className="icon-name">expand</p>
     </div> 
@@ -310,6 +337,12 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconfall_host}/>
       <p className="icon-name">fall_host</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconfamily}/>
+      <p className="icon-name">family</p>
     </div> 
   
 
@@ -362,8 +395,20 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={iconhacker}/>
+      <p className="icon-name">hacker</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={iconhacker2}/>
       <p className="icon-name">hacker2</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconhackgroups}/>
+      <p className="icon-name">hackgroups</p>
     </div> 
   
 
@@ -464,6 +509,12 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={iconnewHitIntel}/>
+      <p className="icon-name">newHitIntel</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={iconnflag_default}/>
       <p className="icon-name">nflag_default</p>
     </div> 
@@ -514,6 +565,12 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconrestore_log}/>
       <p className="icon-name">restore_log</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconrun}/>
+      <p className="icon-name">run</p>
     </div> 
   
 
@@ -574,6 +631,12 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={icontracing}/>
       <p className="icon-name">tracing</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={icontrash}/>
+      <p className="icon-name">trash</p>
     </div> 
   
 
