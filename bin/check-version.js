@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-19 15:39:30
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-22 11:29:27
+ * @Last Modified time: 2018-01-22 11:41:37
  */
 const shell = require('shelljs')
 

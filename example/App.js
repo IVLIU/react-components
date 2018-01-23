@@ -44,8 +44,6 @@ const field = {
     value: '',
     validators: [{
       required: true
-    }, {
-      type: 'phone'
     }]
   },
   phone_ensure: {

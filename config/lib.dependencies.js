@@ -2,11 +2,11 @@
 
 const lib = [
   'react',
-  'react-dom',
-  'react-router-dom',
+  // 'react-dom',
+  // 'react-router-dom',
   'react-json-pretty',
-  'redux',
-  'redux-saga',
+  // 'redux',
+  // 'redux-saga',
   'react-modal',
   'react-select',
   'moment',

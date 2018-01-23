@@ -2,9 +2,9 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const lib = require('../config/lib.dependencies');
+const lib = require('../../config/lib.dependencies');
 
-const outputPath = path.join(__dirname, './dll');
+const outputPath = path.join(__dirname, '../dll');
 
 const plugin = [
   new webpack.DllPlugin({
