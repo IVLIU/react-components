@@ -1,6 +1,6 @@
 var utils = require('./utils')
 var webpack = require('webpack')
-var config = require('../config')
+var config = require('../../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -34,7 +34,7 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DllReferencePlugin({
       context: __dirname,
-      manifest: require('./dll/manifest.json'),
+      manifest: require('../dll/manifest.json')
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -42,7 +42,8 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new AddAssetHtmlPlugin([{
-      filepath: path.resolve(__dirname, './dll/dll.js'),
+      filepath: path.resolve(__dirname, '../dll/dll.js'),
+      hash: false,
       includeSourcemap: false
     }]),
     new FriendlyErrorsPlugin(),

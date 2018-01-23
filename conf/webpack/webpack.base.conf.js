@@ -1,9 +1,9 @@
 let path = require('path')
 let utils = require('./utils')
-let config = require('../config')
+let config = require('../../config')
 let isProd = process.env.NODE_ENV === 'production'
 function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '../../', dir)
 }
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: isProd?config.build.assetsPublicPath:config.dev.assetsPublicPath
+    publicPath: isProd ? config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

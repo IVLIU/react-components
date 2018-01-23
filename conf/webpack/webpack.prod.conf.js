@@ -1,7 +1,7 @@
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
-var config = require('../config')
+var config = require('../../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -58,7 +58,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.DllReferencePlugin({
       context: __dirname,
-      manifest: require('./dll/manifest.json'),
+      manifest: require('../dll/manifest.json'),
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html

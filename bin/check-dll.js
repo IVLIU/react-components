@@ -3,15 +3,20 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-19 15:39:30
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-22 11:12:25
+ * @Last Modified time: 2018-01-23 19:40:42
  */
 const fs = require('fs')
 const path = require('path')
 const shell = require('shelljs')
 const oldDllPath = path.resolve(__dirname, '../version/dll.dependencies.js')
 const dllPath = path.resolve(__dirname, '../config/lib.dependencies.js')
+const targetPath = path.resolve(__dirname, '../conf/dll')
 
 function isDllDependenciesChanged () {
+  // 如果dll文件从没被编译过
+  if (!fs.existsSync(targetPath)) {
+    return true
+  }
   if (!fs.existsSync(oldDllPath)) {
     return true
   }

@@ -1,90 +1,64 @@
 /*
  * @Author: wangweixin@threatbook.cn
- * @Date: 2017-12-15 11:03:03
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-11 11:32:59
+ * @Date: 2018-01-18 17:52:04
+ * @Last Modified by:   wangweixin@threatbook.cn
+ * @Last Modified time: 2018-01-18 17:52:04
  */
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+import ControledInput from '../Common/ControledInput'
 import classNames from 'classnames'
-import RSelect from 'react-select'
 import MultiSelectValue from '../MultiInput/MultiSelectValue'
 import Icon from '../Icon'
 import delIcon from '@/images/svg/del_icon.svg'
+import RSelect from 'react-select'
+import PropTypes from 'prop-types'
 
-/**
- * react-select二次封装
- * @see https://github.com/JedWatson/react-select
- */
-export default class Select extends Component {
-  constructor (props) {
-    super(props)
-    const { multi } = props
-    this.state = {
-      value: multi ? [] : ''
-    }
+const mapDefaultToValue = (value, props) => {
+  const { multi, options } = props
+  // 没传
+  if (!value && value !== 0) {
+    return multi ? [] : ''
   }
-  componentWillMount () {
-    const { defaultValue, options } = this.props
-
-    if (!defaultValue && defaultValue !== 0) {
-      return
-    }
-
-    if (Array.isArray(defaultValue)) {
-      const ret = options.filter(item => defaultValue.indexOf(item.value) >= 0)
-      this.setState({
-        value: ret
-      })
-    } else {
-      const ret = options.filter(item => item.value === defaultValue)
-      this.setState({
-        value: ret[0]
-      })
-    }
-  }
-  handleChange (value) {
-    const { onChange, disabled, multi } = this.props
-    if (disabled) {
-      return
-    }
-    this.setState({
-      value
-    })
-    const ret = multi
-      ? value.map(item => item.value)
-      : value.value
-    onChange && onChange(ret)
-  }
-
-  render () {
-    const { options, className, hasError, multi, disabled, clearable, theme } = this.props
-    const classes = classNames('select', {
-      error: hasError,
-      [theme]: true
-    }, className)
-    const config = {
-      multi,
-      disabled,
-      clearable,
-      valueComponent: d => <MultiSelectValue {...d} />
-    }
-
-    if (!multi) {
-      delete config.valueComponent
-    }
-    return (
-      <RSelect
-        className={classes}
-        value={this.state.value}
-        options={options}
-        {...config}
-        clearRenderer={() => <Icon className="del-icon" link={delIcon} />}
-        arrowRenderer={({ isOpen }) => <span className={`drop-down-icon ${isOpen ? 'up' : ''}`}></span>}
-        onChange={this.handleChange.bind(this)}/>
-    )
-  }
+  return multi
+    ? options.filter(item => value.indexOf(item.value) >= 0)
+    : options.filter(item => item.value === value)[0]
 }
+const mapValueToValue = (value, props) => {
+  const { multi } = props
+  return multi
+    ? value.map(item => item.value)
+    : value ? value.value : ''
+}
+
+const Select = (props) => {
+  const { options, className, hasError,
+    multi, disabled, props: controled,
+    clearable, theme, ...others } = props
+  const classes = classNames('select', {
+    error: hasError,
+    [theme]: true
+  }, className)
+  const config = {
+    multi,
+    disabled,
+    clearable,
+    valueComponent: d => <MultiSelectValue {...d} />
+  }
+  if (!multi) {
+    delete config.valueComponent
+  }
+  return (
+    <RSelect
+      className={classes}
+      options={options}
+      clearRenderer={() => <Icon className="del-icon" link={delIcon} />}
+      arrowRenderer={({ isOpen }) => <span className={`drop-down-icon ${isOpen ? 'up' : ''}`}></span>}
+      {...others}
+      {...config}
+      {...controled}/>
+  )
+}
+
 Select.defaultProps = {
   theme: 'default'
 }
@@ -112,3 +86,4 @@ Select.propTypes = {
   /** 可选主题颜色 default, white */
   theme: PropTypes.string
 }
+export default ControledInput(Select, mapDefaultToValue, mapValueToValue)
