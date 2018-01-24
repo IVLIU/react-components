@@ -5,7 +5,7 @@ import {
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
-  Pagination
+  Pagination, LabelSelect
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -376,9 +376,14 @@ export default class App extends Component {
     }, {
       label: '删除',
       value: 'delete'
+    }, {
+      label: '不删除',
+      value: 'd'
     }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <LabelSelect onChange={console.log} options={listItems}/>
+        <LabelSelect onChange={console.log} options={listItems} multi/>
         <Pagination current={current} total={25} onChange={this.handlePageChange.bind(this)}/>
         <Loading size="lg"/>
         <Loading/>

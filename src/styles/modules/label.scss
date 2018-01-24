@@ -24,6 +24,27 @@
   fill: #FFF;
   border-radius: 2px;
   border: 1px solid transparent;
+  cursor: pointer;
+
+  &.closable {
+    &:after {
+      display: inline-block;
+      content: '×';
+      margin-left: 5px;
+      vertical-align: top;
+      margin-top: -1px;
+    }
+  }
+}
+
+.label-select-item{
+  margin-right: 10px;
+  color: $font-color-normal;
+  font-size: 14px;
+
+  &.label-info {
+    color: #fff;
+  }
 }
 
 .label-cavity {
@@ -34,7 +55,7 @@
 }
 
 .label-danger {
-    background-color: $basic-aid-red-color;
+  background-color: $basic-aid-red-color;
 }
 
 @mixin labelStyle ($color) {
