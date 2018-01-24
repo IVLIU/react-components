@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-19 15:39:30
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-23 19:40:42
+ * @Last Modified time: 2018-01-24 10:57:45
  */
 const fs = require('fs')
 const path = require('path')
@@ -29,6 +29,9 @@ function isDllDependenciesChanged () {
 
 const changed = isDllDependenciesChanged()
 if (changed) {
+  if (!fs.existsSync(path.resolve(__dirname, '../version'))) {
+    shell.mkdir(path.resolve(__dirname, '../version'))
+  }
   shell.cp(dllPath, oldDllPath)
   shell.exec('npm run dll', { async: false })
 }
