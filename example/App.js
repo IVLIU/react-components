@@ -126,7 +126,8 @@ const columns = [{
   }
 }, {
   key: 'times',
-  title: '3'
+  title: '3',
+  sortable: true
 }, {
   title: '操作',
   render (item, row, { expandShow }) {
@@ -253,6 +254,9 @@ export default class App extends Component {
             可展开的table
             <Table columns={columns}
               expandRowRender={this.expandRowRender}
+              sortKey="times"
+              sortFlag="desc"
+              handleSortChange={console.log}
               data={tableData} />
           </div>
           <div className="col-6">

@@ -7,6 +7,53 @@ import Row from './ChildRows'
  * 基本的表格
  */
 export default class BaseTable extends Component {
+  renderSortIcon (column) {
+    const { handleSortChange, sortKey, sortFlag } = this.props
+    const change = sort => {
+      handleSortChange && handleSortChange(column.key, sort)
+    }
+    const active = sort => {
+      return column.key === sortKey && sort === sortFlag
+        ? 'active'
+        : ''
+    }
+    return (
+      <div class="table-sort-button">
+        <span className={`topTriangle ${active('asc')}`} onClick={() => { change('asc') }}></span>
+        <span className={`bottomTriangle ${active('desc')}`} onClick={() => { change('desc') }}></span>
+      </div>
+    )
+  }
+  renderHeader (columns) {
+    const { hasChild } = this.props
+    return (
+      <thead className="table-head">
+        <tr>
+          {
+            columns.map((column, index) => {
+              const cls = classNames(
+                'table-head-item', {
+                  'pdl20': column.align === 'left',
+                  'pdlr20': column.align === 'right'
+                }
+              )
+              return (<th
+                key={column.key + index}
+                colSpan={hasChild && index === 0 ? 2 : 1}
+                className={cls}
+                style={{
+                  textAlign: column.align || 'center'
+                }}
+                width={column.width}>
+                {column.title}
+                {column.sortable ? this.renderSortIcon(column) : null}
+              </th>)
+            })
+          }
+        </tr>
+      </thead>
+    )
+  }
   render () {
     const { columns, data, border,
       hover, lineHeight, showHeader,
@@ -22,29 +69,7 @@ export default class BaseTable extends Component {
       <table className={classes} {...others}>
         {
           showHeader
-            ? <thead className="table-head">
-              <tr>
-                {
-                  columns.map((column, index) => {
-                    const cls = [
-                      'table-head-item',
-                      column.align === 'left' ? 'pdl20' : '',
-                      column.align === 'right' ? 'pdlr20' : ''
-                    ].filter(i => i).join(' ')
-                    return (<th
-                      key={column.key + index}
-                      colSpan={hasChild && index === 0 ? 2 : 1}
-                      className={cls}
-                      style={{
-                        textAlign: column.align || 'center'
-                      }}
-                      width={column.width}>
-                      {column.title}
-                    </th>)
-                  })
-                }
-              </tr>
-            </thead>
+            ? this.renderHeader(columns)
             : null
         }
         <tbody className="table-body">
@@ -89,5 +114,11 @@ BaseTable.propTypes = {
   /** 每行的高度 */
   lineHeight: PropTypes.number,
   /** 可展开表格的渲染 */
-  expandRowRender: PropTypes.func
+  expandRowRender: PropTypes.func,
+  /** 改变排序时的回调 */
+  handleSortChange: PropTypes.func,
+  /** 当前排序的key */
+  sortKey: PropTypes.string,
+  /** 当前排序的顺序 */
+  sortFlag: PropTypes.oneOf(['asc', 'desc'])
 }
