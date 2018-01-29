@@ -18,7 +18,7 @@ export default class BaseTable extends Component {
         : ''
     }
     return (
-      <div class="table-sort-button">
+      <div className="table-sort-button">
         <span className={`topTriangle ${active('asc')}`} onClick={() => { change('asc') }}></span>
         <span className={`bottomTriangle ${active('desc')}`} onClick={() => { change('desc') }}></span>
       </div>
@@ -58,6 +58,8 @@ export default class BaseTable extends Component {
     const { columns, data, border,
       hover, lineHeight, showHeader,
       className, expandRowRender,
+      sortKey, sortFlag,
+      handleSortChange,
       hasChild, ...others
     } = this.props
     const classes = classNames({

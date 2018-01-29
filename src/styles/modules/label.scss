@@ -59,10 +59,19 @@
 @mixin labelStyle ($color) {
   background-color: $color;
 
+  .icon {
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+  }
+
   &.light {
     background-color: transparent;
     color: $color;
     border: 1px solid $color;
+    .icon {
+      fill: $color;
+    }
   }
 }
 

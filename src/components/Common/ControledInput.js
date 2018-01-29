@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
- * @Last Modified by:   wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-18 17:51:37
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-01-29 17:30:46
  */
 import React, { Component } from 'react'
 import pureRender from 'pure-render-decorator'
@@ -36,7 +36,7 @@ export default (WrapComponent, mapDefaultToValue, MapValueToValue) => {
       onChange && onChange(ret)
     }
     render () {
-      const defaultProps = this.props
+      let defaultProps = Object.assign({}, this.props)
       const props = {
         value: this.state.value,
         onChange: this.handleChange

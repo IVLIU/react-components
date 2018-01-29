@@ -161,6 +161,113 @@ const columns = [{
   data={tableData} />
 ```
 
+##### 排序表格
+- 配合后端进行排序
+- 使用sortable控制某字段是否排序
+- 需传入当前排序的sortKey和当前的顺序sortFlag
+- 排序更改时会自动调用handleSortChange, 请求后端
+
+``` js
+const tableData = [{
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}];
+const columns = [{
+  key: 'labels',
+  title: '1',
+  render (items) {
+    return (
+      items.map(item => {
+        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
+      })
+    )
+  }
+}, {
+  key: 'type',
+  title: '2',
+  render (item) {
+    return <span className="color-error">{item}</span>
+  },
+  sortable: true
+}, {
+  key: 'times',
+  title: '3',
+  sortable: true
+}, {
+  title: '操作',
+  render (item, row) {
+    return <span>现在还没有操作</span>
+  }
+}];
+class ExampleTable extends React.Component {
+  constructor () {
+    this.state = {
+      sortKey: '',
+      sortFlag: ''
+    }
+  }
+  handleSortChange (sortKey, sortFlag) {
+    console.log('sortchanged:', sortKey, sortFlag)
+    this.setState({
+      sortKey,
+      sortFlag
+    })
+  }
+  render () {
+    const { sortKey, sortFlag } = this.state
+    return (
+      <BaseTable columns={columns}
+        sortKey={sortKey}
+        sortFlag={sortFlag}
+        handleSortChange={this.handleSortChange.bind(this)}
+        data={tableData} />
+    )
+  }
+}
+<ExampleTable />
+```
+
 ##### 可展开
 
 - expandRowRender设置展开内容

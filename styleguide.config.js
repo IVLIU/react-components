@@ -32,6 +32,7 @@ const formComponents = {
   radioGroup: join('Radio/RadioGroup.js'),
   checkbox: join('Checkbox/Checkbox.js'),
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
+  labelSelect: join('LabelSelect/index.js'),
   form: join('Form/Form.js'),
   formItem: join('Form/FormItem.js'),
 }
@@ -40,7 +41,7 @@ module.exports = {
   sections: [{
     name: 'Startup',
     content: resolve('./doc/base.md')
-  },{
+  }, {
     name: 'IconList',
     content: resolve('./doc/IconList.md')
   }, {
