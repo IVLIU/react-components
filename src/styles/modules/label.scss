@@ -2,14 +2,11 @@
  * @atom Label
  * @section Label
  * @modifiers
- *  .label-cavity
- *  .label-danger
- *  .label-warning
- * @markup
- *  <span class="label">label</span>
- *  <span class="label label-cavity">label cavity</span>
- *  <span class="label label-danger">label danger</span>
- *  <span class="label label-warning">label warning</span>
+ *  error
+ *  warning
+ *  alarm
+ *  info
+ *  dark
  */
 .label {    
   display: inline-block;
@@ -38,9 +35,10 @@
 }
 
 .label-select-item{
-  margin-right: 10px;
+  margin-right: 20px;
   color: $font-color-normal;
   font-size: 14px;
+  font-weight: normal;
 
   &.label-info {
     color: #fff;
@@ -79,4 +77,7 @@
 }
 .label-alarm {
   @include labelStyle($subBrownColor);
+}
+.label-dark {
+  @include labelStyle($menuBgColor);
 }

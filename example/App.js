@@ -384,6 +384,7 @@ export default class App extends Component {
       <div className="container" style={{width: '1200px'}}>
         <LabelSelect onChange={console.log} options={listItems}/>
         <LabelSelect onChange={console.log} options={listItems} multi/>
+        <LabelSelect onChange={console.log} showAll={false} options={listItems} multi/>
         <Pagination current={current} total={25} onChange={this.handlePageChange.bind(this)}/>
         <Loading size="lg"/>
         <Loading/>

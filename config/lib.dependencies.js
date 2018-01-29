@@ -10,6 +10,7 @@ const lib = [
   'react-modal',
   'react-select',
   'moment',
+  'autobind-decorator'
   // 'echarts',
   // 'zrender',
   // 'lodash',
