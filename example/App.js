@@ -5,13 +5,15 @@ import {
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
-  Pagination, LabelSelect
+  Pagination, LabelSelect, TimePicker
 } from '../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
+const RadioBtn = Radio.RadioBtn
 const CheckboxGroup = Checkbox.CheckboxGroup
 const FormItem = Form.Item
 const TabPanel = Tab.TabPanel
+const { RangeBtn, DateRange } = TimePicker
 const options = [{
   label: '111',
   value: '111'
@@ -382,6 +384,9 @@ export default class App extends Component {
     }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <RadioBtn options={listItems} className="mgb20"/>
+        <DateRange />
+        <RangeBtn className="mgb20"/>
         <LabelSelect onChange={console.log} options={listItems}/>
         <LabelSelect onChange={console.log} options={listItems} multi/>
         <LabelSelect onChange={console.log} showAll={false} options={listItems} multi/>

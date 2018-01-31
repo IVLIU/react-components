@@ -132,6 +132,30 @@
     @include disabledStyle();
   }
 }
+.radio-btn {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $basic-border-color;
+  background-color: transparent;
+  cursor: pointer;
+  color: #182026;
+
+  &-item {
+    display: inline-block;
+    border-right: 1px solid $basic-border-color;
+    padding: 0 10px;
+    line-height: 30px;
+    height: 30px;
+
+    &:last-child {
+      border-right: none;
+    }
+    &.active {
+      background-color: $subBlueColor;
+      color: #fff;
+    }
+  }
+}
 .input {
   width: 100%;
   font-size: $font-basic-size;

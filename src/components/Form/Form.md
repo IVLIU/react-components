@@ -124,12 +124,12 @@ const Button = require('../Button').default;
 
 class FormDatas extends React.Component {
   handleSubmit () {
-    const ret = this.refs.form.validateAndSubmit()
+    const ret = this.form.validateAndSubmit()
     console.log(ret)
   }
   render () {
     return (
-      <Form data={field} ref="input">
+      <Form data={field} ref={form => (this.form = form)}>
         <div className="row mgb20">
           <FormItem label="姓名" field="name" placeholder="填写您的姓名">
             <Input/>
