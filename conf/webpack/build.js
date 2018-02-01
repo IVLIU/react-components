@@ -10,12 +10,33 @@ var webpack = require('webpack')
 var config = require('../../config')
 var webpackConfig = require('./webpack.prod.conf')
 var shelljs = require('shelljs')
-
 var spinner = ora('building for production...')
+var fs = require('fs')
 spinner.start()
 
-const target = path.resolve(__dirname, '../../../tip/src/')
-
+function copyLibToTip () {
+  const staticPath = p => path.join(__dirname, '../../dist/static', p)
+  const tipPath = p => path.join(__dirname, '../../../tip', p)
+  const sourceList = {
+    [staticPath('css/lib.css')]: 'src/styles/index.css',
+    [staticPath('js/lib.js')]: 'src/common/lib.js',
+    [path.join(__dirname, '../dll/*')]: 'conf/dll/'
+  }
+  Object.keys(sourceList).forEach(from => {
+    const to = tipPath(sourceList[from])
+    const isDir = to.lastIndexOf('/') === to.length - 1
+    rm(to, err => {
+      if (err) throw err
+      if (isDir) {
+        shelljs.mkdir(to)
+        shelljs.cp('-r', from, to)
+      } else {
+        shelljs.cp(from, to)
+      }
+      console.log(chalk.cyan(`copy ${from} to ${to}.\n`))
+    })
+  })
+}
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, function (err, stats) {
@@ -28,10 +49,9 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       chunks: false,
       chunkModules: false
     }) + '\n\n')
-    shelljs.cp(path.resolve(__dirname, '../../dist/static/css/lib.css'), path.join(target, 'styles/index.css'))
-    shelljs.cp('-R', path.resolve(__dirname, '../../dist/static/js/lib.js'), path.join(target, 'common/lib.js'))
-    shelljs.cp('-R', path.resolve(__dirname, '../dll/'), target)
-    shelljs.cp('-R', path.resolve(__dirname, '../dll/'), path.join(target, '../conf/'))
+
+    copyLibToTip()
+
     console.log(chalk.cyan('  Build complete.\n'))
     console.log(chalk.yellow(
       '  Tip: built files are meant to be served over an HTTP server.\n' +

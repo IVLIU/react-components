@@ -3,8 +3,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const lib = require('../../config/lib.dependencies');
+const shelljs = require('shelljs')
 
 const outputPath = path.join(__dirname, '../dll');
+shelljs.rm('-r', outputPath)
 
 const plugin = [
   new webpack.DllPlugin({
@@ -43,7 +45,7 @@ module.exports = {
   },
   output: {
     path: outputPath,
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     /**
      * output.library
      * 将会定义为 window.${output.library}

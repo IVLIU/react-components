@@ -5,9 +5,10 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-var env = process.env.NODE_ENV.trim()
+// var env = process.env.NODE_ENV.trim()
 var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 var path = require('path')
+var fs = require('fs')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -42,7 +43,7 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new AddAssetHtmlPlugin([{
-      filepath: path.resolve(__dirname, '../dll/dll.js'),
+      filepath: utils.getDllPath('../dll'),
       hash: false,
       includeSourcemap: false
     }]),

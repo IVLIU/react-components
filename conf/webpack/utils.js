@@ -1,12 +1,20 @@
 var path = require('path')
 var config = require('../../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var fs = require('fs')
 
 exports.assetsPath = function (_path) {
   var assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
+}
+
+exports.getDllPath = function (p) {
+  const basePath = path.resolve(__dirname, p)
+  const dir = fs.readdirSync(basePath)
+  const dllPath = dir.filter(item => item.indexOf('.js') >= 0)[0]
+  return path.join(basePath, dllPath)
 }
 
 exports.cssLoaders = function (options) {
