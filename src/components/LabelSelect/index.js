@@ -21,10 +21,12 @@ export default class LabelSelect extends Component {
   }
   @autobind
   selectAll () {
+    const { onChange } = this.props
     if (!this.props.multi) return
     this.setState({
       value: []
     })
+    onChange && onChange([])
   }
   handleSelectChange (item) {
     const { multi, onChange } = this.props
