@@ -385,7 +385,7 @@ export default class App extends Component {
     return (
       <div className="container" style={{width: '1200px'}}>
         <RadioBtn options={listItems} className="mgb20"/>
-        <DateRange />
+        <DateRange onChange={console.log} />
         <RangeBtn className="mgb20"/>
         <LabelSelect onChange={console.log} options={listItems}/>
         <LabelSelect onChange={console.log} options={listItems} multi/>

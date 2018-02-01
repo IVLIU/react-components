@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-31 10:00:23
+ * @Last Modified time: 2018-01-31 17:57:48
  */
 import React, { Component } from 'react'
 import pureRender from 'pure-render-decorator'
@@ -20,7 +20,6 @@ export default (WrapComponent, mapDefaultToValue, MapValueToValue) => {
     }
     componentWillReceiveProps (nextProps) {
       const { value } = nextProps
-      console.log(value)
       if (value && value !== 0) {
         this.setState({
           value
@@ -28,9 +27,9 @@ export default (WrapComponent, mapDefaultToValue, MapValueToValue) => {
       }
     }
     @autobind
-    handleChange (value) {
+    handleChange (value, ...others) {
       const { onChange } = this.props
-      const ret = MapValueToValue(value, this.props)
+      const ret = MapValueToValue(value, this.props, ...others)
       this.setState({
         value: ret
       })
@@ -42,7 +41,6 @@ export default (WrapComponent, mapDefaultToValue, MapValueToValue) => {
         value: this.state.value,
         onChange: this.handleChange
       }
-      console.log(props)
 
       if ('defaultValue' in defaultProps) {
         delete defaultProps.defaultValue

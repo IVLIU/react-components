@@ -3,15 +3,15 @@ import React, { Component } from 'react'
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 // import classNames from 'classnames'
 import moment from 'moment'
+
 import controledInput from '../Common/ControledInput'
 import { ranges, locale, getStartAndEndTime } from './constant'
-console.log(ranges)
+
 class DateRange extends Component {
   render () {
     const { className, props: controled, options, ...others } = this.props
     // const classes = classNames('radio-btn', className)
     const { value, onChange } = this.props.props
-    console.log(value)
     return (
       <DateRangePicker startDate={value.start}
         {...others}
@@ -37,8 +37,7 @@ const mapDefaultToValue = (defaultValue = 'seven_days', { options = [] }) => {
     end: ret && ret.end ? moment(ret.end) : moment(new Date())
   }
 }
-const mapValuetoValue = (e, picker) => {
-  console.log(e, picker)
+const mapValuetoValue = (e, props, picker) => {
   return {
     start: picker.startDate.valueOf(),
     end: picker.endDate.valueOf()

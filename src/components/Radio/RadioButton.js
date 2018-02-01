@@ -8,7 +8,6 @@ class RangeBtn extends Component {
     const { className, props: controled, options, ...others } = this.props
     const classes = classNames('radio-btn', className)
     const { value, onChange } = this.props.props
-    console.log(value)
     return (
       <div className={classes} {...others}>
         {
