@@ -1,0 +1,308 @@
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+ DONE  Compiled successfully!
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You have another server running at port 8080 somewhere, shut it down first
+
+You can change the port using the `serverPort` option in your style guide config:
+https://react-styleguidist.js.org/docs/configuration.html
+
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2017-12-26T11_12_52_782Z-debug.log
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+sh: line 1: 29506 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2017-12-26T12_00_13_198Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+sh: line 1: 30232 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2017-12-29T09_28_36_959Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:6060/
+  On your network:  http://10.10.49.46:6060/
+
+ FAIL  Failed to compile
+
+./src/components/Code/index.js
+Module not found: Can't resolve 'json-format' in '/opt/threatbook/tip-ui/src/components/Code'
+./src/components/Code/index.js
+Module not found: Can't resolve 'react-json-pretty' in '/opt/threatbook/tip-ui/src/components/Code'
+
+ FAIL  Failed to compile
+
+./src/components/Code/index.js
+Module not found: Can't resolve 'json-format' in '/opt/threatbook/tip-ui/src/components/Code'
+./src/components/Code/index.js
+Module not found: Can't resolve 'react-json-pretty' in '/opt/threatbook/tip-ui/src/components/Code'
+
+ FAIL  Failed to compile
+
+./src/components/Code/index.js
+Module not found: Can't resolve 'json-format' in '/opt/threatbook/tip-ui/src/components/Code'
+./src/components/Code/index.js
+Module not found: Can't resolve 'react-json-pretty' in '/opt/threatbook/tip-ui/src/components/Code'
+sh: line 1:  4436 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2017-12-29T09_31_06_476Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+ FAIL  Failed to compile
+
+./src/components/Code/index.js
+Module not found: Can't resolve 'json-format' in '/opt/threatbook/tip-ui/src/components/Code'
+./src/components/Code/index.js
+Module not found: Can't resolve 'react-json-pretty' in '/opt/threatbook/tip-ui/src/components/Code'
+
+ FAIL  Failed to compile
+
+./src/components/Code/index.js
+Module not found: Can't resolve 'json-format' in '/opt/threatbook/tip-ui/src/components/Code'
+./src/components/Code/index.js
+Module not found: Can't resolve 'react-json-pretty' in '/opt/threatbook/tip-ui/src/components/Code'
+sh: line 1:  4561 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2017-12-29T09_32_43_635Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+ FAIL  Failed to compile
+
+./dist/static/css/lib.css
+Module build failed: Error: ENOENT: no such file or directory, open '/opt/threatbook/tip-ui/dist/static/css/lib.css'
+sh: line 1:  4623 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2017-12-29T09_35_38_482Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+ FAIL  Failed to compile
+
+./dist/static/css/lib.css
+Module build failed: Error: ENOENT: no such file or directory, open '/opt/threatbook/tip-ui/dist/static/css/lib.css'
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+sh: line 1:  4705 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2018-01-03T11_39_51_506Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+ FAIL  Failed to compile
+
+./dist/static/css/lib.css
+Module build failed: Error: ENOENT: no such file or directory, open '/opt/threatbook/tip-ui/dist/static/css/lib.css'
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8081/
+  On your network:  http://10.10.49.46:8081/
+
+sh: line 1:  5410 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2018-01-17T06_36_52_228Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+ FAIL  Failed to compile
+
+./dist/static/css/lib.css
+Module build failed: Error: ENOENT: no such file or directory, open '/opt/threatbook/tip-ui/dist/static/css/lib.css'
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+Warning: src/components/Select/index.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
