@@ -98,7 +98,6 @@ module.exports = {
           options: {
             runtimeCompat: true
           }
-          // include: resolve('./src/images/svg/')
         }
       ]
     }

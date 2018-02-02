@@ -4,7 +4,7 @@
 ```js
 const handleClick = () => {
   alert(1)
-}
+};
 <Button onClick={handleClick}>点我</Button>
 ```
 
