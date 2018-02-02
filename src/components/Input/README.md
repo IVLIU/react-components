@@ -5,7 +5,7 @@
 ``` js
 const onChange = v => {
   console.log(v)
-}
+};
 
 <div className="row">
   <div className="col-4">
@@ -19,7 +19,7 @@ const onChange = v => {
 ``` js
 const onChange = v => {
   console.log(v)
-}
+};
 
 <div className="row">
   <div className="col-4">
