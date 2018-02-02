@@ -5,18 +5,28 @@ import pureRender from 'pure-render-decorator'
 @pureRender
 export default class Label extends Component {
   render () {
-    const { type, children, light, className, closable, ...others } = this.props
+    const { type, children, light,
+      className, closable,
+      maxWidth, ...others } = this.props
     const classes = classNames(
       'label',
       `label-${type}`,
       {
         light,
-        closable
+        closable,
+        'max-width': maxWidth
       },
       className
     )
+    const retStyle = {
+      maxWidth
+    }
     return (
-      <span className={classes} {...others}>{children}</span>
+      <span className={classes}
+        style={retStyle}
+        {...others}>
+        {children}
+      </span>
     )
   }
 }
