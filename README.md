@@ -1,4 +1,6 @@
-# Tip-ui组件
+# react-components
+
+自用react组件，支持日常开发
 
 ## 开发
 
