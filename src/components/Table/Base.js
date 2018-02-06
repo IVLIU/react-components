@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Row from './ChildRows'
+import SelectTable from './SelectTable'
 
 /**
  * 基本的表格
  */
+@SelectTable
 export default class BaseTable extends Component {
   renderSortIcon (column) {
     const { handleSortChange, sortKey, sortFlag } = this.props
@@ -25,7 +27,16 @@ export default class BaseTable extends Component {
     )
   }
   renderHeader (columns) {
-    const { hasChild } = this.props
+    const { hasChild, select } = this.props
+    const getColSpan = index => {
+      if (!hasChild) {
+        return 1
+      }
+      if (select) {
+        return index === 1 ? 2 : 1
+      }
+      return index === 0 ? 2 : 1
+    }
     return (
       <thead className="table-head">
         <tr>
@@ -39,7 +50,7 @@ export default class BaseTable extends Component {
               )
               return (<th
                 key={column.key + index}
-                colSpan={hasChild && index === 0 ? 2 : 1}
+                colSpan={getColSpan(index)}
                 className={cls}
                 style={{
                   textAlign: column.align || 'center'
@@ -60,6 +71,7 @@ export default class BaseTable extends Component {
       className, expandRowRender,
       sortKey, sortFlag,
       handleSortChange,
+      select,
       hasChild, ...others
     } = this.props
     const classes = classNames({
@@ -83,6 +95,7 @@ export default class BaseTable extends Component {
                   index={index}
                   columns={columns}
                   hasChild={hasChild}
+                  select={select}
                   expandRowRender={expandRowRender}
                   lineHeight={lineHeight}
                   style={{ height: lineHeight + 'px' }}/>
