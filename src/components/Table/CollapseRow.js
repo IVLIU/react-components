@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import addIcon from '@/images/svg/add.svg'
-import subIcon from '@/images/svg/sub.svg'
-import Icon from '../Icon'
 
 export default class Row extends Component {
   constructor (props) {
@@ -29,6 +26,7 @@ export default class Row extends Component {
       lineHeight, expandRowRender,
       hasChild, handleChildToggle,
       isChild, showChild, hasChildren,
+      select,
       ...others
     } = this.props
     const { show } = this.state
@@ -42,15 +40,6 @@ export default class Row extends Component {
     return (
       <Fragment>
         <tr className={classes} onClick={this.toggleRow} {...others}>
-          {
-            hasChild
-              ? <td>
-                <Icon className="table-body-has-child-icon" onClick={handleChildToggle} link={showChild ? subIcon : addIcon} />
-              </td>
-              : isChild || hasChildren
-                ? <td></td>
-                : null
-          }
           {
             columns.map((column, i) => {
               const { key, render, align } = column

@@ -132,6 +132,10 @@
     @include disabledStyle();
   }
 }
+.checkbox {
+  margin-right: 5px;
+  margin-left: 1px;
+}
 .radio-btn {
   display: inline-block;
   vertical-align: middle;

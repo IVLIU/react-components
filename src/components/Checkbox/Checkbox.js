@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:00
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2017-12-26 11:21:22
+ * @Last Modified time: 2018-02-05 19:48:04
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -24,7 +24,7 @@ export default class Checkbox extends Component {
     onChange && onChange(e, value, this)
   }
   render () {
-    const { label, defaultChecked, name, value, className, disabled } = this.props
+    const { label, defaultChecked, name, value, className, disabled, ...others } = this.props
     const classes = classNames('checkbox-label', className, {
       disabled
     })
@@ -38,6 +38,7 @@ export default class Checkbox extends Component {
           name={name}
           value={value}
           disabled={disabled}
+          {...others}
           onChange={this.handleChange.bind(this)} />
         {label}
       </label>

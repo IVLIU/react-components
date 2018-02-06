@@ -277,6 +277,14 @@ export default class App extends Component {
               expandRowRender={this.expandRowRender}
               data={tableData2} />
           </div>
+          <div className="col-6">
+            带选项的table
+            <Table columns={columns}
+              select
+              hasChild={true}
+              handleSelectChanged={console.log}
+              data={tableData2} />
+          </div>
         </div>
       </div>
     )

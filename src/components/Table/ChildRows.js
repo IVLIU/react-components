@@ -2,6 +2,10 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 // import classNames from 'classnames'
 import Row from './CollapseRow'
+import Icon from '../Icon'
+import addIcon from '@/images/svg/add.svg'
+import subIcon from '@/images/svg/sub.svg'
+import autobind from 'autobind-decorator'
 
 export default class ChildRows extends Component {
   constructor (props) {
@@ -10,8 +14,8 @@ export default class ChildRows extends Component {
     this.state = {
       show: show
     }
-    this.toggleRow = this.toggleRow.bind(this)
   }
+  @autobind
   toggleRow (e) {
     e.stopPropagation()
     e.preventDefault()
@@ -19,20 +23,46 @@ export default class ChildRows extends Component {
       show: !this.state.show
     })
   }
+  getRetColumns (isParent) {
+    const { columns: c, row, select } = this.props
+    const hasChild = row.children && row.children.length
+    const columns = c.slice(0)
+    const { show } = this.state
+    const render = () => {
+      return isParent
+        ? <Icon
+          className="table-body-has-child-icon"
+          onClick={this.toggleRow}
+          link={show ? subIcon : addIcon} />
+        : null
+    }
+    // 添加带子行的Icon
+    if (hasChild) {
+      if (select) {
+        columns.splice(1, 0, {
+          render
+        })
+      } else {
+        columns.unshift({
+          render
+        })
+      }
+    }
+    return columns
+  }
   render () {
-    const { columns, row, index, hasChild, lineHeight, expandRowRender } = this.props
+    const { row, index, hasChild, lineHeight, expandRowRender } = this.props
     const { show } = this.state
     return (
       <Fragment>
         <Row key={'table-body-row-' + index}
           row={row}
           index={index}
-          columns={columns}
+          columns={this.getRetColumns(true)}
           expandRowRender={expandRowRender}
           lineHeight={lineHeight}
           hasChildren={hasChild}
           hasChild={row.children && row.children.length}
-          handleChildToggle={this.toggleRow}
           showChild={show}
           style={{ height: lineHeight + 'px' }} />
         {
@@ -42,7 +72,7 @@ export default class ChildRows extends Component {
                 <Row key={`table-body-row-${index}-${i}`}
                   row={child}
                   index={i}
-                  columns={columns}
+                  columns={this.getRetColumns()}
                   isChild
                   expandRowRender={expandRowRender}
                   lineHeight={lineHeight}
