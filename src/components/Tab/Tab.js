@@ -28,7 +28,10 @@ export default class Tab extends Component {
       children
     })
   }
-  handleTabBarClick (activeKey) {
+  handleTabBarClick (activeKey, disabled) {
+    if (disabled) {
+      return
+    }
     this.setState({
       activeKey
     })
@@ -37,19 +40,22 @@ export default class Tab extends Component {
   renderHeader (children) {
     const { activeKey } = this.state
     const { tabStyle = {}, activeStyle = {}, tabClassName, activeClassName } = this.props
+    console.log(children)
     return (
-      children.map(({ header, key }) => {
+      children.map(({ header, key, context }) => {
         const active = key === activeKey
+        const disabled = context.props.disabled
         const classes = classNames('tab-header-item', {
           [tabClassName]: true,
           active,
-          [activeClassName]: active
+          [activeClassName]: active,
+          disabled
         })
         const styles = active ? Object.assign({}, tabStyle, activeStyle) : tabStyle
         return <div
           className={classes}
           style={styles}
-          onClick={() => this.handleTabBarClick(key)}
+          onClick={() => this.handleTabBarClick(key, disabled)}
           key={key}>
           {header}
         </div>
