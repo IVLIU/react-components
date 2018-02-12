@@ -573,3 +573,45 @@ Child [1mhtml-webpack-plugin for "index.html"[39m[22m:
 
 ./dist/static/css/lib.css
 Module build failed: Error: ENOENT: no such file or directory, open '/opt/threatbook/tip-ui/dist/static/css/lib.css'
+
+ WAIT  Compiling...16:41:35
+
+ℹ ｢wdm｣: Compiling...
+ DONE  Compiled successfully in 4447ms16:41:40
+
+ℹ ｢wdm｣: Hash: [1mdcaea061219ab91d6fee[39m[22m
+Version: webpack [1m3.10.0[39m[22m
+Time: [1m4447[39m[22mms
+                      [1mAsset[39m[22m       [1mSize[39m[22m  [1mChunks[39m[22m  [1m[39m[22m           [1m[39m[22m       [1mChunk Names[39m[22m
+                     [1m[33mlib.js[39m[22m    [1m[33m2.16 MB[39m[22m       [1m0[39m[22m  [1m[32m[emitted][39m[22m  [1m[33m[big][39m[22m  lib
+[1m[33mdll.2dee71174ba9be82cf98.js[39m[22m     [1m[33m435 kB[39m[22m        [1m[39m[22m  [1m[32m[emitted][39m[22m  [1m[33m[big][39m[22m  
+                 [1m[32mindex.html[39m[22m  326 bytes        [1m[39m[22m  [1m[32m[emitted][39m[22m         
+   [0] [1m./node_modules/react-hot-loader/patch.js[39m[22m 82 bytes {[1m[33m0[39m[22m}
+   [1] [1m(webpack)/buildin/harmony-module.js[39m[22m 596 bytes {[1m[33m0[39m[22m}
+   [2] [1mdelegated ../../node_modules/react/index.js from dll-reference dll[39m[22m 42 bytes {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+   [4] [1m./node_modules/babel-runtime/helpers/classCallCheck.js[39m[22m 208 bytes {[1m[33m0[39m[22m}
+   [5] [1m./node_modules/babel-runtime/helpers/createClass.js[39m[22m 904 bytes {[1m[33m0[39m[22m}
+   [7] [1m./node_modules/babel-runtime/helpers/inherits.js[39m[22m 1.11 kB {[1m[33m0[39m[22m}
+   [8] [1m./node_modules/babel-runtime/core-js/object/get-prototype-of.js[39m[22m 104 bytes {[1m[33m0[39m[22m}
+  [12] [1mexternal "dll"[39m[22m 42 bytes {[1m[33m0[39m[22m}[1m[31m [not cacheable][39m[22m
+  [58] [1mdelegated ../../node_modules/react-dom/index.js from dll-reference dll[39m[22m 42 bytes {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+  [88] [1mmulti ./example/index.js[39m[22m 28 bytes {[1m[33m0[39m[22m}
+  [89] [1m./example/index.js[39m[22m 208 bytes {[1m[33m0[39m[22m}
+  [90] [1m./example/App.js[39m[22m 27.7 kB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m
+ [132] [1m./src/index.js[39m[22m 1.25 kB {[1m[33m0[39m[22m}
+ [204] [1m./example/index.scss[39m[22m 1.21 kB {[1m[33m0[39m[22m}
+ [205] [1m./node_modules/css-loader?{"sourceMap":false}!./node_modules/sass-loader/lib/loader.js?{"sourceMap":false}!./example/index.scss[39m[22m 532 bytes {[1m[33m0[39m[22m}
+    + 191 hidden modules
+Child [1mhtml-webpack-plugin for "index.html"[39m[22m:
+         [1mAsset[39m[22m     [1mSize[39m[22m  [1mChunks[39m[22m  [1m[39m[22m[1m[39m[22m[1mChunk Names[39m[22m
+    [1m[32mindex.html[39m[22m  1.42 MB       [1m0[39m[22m  [1m[32m[39m[22m
+       [0] [1m./node_modules/html-webpack-plugin/lib/loader.js!./index.html[39m[22m 596 bytes {[1m[33m0[39m[22m}
+       [1] [1m./node_modules/html-webpack-plugin/node_modules/lodash/lodash.js[39m[22m 540 kB {[1m[33m0[39m[22m}
+       [2] [1m(webpack)/buildin/global.js[39m[22m 509 bytes {[1m[33m0[39m[22m}
+       [3] [1m(webpack)/buildin/module.js[39m[22m 517 bytes {[1m[33m0[39m[22m}
+ℹ ｢wdm｣: Compiled successfully.
+ DONE  Compiled successfully!
+
+ WAIT  Compiling...18:31:06
+
+ℹ ｢wdm｣: Compiling...
