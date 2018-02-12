@@ -29,5 +29,7 @@ TabPanel.propTypes = {
   /** 特有的key */
   keys: PropTypes.string.isRequired,
   /** 是否active, 会被父组件自动传入，不用关心 */
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  /** 是否禁用 */
+  disabled: PropTypes.bool
 }
