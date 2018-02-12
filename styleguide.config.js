@@ -11,7 +11,7 @@ const baseComponents = {
   button: join('Button/index.js'),
   label: join('Label/index.js'),
   Loading: join('Loading/index.js'),
-  Modal: join('Modal/index.js'),
+  Modal: join('Modal/index.js')
 }
 const dataComponents = {
   alert: join('Alert/index.js'),
@@ -30,14 +30,15 @@ const formComponents = {
   select: join('Select/index.js'),
   radio: join('Radio/Radio.js'),
   radioGroup: join('Radio/RadioGroup.js'),
+  radioBtn: join('Radio/RadioButton.js'),
   checkbox: join('Checkbox/Checkbox.js'),
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
   labelSelect: join('LabelSelect/index.js'),
   form: join('Form/Form.js'),
-  formItem: join('Form/FormItem.js'),
+  formItem: join('Form/FormIgtem.js')
 }
 module.exports = {
-  serverPort: 8080,
+  serverPort: 8081,
   sections: [{
     name: 'Startup',
     content: resolve('./doc/base.md')

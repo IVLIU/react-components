@@ -185,60 +185,6 @@ $blue-light: $basic-aid-blue-color;
     }
 }
 
-.loading-logo {
-    display: inline-block;
-    position: relative;
-    color: #FFF;
-    font-size: 14px;
-    text-align: center;
-    width: 45px;    
-    height: 20px;
-    line-height: 20px;
-    border-radius: 5px;
-    overflow: hidden;        
-    animation: loading_logo 1s linear 0s infinite backwards;
-}
-
-@keyframes loading_logo {
-    0% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
-    }
-    13% {
-        background: linear-gradient(to right, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
-    }
-    25% {
-        background: linear-gradient(to right, $blue, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
-    }
-    38% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue-light, $blue-light, $blue-light, $blue-light);
-    }
-    50% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue-light, $blue-light);
-    }
-    63% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue);
-    }
-    75% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue);
-    }
-    88% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
-    }
-    100% {
-        background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
-    }
-    // 80% {
-    //     background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue, $blue-light);
-    // }
-    // 90% {
-    //     background: linear-gradient(to right, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue, $blue, $blue, $blue, $blue);
-    // }
-    // 100% {
-    //     background: linear-gradient(to right, $blue, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light, $blue-light);
-    // }
-
-}
-
 @keyframes spin_lg {
     0% {
         background-color: $blue-light;

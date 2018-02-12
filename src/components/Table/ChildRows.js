@@ -34,7 +34,7 @@ export default class ChildRows extends Component {
           className="table-body-has-child-icon"
           onClick={this.toggleRow}
           link={show ? subIcon : addIcon} />
-        : null
+        : <td></td>
     }
     // 添加带子行的Icon
     if (hasChild) {
