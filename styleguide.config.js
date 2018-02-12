@@ -12,6 +12,7 @@ const baseComponents = {
   label: join('Label/index.js'),
   Loading: join('Loading/index.js'),
   Modal: join('Modal/index.js'),
+  PageTitle: join('PageTitle/index.js')
 }
 const dataComponents = {
   alert: join('Alert/index.js'),
@@ -34,26 +35,32 @@ const formComponents = {
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
   labelSelect: join('LabelSelect/index.js'),
   form: join('Form/Form.js'),
-  formItem: join('Form/FormItem.js'),
+  formItem: join('Form/FormItem.js')
 }
 module.exports = {
   serverPort: 8080,
-  sections: [{
-    name: 'Startup',
-    content: resolve('./doc/base.md')
-  }, {
-    name: 'IconList',
-    content: resolve('./doc/IconList.md')
-  }, {
-    name: 'General',
-    components: () => componentMap(baseComponents)
-  }, {
-    name: 'DataDisplay',
-    components: () => componentMap(dataComponents)
-  }, {
-    name: 'FormInput',
-    components: () => componentMap(formComponents)
-  }],
+  sections: [
+    {
+      name: 'Startup',
+      content: resolve('./doc/base.md')
+    },
+    {
+      name: 'IconList',
+      content: resolve('./doc/IconList.md')
+    },
+    {
+      name: 'General',
+      components: () => componentMap(baseComponents)
+    },
+    {
+      name: 'DataDisplay',
+      components: () => componentMap(dataComponents)
+    },
+    {
+      name: 'FormInput',
+      components: () => componentMap(formComponents)
+    }
+  ],
   showUsage: true,
   webpackConfig: {
     resolve: {
@@ -73,24 +80,37 @@ module.exports = {
           loader: 'style-loader!css-loader'
         },
         {
+          test: /\.(sass|scss)$/,
+          loaders: 'style-loader!css-loader!sass-loader'
+        },
+        {
           test: /\.svg$/,
-          loaders: [{
-            loader: 'file-loader'
-          }, {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true
-            }
-          }, {
-            loader: 'react-svg-loader',
-            options: {
-              svgo: {
-                plugins: [{ removeStyleElement: true }],
-                floatPrecision: 2
+          loaders: [
+            {
+              loader: 'file-loader'
+            },
+            {
+              loader: 'babel-loader',
+              options: {
+                cacheDirectory: true
+              }
+            },
+            {
+              loader: 'react-svg-loader',
+              options: {
+                svgo: {
+                  plugins: [{ removeStyleElement: true }],
+                  floatPrecision: 2
+                }
               }
             }
-          }],
-          exclude: [resolve('./node_modules/'), resolve('./'), resolve('./src/images/svg/'), resolve('./src/flags/')]
+          ],
+          exclude: [
+            resolve('./node_modules/'),
+            resolve('./'),
+            resolve('./src/images/svg/'),
+            resolve('./src/flags/')
+          ]
         },
         {
           test: /\.svg$/,

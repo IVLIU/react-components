@@ -1,14 +1,13 @@
-
 #### 基本使用
 
 ```js
 const handleClick = () => {
-  alert(1)
+  alert(1);
 };
-<Button onClick={handleClick}>点我</Button>
+<Button onClick={handleClick}>点我</Button>;
 ```
 
-#### 5中基本样式
+#### 5 种基本样式
 
 ```js
 <div>
@@ -22,7 +21,7 @@ const handleClick = () => {
 
 #### 自定义样式
 
-``` css
+```css
 .btn-new {
   background-color: red;
   color: green;
