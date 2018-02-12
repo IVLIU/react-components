@@ -4,7 +4,7 @@
   content: "";
   height: 20px;
   background-color: #2d84e5;
-  position: absolute;
+  // position: absolute;
   top: 4px;
 }
 .page-max-title {
@@ -13,6 +13,7 @@
   color: $primaryDarkColor;
   &:before {
     @include page-before;
+    display: none;
   }
 }
 .page-min-title {
