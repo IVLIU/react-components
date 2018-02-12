@@ -98,6 +98,14 @@
       fill: $basic-imp-color;
       border-bottom: 2px solid $basic-imp-color;
     }
+    &.disabled{
+        cursor: not-allowed;
+        opacity: 0.6;
+        &:hover {
+            color: #999;
+            fill: #999;
+        }
+    }
   }
 }
 .tab-panel{

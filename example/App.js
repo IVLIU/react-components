@@ -541,7 +541,7 @@ export default class App extends Component {
         <div className="row mgb20">
           <Tab tabStyle={{ marginRight: '10px' }} activeStyle={{ borderRight: '1px solid red' }}>
             <TabPanel header="告警明细" keys="1">111</TabPanel>
-            <TabPanel header={<div><Icon className="example-icons" link={iconText}/>可疑活动明细</div>} keys="2">222</TabPanel>
+            <TabPanel disabled header={<div><Icon className="example-icons" link={iconText}/>可疑活动明细</div>} keys="2">222</TabPanel>
           </Tab>
         </div>
         <div className="row mgb20">
