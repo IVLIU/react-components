@@ -615,3 +615,132 @@ Child [1mhtml-webpack-plugin for "index.html"[39m[22m:
  WAIT  Compiling...18:31:06
 
 ℹ ｢wdm｣: Compiling...
+ ERROR  Failed to compile with 1 errors18:31:06
+
+ error  in ./example/index.js
+
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at /opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:293:19
+    at Array.map (<anonymous>)
+    at OptionManager.resolvePresets (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:275:20)
+    at OptionManager.mergePresets (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:264:10)
+    at OptionManager.mergeOptions (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:249:14)
+    at OptionManager.init (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:368:12)
+    at File.initOptions (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/index.js:212:65)
+    at new File (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/index.js:135:24)
+    at Pipeline.transform (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/pipeline.js:46:16)
+    at transpile (/opt/threatbook/tip-ui/node_modules/babel-loader/lib/index.js:50:20)
+    at Object.module.exports (/opt/threatbook/tip-ui/node_modules/babel-loader/lib/index.js:175:20)
+
+ @ multi ./example/index.js
+
+✖ ｢wdm｣: Hash: [1m2a6b77e77ce33b444be3[39m[22m
+Version: webpack [1m3.10.0[39m[22m
+Time: [1m47[39m[22mms
+ [1mAsset[39m[22m     [1mSize[39m[22m  [1mChunks[39m[22m  [1m[39m[22m[1m[39m[22m[1mChunk Names[39m[22m
+[1m[32mlib.js[39m[22m  4.21 kB       [1m0[39m[22m  [1m[32m[39m[22mlib
+  [88] [1mmulti ./example/index.js[39m[22m 28 bytes {[1m[33m0[39m[22m}
+  [89] [1m./example/index.js[39m[22m 1.35 kB {[1m[33m0[39m[22m}[1m[32m [built][39m[22m[1m[31m [failed][39m[22m[1m[31m [1 error][39m[22m
+
+[1m[31mERROR in ./example/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at /opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:293:19
+    at Array.map (<anonymous>)
+    at OptionManager.resolvePresets (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:275:20)
+    at OptionManager.mergePresets (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:264:10)
+    at OptionManager.mergeOptions (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:249:14)
+    at OptionManager.init (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/options/option-manager.js:368:12)
+    at File.initOptions (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/index.js:212:65)
+    at new File (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/file/index.js:135:24)
+    at Pipeline.transform (/opt/threatbook/tip-ui/node_modules/babel-core/lib/transformation/pipeline.js:46:16)
+    at transpile (/opt/threatbook/tip-ui/node_modules/babel-loader/lib/index.js:50:20)
+    at Object.module.exports (/opt/threatbook/tip-ui/node_modules/babel-loader/lib/index.js:175:20)
+ @ multi ./example/index.js[39m[22m
+Child [1mhtml-webpack-plugin for "index.html"[39m[22m:
+         [1mAsset[39m[22m     [1mSize[39m[22m  [1mChunks[39m[22m  [1m[39m[22m[1m[39m[22m[1mChunk Names[39m[22m
+    [1m[32mindex.html[39m[22m  1.42 MB       [1m1[39m[22m  [1m[32m[39m[22m
+       [0] [1m./node_modules/html-webpack-plugin/lib/loader.js!./index.html[39m[22m 596 bytes {[1m[33m1[39m[22m}
+       [1] [1m./node_modules/html-webpack-plugin/node_modules/lodash/lodash.js[39m[22m 540 kB {[1m[33m1[39m[22m}
+       [2] [1m(webpack)/buildin/global.js[39m[22m 509 bytes {[1m[33m1[39m[22m}
+       [3] [1m(webpack)/buildin/module.js[39m[22m 517 bytes {[1m[33m1[39m[22m}
+ℹ ｢wdm｣: Failed to compile.
+ FAIL  Failed to compile
+
+./src/components/DropdownList/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Icon/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Label/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Loading/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Modal/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Alert/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Box/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Table/Base.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Tab/Tab.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Tab/TabPanel.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Code/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Pagination/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Dropdown/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Button/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Input/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/MultiInput/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Select/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Radio/Radio.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Radio/RadioGroup.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Checkbox/Checkbox.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Checkbox/CheckboxGroup.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/LabelSelect/index.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Form/Form.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./src/components/Form/FormItem.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./doc/Wrapper.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
+./doc/IconList.js
+Module build failed: Error: Couldn't find preset "stage-2" relative to directory "/opt/threatbook/tip-ui"
+    at Array.map (<anonymous>)
