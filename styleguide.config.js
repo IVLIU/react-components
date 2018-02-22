@@ -11,12 +11,8 @@ const baseComponents = {
   button: join('Button/index.js'),
   label: join('Label/index.js'),
   Loading: join('Loading/index.js'),
-<<<<<<< HEAD
   Modal: join('Modal/index.js'),
   PageTitle: join('PageTitle/index.js')
-=======
-  Modal: join('Modal/index.js')
->>>>>>> bf69e1e674e25cfb30a67d20b976ea3def2c835d
 }
 const dataComponents = {
   alert: join('Alert/index.js'),
@@ -40,10 +36,10 @@ const formComponents = {
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
   labelSelect: join('LabelSelect/index.js'),
   form: join('Form/Form.js'),
-  formItem: join('Form/FormIgtem.js')
+  formItem: join('Form/FormItem.js')
 }
 module.exports = {
-  serverPort: 8081,
+  serverPort: 8080,
   sections: [{
     name: 'Startup',
     content: resolve('./doc/base.md')
