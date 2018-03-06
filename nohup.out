@@ -775,3 +775,25 @@ It usually happens when using third-party libraries, see possible solutions here
 https://react-styleguidist.js.org/docs/thirdparties.html
 
  DONE  Compiled successfully!
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+Warning: src/components/Select/index.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+Warning: src/components/Radio/RadioButton.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
