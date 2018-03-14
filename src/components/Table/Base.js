@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import autobind from 'autobind-decorator'
 import classNames from 'classnames'
 import Row from './ChildRows'
 import SelectTable from './SelectTable'
@@ -9,6 +10,20 @@ import SelectTable from './SelectTable'
  */
 @SelectTable
 export default class BaseTable extends Component {
+  state = {
+    activeIndex: 0
+  }
+  componentWillMount () {
+    const { data, clickable } = this.props
+    clickable && this.changeActive(data[0], 0)
+  }
+  @autobind
+  changeActive (row, index) {
+    this.setState({
+      activeIndex: index
+    })
+    this.props.handleRowClick && this.props.handleRowClick(row, index)
+  }
   renderSortIcon (column) {
     const { handleSortChange, sortKey, sortFlag } = this.props
     const change = sort => {
@@ -72,6 +87,7 @@ export default class BaseTable extends Component {
       sortKey, sortFlag,
       handleSortChange,
       select,
+      clickable,
       hasChild, ...others
     } = this.props
     const classes = classNames({
@@ -96,8 +112,11 @@ export default class BaseTable extends Component {
                   columns={columns}
                   hasChild={hasChild}
                   select={select}
+                  clickable={clickable}
                   expandRowRender={expandRowRender}
+                  changeActive={this.changeActive}
                   lineHeight={lineHeight}
+                  active={index === this.state.activeIndex}
                   style={{ height: lineHeight + 'px' }}/>
               )
             })
@@ -126,6 +145,10 @@ BaseTable.propTypes = {
   hover: PropTypes.bool,
   /** 是否展示头 */
   showHeader: PropTypes.bool,
+  /** 是否行可点击 */
+  clickable: PropTypes.bool,
+  /** 点击行的回调 */
+  handleRowClick: PropTypes.func,
   /** 每行的高度 */
   lineHeight: PropTypes.number,
   /** 可展开表格的渲染 */

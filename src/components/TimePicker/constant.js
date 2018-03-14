@@ -1,32 +1,55 @@
 import moment from 'moment'
 
-export const timeRange = [
-  {
-    name: '今天',
-    value: 'today'
+const locale = {
+  'en_US': {
+    'TODAY': 'today',
+    'ONE_HOUR': '1 hour',
+    'TWENTY_FOUR_HOURS': '24 hours',
+    'SEVEN_DAYS': '7 days',
+    'THIRTY_DAYS': '30 days'
   },
-  {
-    name: '1小时',
-    value: 'one_hour'
-  },
-  {
-    name: '24小时',
-    value: 'twenty_four_hours'
-  },
-  {
-    name: '7天',
-    value: 'seven_days'
-  },
-  {
-    name: '30天',
-    value: 'thirty_days'
+  'zh_CN': {
+    'TODAY': '今天',
+    'ONE_HOUR': '1小时',
+    'TWENTY_FOUR_HOURS': '24小时',
+    'SEVEN_DAYS': '7天',
+    'THIRTY_DAYS': '30天'
   }
-]
+}
 
-export const btnTimeRange = timeRange.slice(2).map(item => ({
-  label: item.name,
-  value: item.value
-}))
+export const timeRange = (currentLocale) => {
+  const cur = locale[currentLocale]
+  return [
+    {
+      name: cur.TODAY,
+      value: 'today'
+    },
+    {
+      name: cur.ONE_HOUR,
+      value: 'one_hour'
+    },
+    {
+      name: cur.TWENTY_FOUR_HOURS,
+      value: 'twenty_four_hours'
+    },
+    {
+      name: cur.SEVEN_DAYS,
+      value: 'seven_days'
+    },
+    {
+      name: cur.THIRTY_DAYS,
+      value: 'thirty_days'
+    }
+  ]
+}
+
+export const btnTimeRange = (currentLocale) =>
+  timeRange(currentLocale)
+    .slice(2)
+    .map(item => ({
+      label: item.name,
+      value: item.value
+    }))
 
 export const getStartAndEndTime = (rangeType) => {
   const curHour = new Date().getHours()
@@ -90,7 +113,7 @@ export const ranges = {
     moment(getStartAndEndTime('thirty_days').end)
   ]
 }
-export const locale = {
+export const timeLocale = {
   format: 'YYYY/MM/DD HH:mm',
   applyLabel: '确认',
   cancelLabel: '取消',

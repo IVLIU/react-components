@@ -12,11 +12,18 @@ export default class Row extends Component {
     this.toggleRow = this.toggleRow.bind(this)
   }
   toggleRow (e) {
-    if (!this.props.expandRowRender) {
-      return
-    }
+    const { clickable, expandRowRender, changeActive, row, index } = this.props
+
     e.stopPropagation()
     e.preventDefault()
+
+    if (clickable) {
+      return changeActive(row, index)
+    }
+    if (!expandRowRender) {
+      return
+    }
+
     this.setState({
       show: !this.state.show
     })
@@ -27,6 +34,7 @@ export default class Row extends Component {
       hasChild, handleChildToggle,
       isChild, showChild, hasChildren,
       select,
+      active, clickable,
       ...others
     } = this.props
     const { show } = this.state
@@ -35,7 +43,8 @@ export default class Row extends Component {
       'has-child': hasChild,
       'child-open': showChild,
       'table-body-child-row': isChild,
-      'has-expand': expandRowRender
+      'has-expand': expandRowRender,
+      active: active && clickable
     })
     return (
       <Fragment>

@@ -67,6 +67,9 @@
 		margin-right: 10px;
 		vertical-align: top;
 	}
+	&.active {
+		background-color: #e6f2ff;
+	}
 }
 .table-sort-button{
 	display: inline-block;
