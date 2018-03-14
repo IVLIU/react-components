@@ -11,6 +11,7 @@ export default class Tab extends Component {
     this.addChildPanel = this.addChildPanel.bind(this)
     this.state = {
       children: [],
+      defaultActiveKey: '',
       activeKey: ''
     }
   }
@@ -21,6 +22,12 @@ export default class Tab extends Component {
       activeKey
     })
   }
+  // componentWillReceiveProps (nextProps) {
+  //   const { defaultActiveKey } = nextProps
+  //   if (defaultActiveKey !== this.state.defaultActiveKey) {
+  //     this.handleTabBarClick(defaultActiveKey)
+  //   }
+  // }
   addChildPanel (child) {
     const { children } = this.state
     children.push(child)
@@ -39,28 +46,35 @@ export default class Tab extends Component {
   }
   renderHeader (children) {
     const { activeKey } = this.state
-    const { tabStyle = {}, activeStyle = {}, tabClassName, activeClassName } = this.props
-    console.log(children)
-    return (
-      children.map(({ header, key, context }) => {
-        const active = key === activeKey
-        const disabled = context.props.disabled
-        const classes = classNames('tab-header-item', {
-          [tabClassName]: true,
-          active,
-          [activeClassName]: active,
-          disabled
-        })
-        const styles = active ? Object.assign({}, tabStyle, activeStyle) : tabStyle
-        return <div
+    const {
+      tabStyle = {},
+      activeStyle = {},
+      tabClassName,
+      activeClassName
+    } = this.props
+    return children.map(({ header, key, context }) => {
+      const active = key === activeKey
+      const disabled = context.props.disabled
+      const classes = classNames('tab-header-item', {
+        [tabClassName]: true,
+        active,
+        [activeClassName]: active,
+        disabled
+      })
+      const styles = active
+        ? Object.assign({}, tabStyle, activeStyle)
+        : tabStyle
+      return (
+        <div
           className={classes}
           style={styles}
           onClick={() => this.handleTabBarClick(key, disabled)}
-          key={key}>
+          key={key}
+        >
           {header}
         </div>
-      })
-    )
+      )
+    })
   }
   isChildActive (child) {
     return child.props.keys === this.state.activeKey
@@ -73,15 +87,13 @@ export default class Tab extends Component {
       <div className={classes}>
         <div className="tab-header">{this.renderHeader(childPanels)}</div>
         <div className="tab-content">
-          {
-            Children.map(children, child => {
-              const active = this.isChildActive(child)
-              return cloneElement(child, {
-                active,
-                addChildPanel: this.addChildPanel
-              })
+          {Children.map(children, child => {
+            const active = this.isChildActive(child)
+            return cloneElement(child, {
+              active,
+              addChildPanel: this.addChildPanel
             })
-          }
+          })}
         </div>
       </div>
     )
