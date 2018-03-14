@@ -5,7 +5,7 @@ import DateRangePicker from 'react-bootstrap-daterangepicker'
 import moment from 'moment'
 
 import controledInput from '../Common/ControledInput'
-import { ranges, locale, getStartAndEndTime } from './constant'
+import { ranges, timeLocale, getStartAndEndTime } from './constant'
 
 class DateRange extends Component {
   render () {
@@ -18,7 +18,7 @@ class DateRange extends Component {
         endDate={value.end}
         timePicker
         timePicker24Hour
-        locale={locale}
+        locale={timeLocale}
         ranges={ranges}
         opens="right"
         onApply={onChange}>

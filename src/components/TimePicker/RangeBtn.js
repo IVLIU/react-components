@@ -3,5 +3,6 @@ import RadioBtn from '../Radio/RadioButton'
 import { btnTimeRange } from './constant'
 
 export default function (props) {
-  return <RadioBtn options={btnTimeRange} {...props}/>
+  const { currentLocale = 'zh_CN', ...others } = props
+  return <RadioBtn options={btnTimeRange(currentLocale)} {...others}/>
 }

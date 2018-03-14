@@ -72,7 +72,7 @@ export default class LabelSelect extends Component {
     onChange && onChange(ret)
   }
   render () {
-    const { className, options, multi, showAll, ...others } = this.props
+    const { className, options, multi, showAll, locale, ...others } = this.props
     const classes = classNames('label-select', className)
     const { value } = this.state
     const isAllActive = multi && !value.length
@@ -84,7 +84,7 @@ export default class LabelSelect extends Component {
               onClick={this.selectAll}
               key="all"
               type={isAllActive ? 'info' : ''}>
-              全部
+              {locale === 'zh_CN' ? '全部' : 'All'}
             </Label>
             : ''
         }
@@ -110,7 +110,8 @@ export default class LabelSelect extends Component {
 }
 LabelSelect.defaultProps = {
   showAll: true,
-  multi: true
+  multi: true,
+  locale: 'zh_CN'
 }
 LabelSelect.propTypes = {
   /** 值改变时的回调 */
@@ -120,5 +121,7 @@ LabelSelect.propTypes = {
   /** 是否多选 */
   multi: PropTypes.bool,
   /** 是否自动展示 “全部” 标签 */
-  showAll: PropTypes.bool
+  showAll: PropTypes.bool,
+  /** 国际化 */
+  locale: PropTypes.string
 }

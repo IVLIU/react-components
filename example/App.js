@@ -253,6 +253,23 @@ export default class App extends Component {
         </div>
         <div className="row">
           <div className="col-6">
+            可点击的table
+            <Table columns={columns}
+              clickable
+              handleRowClick={console.log}
+              data={tableData} />
+          </div>
+          <div className="col-6">
+            竖向滚动table
+            <Table columns={columns}
+              clickable
+              handleRowClick={console.log}
+              maxLength={3}
+              data={tableData} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-6">
             可展开的table
             <Table columns={columns}
               expandRowRender={this.expandRowRender}
