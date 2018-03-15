@@ -24,7 +24,7 @@ export default class Tab extends Component {
   }
   componentWillReceiveProps (nextProps) {
     const { defaultActiveKey, children } = nextProps
-    const defalutKey = defaultActiveKey || children[0].props.keys
+    const defalutKey = defaultActiveKey || children[0].leys
     if (defalutKey !== this.state.defaultActiveKey) {
       this.handleTabBarClick(defalutKey)
     }
