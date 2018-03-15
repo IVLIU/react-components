@@ -23,10 +23,12 @@ export default class Tab extends Component {
     })
   }
   componentWillReceiveProps (nextProps) {
-    const { defaultActiveKey, children } = nextProps
-    const defalutKey = defaultActiveKey || children[0].props.keys
-    if (defalutKey !== this.state.defaultActiveKey) {
-      this.handleTabBarClick(defalutKey)
+    const { defaultActiveKey } = nextProps
+    if (!defaultActiveKey) {
+      return
+    }
+    if (defaultActiveKey !== this.state.activeKey) {
+      this.handleTabBarClick(defaultActiveKey)
     }
   }
   addChildPanel (child) {
