@@ -14,15 +14,16 @@ export default class Row extends Component {
   toggleRow (e) {
     const { clickable, expandRowRender, changeActive, row, index } = this.props
 
-    e.stopPropagation()
-    e.preventDefault()
-
     if (clickable) {
+      e.stopPropagation()
+      e.preventDefault()
       return changeActive(row, index)
     }
     if (!expandRowRender) {
       return
     }
+    e.stopPropagation()
+    e.preventDefault()
 
     this.setState({
       show: !this.state.show
