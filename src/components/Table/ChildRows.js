@@ -53,7 +53,7 @@ export default class ChildRows extends Component {
   render () {
     const { row, index, hasChild, lineHeight,
       expandRowRender, clickable, changeActive,
-      active } = this.props
+      defaultRenderExpand, active } = this.props
     const { show } = this.state
     return (
       <Fragment>
@@ -68,6 +68,7 @@ export default class ChildRows extends Component {
           showChild={show}
           clickable={clickable}
           changeActive={changeActive}
+          show={defaultRenderExpand}
           active={active}
           style={{ height: lineHeight + 'px' }} />
         {

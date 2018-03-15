@@ -88,6 +88,7 @@ export default class BaseTable extends Component {
       handleSortChange,
       select,
       clickable,
+      defaultRenderExpand,
       hasChild, ...others
     } = this.props
     const classes = classNames({
@@ -114,6 +115,7 @@ export default class BaseTable extends Component {
                   select={select}
                   clickable={clickable}
                   expandRowRender={expandRowRender}
+                  defaultRenderExpand={defaultRenderExpand && index === 0}
                   changeActive={this.changeActive}
                   lineHeight={lineHeight}
                   active={index === this.state.activeIndex}
@@ -132,7 +134,8 @@ BaseTable.defaultProps = {
   border: true,
   hover: true,
   showHeader: true,
-  lineHeight: 50
+  lineHeight: 50,
+  defaultRenderExpand: false
 }
 BaseTable.propTypes = {
   /** 内容数据 */
