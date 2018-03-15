@@ -142,8 +142,15 @@ export default class App extends Component {
     this.state = {
       showModal: false,
       value: '222',
-      current: 1
+      current: 1,
+      defaultActiveKey: "2"
     }
+    this.changeActive = this.changeActive.bind(this)
+  }
+  changeActive() {
+    this.setState({
+      defaultActiveKey: "1"
+    })
   }
   handleChange (value) {
     console.log(value)
@@ -159,6 +166,7 @@ export default class App extends Component {
       </div>
     )
   }
+
   renderTable () {
     const tableData = [{
       ip: '87.101.12.12',
@@ -232,7 +240,6 @@ export default class App extends Component {
         }]
       })
     })
-    console.log(tableData2)
     return (
       <div className="container-fluid">
         <div className="row">
@@ -555,10 +562,11 @@ export default class App extends Component {
         <div className="row mgb20">
           <Code data={code}/>
         </div>
-        <div className="row mgb20">
-          <Tab tabStyle={{ marginRight: '10px' }} activeStyle={{ borderRight: '1px solid red' }}>
+        <div onClick={this.changeActive} style={{ width: '10px' }}>ddddss</div>
+        <div className="row mgb20" onClick={this.changeActive}>
+          <Tab defaultActiveKey={this.state.defaultActiveKey} tabStyle={{ marginRight: '10px' }} activeStyle={{ borderRight: '1px solid red' }}>
             <TabPanel header="告警明细" keys="1">111</TabPanel>
-            <TabPanel disabled header={<div><Icon className="example-icons" link={iconText}/>可疑活动明细</div>} keys="2">222</TabPanel>
+            <TabPanel header={<div><Icon className="example-icons" link={iconText}/>可疑活动明细</div>} keys="2">222</TabPanel>
           </Tab>
         </div>
         <div className="row mgb20">
