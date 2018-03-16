@@ -33,10 +33,28 @@ export default class Tab extends Component {
   }
   addChildPanel (child) {
     const { children } = this.state
-    children.push(child)
-    this.setState({
-      children
-    })
+    if (child.headerkey) {
+      const tempChildren = children.map(({ header, key, context }) => {
+        const { headerkey } = context.props
+        if (headerkey && headerkey !== child.headerkey) {
+          context.props.header = child.header
+          header = child.header
+        }
+        return {
+          header,
+          key,
+          context
+        }
+      })
+      this.setState({
+        children: tempChildren
+      })
+    } else {
+      children.push(child)
+      this.setState({
+        children
+      })
+    }
   }
   handleTabBarClick (activeKey, disabled) {
     if (disabled) {

@@ -7,7 +7,7 @@ export default class TabPanel extends Component {
     header: ''
   }
   componentWillMount () {
-    const { header, keys, addChildPanel } = this.props
+    const { headerkey, header, keys, addChildPanel } = this.props
     addChildPanel &&
       addChildPanel({
         header,
@@ -15,20 +15,24 @@ export default class TabPanel extends Component {
         context: this
       })
     this.setState({
-      header
+      headerkey
     })
   }
-  // componentWillReceiveProps (nextProps) {
-  //   const { header, keys, addChildPanel } = nextProps
-  //   if (header !== this.state.header) {
-  //     addChildPanel &&
-  //       addChildPanel({
-  //         header,
-  //         key: keys,
-  //         context: this
-  //       })
-  //   }
-  // }
+  componentWillReceiveProps (nextProps) {
+    const { headerkey, header, keys, addChildPanel } = nextProps
+    if (headerkey !== this.state.headerkey) {
+      addChildPanel &&
+        addChildPanel({
+          header,
+          headerkey,
+          key: keys,
+          context: this
+        })
+      this.setState({
+        headerkey
+      })
+    }
+  }
   render () {
     const { children, active, className } = this.props
     const classes = classNames('tab-panel', className, {
@@ -40,6 +44,8 @@ export default class TabPanel extends Component {
 TabPanel.propTypes = {
   /** 头部内容, 可以传入节点 */
   header: PropTypes.any,
+  /** header是否是变化的 */
+  headerkey: PropTypes.string,
   /** 特有的key */
   keys: PropTypes.string.isRequired,
   /** 是否active, 会被父组件自动传入，不用关心 */
