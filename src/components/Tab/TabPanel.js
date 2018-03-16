@@ -44,7 +44,7 @@ export default class TabPanel extends Component {
 TabPanel.propTypes = {
   /** 头部内容, 可以传入节点 */
   header: PropTypes.any,
-  /** header是否是变化的 */
+  /** header是否是变化的,如果header是需要根据props或者state重新渲染，设置headerkey为可变的数据 */
   headerkey: PropTypes.string,
   /** 特有的key */
   keys: PropTypes.string.isRequired,
