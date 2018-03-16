@@ -3,24 +3,38 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export default class TabPanel extends Component {
+  state = {
+    header: ''
+  }
   componentWillMount () {
     const { header, keys, addChildPanel } = this.props
-    addChildPanel && addChildPanel({
-      header,
-      key: keys,
-      context: this
+    addChildPanel &&
+      addChildPanel({
+        header,
+        key: keys,
+        context: this
+      })
+    this.setState({
+      header
     })
   }
+  // componentWillReceiveProps (nextProps) {
+  //   const { header, keys, addChildPanel } = nextProps
+  //   if (header !== this.state.header) {
+  //     addChildPanel &&
+  //       addChildPanel({
+  //         header,
+  //         key: keys,
+  //         context: this
+  //       })
+  //   }
+  // }
   render () {
     const { children, active, className } = this.props
     const classes = classNames('tab-panel', className, {
       active
     })
-    return (
-      <div className={classes}>
-        {children}
-      </div>
-    )
+    return <div className={classes}>{children}</div>
   }
 }
 TabPanel.propTypes = {
