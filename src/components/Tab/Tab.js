@@ -33,14 +33,10 @@ export default class Tab extends Component {
   }
   addChildPanel (child) {
     const { children } = this.state
-    console.log(child.headerkey)
     if (child.headerkey) {
-      console.log(99)
       const tempChildren = children.map(({ header, key, context }) => {
         const { headerkey } = context.props
-        console.log(headerkey)
-        console.log(headerkey && headerkey !== child.headerkey)
-        if (headerkey && headerkey !== child.headerkey) {
+        if (headerkey && headerkey !== child.headerkey && key === child.key) {
           context.props.header = child.header
           header = child.header
         }
