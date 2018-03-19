@@ -498,3 +498,166 @@ const expandRowRender = (row, index) => (
   hasChild
   data={tableData} />
 ```
+
+#### 单选表格
+- 通过clickable设置每行可点击
+- handleRowClick点击回调
+- 不可与展开，子行的表格同时使用
+
+``` js
+const tableData = [{
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}];
+const columns = [{
+  key: 'labels',
+  title: '1',
+  render (items) {
+    return (
+      items.map(item => {
+        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
+      })
+    )
+  }
+}, {
+  key: 'type',
+  title: '2',
+  render (item) {
+    return <span className="color-error">{item}</span>
+  }
+}, {
+  key: 'times',
+  title: '3'
+}, {
+  title: '操作',
+  render (item, row) {
+    return <span>现在还没有操作</span>
+  }
+}];
+<BaseTable columns={columns}
+  clickable
+  handleRowClick={console.log}
+  data={tableData} />
+```
+
+#### 多选表格
+- 通过select属性设置表格可选择
+- handleSelectChanged点击回调
+
+``` js
+const tableData = [{
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}];
+const columns = [{
+  key: 'labels',
+  title: '1',
+  render (items) {
+    return (
+      items.map(item => {
+        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
+      })
+    )
+  }
+}, {
+  key: 'type',
+  title: '2',
+  render (item) {
+    return <span className="color-error">{item}</span>
+  }
+}, {
+  key: 'times',
+  title: '3'
+}, {
+  title: '操作',
+  render (item, row) {
+    return <span>现在还没有操作</span>
+  }
+}];
+<BaseTable columns={columns}
+  select
+  handleSelectChanged={console.log}
+  data={tableData} />
+```

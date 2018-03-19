@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 import controledInput from '../Common/ControledInput'
 
 class RangeBtn extends Component {
@@ -29,7 +29,12 @@ class RangeBtn extends Component {
   }
 }
 RangeBtn.propTypes = {
-
+  /** 选项列表，遵循各选项格式 包含label,value字段 */
+  options: PropTypes.array,
+  /** 默认值 */
+  defaultValue: PropTypes.any,
+  /** change回调 */
+  onChange: PropTypes.func
 }
 
 const mapDefaultToValue = (defaultValue, {options = []}) => {
