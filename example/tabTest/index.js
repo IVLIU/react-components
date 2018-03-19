@@ -17,13 +17,6 @@ export default class TabTest extends Component {
       defaultActiveKey: 1
     })
   }
-  // componentDidMount() {
-  //   setTimeout(() => {
-  //     this.setState({
-  //       defaultActiveKey: 1
-  //     })
-  //   }, 5000)
-  // }
   render () {
     return (
       <div className="container" style={{width: '1200px'}}>
