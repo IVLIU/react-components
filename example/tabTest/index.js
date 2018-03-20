@@ -12,6 +12,7 @@ export default class TabTest extends Component {
     }
     this.changeActive = this.changeActive.bind(this)
   }
+  static propTypes = {}
   changeActive() {
     this.setState({
       defaultActiveKey: 1
@@ -30,4 +31,4 @@ export default class TabTest extends Component {
     )
   }
 }
-TabTest.propTypes = {}
+
