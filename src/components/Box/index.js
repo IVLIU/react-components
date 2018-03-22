@@ -27,8 +27,7 @@ export default class Box extends Component {
       return true
     }
     // 判断有没有内容
-    return Array.isArray(data) ? data.length : data &&
-      data !== 0
+    return Array.isArray(data) ? data.length : data && data !== 0
   }
   @autobind
   toggleOpen (e) {
@@ -43,54 +42,58 @@ export default class Box extends Component {
     return (
       <div className="box-title">
         {title}
-        {
-          collapse
-            ? <div className="box-title-toggle" onClick={this.toggleOpen}>
-              {
-                toggleRender
-                  ? toggleRender(open)
-                  : <Fragment>
-                    <Icon className="box-title-toggle-icon" link={iconArrow} />
-                    { open ? '收起' : '展开' }
-                  </Fragment>
-              }
-            </div>
-            : ''
-        }
+        {collapse ? (
+          <div className="box-title-toggle" onClick={this.toggleOpen}>
+            {toggleRender ? (
+              toggleRender(open)
+            ) : (
+              <Fragment>
+                <Icon className="box-title-toggle-icon" link={iconArrow} />
+                {open ? '收起' : '展开'}
+              </Fragment>
+            )}
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     )
   }
   render () {
-    const { className, title, children,
-      isLoading, border,
-      contentHeight, toggleRender,
-      collapse, data, ...others } = this.props
+    const {
+      className,
+      title,
+      children,
+      isLoading,
+      border,
+      contentHeight,
+      toggleRender,
+      collapse,
+      data,
+      ...others
+    } = this.props
     const { open } = this.state
-    const classes = classNames(
-      'box',
-      className, {
-        border,
-        collapse,
-        open
-      }
-    )
+    const classes = classNames('box', className, {
+      border,
+      collapse,
+      open
+    })
     const show = this.isBoxShow()
 
-    if (!show) { return null }
+    if (!show) {
+      return null
+    }
 
     return (
       <div className={classes} {...others}>
-        {
-          title
-            ? this.renderTitle()
-            : null
-        }
-        <div className="box-content" style={{
-          height: contentHeight ? parseInt(contentHeight, 10) : ''
-        }}>
-          {
-            isLoading ? <Loading className="box-loading" size="lg"/> : children
-          }
+        {title ? this.renderTitle() : null}
+        <div
+          className="box-content"
+          style={{
+            height: contentHeight ? parseInt(contentHeight, 10) : ''
+          }}
+        >
+          {isLoading ? <Loading className="box-loading" size="lg" /> : children}
         </div>
       </div>
     )
