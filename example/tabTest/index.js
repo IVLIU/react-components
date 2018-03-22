@@ -8,7 +8,17 @@ export default class TabTest extends Component {
   constructor () {
     super()
     this.state = {
-      defaultActiveKey: 0
+      defaultActiveKey: 0,
+      data: [
+        {
+          id: 11,
+          title: "wrrrr"
+        },
+        {
+          id: 555,
+          title: "wrrrrssdu"
+        }
+      ]
     }
     this.changeActive = this.changeActive.bind(this)
   }
@@ -19,12 +29,14 @@ export default class TabTest extends Component {
     })
   }
   render () {
+    const {data} = this.state
     return (
       <div className="container" style={{width: '1200px'}}>
         <div className="row mgb20" onClick={this.changeActive}>
           <Tab  tabStyle={{ marginRight: '10px' }} activeStyle={{ borderRight: '1px solid red' }}>
-            <TabPanel  header="告警明细" keys="1">111</TabPanel>
-            <TabPanel headerkey={this.state.defaultActiveKey+""} header={`可疑活动明细${this.state.defaultActiveKey}`} keys="2">222</TabPanel>
+            {data.map((item, index) => {
+              return (<TabPanel  header={item.title} keys={index}>111</TabPanel>)
+            })}
           </Tab>
         </div>
       </div>
