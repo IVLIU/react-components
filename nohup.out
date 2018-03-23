@@ -812,3 +812,14 @@ https://react-styleguidist.js.org/docs/thirdparties.html
 
  DONE  Compiled successfully!
 
+Warning: src/components/Select/index.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+Warning: src/components/Radio/RadioButton.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+ DONE  Compiled successfully!
