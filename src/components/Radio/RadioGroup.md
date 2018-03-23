@@ -1,7 +1,10 @@
 #### 基本使用
-一组Radio, 自动包含值，name,onchange等维护,
-注：当值为object时，若想设置默认值，则应用该值的引用
-``` js
+
+一组 Radio, 自动包含值，name,onchange 等维护,
+注：当值为 object 时，若想设置默认值，则应用该值的引用
+Radio.RadioGroup = RadioGroup
+
+```js
 const dfValue = {
   a: 1
 };
@@ -10,12 +13,12 @@ const dfValue = {
     <Radio label="选择1" value={dfValue} />
     <Radio label="选择2" value={{ a: 2 }} />
   </RadioGroup>
-</div>
+</div>;
 ```
 
 #### 禁用状态
 
-``` js
+```js
 const dfValue = {
   a: 1
 };
@@ -24,5 +27,5 @@ const dfValue = {
     <Radio label="选择1" value={dfValue} />
     <Radio label="选择2" value={{ a: 2 }} />
   </RadioGroup>
-</div>
+</div>;
 ```
