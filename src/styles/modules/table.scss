@@ -33,6 +33,21 @@
 			}
 		}
 	}
+	&.background {
+		background-color: $basic-aid-gray-color;
+		
+		.table-head {
+			background-color: $basic-aid-gray-color;
+		}
+	}
+	&.striped {
+		.table-body-row:nth-child(2n) {
+			background-color: $basic-aid-gray-color;
+		}
+		.table-head {
+			background-color: $basic-aid-gray-color;
+		}
+	}
 	&.hover {
 		.table-body-row:hover {
 			background-color: #e6f2ff;
@@ -42,10 +57,10 @@
 }
 .table-head {
 	width: 100%;
-	height: 40px;
+	height: 30px;
 	color: $primaryDarkColor;
 	tr {
-		height: 40px;
+		height: 30px;
 	}
 }
 .table-body-row {

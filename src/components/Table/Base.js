@@ -57,19 +57,11 @@ export default class BaseTable extends Component {
         <tr>
           {
             columns.map((column, index) => {
-              const cls = classNames(
-                'table-head-item', {
-                  'pdl20': column.align === 'left',
-                  'pdlr20': column.align === 'right'
-                }
-              )
+              const cls = classNames('table-head-item')
               return (<th
                 key={column.key + index}
                 colSpan={getColSpan(index)}
                 className={cls}
-                style={{
-                  textAlign: column.align || 'center'
-                }}
                 width={column.width}>
                 {column.title}
                 {column.sortable ? this.renderSortIcon(column) : null}
@@ -89,12 +81,16 @@ export default class BaseTable extends Component {
       select,
       clickable,
       defaultRenderExpand,
+      background,
+      striped,
       hasChild, ...others
     } = this.props
     const classes = classNames({
       'table': true,
       border,
-      hover
+      hover,
+      background: background && !striped,
+      striped
     }, className)
     return (
       <table className={classes} {...others}>
@@ -133,6 +129,7 @@ BaseTable.defaultProps = {
   columns: [],
   border: true,
   hover: true,
+  background: true,
   showHeader: true,
   lineHeight: 50,
   defaultRenderExpand: false
@@ -146,6 +143,10 @@ BaseTable.propTypes = {
   border: PropTypes.bool,
   /** 是否带有hover样式 */
   hover: PropTypes.bool,
+  /** 是否带有背景色 */
+  background: PropTypes.bool,
+  /** 是否各行换色 */
+  striped: PropTypes.bool,
   /** 是否展示头 */
   showHeader: PropTypes.bool,
   /** 是否行可点击 */
