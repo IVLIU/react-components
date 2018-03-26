@@ -823,3 +823,14 @@ It usually happens when using third-party libraries, see possible solutions here
 https://react-styleguidist.js.org/docs/thirdparties.html
 
  DONE  Compiled successfully!
+sh: line 1: 20458 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2018-03-20T10_58_37_766Z-debug.log
