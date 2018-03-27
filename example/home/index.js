@@ -5,7 +5,7 @@ import {
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
-  Pagination, LabelSelect, TimePicker
+  Pagination, LabelSelect, TimePicker, CheckboxSelect
 } from '../../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -406,16 +406,21 @@ export default class Home extends Component {
     const { current } = this.state
     const listItems = [{
       label: '修改密码',
-      value: 'edit'
+      value: 'editeditediteditedit'
     }, {
       label: '删除',
-      value: 'delete'
+      value: 'deletedeletedeletedelete'
     }, {
       label: '不删除',
-      value: 'd'
+      value: 'dddddddd'
     }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <CheckboxSelect
+          defaultValue={['dddddddd']}
+          onChange={console.log}
+          title="事件类型"
+          options={listItems} className="mgb20"/>
         <RadioBtn options={listItems} className="mgb20"/>
         <DateRange onChange={console.log} />
         <RangeBtn className="mgb20"/>
