@@ -72,11 +72,11 @@ export default class CheckboxSelect extends Component {
   }
 
   render () {
-    const { title } = this.props
+    const { title, ...others } = this.props
     const { value } = this.state
     const valueStr = value.join(',')
     return (
-      <div className="checkbox-select-wrap">
+      <div className="checkbox-select-wrap" {...others}>
         <DropDown overlay={this.renderOverlay()}>
           <div className="checkbox-select-result">
             <span className="checkbox-select-result-label">{title}</span>
