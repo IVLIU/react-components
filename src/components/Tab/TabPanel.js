@@ -41,12 +41,16 @@ export default class TabPanel extends Component {
     }
   }
   render () {
-    const { children, active, className } = this.props
+    const { children, active, className, defaultLoad } = this.props
     const { hasShown } = this.state
     const classes = classNames('tab-panel', className, {
       active
     })
-    return <div className={classes}>{hasShown && children}</div>
+    return (
+      <div className={classes}>
+        {(hasShown && children) || (defaultLoad && children)}
+      </div>
+    )
   }
 }
 TabPanel.propTypes = {
@@ -58,6 +62,8 @@ TabPanel.propTypes = {
   keys: PropTypes.string.isRequired,
   /** 是否active, 会被父组件自动传入，不用关心 */
   active: PropTypes.bool,
+  /** 是否在初次加载的时候加载 */
+  defaultLoad: PropTypes.bool,
   /** 是否禁用 */
   disabled: PropTypes.bool
 }
