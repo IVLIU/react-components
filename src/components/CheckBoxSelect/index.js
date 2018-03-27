@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import pureRender from 'pure-render-decorator'
 import autobind from 'autobind-decorator'
+import classNames from 'classnames'
 
 import Checkbox from '../Checkbox'
 import DropDown from '../Dropdown'
@@ -72,11 +73,12 @@ export default class CheckboxSelect extends Component {
   }
 
   render () {
-    const { title, ...others } = this.props
+    const { title, className } = this.props
     const { value } = this.state
     const valueStr = value.join(',')
+    const classes = classNames('checkbox-select-wrap', className)
     return (
-      <div className="checkbox-select-wrap" {...others}>
+      <div className={classes}>
         <DropDown overlay={this.renderOverlay()}>
           <div className="checkbox-select-result">
             <span className="checkbox-select-result-label">{title}</span>
