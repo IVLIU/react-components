@@ -4,6 +4,7 @@ import Home from "./home/index"
 import TabTest from "./tabTest/index"
 import TableTest from "./tableTest/index"
 import PaginationTest from "./paginationTest/"
+import ModalTest from "./modalTest/"
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Route path='/tab' component={TabTest}/>
         <Route path='/table' component={TableTest}/>
         <Route path='/pagination' component={PaginationTest}/>
+        <Route path='/modal' component={ModalTest}/>
       </Switch>)
   }
 }
