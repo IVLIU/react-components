@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const join = p => path.join('./src/components/', p)
 const resolve = p => path.resolve(__dirname, p)
 const componentMap = component => {
