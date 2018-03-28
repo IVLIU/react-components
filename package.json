@@ -9,7 +9,6 @@
     "start": "node conf/webpack/dev-server.js",
     "staging": "node ./bin/check-dll.js && node conf/webpack/build.js",
     "build": "npm run dll && node conf/webpack/build.js",
-    "copyToTdp": "node conf/webpack/build.js",
     "build:base": "node conf/webpack/build.js",
     "build:qa": "node conf/webpack/build.js",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
@@ -21,8 +20,7 @@
   },
   "precommit": [
     "precommit-msg",
-    "eslint",
-    "copyToTdp"
+    "eslint"
   ],
   "repository": {
     "type": "git",
