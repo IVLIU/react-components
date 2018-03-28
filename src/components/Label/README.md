@@ -22,3 +22,9 @@
   <Label className="mgr10" light type="dark">info</Label>
 </div>
 ```
+
+##### 设置最大宽度
+
+``` js
+<Label maxWidth={90} light type="dark">特别长特别长的内容特别长特别长的内容</Label>
+```

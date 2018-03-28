@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-30 15:11:38
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-15 10:17:04
+ * @Last Modified time: 2018-03-28 16:13:39
  */
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -54,5 +54,5 @@ Alert.propTypes = {
   /** 提示描述 */
   description: PropTypes.string,
   /** 提示类型 */
-  type: PropTypes.string
+  type: PropTypes.oneOf(['success', 'error'])
 }

@@ -1,6 +1,6 @@
 #### 基本使用
 
-``` css
+``` html
 import delIcon from '@/images/svg/del_icon.svg';
 
 <Icon link={delIcon} />

@@ -157,6 +157,8 @@ BaseTable.propTypes = {
   lineHeight: PropTypes.number,
   /** 可展开表格的渲染 */
   expandRowRender: PropTypes.func,
+  /** 默认展开第一行 */
+  defaultRenderExpand: PropTypes.bool,
   /** 改变排序时的回调 */
   handleSortChange: PropTypes.func,
   /** 当前排序的key */

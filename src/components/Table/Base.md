@@ -73,7 +73,7 @@ const columns = [{
     return <span>现在还没有操作</span>
   }
 }];
-<BaseTable columns={columns} data={tableData} />
+<BaseTable striped columns={columns} data={tableData} />
 ```
 
 ##### 特殊效果
@@ -154,6 +154,7 @@ const columns = [{
   }
 }];
 <BaseTable columns={columns}
+  background={false}
   hover={false}
   border={false}
   showHeader={false}
@@ -257,7 +258,9 @@ class ExampleTable extends React.Component {
   render () {
     const { sortKey, sortFlag } = this.state
     return (
-      <BaseTable columns={columns}
+      <BaseTable
+        striped
+        columns={columns}
         sortKey={sortKey}
         sortFlag={sortFlag}
         handleSortChange={this.handleSortChange.bind(this)}
@@ -273,6 +276,7 @@ class ExampleTable extends React.Component {
 - expandRowRender设置展开内容
 - 带有展开的行会带有 has-expand class
 - 在column的render会回传当前row是否展开，用于自定义操作状态
+- defaultRenderExpand设置是否默认展开第一行
 
 ``` js
 const tableData = [{
@@ -356,6 +360,7 @@ const expandRowRender = (row, index) => (
 );
 <BaseTable columns={columns}
   expandRowRender={expandRowRender}
+  defaultRenderExpand
   data={tableData} />
 ```
 
@@ -577,6 +582,7 @@ const columns = [{
 }];
 <BaseTable columns={columns}
   clickable
+  striped
   handleRowClick={console.log}
   data={tableData} />
 ```
@@ -658,6 +664,7 @@ const columns = [{
 }];
 <BaseTable columns={columns}
   select
+  striped
   handleSelectChanged={console.log}
   data={tableData} />
 ```

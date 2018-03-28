@@ -31,7 +31,14 @@ const Overlay = ({options, title, onChange, close, onEnsure, defaultValue}) => (
 @pureRender
 export default class CheckboxSelect extends Component {
   static propTypes = {
-    prop: PropTypes
+    /** 选项列表，包含label, value字段 */
+    options: PropTypes.array,
+    /** 标题 */
+    title: PropTypes.string,
+    /** 默认值 */
+    defaultValue: PropTypes.array,
+    /** 回调事件 */
+    onChange: PropTypes.func
   }
   state = {
     value: []
