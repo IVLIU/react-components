@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:00
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-03-28 10:48:30
+ * @Last Modified time: 2018-03-28 11:01:13
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -30,6 +30,7 @@ export default class Checkbox extends Component {
       this.setState({
         checked: defaultChecked
       })
+      this.checked = defaultChecked
     }
   }
   handleChange (e) {
