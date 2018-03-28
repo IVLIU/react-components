@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:00
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-03-27 19:25:24
+ * @Last Modified time: 2018-03-28 10:48:30
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -10,21 +10,39 @@ import classNames from 'classnames'
 
 let count = 0
 export default class Checkbox extends Component {
+  state = {
+    checked: false
+  }
   componentWillMount () {
     this.id = `checkbox-label-id-${++count}`
     this.checked = this.props.defaultChecked
+    this.setState({
+      checked: this.checked
+    })
   }
   componentDidMount () {
     const { onChildCheckBoxMounted } = this.props
     onChildCheckBoxMounted && onChildCheckBoxMounted(this)
   }
+  componentWillReceiveProps (nextProps) {
+    const { defaultChecked } = nextProps
+    if (defaultChecked !== this.props.defaultChecked) {
+      this.setState({
+        checked: defaultChecked
+      })
+    }
+  }
   handleChange (e) {
     const { onChange, value } = this.props
     this.checked = e.target.checked
+    this.setState({
+      checked: e.target.checked
+    })
     onChange && onChange(e, value, this)
   }
   render () {
     const { label, defaultChecked, name, value, className, disabled, ...others } = this.props
+    const { checked } = this.state
     const classes = classNames('checkbox-label', className, {
       disabled
     })
@@ -34,7 +52,7 @@ export default class Checkbox extends Component {
           className="checkbox"
           type="checkbox"
           id={this.id}
-          defaultChecked={defaultChecked}
+          checked={checked}
           name={name}
           value={value}
           disabled={disabled}

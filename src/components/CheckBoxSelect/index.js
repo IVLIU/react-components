@@ -73,9 +73,12 @@ export default class CheckboxSelect extends Component {
   }
 
   render () {
-    const { title, className } = this.props
+    const { title, className, options } = this.props
     const { value } = this.state
-    const valueStr = value.join(',')
+    const valueStr = options
+      .filter(item => value.indexOf(item.value) > -1)
+      .map(item => item.label)
+      .join(',')
     const classes = classNames('checkbox-select-wrap', className)
     return (
       <div className={classes}>
