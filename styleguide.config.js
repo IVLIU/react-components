@@ -47,6 +47,9 @@ module.exports = {
     name: 'Startup',
     content: resolve('./doc/base.md')
   }, {
+    name: 'ChangeLog',
+    content: resolve('./doc/changeLog.md')
+  }, {
     name: 'IconList',
     content: resolve('./doc/IconList.md')
   }, {
