@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:52:04
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-03-19 19:40:01
+ * @Last Modified time: 2018-04-03 16:59:06
  */
 import React from 'react'
 import ControledInput from '../Common/ControledInput'
@@ -44,6 +44,7 @@ const Select = (props) => {
     clearable,
     valueComponent: d => <MultiSelectValue {...d} />
   }
+  console.log(controled)
   if (!multi) {
     delete config.valueComponent
   }

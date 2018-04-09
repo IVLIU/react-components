@@ -51,7 +51,8 @@ const SelectTable = WrapedComponent =>
           return <Checkbox
             checked={selectedRows.indexOf(row) >= 0}
             onChange={(e, v, target) => this.handleSelectRow(target, row)} />
-        }
+        },
+        width: 80
       })
       return ret
     }

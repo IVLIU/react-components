@@ -69,7 +69,7 @@ export default class Row extends Component {
                   height: lineHeight + 'px',
                   textAlign: align || 'center'
                 }}
-                width={column.width}
+                // width={column.width}
                 key={'row' + index + i}>
                 {ret}
               </td>
