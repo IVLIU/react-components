@@ -52,24 +52,25 @@ export default class Row extends Component {
         <tr className={classes} onClick={this.toggleRow} {...others}>
           {
             columns.map((column, i) => {
-              const { key, render, align } = column
+              const { key, render, align, limit, width } = column
               const rowData = row[key]
               const ret = render ? render(rowData, row, {
                 rowIndex: index,
                 columnIndex: i,
                 expandShow: show
               }) : rowData
-              const classes = [
-                `table-row-item`,
-                align === 'left' ? 'pdl20' : '',
-                align === 'right' ? 'pdr20' : ''
-              ].filter(i => i).join(' ')
+              const classes = classNames({
+                'table-row-item': true,
+                limit,
+                'pdl20': align === 'left',
+                'pdr20': align === 'right'
+              })
               return <td className={classes}
                 style={{
                   height: lineHeight + 'px',
-                  textAlign: align || 'center'
+                  textAlign: align || 'center',
+                  maxWidth: width
                 }}
-                // width={column.width}
                 key={'row' + index + i}>
                 {ret}
               </td>

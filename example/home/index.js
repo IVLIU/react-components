@@ -148,7 +148,8 @@ const columns = [{
   key: 'times',
   title: '3',
   sortable: true,
-  width: 120
+  width: 120,
+  limit: true
 }, {
   title: '操作',
   render (item, row, { expandShow }) {
@@ -198,7 +199,7 @@ export default class Home extends Component {
         desc: '辣鸡邮件'
       }],
       type: '阻断',
-      times: '32342342次'
+      times: '32342342323423423234234232342342次'
     }, {
       ip: '87.101.12.12',
       labels: [{

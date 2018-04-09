@@ -60,11 +60,12 @@ export default class BaseTable extends Component {
         {
           columns.map((column, index) => {
             const subWidth = index === columns.length - 1 && isScrollHeader ? 10 : 0
+            const width = column.width + subWidth
             return (<col
               key={column.key + index}
               style={{
-                width: column.width + subWidth,
-                minWidth: column.width + subWidth
+                width: width,
+                minWidth: width
               }}>
             </col>)
           })

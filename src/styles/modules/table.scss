@@ -91,6 +91,13 @@
 		background-color: #e6f2ff;
 	}
 }
+.table-row-item{
+	&.limit{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
 .table-body-expand-row {
 	background-color: #f3f3f3;
 }
