@@ -24,7 +24,7 @@ export default class ChildRows extends Component {
     })
   }
   getRetColumns (isParent) {
-    const { columns: c, row, select } = this.props
+    const { columns: c, row, select, hasChild: hasChildren } = this.props
     const hasChild = row.children && row.children.length
     const columns = c.slice(0)
     const { show } = this.state
@@ -47,6 +47,10 @@ export default class ChildRows extends Component {
           render
         })
       }
+    } else if (hasChildren) {
+      columns.unshift({
+        render: () => <td></td>
+      })
     }
     return columns
   }

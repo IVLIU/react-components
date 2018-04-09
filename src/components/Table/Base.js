@@ -182,7 +182,17 @@ BaseTable.defaultProps = {
 BaseTable.propTypes = {
   /** 内容数据 */
   data: PropTypes.array,
-  /** 列的规则 */
+  /**
+   * 列的规则
+   * {
+   *   title: '列标题',
+   *   key: '字段',
+   *   render: '渲染函数，可进行自定义渲染',
+   *   width: '设置宽度',
+   *   align: '对齐',
+   *   limit: '设置是否单元格不换行处理'
+   * }
+   */
   columns: PropTypes.array,
   /** 是否带边框 */
   border: PropTypes.bool,

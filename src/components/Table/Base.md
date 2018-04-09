@@ -1,6 +1,10 @@
 #### 基本使用
 
-最基本的表格
+- 最基本的表格
+- width控制宽度
+- render控制自定义渲染
+- align控制对齐
+- limit设置超出省略号（需控制宽度）
 
 ``` js
 const tableData = [{
@@ -13,7 +17,7 @@ const tableData = [{
     desc: '辣鸡邮件'
   }],
   type: '阻断',
-  times: '32342342次'
+  times: '3234234232342342次32342342次32342342次次'
 }, {
   ip: '87.101.12.12',
   labels: [{
@@ -66,7 +70,9 @@ const columns = [{
   }
 }, {
   key: 'times',
-  title: '3'
+  title: '3',
+  width: 120,
+  limit: true
 }, {
   title: '操作',
   render (item, row) {
@@ -271,6 +277,104 @@ class ExampleTable extends React.Component {
 <ExampleTable />
 ```
 
+##### 固定头部
+
+- 通过scrollHeight设置底部最大高度，表头将自动固定
+- 尽量设置每个单元格的宽度，以保证两端对齐
+
+``` js
+let tableData = [{
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}];
+tableData = tableData.concat(tableData, tableData)
+
+const columns = [{
+  key: 'labels',
+  title: '1',
+  render (items) {
+    return (
+      items.map(item => {
+        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
+      })
+    )
+  },
+  width: 150
+}, {
+  key: 'type',
+  title: '2',
+  render (item) {
+    return <span className="color-error">{item}</span>
+  },
+  width: 80
+}, {
+  key: 'times',
+  title: '3',
+  width: 120
+}, {
+  title: '操作',
+  render (item, row, {
+    expandShow
+  }) {
+    return <span>{expandShow ? '收起' : '展开'}</span>
+  },
+  width: 90
+}];
+const expandRowRender = (row, index) => (
+  <div>
+    这是扩展的内容
+    <p>这是第{index + 1}行的展开内容</p>
+    <p>可以各种自定义</p>
+  </div>
+);
+<BaseTable columns={columns}
+  expandRowRender={expandRowRender}
+  defaultRenderExpand
+  scrollHeight={250}
+  data={tableData} />
+```
+
 ##### 可展开
 
 - expandRowRender设置展开内容
@@ -468,39 +572,33 @@ const columns = [{
   render (items) {
     return (
       items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
+        return <Label className="table-label mgr10" light key={item.desc} type={item.type}>{item.desc}</Label>
       })
     )
   },
-  align: 'left',
-  width: '35%'
+  width: 180
 }, {
   key: 'type',
   title: '2',
   render (item) {
     return <span className="color-error">{item}</span>
-  }
+  },
+  width: 80
 }, {
   key: 'times',
-  title: '3'
+  title: '3',
+  sortable: true,
+  width: 120,
+  limit: true
 }, {
   title: '操作',
-  render (item, row, {
-    expandShow
-  }) {
+  render (item, row, { expandShow }) {
     return <span>{expandShow ? '收起' : '展开'}</span>
-  }
+  },
+  width: 80
 }];
-const expandRowRender = (row, index) => (
-  <div>
-    这是扩展的内容
-    <p>这是第{index + 1}行的展开内容</p>
-    <p>可以各种自定义</p>
-  </div>
-);
 <BaseTable columns={columns}
-  expandRowRender={expandRowRender}
-  hasChild
+  hasChild={true}
   data={tableData} />
 ```
 
