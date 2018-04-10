@@ -39,10 +39,16 @@ export default class Dropdown extends Component {
     }
   }
   @autobind
+  close () {
+    this.setState({
+      open: false
+    })
+  }
+  @autobind
   toggleShow (e) {
-    e.preventDefault()
+    e.stopPropagation()
     const { trigger } = this.props
-    if (trigger !== 'click' && e.target === this.trigger) {
+    if (trigger !== 'click') {
       return
     }
     this.setState({
@@ -73,7 +79,9 @@ export default class Dropdown extends Component {
     const { overlay } = this.props
     return (
       <div className="dropdown-overlay">
-        {overlay}
+        {cloneElement(overlay, {
+          close: this.close
+        })}
       </div>
     )
   }
@@ -89,7 +97,6 @@ export default class Dropdown extends Component {
         ref={ wrap => { this.wrap = wrap }}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
-        onClick={this.toggleShow}
         {...others}>
         {cloneElement(children, {
           ref: trigger => { this.trigger = trigger },

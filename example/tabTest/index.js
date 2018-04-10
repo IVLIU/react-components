@@ -33,10 +33,12 @@ export default class TabTest extends Component {
     return (
       <div className="container" style={{width: '1200px'}}>
         <div className="row mgb20" onClick={this.changeActive}>
-          <Tab  tabStyle={{ marginRight: '10px' }} activeStyle={{ borderRight: '1px solid red' }}>
-            {data.map((item, index) => {
+          <Tab  tabStyle={{ marginRight: '10px' }} activeStyle={{ borderRight: '1px solid red' }} defaultActiveKey="test">
+            {/* {data.map((item, index) => {
               return (<TabPanel  header={item.title} keys={index}>111</TabPanel>)
-            })}
+            })} */}
+            <TabPanel keys="test" >89999788888</TabPanel>
+            <TabPanel keys="testload" defaultLoad><p>89999</p></TabPanel>
           </Tab>
         </div>
       </div>

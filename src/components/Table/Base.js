@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import autobind from 'autobind-decorator'
 import classNames from 'classnames'
@@ -24,6 +24,17 @@ export default class BaseTable extends Component {
     })
     this.props.handleRowClick && this.props.handleRowClick(row, index)
   }
+  getColSpan (index) {
+    const { hasChild, select } = this.props
+
+    if (!hasChild) {
+      return 1
+    }
+    if (select) {
+      return index === 1 ? 2 : 1
+    }
+    return index === 0 ? 2 : 1
+  }
   renderSortIcon (column) {
     const { handleSortChange, sortKey, sortFlag } = this.props
     const change = sort => {
@@ -41,18 +52,31 @@ export default class BaseTable extends Component {
       </div>
     )
   }
-  renderHeader (columns) {
-    const { hasChild, select } = this.props
-    const getColSpan = index => {
-      if (!hasChild) {
-        return 1
-      }
-      if (select) {
-        return index === 1 ? 2 : 1
-      }
-      return index === 0 ? 2 : 1
-    }
+  renderColGroup (columns, isScrollHeader) {
+    const { hasChild } = this.props
     return (
+      <colgroup>
+        { hasChild ? <col style={{ width: 60, minWidth: 60 }}/> : null }
+        {
+          columns.map((column, index) => {
+            const subWidth = index === columns.length - 1 && isScrollHeader ? 10 : 0
+            const width = column.width + subWidth
+            return (<col
+              key={column.key + index}
+              style={{
+                width: width,
+                minWidth: width
+              }}>
+            </col>)
+          })
+        }
+      </colgroup>
+    )
+  }
+  renderHeader () {
+    const { scrollHeight, columns } = this.props
+
+    const tableHead = (
       <thead className="table-head">
         <tr>
           {
@@ -60,9 +84,8 @@ export default class BaseTable extends Component {
               const cls = classNames('table-head-item')
               return (<th
                 key={column.key + index}
-                colSpan={getColSpan(index)}
-                className={cls}
-                width={column.width}>
+                colSpan={this.getColSpan(index)}
+                className={cls}>
                 {column.title}
                 {column.sortable ? this.renderSortIcon(column) : null}
               </th>)
@@ -71,19 +94,59 @@ export default class BaseTable extends Component {
         </tr>
       </thead>
     )
+    return scrollHeight
+      ? <div className="table-header-wrap">
+        <table>
+          {this.renderColGroup(columns, true)}
+          {tableHead}
+        </table>
+      </div>
+      : tableHead
+  }
+  renderBody () {
+    const {
+      data, columns, hasChild,
+      select, clickable, expandRowRender,
+      defaultRenderExpand, lineHeight,
+      scrollHeight } = this.props
+    const tableBody = <tbody className="table-body">
+      {
+        data.map((row, index) => {
+          return (
+            <Row key={'table-body-row-' + index}
+              row={row}
+              index={index}
+              columns={columns}
+              hasChild={hasChild}
+              select={select}
+              clickable={clickable}
+              expandRowRender={expandRowRender}
+              defaultRenderExpand={defaultRenderExpand && index === 0}
+              changeActive={this.changeActive}
+              lineHeight={lineHeight}
+              active={index === this.state.activeIndex}
+              style={{ height: lineHeight + 'px' }} />
+          )
+        })
+      }
+    </tbody>
+
+    return scrollHeight
+      ? <div className="table-body-wrap" style={{
+        maxHeight: scrollHeight
+      }}>
+        <table>
+          {this.renderColGroup(columns)}
+          {tableBody}
+        </table>
+      </div>
+      : tableBody
   }
   render () {
-    const { columns, data, border,
-      hover, lineHeight, showHeader,
-      className, expandRowRender,
-      sortKey, sortFlag,
-      handleSortChange,
-      select,
-      clickable,
-      defaultRenderExpand,
-      background,
-      striped,
-      hasChild, ...others
+    const { columns, border,
+      hover, showHeader, className,
+      background, striped, style,
+      scrollHeight
     } = this.props
     const classes = classNames({
       'table': true,
@@ -92,36 +155,18 @@ export default class BaseTable extends Component {
       background: background && !striped,
       striped
     }, className)
-    return (
-      <table className={classes} {...others}>
-        {
-          showHeader
-            ? this.renderHeader(columns)
-            : null
-        }
-        <tbody className="table-body">
-          {
-            data.map((row, index) => {
-              return (
-                <Row key={'table-body-row-' + index}
-                  row={row}
-                  index={index}
-                  columns={columns}
-                  hasChild={hasChild}
-                  select={select}
-                  clickable={clickable}
-                  expandRowRender={expandRowRender}
-                  defaultRenderExpand={defaultRenderExpand && index === 0}
-                  changeActive={this.changeActive}
-                  lineHeight={lineHeight}
-                  active={index === this.state.activeIndex}
-                  style={{ height: lineHeight + 'px' }}/>
-              )
-            })
-          }
-        </tbody>
+    const tableContent = <Fragment>
+      {!scrollHeight ? this.renderColGroup(columns) : null}
+      {showHeader ? this.renderHeader() : null}
+      {this.renderBody()}
+    </Fragment>
+    return scrollHeight
+      ? <div className={classes} style={style}>
+        {tableContent}
+      </div>
+      : <table className={classes} style={style}>
+        {tableContent}
       </table>
-    )
   }
 }
 BaseTable.defaultProps = {
@@ -137,7 +182,17 @@ BaseTable.defaultProps = {
 BaseTable.propTypes = {
   /** 内容数据 */
   data: PropTypes.array,
-  /** 列的规则 */
+  /**
+   * 列的规则
+   * {
+   *   title: '列标题',
+   *   key: '字段',
+   *   render: '渲染函数，可进行自定义渲染',
+   *   width: '设置宽度',
+   *   align: '对齐',
+   *   limit: '设置是否单元格不换行处理'
+   * }
+   */
   columns: PropTypes.array,
   /** 是否带边框 */
   border: PropTypes.bool,
@@ -151,12 +206,16 @@ BaseTable.propTypes = {
   showHeader: PropTypes.bool,
   /** 是否行可点击 */
   clickable: PropTypes.bool,
+  /** 是否为多选表格 */
+  select: PropTypes.bool,
   /** 点击行的回调 */
   handleRowClick: PropTypes.func,
   /** 每行的高度 */
   lineHeight: PropTypes.number,
   /** 可展开表格的渲染 */
   expandRowRender: PropTypes.func,
+  /** 默认展开第一行 */
+  defaultRenderExpand: PropTypes.bool,
   /** 改变排序时的回调 */
   handleSortChange: PropTypes.func,
   /** 当前排序的key */

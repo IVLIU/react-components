@@ -6,6 +6,7 @@ import iconArrow from '@/images/svg/coor-arrow.svg'
 import pureRender from 'pure-render-decorator'
 import autobind from 'autobind-decorator'
 import Loading from '../Loading'
+import NoResult from '../NoResult'
 
 /**
  * 基本的盒子，用于组成页面的各个小容器
@@ -70,6 +71,7 @@ export default class Box extends Component {
       toggleRender,
       collapse,
       data,
+      emptyDesc,
       ...others
     } = this.props
     const { open } = this.state
@@ -79,11 +81,6 @@ export default class Box extends Component {
       open
     })
     const show = this.isBoxShow()
-
-    if (!show) {
-      return null
-    }
-
     return (
       <div className={classes} {...others}>
         {title ? this.renderTitle() : null}
@@ -93,7 +90,11 @@ export default class Box extends Component {
             height: contentHeight ? parseInt(contentHeight, 10) : ''
           }}
         >
-          {isLoading ? <Loading className="box-loading" size="lg" /> : children}
+          {isLoading
+            ? <Loading className="box-loading" size="lg" />
+            : show
+              ? children
+              : <NoResult desc={emptyDesc}/>}
         </div>
       </div>
     )
@@ -105,8 +106,10 @@ Box.defaultProps = {
 Box.propTypes = {
   /** 盒子的标题，可以省略 */
   title: PropTypes.any,
-  /** 盒子依赖的数据，会根据是否有该数据而判断是否展示该盒子 */
+  /** 盒子依赖的数据，会根据是否有该数据而判断是否展示数据为空 */
   data: PropTypes.any,
+  /** 数据为空时展示的描述 */
+  emptyDesc: PropTypes.string,
   /** 是否正在Loading, 是的话会自带Loading样式 */
   isLoading: PropTypes.bool,
   /** 是否带border */

@@ -5,6 +5,19 @@ import DropDown from '../Dropdown'
 import classNames from 'classnames'
 import autobind from 'autobind-decorator'
 
+const Overlay = ({ close, listItems, handleChange }) => {
+  return <ul className="dropdown-list-content">
+    {
+      listItems.map((item, index) => (
+        <li className="dropdown-list-item"
+          key={index}
+          onClick={() => handleChange(item, close)}>
+          {item.label}
+        </li>
+      ))
+    }
+  </ul>
+}
 /**
  * 在Dropdown组件上封装的list组件
  */
@@ -16,8 +29,32 @@ export default class DropdownList extends Component {
       curValue: props.children
     }
   }
+
+  componentWillMount () {
+    this.setDefaultValue(this.props)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const { defaultValue } = nextProps
+
+    if (defaultValue !== this.props.defaultValue) {
+      this.setDefaultValue(nextProps)
+    }
+  }
+
+  setDefaultValue (props) {
+    const { defaultValue, listItems } = props
+
+    if (defaultValue || defaultValue === 0 || defaultValue === false) {
+      const curValue = listItems.find(item => item.value === defaultValue)
+      curValue && this.setState({
+        curValue: curValue.label
+      })
+    }
+  }
+
   @autobind
-  handleChange (item) {
+  handleChange (item, close) {
     const { onChange, changeValue } = this.props
     onChange && onChange(item.value)
     if (changeValue) {
@@ -25,20 +62,11 @@ export default class DropdownList extends Component {
         curValue: item.label
       })
     }
+    close()
   }
   renderOverlayList () {
     const { listItems } = this.props
-    return (
-      <ul className="dropdown-list-content">
-        {
-          listItems.map((item, index) => {
-            return (
-              <li className="dropdown-list-item" key={index} onClick={() => this.handleChange(item)}>{item.label}</li>
-            )
-          })
-        }
-      </ul>
-    )
+    return <Overlay listItems={listItems} handleChange={this.handleChange} />
   }
 
   render () {
@@ -66,5 +94,7 @@ DropdownList.propTypes = {
   /** 点击内容的回调事件 */
   onChange: PropTypes.func,
   /** 值改变时，是否点击按钮的内容 */
-  changeValue: PropTypes.bool
+  changeValue: PropTypes.bool,
+  /** 默认值 */
+  defaultValue: PropTypes.any
 }

@@ -29,11 +29,14 @@ const formComponents = {
   input: join('Input/index.js'),
   multiInput: join('MultiInput/index.js'),
   select: join('Select/index.js'),
+  DateRangePicker: join('TimePicker/DateRangePicker.js'),
+  RangeBtn: join('TimePicker/RangeBtn.js'),
   radio: join('Radio/Radio.js'),
   radioGroup: join('Radio/RadioGroup.js'),
   radioBtn: join('Radio/RadioButton.js'),
   checkbox: join('Checkbox/Checkbox.js'),
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
+  checkboxSelect: join('CheckBoxSelect/index.js'),
   labelSelect: join('LabelSelect/index.js'),
   form: join('Form/Form.js'),
   formItem: join('Form/FormItem.js')
@@ -43,6 +46,9 @@ module.exports = {
   sections: [{
     name: 'Startup',
     content: resolve('./doc/base.md')
+  }, {
+    name: 'ChangeLog',
+    content: resolve('./doc/changeLog.md')
   }, {
     name: 'IconList',
     content: resolve('./doc/IconList.md')

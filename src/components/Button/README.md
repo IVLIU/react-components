@@ -11,23 +11,10 @@ const handleClick = () => {
 
 ```js
 <div>
-  <Button>按钮</Button>
-  <Button type="primary">按钮</Button>
-  <Button type="secondary">按钮</Button>
-  <Button type="cancel">按钮</Button>
-  <Button type="link">按钮</Button>
+  <Button className="mgr20">按钮</Button>
+  <Button className="mgr20" type="primary">按钮</Button>
+  <Button className="mgr20" type="secondary">按钮</Button>
+  <Button className="mgr20" type="cancel">按钮</Button>
+  <Button className="mgr20" type="link">按钮</Button>
 </div>
-```
-
-#### 自定义样式
-
-```css
-.btn-new {
-  background-color: red;
-  color: green;
-}
-```
-
-```
-<Button className="btn-new">特别丑的按钮</Button>
 ```

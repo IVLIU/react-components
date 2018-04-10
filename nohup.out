@@ -834,3 +834,62 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 
 npm ERR! A complete log of this run can be found in:
 npm ERR!     /home/threatbook/.npm/_logs/2018-03-20T10_58_37_766Z-debug.log
+
+> react-cli@1.1.0 styleguide /opt/threatbook/tip-ui
+> node doc/generateIcon.js && styleguidist server
+
+You can now view your style guide in the browser:
+
+  Local:            http://localhost:8080/
+  On your network:  http://10.10.49.46:8080/
+
+Warning: src/components/Select/index.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+Warning: Cannot parse src/components/TimePicker/RangeBtn.js: TypeError: Argument must be an Identifier or a Literal
+
+It usually means that react-docgen does not understand your source code, try to file an issue here:
+https://github.com/reactjs/react-docgen/issues
+
+Warning: src/components/TimePicker/DateRangePicker.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+Warning: src/components/Radio/RadioButton.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+Warning: src/components/Checkbox/CheckboxGroup.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+
+Warning: src/components/Select/index.js matches a pattern defined in “components” or “sections” options in your style guide config but doesn’t export a component.
+
+It usually happens when using third-party libraries, see possible solutions here:
+https://react-styleguidist.js.org/docs/thirdparties.html
+
+ DONE  Compiled successfully!
+
+ DONE  Compiled successfully!
+sh: line 1:  1967 Killed                  styleguidist server
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! react-cli@1.1.0 styleguide: `node doc/generateIcon.js && styleguidist server`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the react-cli@1.1.0 styleguide script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/threatbook/.npm/_logs/2018-04-09T09_27_49_790Z-debug.log

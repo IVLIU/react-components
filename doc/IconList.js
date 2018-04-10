@@ -89,6 +89,7 @@ import icontext from '@/images/svg/text.svg'
 import iconthreat_type from '@/images/svg/threat_type.svg'
 import icontracing from '@/images/svg/tracing.svg'
 import icontrash from '@/images/svg/trash.svg'
+import icontwoArrows from '@/images/svg/twoArrows.svg'
 import icontype_file_bg from '@/images/svg/type-file-bg.svg'
 import icontype_zip_bg from '@/images/svg/type-zip-bg.svg'
 import iconupload from '@/images/svg/upload.svg'
@@ -637,6 +638,12 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={icontrash}/>
       <p className="icon-name">trash</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={icontwoArrows}/>
+      <p className="icon-name">twoArrows</p>
     </div> 
   
 

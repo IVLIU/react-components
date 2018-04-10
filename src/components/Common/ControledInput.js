@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-31 17:57:48
+ * @Last Modified time: 2018-03-23 16:08:27
  */
 import React, { Component } from 'react'
 import pureRender from 'pure-render-decorator'
@@ -19,10 +19,11 @@ export default (WrapComponent, mapDefaultToValue, MapValueToValue) => {
       }
     }
     componentWillReceiveProps (nextProps) {
-      const { value } = nextProps
-      if (value && value !== 0) {
+      const { defaultValue } = this.props
+      const { defaultValue: d } = nextProps
+      if (d !== defaultValue) {
         this.setState({
-          value
+          value: d
         })
       }
     }

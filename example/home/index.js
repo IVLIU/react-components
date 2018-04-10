@@ -5,7 +5,7 @@ import {
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
-  Pagination, LabelSelect, TimePicker
+  Pagination, LabelSelect, TimePicker, CheckboxSelect
 } from '../../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -110,6 +110,16 @@ const code = {
     }
   }
 }
+const listItems = [{
+  label: '修改密码',
+  value: 1
+}, {
+  label: '删除',
+  value: 2
+}, {
+  label: '不删除',
+  value: 3
+}]
 const columns = [{
   key: 'labels',
   title: '1',
@@ -119,22 +129,27 @@ const columns = [{
         return <Label className="table-label" light key={item.desc} type={item.type}>{item.desc}</Label>
       })
     )
-  }
+  },
+  width: 250
 }, {
   key: 'type',
   title: '2',
   render (item) {
     return <span className="color-error">{item}</span>
-  }
+  },
+  width: 80
 }, {
   key: 'times',
   title: '3',
-  sortable: true
+  sortable: true,
+  width: 120,
+  limit: true
 }, {
   title: '操作',
   render (item, row, { expandShow }) {
     return <span>{expandShow ? '收起' : '展开'}</span>
-  }
+  },
+  width: 80
 }]
 export default class Home extends Component {
   constructor () {
@@ -178,7 +193,7 @@ export default class Home extends Component {
         desc: '辣鸡邮件'
       }],
       type: '阻断',
-      times: '32342342次'
+      times: '32342342323423423234234232342342次'
     }, {
       ip: '87.101.12.12',
       labels: [{
@@ -240,6 +255,7 @@ export default class Home extends Component {
         }]
       })
     })
+    const tableData3 = tableData.concat(tableData, tableData)
     return (
       <div className="container-fluid">
         <div className="row">
@@ -255,6 +271,7 @@ export default class Home extends Component {
           <div className="col-6">
             带边框hover的普通table
             <Table columns={columns}
+              striped
               data={tableData} />
           </div>
         </div>
@@ -270,9 +287,8 @@ export default class Home extends Component {
             竖向滚动table
             <Table columns={columns}
               clickable
-              handleRowClick={console.log}
-              maxLength={3}
-              data={tableData} />
+              scrollHeight={300}
+              data={tableData3} />
           </div>
         </div>
         <div className="row">
@@ -305,9 +321,8 @@ export default class Home extends Component {
             带选项的table
             <Table columns={columns}
               select
-              hasChild={true}
               handleSelectChanged={console.log}
-              data={tableData2} />
+              data={tableData} />
           </div>
         </div>
       </div>
@@ -404,18 +419,13 @@ export default class Home extends Component {
       </Box>
     )
     const { current } = this.state
-    const listItems = [{
-      label: '修改密码',
-      value: 'edit'
-    }, {
-      label: '删除',
-      value: 'delete'
-    }, {
-      label: '不删除',
-      value: 'd'
-    }]
     return (
       <div className="container" style={{width: '1200px'}}>
+        <CheckboxSelect
+          defaultValue={['dddddddd']}
+          onChange={console.log}
+          title="事件类型"
+          options={listItems} className="mgb20"/>
         <RadioBtn options={listItems} className="mgb20"/>
         <DateRange onChange={console.log} />
         <RangeBtn className="mgb20"/>
@@ -430,7 +440,13 @@ export default class Home extends Component {
         <Dropdown overlay={overlay} >
           <Button type="secondary">点我</Button>
         </Dropdown>
-        <DropdownList trigger="hover" onChange={console.log} className="mgb20" listItems={listItems}>
+        <DropdownList
+          trigger="hover"
+          onChange={console.log}
+          changeValue
+          className="mgb20"
+          defaultValue={2}
+          listItems={listItems}>
           操作
         </DropdownList>
         <DropdownList style={{
@@ -509,7 +525,7 @@ export default class Home extends Component {
             <Select onChange={handleChange} options={options} clearable={false} />
           </div>
           <div className="col-6 mgb20">
-            <Select onChange={handleChange} options={options} multi />
+            <Select onChange={handleChange} options={listItems} multi />
           </div>
           <div className="col-6 mgb20">
             <Select onChange={handleChange} options={options} hasError />

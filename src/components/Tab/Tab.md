@@ -11,10 +11,10 @@
 </Tab>
 ```
 
-#### 定制tabBar
+#### ~~~定制tabBar~~~
+可直接通过css-module自定义样式，详见[Startup](/#startup)
 
-通过header返回节点，定制tabBar的内容，
-通过style等定制样式
+~~~通过header返回节点，定制tabBar的内容,通过style等定制样式~~~
 
 ``` js
 <Tab tabStyle={{ color: 'blue', marginRight: '10px' }} activeStyle={{ color: 'red', borderColor: 'orange' }}>
@@ -22,6 +22,7 @@
   <TabPanel header={<div>❤️可疑活动明细</div>} keys="2">222</TabPanel>
 </Tab>
 ```
+
 
 #### 整合Code组件，进行代码展示
 定制tab样式和内容，进行常用的code展示tab
