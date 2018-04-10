@@ -112,19 +112,13 @@ const code = {
 }
 const listItems = [{
   label: '修改密码',
-  value: {
-    a: 1
-  }
+  value: 1
 }, {
   label: '删除',
-  value: {
-    a: 2
-  }
+  value: 2
 }, {
   label: '不删除',
-  value: {
-    a: 3
-  }
+  value: 3
 }]
 const columns = [{
   key: 'labels',
@@ -446,7 +440,13 @@ export default class Home extends Component {
         <Dropdown overlay={overlay} >
           <Button type="secondary">点我</Button>
         </Dropdown>
-        <DropdownList trigger="hover" onChange={console.log} className="mgb20" listItems={listItems}>
+        <DropdownList
+          trigger="hover"
+          onChange={console.log}
+          changeValue
+          className="mgb20"
+          defaultValue={2}
+          listItems={listItems}>
           操作
         </DropdownList>
         <DropdownList style={{

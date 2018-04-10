@@ -29,6 +29,30 @@ export default class DropdownList extends Component {
       curValue: props.children
     }
   }
+
+  componentWillMount () {
+    this.setDefaultValue(this.props)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const { defaultValue } = nextProps
+
+    if (defaultValue !== this.props.defaultValue) {
+      this.setDefaultValue(nextProps)
+    }
+  }
+
+  setDefaultValue (props) {
+    const { defaultValue, listItems } = props
+
+    if (defaultValue || defaultValue === 0 || defaultValue === false) {
+      const curValue = listItems.find(item => item.value === defaultValue)
+      curValue && this.setState({
+        curValue: curValue.label
+      })
+    }
+  }
+
   @autobind
   handleChange (item, close) {
     const { onChange, changeValue } = this.props
@@ -70,5 +94,7 @@ DropdownList.propTypes = {
   /** 点击内容的回调事件 */
   onChange: PropTypes.func,
   /** 值改变时，是否点击按钮的内容 */
-  changeValue: PropTypes.bool
+  changeValue: PropTypes.bool,
+  /** 默认值 */
+  defaultValue: PropTypes.any
 }
