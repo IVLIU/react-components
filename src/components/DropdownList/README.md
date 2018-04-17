@@ -36,3 +36,6 @@ const listItems = [{
   操作
 </DropdownList>
 ```
+### ChangeLog
+preChange: 下拉列表显示listItems里边的所有的选项。
+afterChange: 下拉列表显示listItems里边value不等于传入的defaultValue的其他选项。

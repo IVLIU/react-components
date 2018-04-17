@@ -5,16 +5,20 @@ import DropDown from '../Dropdown'
 import classNames from 'classnames'
 import autobind from 'autobind-decorator'
 
-const Overlay = ({ close, listItems, handleChange }) => {
+const Overlay = ({ close, listItems, handleChange, defaultValue }) => {
   return <ul className="dropdown-list-content">
     {
-      listItems.map((item, index) => (
-        <li className="dropdown-list-item"
-          key={index}
-          onClick={() => handleChange(item, close)}>
-          {item.label}
-        </li>
-      ))
+      listItems.map((item, index) => {
+        if (item.value !== defaultValue) {
+          return (
+            <li className="dropdown-list-item"
+              key={index}
+              onClick={() => handleChange(item, close)}>
+              {item.label}
+            </li>
+          )
+        }
+      })
     }
   </ul>
 }
@@ -65,8 +69,8 @@ export default class DropdownList extends Component {
     close()
   }
   renderOverlayList () {
-    const { listItems } = this.props
-    return <Overlay listItems={listItems} handleChange={this.handleChange} />
+    const { listItems, defaultValue } = this.props
+    return <Overlay listItems={listItems} handleChange={this.handleChange} defaultValue={defaultValue}/>
   }
 
   render () {
