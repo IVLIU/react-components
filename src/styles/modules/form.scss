@@ -145,7 +145,8 @@
   background-color: transparent;
   cursor: pointer;
   color: #182026;
-
+  font-size: 14px;
+  font-weight: normal;
   &-item {
     display: inline-block;
     border-right: 1px solid $basic-border-color;
