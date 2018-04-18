@@ -5,11 +5,11 @@ import {
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
-  Pagination, LabelSelect, TimePicker, CheckboxSelect
+  Pagination, LabelSelect, TimePicker, CheckboxSelect,
+  RadioButton
 } from '../../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
-const RadioBtn = Radio.RadioBtn
 const CheckboxGroup = Checkbox.CheckboxGroup
 const FormItem = Form.Item
 const TabPanel = Tab.TabPanel
@@ -426,7 +426,7 @@ export default class Home extends Component {
           onChange={console.log}
           title="事件类型"
           options={listItems} className="mgb20"/>
-        <RadioBtn options={listItems} className="mgb20"/>
+        <RadioButton options={listItems} className="mgb20"/>
         <DateRange onChange={console.log} />
         <RangeBtn className="mgb20"/>
         <LabelSelect onChange={console.log} options={listItems}/>
