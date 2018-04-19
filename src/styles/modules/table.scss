@@ -50,8 +50,7 @@
 	}
 	&.hover {
 		.table-body-row:hover {
-			background-color: #e6f2ff;
-			// box-shadow: 0px 10px 20px rgba(0, 0, 0, .1);
+			background-color: #F0F2F6;
 		}
 	}
 	table {
@@ -78,6 +77,7 @@
 	}
 	&.has-expand {
 		cursor: pointer;
+		background-color: #e6f2ff;
 	}
 	.table-body-has-child-icon{
 		cursor: pointer;
