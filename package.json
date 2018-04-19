@@ -46,6 +46,7 @@
     "moment": "^2.20.1",
     "nyan-progress-webpack-plugin": "^1.2.0",
     "object-assign": "^4.1.1",
+    "pm2": "^2.10.2",
     "portfinder": "^1.0.13",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",

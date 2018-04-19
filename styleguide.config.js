@@ -42,7 +42,7 @@ const formComponents = {
   formItem: join('Form/FormItem.js')
 }
 module.exports = {
-  serverPort: 8080,
+  serverPort: 8088,
   sections: [{
     name: 'Startup',
     content: resolve('./doc/base.md')
@@ -126,4 +126,10 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'doc/Wrapper')
   }
+  // configureServer(app) {
+  //   // `app` is the instance of the express server running Styleguidist
+  //   app.get('/', (req, res) => {
+  //     res.status(200).send({ response: 'Server invoked' })
+  //   })
+  // }
 }
