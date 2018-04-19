@@ -41,7 +41,10 @@
 		}
 	}
 	&.striped {
-		.table-body-row:nth-child(2n) {
+		>tbody>.table-body-row:nth-child(2n) {
+			background-color: $basic-aid-gray-color;
+		}
+		.table-body-wrap>tbody>.table-body-row:nth-child(2n) {
 			background-color: $basic-aid-gray-color;
 		}
 		.table-head {
@@ -77,7 +80,6 @@
 	}
 	&.has-expand {
 		cursor: pointer;
-		background-color: #e6f2ff;
 	}
 	.table-body-has-child-icon{
 		cursor: pointer;

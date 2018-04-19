@@ -45,7 +45,7 @@ export default class Row extends Component {
       'child-open': showChild,
       'table-body-child-row': isChild,
       'has-expand': expandRowRender,
-      active: active && clickable
+      active: (active && clickable) || (show && expandRowRender)
     })
     return (
       <Fragment>
