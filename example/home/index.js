@@ -288,6 +288,7 @@ export default class Home extends Component {
             <Table columns={columns}
               clickable
               scrollHeight={300}
+              pageLimit={6}
               data={tableData3} />
           </div>
         </div>

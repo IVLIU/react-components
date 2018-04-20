@@ -4,10 +4,12 @@ import autobind from 'autobind-decorator'
 import classNames from 'classnames'
 import Row from './ChildRows'
 import SelectTable from './SelectTable'
+import LimitTable from './LimitTable'
 
 /**
  * 基本的表格
  */
+@LimitTable
 @SelectTable
 export default class BaseTable extends Component {
   state = {
@@ -108,7 +110,7 @@ export default class BaseTable extends Component {
       data, columns, hasChild,
       select, clickable, expandRowRender,
       defaultRenderExpand, lineHeight,
-      scrollHeight } = this.props
+      scrollHeight, hasMore, showMore } = this.props
     const tableBody = <tbody className="table-body">
       {
         data.map((row, index) => {
@@ -128,6 +130,13 @@ export default class BaseTable extends Component {
               style={{ height: lineHeight + 'px' }} />
           )
         })
+      }
+      {
+        hasMore ? <tr className="table-body-row table-show-more" onClick={showMore}>
+          <td colSpan={hasChild ? columns.length + 1 : columns.length}>
+            显示更多
+          </td>
+        </tr> : null
       }
     </tbody>
 
@@ -193,6 +202,8 @@ BaseTable.propTypes = {
    *   limit: '设置是否单元格不换行处理'
    * }
    */
+  /** 前端分页，用于限制一次展示多少条 */
+  pageLimit: PropTypes.number,
   columns: PropTypes.array,
   /** 是否带边框 */
   border: PropTypes.bool,
