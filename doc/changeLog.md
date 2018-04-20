@@ -1,3 +1,9 @@
+### 2018-04-20
+- Table
+  - 整体重构，使用HOC抽象各种不同表格功能
+  - 添加静态分页表格
+- Noresult 新加 无数据时展示内容
+
 ### 2018-04-10
 - DropdownList新增defaultValue
 

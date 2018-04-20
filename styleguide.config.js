@@ -23,7 +23,8 @@ const dataComponents = {
   code: join('Code/index.js'),
   Pagination: join('Pagination/index.js'),
   dropdown: join('Dropdown/index.js'),
-  dropdownList: join('DropdownList/index.js')
+  dropdownList: join('DropdownList/index.js'),
+  noResult: join('NoResult/index.js')
 }
 const formComponents = {
   input: join('Input/index.js'),
@@ -42,7 +43,7 @@ const formComponents = {
   formItem: join('Form/FormItem.js')
 }
 module.exports = {
-  serverPort: 8088,
+  serverPort: 8080,
   sections: [{
     name: 'Startup',
     content: resolve('./doc/base.md')
