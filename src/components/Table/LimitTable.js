@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import autobind from 'autobind-decorator'
 
-const SelectTable = WrapedComponent =>
-  class SelectTable extends Component {
+const LimitTable = WrapedComponent =>
+  class LimitTable extends Component {
     state = {
       list: [],
       page: 1
@@ -49,4 +49,4 @@ const SelectTable = WrapedComponent =>
         {...others} />
     }
   }
-export default SelectTable
+export default LimitTable

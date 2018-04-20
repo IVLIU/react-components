@@ -1,99 +1,67 @@
+/*
+ * 提供可折叠的功能
+ * @Author: wangweixin@threatbook.cn
+ * @Date: 2018-04-20 10:43:53
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-04-20 11:19:25
+ */
 import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import autobind from 'autobind-decorator'
 
-export default class Row extends Component {
-  constructor (props) {
-    super(props)
-    const { show = false } = this.props
-    this.state = {
-      show: show
+const CollapseRow = Row =>
+  class CollapseRow extends Component {
+    state = {
+      show: false
     }
-    this.toggleRow = this.toggleRow.bind(this)
-  }
-  toggleRow (e) {
-    const { clickable, expandRowRender, changeActive, row, index } = this.props
+    componentWillMount () {
+      const { showExpand } = this.props
+      if (showExpand) {
+        this.setState({
+          show: showExpand
+        })
+      }
+    }
+    @autobind
+    toggleShow (...args) {
+      const { expandRowRender, onClick } = this.props
 
-    if (clickable) {
-      e.stopPropagation()
-      e.preventDefault()
-      return changeActive(row, index)
-    }
-    if (!expandRowRender) {
-      return
-    }
-    e.stopPropagation()
-    e.preventDefault()
+      // 如果不可展开，则进行其他向上传递
+      if (!expandRowRender) {
+        return onClick && onClick.apply(null, args)
+      }
 
-    this.setState({
-      show: !this.state.show
-    })
-  }
-  render () {
-    const { columns, row, index,
-      lineHeight, expandRowRender,
-      hasChild, handleChildToggle,
-      isChild, showChild, hasChildren,
-      select,
-      active, clickable,
-      ...others
-    } = this.props
-    const { show } = this.state
-    const classes = classNames({
-      'table-body-row': true,
-      'has-child': hasChild,
-      'child-open': showChild,
-      'table-body-child-row': isChild,
-      'has-expand': expandRowRender,
-      active: (active && clickable) || (show && expandRowRender)
-    })
-    return (
-      <Fragment>
-        <tr className={classes} onClick={this.toggleRow} {...others}>
+      this.setState({
+        show: !this.state.show
+      })
+    }
+    render () {
+      const { expandRowRender, className, ...others } = this.props
+      const { rowData, rowIndex, columns, rowHasChild } = others
+      const { show } = this.state
+      const classes = classNames({
+        'has-expand': expandRowRender,
+        'show-expand': show
+      }, className)
+
+      return (
+        <Fragment>
+          <Row {...others}
+            expandShow={show}
+            onClick={this.toggleShow}
+            className={classes}/>
           {
-            columns.map((column, i) => {
-              const { key, render, align, limit, width } = column
-              const rowData = row[key]
-              const ret = render ? render(rowData, row, {
-                rowIndex: index,
-                columnIndex: i,
-                expandShow: show
-              }) : rowData
-              const classes = classNames({
-                'table-row-item': true,
-                limit,
-                'pdl20': align === 'left',
-                'pdr20': align === 'right'
-              })
-              return <td className={classes}
-                style={{
-                  height: lineHeight + 'px',
-                  textAlign: align || 'center',
-                  maxWidth: width
-                }}
-                key={'row' + index + i}>
-                {ret}
-              </td>
-            })
+            show && expandRowRender
+              ? <tr className="table-body-expand-row">
+                <td colSpan={rowHasChild ? columns.length + 1 : columns.length}>
+                  {expandRowRender(rowData, rowIndex, columns)}
+                </td>
+              </tr>
+              : null
           }
-        </tr >
-        {
-          show && expandRowRender
-            ? <tr className="table-body-expand-row">
-              <td colSpan={hasChildren ? columns.length + 1 : columns.length}>
-                {expandRowRender(row, index, columns)}
-              </td>
-            </tr>
-            : null
-        }
-      </Fragment>
-    )
+        </Fragment>
+      )
+    }
   }
-}
-Row.propTypes = {
-  row: PropTypes.object,
-  columns: PropTypes.array,
-  index: PropTypes.number,
-  lineHeight: PropTypes.number,
-  expandRowRender: PropTypes.func
-}
+export default CollapseRow

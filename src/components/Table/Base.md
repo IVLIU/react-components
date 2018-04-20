@@ -375,6 +375,96 @@ const expandRowRender = (row, index) => (
   data={tableData} />
 ```
 
+##### 前端分页
+
+- pageLimit设置前端分页，每次只添加多少条
+
+``` js
+let tableData = [{
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}, {
+  ip: '87.101.12.12',
+  labels: [{
+    type: 'error',
+    desc: 'IDC机房'
+  }, {
+    type: 'info',
+    desc: '辣鸡邮件'
+  }],
+  type: '阻断',
+  times: '32342342次'
+}];
+tableData = tableData.concat(tableData, tableData)
+
+const columns = [{
+  key: 'labels',
+  title: '1',
+  render (items) {
+    return (
+      items.map(item => {
+        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
+      })
+    )
+  },
+  width: 150
+}, {
+  key: 'type',
+  title: '2',
+  render (item) {
+    return <span className="color-error">{item}</span>
+  },
+  width: 80
+}, {
+  key: 'times',
+  title: '3',
+  width: 120
+}, {
+  title: '操作',
+  render (item, row, {
+    expandShow
+  }) {
+    return <span>{expandShow ? '收起' : '展开'}</span>
+  },
+  width: 90
+}];
+<BaseTable columns={columns}
+  pageLimit={6}
+  defaultRenderExpand
+  scrollHeight={250}
+  data={tableData} />
+```
+
 ##### 可展开
 
 - expandRowRender设置展开内容

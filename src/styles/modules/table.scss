@@ -41,12 +41,6 @@
 		}
 	}
 	&.striped {
-		>tbody>.table-body-row:nth-child(2n) {
-			background-color: $basic-aid-gray-color;
-		}
-		.table-body-wrap>tbody>.table-body-row:nth-child(2n) {
-			background-color: $basic-aid-gray-color;
-		}
 		.table-head {
 			background-color: $basic-aid-gray-color;
 		}
@@ -54,6 +48,11 @@
 	&.hover {
 		.table-body-row:hover {
 			background-color: #F0F2F6;
+		}
+	}
+	&.click {
+		.table-body-row {
+			cursor: pointer;
 		}
 	}
 	table {
@@ -89,9 +88,12 @@
 		margin-right: 10px;
 		vertical-align: top;
 	}
-	&.active {
+	&.active, &.show-expand {
 		background-color: #e6f2ff;
 	}
+}
+.striped:nth-child(2n) {
+	background-color: $basic-aid-gray-color;
 }
 .table-row-item{
 	&.limit{

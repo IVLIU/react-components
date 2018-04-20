@@ -262,6 +262,7 @@ export default class Home extends Component {
           <div className="col-6">
             不带边框不带hover
             <Table columns={columns}
+              background={false}
               hover={false}
               border={false}
               showHeader={false}
@@ -286,7 +287,6 @@ export default class Home extends Component {
           <div className="col-6">
             竖向滚动table
             <Table columns={columns}
-              clickable
               scrollHeight={300}
               pageLimit={6}
               data={tableData3} />
@@ -297,6 +297,7 @@ export default class Home extends Component {
             可展开的table
             <Table columns={columns}
               expandRowRender={this.expandRowRender}
+              defaultRenderExpand
               sortKey="times"
               sortFlag="desc"
               handleSortChange={console.log}
