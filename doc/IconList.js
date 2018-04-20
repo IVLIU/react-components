@@ -4,6 +4,7 @@ import iconalert_type from '@/images/svg/alert_type.svg'
 import iconalert from '@/images/svg/alert.svg'
 import iconanalysis_service from '@/images/svg/analysis-service.svg'
 import iconanalysis from '@/images/svg/analysis.svg'
+import iconarrow from '@/images/svg/arrow.svg'
 import iconatk_event from '@/images/svg/atk_event.svg'
 import iconattack from '@/images/svg/attack.svg'
 import iconattack1 from '@/images/svg/attack1.svg'
@@ -15,6 +16,8 @@ import iconclose from '@/images/svg/close.svg'
 import iconconfig from '@/images/svg/config.svg'
 import iconcoor_arrow from '@/images/svg/coor-arrow.svg'
 import iconcore from '@/images/svg/core.svg'
+import iconcross_expand_hover from '@/images/svg/cross-expand-hover.svg'
+import iconcross_expand from '@/images/svg/cross-expand.svg'
 import icondashed from '@/images/svg/dashed.svg'
 import icondel_icon_cavity from '@/images/svg/del_icon_cavity.svg'
 import icondel_icon from '@/images/svg/del_icon.svg'
@@ -23,6 +26,7 @@ import icondomain from '@/images/svg/domain.svg'
 import icondomain2 from '@/images/svg/domain2.svg'
 import icondoubt from '@/images/svg/doubt.svg'
 import icone3 from '@/images/svg/e3.svg'
+import icone4_back from '@/images/svg/e4-back.svg'
 import icone4 from '@/images/svg/e4.svg'
 import icone5 from '@/images/svg/e5.svg'
 import icone6 from '@/images/svg/e6.svg'
@@ -31,6 +35,8 @@ import icone8 from '@/images/svg/e8.svg'
 import iconearth from '@/images/svg/earth.svg'
 import iconemmit from '@/images/svg/emmit.svg'
 import iconemmit2 from '@/images/svg/emmit2.svg'
+import iconenlarge from '@/images/svg/enlarge.svg'
+import iconenmini from '@/images/svg/enmini.svg'
 import iconentry from '@/images/svg/entry.svg'
 import iconerror from '@/images/svg/error.svg'
 import iconevent_tracing from '@/images/svg/event_tracing.svg'
@@ -58,10 +64,16 @@ import iconhome from '@/images/svg/home.svg'
 import iconhost from '@/images/svg/host.svg'
 import iconintelli from '@/images/svg/intelli.svg'
 import iconintelligence from '@/images/svg/intelligence.svg'
+import iconinvest from '@/images/svg/invest.svg'
+import iconinvisible from '@/images/svg/invisible.svg'
 import iconip from '@/images/svg/ip.svg'
+import iconlink from '@/images/svg/link.svg'
+import iconlinux from '@/images/svg/linux.svg'
 import iconlog from '@/images/svg/log.svg'
 import iconlogo from '@/images/svg/logo.svg'
 import iconlogout from '@/images/svg/logout.svg'
+import iconmacos from '@/images/svg/macos.svg'
+import iconmenu_arrow from '@/images/svg/menu-arrow.svg'
 import iconmonitor from '@/images/svg/monitor.svg'
 import iconnet_activity from '@/images/svg/net_activity.svg'
 import iconnetActive from '@/images/svg/netActive.svg'
@@ -73,11 +85,14 @@ import iconnotice from '@/images/svg/notice.svg'
 import iconop_win from '@/images/svg/op_win.svg'
 import iconopen from '@/images/svg/open.svg'
 import iconpdf from '@/images/svg/pdf.svg'
+import iconprogress from '@/images/svg/progress.svg'
 import iconreason8 from '@/images/svg/reason8.svg'
+import iconrect_arrow from '@/images/svg/rect-arrow.svg'
 import iconremediation from '@/images/svg/remediation.svg'
 import iconrestore_log_2 from '@/images/svg/restore_log_2.svg'
 import iconrestore_log from '@/images/svg/restore_log.svg'
 import iconrun from '@/images/svg/run.svg'
+import iconsand_box from '@/images/svg/sand_box.svg'
 import iconsearch from '@/images/svg/search.svg'
 import iconsheild_active from '@/images/svg/sheild_active.svg'
 import iconsheild from '@/images/svg/sheild.svg'
@@ -93,6 +108,9 @@ import icontwoArrows from '@/images/svg/twoArrows.svg'
 import icontype_file_bg from '@/images/svg/type-file-bg.svg'
 import icontype_zip_bg from '@/images/svg/type-zip-bg.svg'
 import iconupload from '@/images/svg/upload.svg'
+import iconvisi_add from '@/images/svg/visi-add.svg'
+import iconvisible from '@/images/svg/visible.svg'
+import iconwindows from '@/images/svg/windows.svg'
 import React, { Component } from 'react'
 import Icon from '../src/components/Icon'
 
@@ -128,6 +146,12 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconanalysis}/>
       <p className="icon-name">analysis</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconarrow}/>
+      <p className="icon-name">arrow</p>
     </div> 
   
 
@@ -198,6 +222,18 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={iconcross_expand_hover}/>
+      <p className="icon-name">cross_expand_hover</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconcross_expand}/>
+      <p className="icon-name">cross_expand</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={icondashed}/>
       <p className="icon-name">dashed</p>
     </div> 
@@ -246,6 +282,12 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={icone4_back}/>
+      <p className="icon-name">e4_back</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={icone4}/>
       <p className="icon-name">e4</p>
     </div> 
@@ -290,6 +332,18 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconemmit2}/>
       <p className="icon-name">emmit2</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconenlarge}/>
+      <p className="icon-name">enlarge</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconenmini}/>
+      <p className="icon-name">enmini</p>
     </div> 
   
 
@@ -456,8 +510,32 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={iconinvest}/>
+      <p className="icon-name">invest</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconinvisible}/>
+      <p className="icon-name">invisible</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={iconip}/>
       <p className="icon-name">ip</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconlink}/>
+      <p className="icon-name">link</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconlinux}/>
+      <p className="icon-name">linux</p>
     </div> 
   
 
@@ -476,6 +554,18 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconlogout}/>
       <p className="icon-name">logout</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconmacos}/>
+      <p className="icon-name">macos</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconmenu_arrow}/>
+      <p className="icon-name">menu_arrow</p>
     </div> 
   
 
@@ -546,8 +636,20 @@ export default class IconList extends Component {
   
 
     <div className="icon-wrap">
+      <Icon className="example-icons" link={iconprogress}/>
+      <p className="icon-name">progress</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
       <Icon className="example-icons" link={iconreason8}/>
       <p className="icon-name">reason8</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconrect_arrow}/>
+      <p className="icon-name">rect_arrow</p>
     </div> 
   
 
@@ -572,6 +674,12 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconrun}/>
       <p className="icon-name">run</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconsand_box}/>
+      <p className="icon-name">sand_box</p>
     </div> 
   
 
@@ -662,6 +770,24 @@ export default class IconList extends Component {
     <div className="icon-wrap">
       <Icon className="example-icons" link={iconupload}/>
       <p className="icon-name">upload</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconvisi_add}/>
+      <p className="icon-name">visi_add</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconvisible}/>
+      <p className="icon-name">visible</p>
+    </div> 
+  
+
+    <div className="icon-wrap">
+      <Icon className="example-icons" link={iconwindows}/>
+      <p className="icon-name">windows</p>
     </div> 
   
         <div className="clear"></div>
