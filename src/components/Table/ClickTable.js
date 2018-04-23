@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 14:26:28
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-04-20 15:37:54
+ * @Last Modified time: 2018-04-20 16:49:56
  */
 import React, { Component } from 'react'
 import autobind from 'autobind-decorator'
@@ -33,9 +33,8 @@ const ClickTable = WrapedComponent =>
       const { clickable, handleRowClick, className, ...others } = this.props
       const { activeIndex } = this.state
       const classes = classNames({
-        click: clickable,
-        ...className
-      })
+        click: clickable
+      }, className)
       return <WrapedComponent
         {...others}
         className={classes}
