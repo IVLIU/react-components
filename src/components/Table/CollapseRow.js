@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 10:43:53
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-04-24 19:26:43
+ * @Last Modified time: 2018-04-24 19:41:48
  */
 import React, { Component, Fragment } from 'react'
 // import PropTypes from 'prop-types'
@@ -23,13 +23,21 @@ const CollapseRow = Row =>
         })
       }
     }
+    componentWillReceiveProps (nextProps) {
+      const { active, expandOnly } = nextProps
+      if (expandOnly) {
+        this.setState({
+          show: active
+        })
+      }
+    }
     @autobind
     toggleShow (...args) {
       const { expandRowRender, onClick, expandOnly } = this.props
 
       // 如果不可展开，则进行其他向上传递
       if (!expandRowRender || expandOnly) {
-        return onClick && onClick.apply(null, args)
+        onClick && onClick.apply(null, args)
       }
 
       this.setState({
@@ -40,7 +48,7 @@ const CollapseRow = Row =>
       const { expandRowRender, className, expandOnly, ...others } = this.props
       const { rowData, rowIndex, columns, rowHasChild, active } = others
       const { show } = this.state
-      const showExpand = (expandOnly ? active : show) && expandRowRender
+      const showExpand = (expandOnly ? active && show : show) && expandRowRender
       const classes = classNames({
         'has-expand': expandRowRender,
         'show-expand': showExpand
