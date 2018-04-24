@@ -109,7 +109,9 @@ export default class BaseTable extends Component {
       data, columns, hasChild, expandRowRender,
       defaultRenderExpand, lineHeight,
       scrollHeight, hasMore, showMore,
-      handleRowClick, activeIndex, striped } = this.props
+      handleRowClick, activeIndex, striped,
+      expandOnly
+    } = this.props
     const tableBody = <tbody className="table-body">
       {
         data.map((row, index) => {
@@ -124,6 +126,7 @@ export default class BaseTable extends Component {
               lineHeight={lineHeight}
               onClick={handleRowClick}
               striped={striped}
+              expandOnly={expandOnly}
               active={index === activeIndex}/>
           )
         })
@@ -183,7 +186,8 @@ BaseTable.defaultProps = {
   background: true,
   showHeader: true,
   lineHeight: 50,
-  defaultRenderExpand: false
+  defaultRenderExpand: false,
+  expandOnly: false
 }
 BaseTable.propTypes = {
   /** 内容数据 */
@@ -222,6 +226,8 @@ BaseTable.propTypes = {
   lineHeight: PropTypes.number,
   /** 可展开表格的渲染 */
   expandRowRender: PropTypes.func,
+  /** 是否只能展开第一行 */
+  expandOnly: PropTypes.bool,
   /** 默认展开第一行 */
   defaultRenderExpand: PropTypes.bool,
   /** 改变排序时的回调 */

@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 14:26:28
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-04-20 16:49:56
+ * @Last Modified time: 2018-04-24 19:26:05
  */
 import React, { Component } from 'react'
 import autobind from 'autobind-decorator'
@@ -15,14 +15,16 @@ const ClickTable = WrapedComponent =>
       activeIndex: 0
     }
     componentWillMount () {
-      const { data, clickable } = this.props
-      clickable && data[0] && this.changeActive(data[0], 0)
+      const { data, clickable, expandOnly } = this.props
+      const shoudInitData = (clickable || expandOnly) && Boolean(data[0])
+      if (shoudInitData) {
+        this.changeActive(data[0], 0)
+      }
     }
     @autobind
     changeActive (row, index) {
-      const { clickable, handleRowClick } = this.props
-
-      if (!clickable) return
+      const { clickable, expandOnly, handleRowClick } = this.props
+      if (!(clickable || expandOnly)) return
 
       this.setState({
         activeIndex: index
@@ -31,6 +33,7 @@ const ClickTable = WrapedComponent =>
     }
     render () {
       const { clickable, handleRowClick, className, ...others } = this.props
+      const { expandOnly } = others
       const { activeIndex } = this.state
       const classes = classNames({
         click: clickable
@@ -38,7 +41,7 @@ const ClickTable = WrapedComponent =>
       return <WrapedComponent
         {...others}
         className={classes}
-        activeIndex={clickable ? activeIndex : false}
+        activeIndex={(clickable || expandOnly) ? activeIndex : false}
         handleRowClick={this.changeActive}/>
     }
   }

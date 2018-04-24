@@ -300,6 +300,7 @@ export default class Home extends Component {
               defaultRenderExpand
               sortKey="times"
               sortFlag="desc"
+              expandOnly
               handleSortChange={console.log}
               data={tableData} />
           </div>
