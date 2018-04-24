@@ -104,6 +104,7 @@
 }
 .table-body-expand-row {
 	background-color: #f3f3f3;
+	border-right: 1px solid #e0e2e1;
 }
 .table-show-more {
 	cursor: pointer;
@@ -122,7 +123,8 @@
 	&::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0);
     width: 8px;
-    border-right: 1px solid #e0e2e1;
+		border-right: 1px solid #e0e2e1;
+		border-left: none
   }
   &::-webkit-scrollbar-thumb {
     background-color: #e0e2e1;

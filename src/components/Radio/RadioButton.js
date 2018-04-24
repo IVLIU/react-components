@@ -5,8 +5,10 @@ import controledInput from '../Common/ControledInput'
 
 class RangeBtn extends Component {
   render () {
-    const { className, props: controled, options, ...others } = this.props
-    const classes = classNames('radio-btn', className)
+    const { className, props: controled, disabled, options, ...others } = this.props
+    const classes = classNames('radio-btn', {
+      disabled
+    }, className)
     const { value, onChange } = this.props.props
     return (
       <div className={classes} {...others}>
@@ -18,7 +20,7 @@ class RangeBtn extends Component {
             return (
               <span key={`radio-btn-${item.value}`}
                 className={itemClasses}
-                onClick={() => onChange(item)}>
+                onClick={() => !disabled && onChange(item)}>
                 {item.label}
               </span>
             )
