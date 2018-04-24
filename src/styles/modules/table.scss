@@ -1,8 +1,11 @@
+td {
+	padding: 0;
+}
 .table {
 	width: 100%;
 	max-width: 100%;
 	border-collapse: collapse;
-	border: none;
+	border-spacing: 0;
 	background-color: transparent;
 	font-size: 12px;
 
@@ -47,7 +50,7 @@
 	}
 	&.hover {
 		.table-body-row:hover {
-			background-color: #F0F2F6;
+			background-color: #E1E4E6;
 		}
 	}
 	&.click {
