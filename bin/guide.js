@@ -7,7 +7,7 @@ const config = require('../styleguide.config')
 const app = new Koa()
 
 app.use(serve(path.join(__dirname, '../styleguide')))
-app.use(views(path.join(__dirname, '../styleguide'), { extension: 'ejs' }))
+app.use(views(path.join(__dirname, '../styleguide'), { map: { html: 'ejs' } }))
 
 app.use(async ctx => {
   await ctx.render('index')
