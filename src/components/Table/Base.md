@@ -471,6 +471,7 @@ const columns = [{
 - 带有展开的行会带有 has-expand class
 - 在column的render会回传当前row是否展开，用于自定义操作状态
 - defaultRenderExpand设置是否默认展开第一行
+- expandOnly用于控制是否只同时展开一行
 
 ``` js
 const tableData = [{
@@ -552,10 +553,21 @@ const expandRowRender = (row, index) => (
     <p>可以各种自定义</p>
   </div>
 );
-<BaseTable columns={columns}
-  expandRowRender={expandRowRender}
-  defaultRenderExpand
-  data={tableData} />
+<div>
+  普通展开
+  <BaseTable columns={columns}
+    className="mgb20"
+    expandRowRender={expandRowRender}
+    data={tableData} />
+  默认展开第一行，且同时只能展开一行
+  <BaseTable columns={columns}
+    className="mgb20"
+    expandOnly
+    expandRowRender={expandRowRender}
+    defaultRenderExpand
+    data={tableData} />
+</div>
+
 ```
 
 ##### 带有children的行
