@@ -132,7 +132,9 @@ export default class BaseTable extends Component {
         })
       }
       {
-        hasMore ? <tr className="table-body-row table-show-more" onClick={showMore}>
+        hasMore ? <tr className="table-body-row table-show-more" onClick={showMore} style={{
+          height: lineHeight
+        }}>
           <td colSpan={hasChild ? columns.length + 1 : columns.length}>
             显示更多
           </td>
