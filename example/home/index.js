@@ -6,7 +6,7 @@ import {
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
   Pagination, LabelSelect, TimePicker, CheckboxSelect,
-  RadioButton
+  RadioButton, Popover, TRIGGER, POSITION
 } from '../../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -424,6 +424,18 @@ export default class Home extends Component {
     const { current } = this.state
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Popover trigger={TRIGGER.CLICK} position={POSITION.TOP} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
+        <Popover trigger={TRIGGER.CLICK} position={POSITION.RIGHT} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
+        <Popover trigger={TRIGGER.HOVER} position={POSITION.BOTTOM} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
+        <Popover trigger={TRIGGER.CLICK} position={POSITION.LEFT} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
         <CheckboxSelect
           defaultValue={['dddddddd']}
           onChange={console.log}

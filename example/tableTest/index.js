@@ -3,7 +3,6 @@ import {
   Table, Label, Icon
 } from '../../src/index'
 import autobind from 'autobind-decorator';
-import {Popover, PopoverInteractionKind, Position} from '@blueprintjs/core'
 
 const data = [
   {confidence_level: 3,
@@ -55,84 +54,7 @@ export default class TableTest extends Component {
         key: "family",
         title: "威胁类型",
         render(item, row) {
-          return (
-            <div className="color-error">
-              {row.intel_type_desc ? (
-                <Label
-                  type="dark"
-                  className="mgr10"
-                  onMouseOver={hoverFunc.bind(null, item.intel_type_desc)}
-                >
-                  {row.intel_type_desc}
-                </Label>
-              ) : (
-                undefined
-              )}
-              {row.event ? (
-                <Popover
-                  content={
-                    descByFamily.isFetching ? "获取中..." : descByFamily.desc
-                  }
-                  interactionKind={PopoverInteractionKind.HOVER}
-                  popoverClassName="pt-popover-content-sizing tip-popover-content"
-                >
-                  <Label
-                    type="dark"
-                    light
-                    className="mgr10"
-                    // onMouseOver={this.hoverFamily.bind(this, row.event)}
-                  >
-                    <Icon link={atkEvent} />
-                    {row.event}
-                  </Label>
-                </Popover>
-              ) : (
-                undefined
-              )}
-              {row.gangs ? (
-                <Popover
-                  // content={
-                  //   descByFamily.isFetching ? "获取中..." : descByFamily.desc
-                  // }
-                  interactionKind={PopoverInteractionKind.HOVER}
-                  popoverClassName="pt-popover-content-sizing tip-popover-content"
-                >
-                  <Label
-                    type="dark"
-                    light
-                    className="mgr10"
-                    // onMouseOver={this.hoverFamily.bind(this, row.gangs)}
-                  >
-                    <Icon link={gangs} />
-                    {row.gangs}
-                  </Label>
-                </Popover>
-              ) : (
-                undefined
-              )}
-              {row.family ? (
-                <Popover
-                  content={
-                    descByFamily.isFetching ? "获取中..." : descByFamily.desc
-                  }
-                  interactionKind={PopoverInteractionKind.HOVER}
-                  popoverClassName="pt-popover-content-sizing tip-popover-content"
-                >
-                  <Label
-                    type="dark"
-                    light
-                    className="mgr10"
-                    // onMouseOver={this.hoverFamily.bind(this, row.family)}
-                  >
-                    {/* <Icon link={iconFamily} /> */}
-                    {row.family}
-                  </Label>
-                </Popover>
-              ) : (
-                undefined
-              )}
-            </div>
-          );
+          return 1
         }
       },
       {
