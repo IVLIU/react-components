@@ -15,7 +15,7 @@
     "eslint": "eslint --ext .js src",
     "fix": "eslint --ext .js src  --fix",
     "styleguide": "node doc/generateIcon.js && styleguidist server",
-    "styleguide:build": "rimraf ./docs && styleguidist build && mv ./styleguide docs",
+    "styleguide:build": "rimraf ./docs &&  node doc/generateIcon.js && styleguidist build && mv ./styleguide docs",
     "dll": "webpack --config conf/webpack/webpack.dll.conf.js --progress",
     "doc": "pm2 stop doc && node doc/generateIcon.js && npm run styleguide:build && pm2 start bin/guide.js --name 'doc'"
   },
