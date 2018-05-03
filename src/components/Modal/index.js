@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-17 14:18:21
+ * @Last Modified time: 2018-05-03 15:46:22
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -48,7 +48,8 @@ export default class Modal extends Component {
   render () {
     const { title, children, footer,
       handleCancel, handleEnsure,
-      style, closable,
+      style, closable, btnCancelTxt,
+      btnEnsureTxt,
       ...other } = this.props
     return (
       <ReactModal className="modal-content" style={this.getResultStyle(style)} {...other}>
@@ -73,8 +74,8 @@ export default class Modal extends Component {
           {
             !footer
               ? <div className="footer-btn-wrap">
-                <button className="btn btn-cancel" onClick={handleCancel}>取消</button>
-                <button className="btn btn-ensure" onClick={handleEnsure}>确定</button>
+                <button className="btn btn-cancel" onClick={handleCancel}>{ btnCancelTxt }</button>
+                <button className="btn btn-ensure" onClick={handleEnsure}>{ btnEnsureTxt }</button>
               </div>
               : footer
           }
@@ -84,7 +85,9 @@ export default class Modal extends Component {
   }
 }
 Modal.defaultProps = {
-  closable: true
+  closable: true,
+  btnCancelTxt: '取消',
+  btnEnsureTxt: '确定'
 }
 Modal.propTypes = {
   /** 弹框的唯一标识，必填 */
@@ -108,5 +111,9 @@ Modal.propTypes = {
    *   content: 内容
    * }
   */
-  style: PropTypes.object
+  style: PropTypes.object,
+  /** 修改取消按钮的内容 */
+  btnCancelTxt: PropTypes.any,
+  /** 修改确定按钮的内容 */
+  btnEnsureTxt: PropTypes.any
 }
