@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path='/' component={Home}/>
+        <Route exact path='/' component={TableTest}/>
         <Route path='/dropdownlist' component={DropDownListTest}/>
         <Route path='/table' component={TableTest}/>
         <Route path='/pagination' component={PaginationTest}/>
