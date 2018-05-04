@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-04 11:32:07
+ * @Last Modified by: zsj
+ * @Last Modified time: 2018-05-04 15:35:23
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -47,40 +47,54 @@ export default class Modal extends Component {
     return ret
   }
   render () {
-    const { title, children, footer,
-      handleCancel, handleEnsure,
-      style, closable, btnCancelTxt,
-      btnEnsureTxt, className,
-      ...other } = this.props
-    const classes = classNames(className)
+    const {
+      title,
+      children,
+      footer,
+      handleCancel,
+      handleEnsure,
+      style,
+      closable,
+      btnCancelTxt,
+      btnEnsureTxt,
+      className,
+      ...other
+    } = this.props
+    const classes = classNames(className, 'modal-content')
     return (
-      <ReactModal className={classes} style={this.getResultStyle(style)} {...other}>
-        {
-          title
-            ? <div className="modal-header">
-              {title}
-              {
-                closable
-                  ? <svg className="closeIcon" onClick={handleCancel}>
-                    <use xlinkHref={closeIcon}></use>
-                  </svg>
-                  : ''
-              }
-            </div>
-            : ''
-        }
-        <div className="modal-body">
-          {children}
-        </div>
+      <ReactModal
+        className={`${classes}`}
+        style={this.getResultStyle(style)}
+        {...other}
+      >
+        {title ? (
+          <div className="modal-header">
+            {title}
+            {closable ? (
+              <svg className="closeIcon" onClick={handleCancel}>
+                <use xlinkHref={closeIcon} />
+              </svg>
+            ) : (
+              ''
+            )}
+          </div>
+        ) : (
+          ''
+        )}
+        <div className="modal-body">{children}</div>
         <div className="modal-footer">
-          {
-            !footer
-              ? <div className="footer-btn-wrap">
-                <button className="btn btn-cancel" onClick={handleCancel}>{ btnCancelTxt }</button>
-                <button className="btn btn-ensure" onClick={handleEnsure}>{ btnEnsureTxt }</button>
-              </div>
-              : footer
-          }
+          {!footer ? (
+            <div className="footer-btn-wrap">
+              <button className="btn btn-cancel" onClick={handleCancel}>
+                {btnCancelTxt}
+              </button>
+              <button className="btn btn-ensure" onClick={handleEnsure}>
+                {btnEnsureTxt}
+              </button>
+            </div>
+          ) : (
+            footer
+          )}
         </div>
       </ReactModal>
     )
@@ -112,7 +126,7 @@ Modal.propTypes = {
    *   overlay: 蒙版,
    *   content: 内容
    * }
-  */
+   */
   style: PropTypes.object,
   /** 修改取消按钮的内容 */
   btnCancelTxt: PropTypes.any,
