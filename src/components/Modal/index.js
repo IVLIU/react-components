@@ -2,11 +2,12 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-03 15:46:22
+ * @Last Modified time: 2018-05-04 11:32:07
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactModal from 'react-modal'
+import classNames from 'classnames'
 import closeIcon from '../../images/svg/close.svg'
 
 const baseModalStyle = {
@@ -49,10 +50,11 @@ export default class Modal extends Component {
     const { title, children, footer,
       handleCancel, handleEnsure,
       style, closable, btnCancelTxt,
-      btnEnsureTxt,
+      btnEnsureTxt, className,
       ...other } = this.props
+    const classes = classNames(className)
     return (
-      <ReactModal className="modal-content" style={this.getResultStyle(style)} {...other}>
+      <ReactModal className={classes} style={this.getResultStyle(style)} {...other}>
         {
           title
             ? <div className="modal-header">
