@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-04 11:32:07
+ * @Last Modified time: 2018-05-04 11:34:31
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -52,7 +52,7 @@ export default class Modal extends Component {
       style, closable, btnCancelTxt,
       btnEnsureTxt, className,
       ...other } = this.props
-    const classes = classNames(className)
+    const classes = classNames('modal-content', className)
     return (
       <ReactModal className={classes} style={this.getResultStyle(style)} {...other}>
         {
