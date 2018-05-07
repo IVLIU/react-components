@@ -529,3 +529,18 @@
 .daterangepicker{
   display: none;
 }
+
+.file-upload {
+  display: flex;
+
+  &-hide {
+    display: none;
+  }
+  &-name {
+    flex: 1;
+    margin-right: 20px;
+  }
+  &-button {
+    flex: 0 0 140px;
+  }
+}
