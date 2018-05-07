@@ -21,14 +21,29 @@ export default class Box extends Component {
       open: defaultOpen
     }
   }
+  @autobind
+  isEmptyObj (obj) {
+    if (!obj) return false
+    for (let key in obj) {
+      if (obj[key]) {
+        return true
+      }
+    }
+    return false
+  }
   isBoxShow () {
     const { data, isLoading } = this.props
     // 正在加载时，展示Box
     if (isLoading) {
       return true
     }
-    // 判断有没有内容
-    return Array.isArray(data) ? data.length : data && data !== 0
+    if (Array.isArray(data)) {
+      return data.length
+    } else if (typeof data === 'object') {
+      return this.isEmptyObj(data)
+    } else {
+      return data && data !== 0
+    }
   }
   @autobind
   toggleOpen (e) {
@@ -90,11 +105,13 @@ export default class Box extends Component {
             height: contentHeight ? parseInt(contentHeight, 10) : ''
           }}
         >
-          {isLoading
-            ? <Loading className="box-loading" size="lg" />
-            : show
-              ? children
-              : <NoResult desc={emptyDesc}/>}
+          {isLoading ? (
+            <Loading className="box-loading" size="lg" />
+          ) : show ? (
+            children
+          ) : (
+            <NoResult desc={emptyDesc} />
+          )}
         </div>
       </div>
     )
