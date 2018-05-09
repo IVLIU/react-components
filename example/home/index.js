@@ -564,8 +564,8 @@ export default class Home extends Component {
           </div>
           <div className="col-6 mgb20">
             <RadioGroup defaultValue={dfValue} onChange={handleChange}>
-              <Radio label="选择1" value={dfValue} />
-              <Radio label="选择2" value={{ a: 2 }} />
+              <Radio label="选择1" value={{a: 1}} />
+              <Radio label="选择2" value={dfValue} />
             </RadioGroup>
           </div>
         </div>
