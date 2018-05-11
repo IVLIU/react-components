@@ -1,6 +1,7 @@
 import React, { Component, cloneElement, Children } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import autobind from 'autobind-decorator'
 
 /**
  * 选项卡组件
@@ -8,7 +9,6 @@ import classNames from 'classnames'
 export default class Tab extends Component {
   constructor () {
     super()
-    this.addChildPanel = this.addChildPanel.bind(this)
     this.state = {
       children: [],
       defaultActiveKey: '',
@@ -31,30 +31,21 @@ export default class Tab extends Component {
       this.handleTabBarClick(defaultActiveKey)
     }
   }
+  @autobind
   addChildPanel (child) {
     const { children } = this.state
-    if (child.headerkey) {
-      const tempChildren = children.map(({ header, key, context }) => {
-        const { headerkey } = context.props
-        if (headerkey && headerkey !== child.headerkey && key === child.key) {
-          context.props.header = child.header
-          header = child.header
-        }
-        return {
-          header,
-          key,
-          context
-        }
-      })
-      this.setState({
-        children: tempChildren
-      })
-    } else {
-      children.push(child)
-      this.setState({
-        children
-      })
-    }
+    children.push(child)
+    this.setState({
+      children
+    })
+  }
+  @autobind
+  updateChildPanel (index, newChild) {
+    const { children } = this.state
+    children.splice(index, 1, newChild)
+    this.setState({
+      children
+    })
   }
   handleTabBarClick (activeKey, disabled) {
     if (disabled) {
@@ -108,11 +99,13 @@ export default class Tab extends Component {
       <div className={classes}>
         <div className="tab-header">{this.renderHeader(childPanels)}</div>
         <div className="tab-content">
-          {Children.map(children, child => {
+          {Children.map(children, (child, index) => {
             const active = this.isChildActive(child)
             return cloneElement(child, {
               active,
-              addChildPanel: this.addChildPanel
+              addChildPanel: this.addChildPanel,
+              updateChildPanel: this.updateChildPanel,
+              index
             })
           })}
         </div>
