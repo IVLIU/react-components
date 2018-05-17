@@ -525,7 +525,30 @@
     background-color: $basic-aid-color;
     color: #FFF;
 }
+.rc-calendar-picker {
+  padding-top: 30px;
+}
+.rc-calendar-input-wrap {
+  margin-bottom: 40px;
+}
+.rc-calendar-input, .rc-time-picker-input {
+  text-align: center!important;
+  outline: none;
+}
+.range-picker-extra-picker-wrap {
+  padding: 8px;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 34px;
+  border-bottom: 1px solid #e9e9e9;
+  display: flex;
 
+  &> div{
+    width: 50%;
+    text-align: center;
+  }
+}
 .range-picker-extra-footer-wrap {
   display: flex;
   justify-content: flex-start;
