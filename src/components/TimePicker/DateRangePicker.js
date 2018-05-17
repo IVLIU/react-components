@@ -43,7 +43,7 @@ const mapValuetoValue = (value) => ({
 })
 
 @controledInputDecorator(mapDefaultToValue, mapValuetoValue)
-export default class DateRange extends Component {
+export default class DateRangePicker extends Component {
   static propTypes = {
     /** 默认值, 'seven_days'时间区间，或者{start, end}对象 */
     defaultValue: PropTypes.oneOfType([
