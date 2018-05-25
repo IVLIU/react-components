@@ -525,10 +525,59 @@
     background-color: $basic-aid-color;
     color: #FFF;
 }
-
-.daterangepicker{
-  display: none;
+.rc-calendar-picker {
+  padding-top: 30px;
 }
+.rc-calendar-input-wrap {
+  margin-bottom: 40px;
+}
+.rc-calendar-input, .rc-time-picker-input {
+  text-align: center!important;
+  outline: none;
+}
+.range-picker-extra-picker-wrap {
+  padding: 8px;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 34px;
+  border-bottom: 1px solid #e9e9e9;
+  display: flex;
+
+  &> div{
+    width: 50%;
+    text-align: center;
+  }
+}
+.range-picker-extra-footer-wrap {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+.range-picker-extra-footer-wrap>a{
+  margin-right: 10px;
+  color: #2d84e5;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.rc-calendar-footer-btn>a{
+  color: #2d84e5;
+  &:hover{
+    color: #2d84e5;
+    text-decoration: underline;
+  }
+}
+.rc-calendar-range-right .rc-calendar-time-picker-panel{
+  left: 0!important;
+}
+
+
 
 .file-upload {
   display: flex;
