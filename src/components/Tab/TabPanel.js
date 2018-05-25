@@ -4,11 +4,10 @@ import classNames from 'classnames'
 
 export default class TabPanel extends Component {
   state = {
-    header: '',
     hasShown: false // 控制未激活时，不渲染子内容
   }
   componentWillMount () {
-    const { headerkey, header, keys, addChildPanel, active } = this.props
+    const { header, keys, addChildPanel, active } = this.props
     addChildPanel &&
       addChildPanel({
         header,
@@ -16,24 +15,20 @@ export default class TabPanel extends Component {
         context: this
       })
     this.setState({
-      headerkey,
       hasShown: active
     })
   }
   componentWillReceiveProps (nextProps) {
-    const { headerkey, header, keys, addChildPanel, active } = nextProps
-    if (headerkey !== this.state.headerkey) {
-      addChildPanel &&
-        addChildPanel({
-          header,
-          headerkey,
-          key: keys,
-          context: this
-        })
-      this.setState({
-        headerkey
+    const { index, header, keys, updateChildPanel, active } = nextProps
+
+    if (header !== this.props.header) {
+      updateChildPanel(index, {
+        header,
+        key: keys,
+        context: this
       })
     }
+
     if (active && !this.state.hasShown) {
       this.setState({
         hasShown: true

@@ -1,29 +1,25 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import autobind from 'autobind-decorator'
 import classNames from 'classnames'
-import Row from './ChildRows'
+import pureRender from 'pure-render-decorator'
+
+import Row from './Row'
 import SelectTable from './SelectTable'
+import LimitTable from './LimitTable'
+import ClickTable from './ClickTable'
 
 /**
  * 基本的表格
  */
+@pureRender
+@LimitTable
 @SelectTable
+@ClickTable
 export default class BaseTable extends Component {
-  state = {
-    activeIndex: 0
-  }
-  componentWillMount () {
-    const { data, clickable } = this.props
-    clickable && this.changeActive(data[0], 0)
-  }
-  @autobind
-  changeActive (row, index) {
-    this.setState({
-      activeIndex: index
-    })
-    this.props.handleRowClick && this.props.handleRowClick(row, index)
-  }
+  /**
+   * 格式化各列的colspan
+   * @param {Number} index
+   */
   getColSpan (index) {
     const { hasChild, select } = this.props
 
@@ -35,23 +31,28 @@ export default class BaseTable extends Component {
     }
     return index === 0 ? 2 : 1
   }
+  /**
+   * 提供排序功能，展示排序按钮
+   * 点击按钮时，调用handleSortChange回调
+   * @param {Array} column
+   */
   renderSortIcon (column) {
     const { handleSortChange, sortKey, sortFlag } = this.props
-    const change = sort => {
-      handleSortChange && handleSortChange(column.key, sort)
-    }
-    const active = sort => {
-      return column.key === sortKey && sort === sortFlag
-        ? 'active'
-        : ''
-    }
+    const change = sort => () => handleSortChange && handleSortChange(column.key, sort)
+    const active = sort => column.key === sortKey && sort === sortFlag ? 'active' : ''
+
     return (
       <div className="table-sort-button">
-        <span className={`topTriangle ${active('asc')}`} onClick={() => { change('asc') }}></span>
-        <span className={`bottomTriangle ${active('desc')}`} onClick={() => { change('desc') }}></span>
+        <span className={`topTriangle ${active('asc')}`} onClick={change('asc')}></span>
+        <span className={`bottomTriangle ${active('desc')}`} onClick={change('desc')}></span>
       </div>
     )
   }
+  /**
+   * 设置colgroup, 以使各列对齐
+   * @param {Array} columns
+   * @param {Bool} isScrollHeader 是否可滚动
+   */
   renderColGroup (columns, isScrollHeader) {
     const { hasChild } = this.props
     return (
@@ -105,29 +106,41 @@ export default class BaseTable extends Component {
   }
   renderBody () {
     const {
-      data, columns, hasChild,
-      select, clickable, expandRowRender,
+      data, columns, hasChild, expandRowRender,
       defaultRenderExpand, lineHeight,
-      scrollHeight } = this.props
+      scrollHeight, hasMore, showMore,
+      handleRowClick, activeIndex, striped,
+      expandOnly
+    } = this.props
     const tableBody = <tbody className="table-body">
       {
         data.map((row, index) => {
           return (
             <Row key={'table-body-row-' + index}
-              row={row}
-              index={index}
+              rowData={row}
+              rowIndex={index}
               columns={columns}
               hasChild={hasChild}
-              select={select}
-              clickable={clickable}
               expandRowRender={expandRowRender}
-              defaultRenderExpand={defaultRenderExpand && index === 0}
-              changeActive={this.changeActive}
+              showExpand={defaultRenderExpand && index === 0}
               lineHeight={lineHeight}
-              active={index === this.state.activeIndex}
-              style={{ height: lineHeight + 'px' }} />
+              onClick={handleRowClick}
+              striped={striped}
+              expandOnly={expandOnly}
+              active={index === activeIndex}/>
           )
         })
+      }
+      {
+        hasMore ? <tr className="table-body-row table-show-more" onClick={showMore} style={{
+          height: lineHeight
+        }}>
+          <td colSpan={hasChild ? columns.length + 1 : columns.length} style={{
+            height: lineHeight
+          }}>
+            显示更多
+          </td>
+        </tr> : null
       }
     </tbody>
 
@@ -143,10 +156,10 @@ export default class BaseTable extends Component {
       : tableBody
   }
   render () {
-    const { columns, border,
-      hover, showHeader, className,
-      background, striped, style,
-      scrollHeight
+    const { columns, border, hover,
+      striped, background,
+      showHeader, className,
+      style, scrollHeight
     } = this.props
     const classes = classNames({
       'table': true,
@@ -177,7 +190,8 @@ BaseTable.defaultProps = {
   background: true,
   showHeader: true,
   lineHeight: 50,
-  defaultRenderExpand: false
+  defaultRenderExpand: false,
+  expandOnly: false
 }
 BaseTable.propTypes = {
   /** 内容数据 */
@@ -194,6 +208,8 @@ BaseTable.propTypes = {
    * }
    */
   columns: PropTypes.array,
+  /** 前端分页，用于限制一次展示多少条 */
+  pageLimit: PropTypes.number,
   /** 是否带边框 */
   border: PropTypes.bool,
   /** 是否带有hover样式 */
@@ -214,6 +230,8 @@ BaseTable.propTypes = {
   lineHeight: PropTypes.number,
   /** 可展开表格的渲染 */
   expandRowRender: PropTypes.func,
+  /** 是否只能展开第一行 */
+  expandOnly: PropTypes.bool,
   /** 默认展开第一行 */
   defaultRenderExpand: PropTypes.bool,
   /** 改变排序时的回调 */

@@ -2,13 +2,13 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-03-23 16:08:27
+ * @Last Modified time: 2018-05-07 14:13:43
  */
 import React, { Component } from 'react'
 import pureRender from 'pure-render-decorator'
 import autobind from 'autobind-decorator'
 
-export default (WrapComponent, mapDefaultToValue, MapValueToValue) => {
+const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
   @pureRender
   class RetComponent extends Component {
     constructor (props) {
@@ -50,4 +50,10 @@ export default (WrapComponent, mapDefaultToValue, MapValueToValue) => {
     }
   }
   return RetComponent
+}
+
+export default controledInput
+
+export const controledInputDecorator = (mapDefaultToValue, MapValueToValue) => (WrapComponent) => {
+  return controledInput(WrapComponent, mapDefaultToValue, MapValueToValue)
 }

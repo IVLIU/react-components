@@ -5,11 +5,11 @@ import {
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
-  Pagination, LabelSelect, TimePicker, CheckboxSelect
+  Pagination, LabelSelect, TimePicker, CheckboxSelect,
+  RadioButton, Popover, FileUpload, TRIGGER, POSITION
 } from '../../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
-const RadioBtn = Radio.RadioBtn
 const CheckboxGroup = Checkbox.CheckboxGroup
 const FormItem = Form.Item
 const TabPanel = Tab.TabPanel
@@ -262,6 +262,7 @@ export default class Home extends Component {
           <div className="col-6">
             不带边框不带hover
             <Table columns={columns}
+              background={false}
               hover={false}
               border={false}
               showHeader={false}
@@ -286,8 +287,8 @@ export default class Home extends Component {
           <div className="col-6">
             竖向滚动table
             <Table columns={columns}
-              clickable
               scrollHeight={300}
+              pageLimit={6}
               data={tableData3} />
           </div>
         </div>
@@ -296,8 +297,10 @@ export default class Home extends Component {
             可展开的table
             <Table columns={columns}
               expandRowRender={this.expandRowRender}
+              defaultRenderExpand
               sortKey="times"
               sortFlag="desc"
+              expandOnly
               handleSortChange={console.log}
               data={tableData} />
           </div>
@@ -421,12 +424,25 @@ export default class Home extends Component {
     const { current } = this.state
     return (
       <div className="container" style={{width: '1200px'}}>
+        <FileUpload onChange={console.log}/>
+        <Popover trigger={TRIGGER.CLICK} position={POSITION.TOP} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
+        <Popover trigger={TRIGGER.CLICK} position={POSITION.RIGHT} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
+        <Popover trigger={TRIGGER.HOVER} position={POSITION.BOTTOM} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
+        <Popover trigger={TRIGGER.CLICK} position={POSITION.LEFT} content="这是内容这是内容这是内容">
+          <Button>Popover</Button>
+        </Popover>
         <CheckboxSelect
           defaultValue={['dddddddd']}
           onChange={console.log}
           title="事件类型"
           options={listItems} className="mgb20"/>
-        <RadioBtn options={listItems} className="mgb20"/>
+        <RadioButton options={listItems} className="mgb20"/>
         <DateRange onChange={console.log} />
         <RangeBtn className="mgb20"/>
         <LabelSelect onChange={console.log} options={listItems}/>
@@ -548,8 +564,8 @@ export default class Home extends Component {
           </div>
           <div className="col-6 mgb20">
             <RadioGroup defaultValue={dfValue} onChange={handleChange}>
-              <Radio label="选择1" value={dfValue} />
-              <Radio label="选择2" value={{ a: 2 }} />
+              <Radio label="选择1" value={{a: 1}} />
+              <Radio label="选择2" value={dfValue} />
             </RadioGroup>
           </div>
         </div>

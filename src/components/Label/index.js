@@ -25,7 +25,7 @@ export default class Label extends Component {
     return (
       <span className={classes}
         style={retStyle}
-        title={children}
+        title={typeof children === 'string' ? children : ''}
         {...others}>
         {children}
       </span>

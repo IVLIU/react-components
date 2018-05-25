@@ -1,9 +1,20 @@
 const path = require('path')
+const fs = require('fs')
 const join = p => path.join('./src/components/', p)
 const resolve = p => path.resolve(__dirname, p)
 const componentMap = component => {
   return Object.keys(component).map(key => {
     return component[key]
+  })
+}
+const getCommonSetions = () => {
+  const dir = fs.readdirSync(resolve('./doc/common'))
+  return dir.map(item => {
+    const p = resolve(`./doc/common/${item}`)
+    return {
+      name: item.split('.')[0],
+      content: p
+    }
   })
 }
 const baseComponents = {
@@ -16,6 +27,7 @@ const baseComponents = {
 }
 const dataComponents = {
   alert: join('Alert/index.js'),
+  popover: join('Popover/index.js'),
   box: join('Box/index.js'),
   table: join('Table/Base.js'),
   tab: join('Tab/Tab.js'),
@@ -23,7 +35,8 @@ const dataComponents = {
   code: join('Code/index.js'),
   Pagination: join('Pagination/index.js'),
   dropdown: join('Dropdown/index.js'),
-  dropdownList: join('DropdownList/index.js')
+  dropdownList: join('DropdownList/index.js'),
+  noResult: join('NoResult/index.js')
 }
 const formComponents = {
   input: join('Input/index.js'),
@@ -53,14 +66,21 @@ module.exports = {
     name: 'IconList',
     content: resolve('./doc/IconList.md')
   }, {
+    name: 'Common',
+    sections: getCommonSetions(),
+    description: 'TDP业务通用组件'
+  }, {
     name: 'General',
-    components: () => componentMap(baseComponents)
+    components: () => componentMap(baseComponents),
+    description: '基本通用组件'
   }, {
     name: 'DataDisplay',
-    components: () => componentMap(dataComponents)
+    components: () => componentMap(dataComponents),
+    description: '数据展示通用组件'
   }, {
     name: 'FormInput',
-    components: () => componentMap(formComponents)
+    components: () => componentMap(formComponents),
+    description: '表单通用组件'
   }],
   showUsage: true,
   webpackConfig: {
@@ -126,4 +146,10 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'doc/Wrapper')
   }
+  // configureServer(app) {
+  //   // `app` is the instance of the express server running Styleguidist
+  //   app.get('/', (req, res) => {
+  //     res.status(200).send({ response: 'Server invoked' })
+  //   })
+  // }
 }
