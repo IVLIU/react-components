@@ -1,8 +1,6 @@
 // 资源依赖包，提前编译
 
 const lib = [
-  'react',
-  // 'react-dom',
   // 'react-router-dom',
   'react-json-pretty',
   // 'redux',
