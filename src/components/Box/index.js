@@ -87,6 +87,7 @@ export default class Box extends Component {
       collapse,
       data,
       emptyDesc,
+      error,
       ...others
     } = this.props
     const { open } = this.state
@@ -105,13 +106,17 @@ export default class Box extends Component {
             height: contentHeight ? parseInt(contentHeight, 10) : ''
           }}
         >
-          {isLoading ? (
-            <Loading className="box-loading" size="lg" />
-          ) : show ? (
-            children
-          ) : (
-            <NoResult desc={emptyDesc} />
-          )}
+          {
+            error ? (
+              <NoResult desc={error} />
+            ) : isLoading ? (
+              <Loading className="box-loading" size="lg" />
+            ) : show ? (
+              children
+            ) : (
+              <NoResult desc={emptyDesc} />
+            )
+          }
         </div>
       </div>
     )

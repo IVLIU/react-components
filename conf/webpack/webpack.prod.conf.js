@@ -30,6 +30,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     library: 'TipUi',
     libraryTarget: 'umd'
   },
+  externals: {
+    react: 'react',
+    reactDom: 'react-dom'
+  },
   plugins: [
     new NyanProgressPlugin(),
     new webpack.DefinePlugin({
@@ -39,8 +43,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-        drop_debugger: true,
-        drop_console: true
+        drop_debugger: true
+        // drop_console: true
       },
       sourceMap: true
     }),

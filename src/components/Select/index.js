@@ -44,7 +44,6 @@ const Select = (props) => {
     clearable,
     valueComponent: d => <MultiSelectValue {...d} />
   }
-  console.log(controled)
   if (!multi) {
     delete config.valueComponent
   }
