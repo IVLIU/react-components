@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-11 17:17:21
+ * @Last Modified by: zsj
+ * @Last Modified time: 2018-06-04 22:30:34
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -16,7 +16,7 @@ import formDataMap from './formDataMap'
  * 直接填充表单组件的内容即可
  */
 export default class FormItem extends Component {
-  constructor () {
+  constructor() {
     super()
     this.handleInput = this.handleInput.bind(this)
     this.handleBlur = this.handleBlur.bind(this)
@@ -24,7 +24,7 @@ export default class FormItem extends Component {
       hasError: false
     }
   }
-  componentWillMount () {
+  componentWillMount() {
     const { data, field, id } = this.props
     const fieldData = data[field]
     this.id = id
@@ -44,7 +44,7 @@ export default class FormItem extends Component {
       })
       : false
   }
-  validateItem (value) {
+  validateItem(value) {
     const { validators } = this
     const curDataMap = formDataMap.get(this.id)
     const curData = this.getCurData(curDataMap)
@@ -63,14 +63,14 @@ export default class FormItem extends Component {
       return !validate(value, rule, curData)
     })
   }
-  getCurData (dataMap) {
+  getCurData(dataMap) {
     let ret = {}
     Object.keys(dataMap).forEach(key => {
       ret[key] = dataMap[key].value
     })
     return ret
   }
-  handleInput (value, first) {
+  handleInput(value, first) {
     const { field, onChange } = this.props
     let isOk = this.validateItem(value, 'input')
 
@@ -92,7 +92,7 @@ export default class FormItem extends Component {
     })
     onChange && onChange(value)
   }
-  handleBlur (e) {
+  handleBlur(e) {
     const value = e.target.value
     const { field } = this.props
     if (this.trigger !== 'blur') return
@@ -106,7 +106,7 @@ export default class FormItem extends Component {
       context: this
     })
   }
-  renderChildren () {
+  renderChildren() {
     const { children, placeholder, data, field } = this.props
     const { hasError } = this.state
     const { value } = data[field] || {}
@@ -118,13 +118,13 @@ export default class FormItem extends Component {
       hasError
     }) : ''
   }
-  render () {
-    const { label, labelWidth = '100px', labelStyle, className } = this.props
+  render() {
+    const { label, labelWidth = '100px', labelStyle, className, style } = this.props
     const { hasError } = this.state
     const lwidth = labelWidth.indexOf('px') > 0 ? labelWidth : labelWidth + 'px'
     const classes = classNames('form-group form-item-group', className)
     return (
-      <div className={classes}>
+      <div className={classes} style={style}>
         <div className={`form-item-title-label ${this.isRequired ? 'required' : ''}`}
           style={{ flex: `0 0 ${lwidth}`, ...labelStyle }}>
           <span>{label}</span> :

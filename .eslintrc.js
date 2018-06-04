@@ -27,6 +27,7 @@ module.exports = {
     "react/jsx-uses-react": 2,
     "react/react-in-jsx-scope": 2,
     "import/no-webpack-loader-syntax": 0,
+    "space-before-function-paren": 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
