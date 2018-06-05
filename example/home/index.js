@@ -298,7 +298,11 @@ export default class Home extends Component {
           <div className="col-6">
             可展开的table
             <Table columns={columns}
-              expandRowRender={this.expandRowRender}
+              expandRowRender={() => (
+                <Table columns={columns}
+                  striped
+                  data={tableData} />
+              )}
               defaultRenderExpand
               sortKey="times"
               sortFlag="desc"
