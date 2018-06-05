@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-04 19:40:52
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-29 11:01:56
+ * @Last Modified by: zsj
+ * @Last Modified time: 2018-06-04 22:34:11
  */
 import React, { Component } from 'react'
 import { Creatable } from 'react-select'
@@ -14,13 +14,13 @@ import classNames from 'classnames'
 import autobind from 'autobind-decorator'
 
 export default class MultiInput extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       value: []
     }
   }
-  componentWillMount () {
+  componentWillMount() {
     const { defaultValue = [] } = this.props
     const options = defaultValue.length
       ? defaultValue.map(item => {
@@ -36,11 +36,11 @@ export default class MultiInput extends Component {
       })
     }
   }
-  showPromptTxt (label) {
+  showPromptTxt(label) {
     return '"' + label + '"   逗号或回车结束'
   }
   @autobind
-  handleChange (value) {
+  handleChange(value) {
     const { onChange, disabled } = this.props
     if (disabled) {
       return
@@ -50,7 +50,7 @@ export default class MultiInput extends Component {
     })
     onChange && onChange(value.map(item => item.value))
   }
-  render () {
+  render() {
     const { placeholder, hasError, className, disabled } = this.props
     const { value } = this.state
     const classes = classNames('select', 'no-arrow', {

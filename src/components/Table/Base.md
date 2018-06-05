@@ -1,268 +1,343 @@
 #### 基本使用
 
-- 最基本的表格
-- width控制宽度
-- render控制自定义渲染
-- align控制对齐
-- limit设置超出省略号（需控制宽度）
+* 最基本的表格
+* width 控制宽度
+* render 控制自定义渲染
+* align 控制对齐
+* limit 设置超出省略号（需控制宽度）
 
-``` js
-const tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '3234234232342342次32342342次32342342次次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
+```js
+const tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "3234234232342342次32342342次32342342次次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   }
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+];
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    }
+  },
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    }
+  },
+  {
+    key: "times",
+    title: "3",
+    width: 120,
+    limit: true
+  },
+  {
+    title: "操作",
+    render(item, row) {
+      return <span>现在还没有操作</span>;
+    }
   }
-}, {
-  key: 'times',
-  title: '3',
-  width: 120,
-  limit: true
-}, {
-  title: '操作',
-  render (item, row) {
-    return <span>现在还没有操作</span>
-  }
-}];
-<BaseTable striped columns={columns} data={tableData} />
+];
+<BaseTable striped columns={columns} data={tableData} />;
 ```
 
 ##### 特殊效果
-- 不带边框
-- 不带hover效果
-- 不带头
-- 行高30px
 
-``` js
-const tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
+* 不带边框
+* 不带 hover 效果
+* 不带头
+* 行高 30px
+
+```js
+const tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   }
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+];
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    }
+  },
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    }
+  },
+  {
+    key: "times",
+    title: "3"
+  },
+  {
+    title: "操作",
+    render(item, row) {
+      return <span>现在还没有操作</span>;
+    }
   }
-}, {
-  key: 'times',
-  title: '3'
-}, {
-  title: '操作',
-  render (item, row) {
-    return <span>现在还没有操作</span>
-  }
-}];
-<BaseTable columns={columns}
+];
+<BaseTable
+  columns={columns}
   background={false}
   hover={false}
   border={false}
   showHeader={false}
   lineHeight={30}
-  data={tableData} />
+  data={tableData}
+/>;
 ```
 
 ##### 排序表格
-- 配合后端进行排序
-- 使用sortable控制某字段是否排序
-- 需传入当前排序的sortKey和当前的顺序sortFlag
-- 排序更改时会自动调用handleSortChange, 请求后端
 
-``` js
-const tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
-  }
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+* 配合后端进行排序
+* 使用 sortable 控制某字段是否排序
+* 需传入当前排序的 sortKey 和当前的顺序 sortFlag
+* 排序更改时会自动调用 handleSortChange, 请求后端
+
+```js
+const tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   },
-  sortable: true
-}, {
-  key: 'times',
-  title: '3',
-  sortable: true
-}, {
-  title: '操作',
-  render (item, row) {
-    return <span>现在还没有操作</span>
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   }
-}];
-class ExampleTable extends React.Component {
-  constructor () {
-    this.state = {
-      sortKey: '',
-      sortFlag: ''
+];
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    }
+  },
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    },
+    sortable: true
+  },
+  {
+    key: "times",
+    title: "3",
+    sortable: true
+  },
+  {
+    title: "操作",
+    render(item, row) {
+      return <span>现在还没有操作</span>;
     }
   }
-  handleSortChange (sortKey, sortFlag) {
-    console.log('sortchanged:', sortKey, sortFlag)
+];
+class ExampleTable extends React.Component {
+  constructor() {
+    this.state = {
+      sortKey: "",
+      sortFlag: ""
+    };
+  }
+  handleSortChange(sortKey, sortFlag) {
     this.setState({
       sortKey,
       sortFlag
-    })
+    });
   }
-  render () {
-    const { sortKey, sortFlag } = this.state
+  render() {
+    const { sortKey, sortFlag } = this.state;
     return (
       <BaseTable
         striped
@@ -270,97 +345,120 @@ class ExampleTable extends React.Component {
         sortKey={sortKey}
         sortFlag={sortFlag}
         handleSortChange={this.handleSortChange.bind(this)}
-        data={tableData} />
-    )
+        data={tableData}
+      />
+    );
   }
 }
-<ExampleTable />
+<ExampleTable />;
 ```
 
 ##### 固定头部
 
-- 通过scrollHeight设置底部最大高度，表头将自动固定
-- 尽量设置每个单元格的宽度，以保证两端对齐
+* 通过 scrollHeight 设置底部最大高度，表头将自动固定
+* 尽量设置每个单元格的宽度，以保证两端对齐
 
-``` js
-let tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-tableData = tableData.concat(tableData, tableData)
+```js
+let tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  }
+];
+tableData = tableData.concat(tableData, tableData);
 
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    },
+    width: 150
   },
-  width: 150
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    },
+    width: 80
   },
-  width: 80
-}, {
-  key: 'times',
-  title: '3',
-  width: 120
-}, {
-  title: '操作',
-  render (item, row, {
-    expandShow
-  }) {
-    return <span>{expandShow ? '收起' : '展开'}</span>
+  {
+    key: "times",
+    title: "3",
+    width: 120
   },
-  width: 90
-}];
+  {
+    title: "操作",
+    render(item, row, { expandShow }) {
+      return <span>{expandShow ? "收起" : "展开"}</span>;
+    },
+    width: 90
+  }
+];
 const expandRowRender = (row, index) => (
   <div>
     这是扩展的内容
@@ -368,184 +466,232 @@ const expandRowRender = (row, index) => (
     <p>可以各种自定义</p>
   </div>
 );
-<BaseTable columns={columns}
+<BaseTable
+  columns={columns}
   expandRowRender={expandRowRender}
   defaultRenderExpand
   scrollHeight={250}
-  data={tableData} />
+  data={tableData}
+/>;
 ```
 
 ##### 前端分页
 
-- pageLimit设置前端分页，每次只添加多少条
+* pageLimit 设置前端分页，每次只添加多少条
 
-``` js
-let tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-tableData = tableData.concat(tableData, tableData)
+```js
+let tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  }
+];
+tableData = tableData.concat(tableData, tableData);
 
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    },
+    width: 150
   },
-  width: 150
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    },
+    width: 80
   },
-  width: 80
-}, {
-  key: 'times',
-  title: '3',
-  width: 120
-}, {
-  title: '操作',
-  render (item, row, {
-    expandShow
-  }) {
-    return <span>{expandShow ? '收起' : '展开'}</span>
+  {
+    key: "times",
+    title: "3",
+    width: 120
   },
-  width: 90
-}];
-<BaseTable columns={columns}
+  {
+    title: "操作",
+    render(item, row, { expandShow }) {
+      return <span>{expandShow ? "收起" : "展开"}</span>;
+    },
+    width: 90
+  }
+];
+<BaseTable
+  columns={columns}
   pageLimit={6}
   defaultRenderExpand
   scrollHeight={250}
-  data={tableData} />
+  data={tableData}
+/>;
 ```
 
 ##### 可展开
 
-- expandRowRender设置展开内容
-- 带有展开的行会带有 has-expand class
-- 在column的render会回传当前row是否展开，用于自定义操作状态
-- defaultRenderExpand设置是否默认展开第一行
-- expandOnly用于控制是否只同时展开一行
+* expandRowRender 设置展开内容
+* 带有展开的行会带有 has-expand class
+* 在 column 的 render 会回传当前 row 是否展开，用于自定义操作状态
+* defaultRenderExpand 设置是否默认展开第一行
+* expandOnly 用于控制是否只同时展开一行
 
-``` js
-const tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
+```js
+const tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   }
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+];
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    }
+  },
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    }
+  },
+  {
+    key: "times",
+    title: "3"
+  },
+  {
+    title: "操作",
+    render(item, row, { expandShow }) {
+      return <span>{expandShow ? "收起" : "展开"}</span>;
+    }
   }
-}, {
-  key: 'times',
-  title: '3'
-}, {
-  title: '操作',
-  render (item, row, {
-    expandShow
-  }) {
-    return <span>{expandShow ? '收起' : '展开'}</span>
-  }
-}];
+];
 const expandRowRender = (row, index) => (
   <div>
     这是扩展的内容
@@ -555,316 +701,418 @@ const expandRowRender = (row, index) => (
 );
 <div>
   普通展开
-  <BaseTable columns={columns}
+  <BaseTable
+    columns={columns}
     className="mgb20"
     expandRowRender={expandRowRender}
-    data={tableData} />
+    data={tableData}
+  />
   默认展开第一行，且同时只能展开一行
-  <BaseTable columns={columns}
+  <BaseTable
+    columns={columns}
     className="mgb20"
     expandOnly
     expandRowRender={expandRowRender}
     defaultRenderExpand
-    data={tableData} />
-</div>
-
+    data={tableData}
+  />
+</div>;
 ```
 
-##### 带有children的行
+##### 带有 children 的行
 
-- 需要设置hasChild为true
-- 设置每个data-item的children来展示他的子行
-- 子行可以展开收起
+* 需要设置 hasChild 为 true
+* 设置每个 data-item 的 children 来展示他的子行
+* 子行可以展开收起
 
-``` js
-const tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次',
-  children: [{
-    ip: '87.101.12.12',
-    labels: [{
-      type: 'error',
-      desc: 'IDC机房'
-    }, {
-      type: 'info',
-      desc: '辣鸡邮件'
-    }],
-    type: '阻断',
-    times: '32342342次'
-  }, {
-    ip: '87.101.12.12',
-    labels: [{
-      type: 'error',
-      desc: 'IDC机房'
-    }, {
-      type: 'info',
-      desc: '辣鸡邮件'
-    }],
-    type: '阻断',
-    times: '32342342次'
-  }]
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次',
-  children: [{
-    ip: '87.101.12.12',
-    labels: [{
-      type: 'error',
-      desc: 'IDC机房'
-    }, {
-      type: 'info',
-      desc: '辣鸡邮件'
-    }],
-    type: '阻断',
-    times: '32342342次'
-  }, {
-    ip: '87.101.12.12',
-    labels: [{
-      type: 'error',
-      desc: 'IDC机房'
-    }, {
-      type: 'info',
-      desc: '辣鸡邮件'
-    }],
-    type: '阻断',
-    times: '32342342次'
-  }]
-}];
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <Label className="table-label mgr10" light key={item.desc} type={item.type}>{item.desc}</Label>
-      })
-    )
+```js
+const tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次",
+    children: [
+      {
+        ip: "87.101.12.12",
+        labels: [
+          {
+            type: "error",
+            desc: "IDC机房"
+          },
+          {
+            type: "info",
+            desc: "辣鸡邮件"
+          }
+        ],
+        type: "阻断",
+        times: "32342342次"
+      },
+      {
+        ip: "87.101.12.12",
+        labels: [
+          {
+            type: "error",
+            desc: "IDC机房"
+          },
+          {
+            type: "info",
+            desc: "辣鸡邮件"
+          }
+        ],
+        type: "阻断",
+        times: "32342342次"
+      }
+    ]
   },
-  width: 180
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   },
-  width: 80
-}, {
-  key: 'times',
-  title: '3',
-  sortable: true,
-  width: 120,
-  limit: true
-}, {
-  title: '操作',
-  render (item, row, { expandShow }) {
-    return <span>{expandShow ? '收起' : '展开'}</span>
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   },
-  width: 80
-}];
-<BaseTable columns={columns}
-  hasChild={true}
-  data={tableData} />
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次",
+    children: [
+      {
+        ip: "87.101.12.12",
+        labels: [
+          {
+            type: "error",
+            desc: "IDC机房"
+          },
+          {
+            type: "info",
+            desc: "辣鸡邮件"
+          }
+        ],
+        type: "阻断",
+        times: "32342342次"
+      },
+      {
+        ip: "87.101.12.12",
+        labels: [
+          {
+            type: "error",
+            desc: "IDC机房"
+          },
+          {
+            type: "info",
+            desc: "辣鸡邮件"
+          }
+        ],
+        type: "阻断",
+        times: "32342342次"
+      }
+    ]
+  }
+];
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <Label
+            className="table-label mgr10"
+            light
+            key={item.desc}
+            type={item.type}
+          >
+            {item.desc}
+          </Label>
+        );
+      });
+    },
+    width: 180
+  },
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    },
+    width: 80
+  },
+  {
+    key: "times",
+    title: "3",
+    sortable: true,
+    width: 120,
+    limit: true
+  },
+  {
+    title: "操作",
+    render(item, row, { expandShow }) {
+      return <span>{expandShow ? "收起" : "展开"}</span>;
+    },
+    width: 80
+  }
+];
+<BaseTable columns={columns} hasChild={true} data={tableData} />;
 ```
 
 #### 单选表格
-- 通过clickable设置每行可点击
-- handleRowClick点击回调
-- 不可与展开，子行的表格同时使用
 
-``` js
-const tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
+* 通过 clickable 设置每行可点击
+* handleRowClick 点击回调
+* 不可与展开，子行的表格同时使用
+
+```js
+const tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   }
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+];
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    }
+  },
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    }
+  },
+  {
+    key: "times",
+    title: "3"
+  },
+  {
+    title: "操作",
+    render(item, row) {
+      return <span>现在还没有操作</span>;
+    }
   }
-}, {
-  key: 'times',
-  title: '3'
-}, {
-  title: '操作',
-  render (item, row) {
-    return <span>现在还没有操作</span>
-  }
-}];
-<BaseTable columns={columns}
+];
+<BaseTable
+  columns={columns}
   clickable
   striped
   handleRowClick={console.log}
-  data={tableData} />
+  data={tableData}
+/>;
 ```
 
 #### 多选表格
-- 通过select属性设置表格可选择
-- handleSelectChanged点击回调
 
-``` js
-const tableData = [{
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}, {
-  ip: '87.101.12.12',
-  labels: [{
-    type: 'error',
-    desc: 'IDC机房'
-  }, {
-    type: 'info',
-    desc: '辣鸡邮件'
-  }],
-  type: '阻断',
-  times: '32342342次'
-}];
-const columns = [{
-  key: 'labels',
-  title: '1',
-  render (items) {
-    return (
-      items.map(item => {
-        return <label key={item.desc} className="label label-info mgr10">{item.desc}</label>
-      })
-    )
+* 通过 select 属性设置表格可选择
+* handleSelectChanged 点击回调
+
+```js
+const tableData = [
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
+  },
+  {
+    ip: "87.101.12.12",
+    labels: [
+      {
+        type: "error",
+        desc: "IDC机房"
+      },
+      {
+        type: "info",
+        desc: "辣鸡邮件"
+      }
+    ],
+    type: "阻断",
+    times: "32342342次"
   }
-}, {
-  key: 'type',
-  title: '2',
-  render (item) {
-    return <span className="color-error">{item}</span>
+];
+const columns = [
+  {
+    key: "labels",
+    title: "1",
+    render(items) {
+      return items.map(item => {
+        return (
+          <label key={item.desc} className="label label-info mgr10">
+            {item.desc}
+          </label>
+        );
+      });
+    }
+  },
+  {
+    key: "type",
+    title: "2",
+    render(item) {
+      return <span className="color-error">{item}</span>;
+    }
+  },
+  {
+    key: "times",
+    title: "3"
+  },
+  {
+    title: "操作",
+    render(item, row) {
+      return <span>现在还没有操作</span>;
+    }
   }
-}, {
-  key: 'times',
-  title: '3'
-}, {
-  title: '操作',
-  render (item, row) {
-    return <span>现在还没有操作</span>
-  }
-}];
-<BaseTable columns={columns}
+];
+<BaseTable
+  columns={columns}
   select
   striped
   handleSelectChanged={console.log}
-  data={tableData} />
+  data={tableData}
+/>;
 ```
