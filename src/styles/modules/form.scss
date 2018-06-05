@@ -3,12 +3,12 @@
  * @section Form
  * @modifiers
  *  .input 单行文本
- *  .input.error 表单验证错误 
+ *  .input.error 表单验证错误
  * @markup
  *  <input class="input" placeholder="请输入"/>
  *  <br />
  *  <br />
- *  <input class="input error" placeholder="请输入"/> 
+ *  <input class="input error" placeholder="请输入"/>
  */
 
 /****/
@@ -70,7 +70,7 @@
  *  .line 分割线
  * @markup
  *  <span class="delete-icon-cavity">&times;</span>&nbsp;
- *  <span class="delete-icon-blue">&times;</span>&nbsp; 
+ *  <span class="delete-icon-blue">&times;</span>&nbsp;
  *  <span class="delete-icon-red">&times;</span>&nbsp;
  *  <span class="drop-down-icon"></span>&nbsp;
  *  <span class="drop-down-icon up"></span>&nbsp;
@@ -89,14 +89,14 @@
   cursor: not-allowed;
 }
 
-.form-item-group{
+.form-item-group {
   width: 100%;
   display: flex;
 
-  .form-item-title-label{
+  .form-item-title-label {
     line-height: 1;
     padding-top: 7px;
-    padding-right: 10px; 
+    padding-right: 10px;
     font-weight: bold;
     flex: 0 0 100px;
     text-align: left;
@@ -106,15 +106,15 @@
     &.required span {
       position: relative;
 
-      &::after{
-        content: '*';
+      &::after {
+        content: "*";
         position: absolute;
         top: 0;
         left: -8px;
       }
     }
   }
-  .form-item-input{
+  .form-item-input {
     flex: 1;
   }
 }
@@ -196,67 +196,67 @@
     opacity: 1;
   }
 
-  &.textarea{
+  &.textarea {
     padding-top: 10px;
     min-height: 60px;
     resize: none;
     overflow: auto;
     line-height: 20px;
 
-    &.error{
+    &.error {
       @include errorStyle();
     }
   }
 
-  &:disabled{
+  &:disabled {
     @include disabledStyle();
   }
 
-  &.textarea-wrap{
+  &.textarea-wrap {
     position: relative;
     padding-bottom: 25px;
     padding-right: 0;
 
-    &.focus{
+    &.focus {
       @include focusStyle();
     }
     &.error {
       outline: 0;
       @include errorStyle();
     }
-    &.is-disabled{
+    &.is-disabled {
       @include disabledStyle();
     }
 
-    .max{
+    .max {
       font-size: 12px;
       line-height: 1;
       i {
-      font-style: normal;
-      color: $basic-aid-color;
-      font-weight: bold;
+        font-style: normal;
+        color: $basic-aid-color;
+        font-weight: bold;
       }
       position: absolute;
       right: 10px;
       bottom: 10px;
       color: $font-color-base;
     }
-    .textarea-content{
+    .textarea-content {
       height: 100%;
       width: 100%;
       overflow: auto;
 
-      &:focus{
+      &:focus {
         outline: none;
       }
 
-      &:empty:before{ 
-        content: attr(placeholder); 
+      &:empty:before {
+        content: attr(placeholder);
         white-space: pre-line;
-        color: $font-color-low; 
-      } 
-      &:not(:empty):before{
-        content: '';
+        color: $font-color-low;
+      }
+      &:not(:empty):before {
+        content: "";
       }
     }
   }
@@ -266,29 +266,27 @@
   }
 }
 
-.select {    
+.select {
   width: 100%;
-
-  .Select-control{
+  .Select-control {
     width: 100%;
     height: 30px;
     border-radius: 2px;
     background-color: $subBgColor;
     border-color: $borderColor;
   }
-  .Select-input{
+  .Select-input {
     height: 30px;
     line-height: 30px;
-
     input {
       padding: 0;
     }
   }
-  .Select-option{
+  .Select-option {
     background-color: $subBgColor;
     color: $font-color-normal;
 
-    &.is-focused{
+    &.is-focused {
       background-color: $subBlueColor;
       color: #fff;
     }
@@ -325,7 +323,7 @@
     .Select-control {
       background-color: #fff;
     }
-    .Select-option{
+    .Select-option {
       background-color: #fff;
       color: $font-color-normal;
     }
@@ -341,42 +339,41 @@
       display: none;
     }
   }
-  &.is-focused{
+  &.is-focused {
     &:not(.is-open) {
       .Select-control {
         @include focusStyle();
       }
     }
     &:not(.has-value) {
-      .Select-control{
+      .Select-control {
         @include focusStyle();
       }
     }
-    &.error{
-      .Select-control{
+    &.error {
+      .Select-control {
         @include errorStyle();
       }
     }
   }
-  &.error{
-    .Select-control{
+  &.error {
+    .Select-control {
       @include errorStyle();
     }
   }
   &.is-disabled {
-    .Select-control{
+    .Select-control {
       @include disabledStyle();
     }
   }
 }
-
 
 .multi-select-value {
   display: inline-flex;
   align-items: center;
   border: 1px solid $basic-aid-blue-color;
   border-radius: 4px;
-  color: $basic-aid-blue-color;    
+  color: $basic-aid-blue-color;
   height: 20px;
   padding: 0 5px;
   font-size: 12px;
@@ -419,7 +416,7 @@
 .delete-icon-blue {
   @extend .delete-icon;
   border-radius: 50%;
-  color: #FFF;
+  color: #fff;
   border: 1px solid $basic-aid-blue-color;
   background-color: $basic-aid-blue-color;
 }
@@ -451,79 +448,77 @@
     }
     &.selected {
       background-color: $basic-aid-blue-color;
-      color: #FFF;
+      color: #fff;
     }
   }
 }
 
 .drop-down-select {
+  display: inline-block;
+  border: 1px solid $basic-border-color;
+  width: 100px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  .drop-down-select-item {
     display: inline-block;
-    border: 1px solid $basic-border-color;
-    width: 100px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-    .drop-down-select-item {
-        display: inline-block;
-        height: 30px;
-        width: 100%;
-        line-height: 30px;
-        padding: 0 20px;
-        text-align: left;
-        color: #333;
-        background-color: #FFF;
-        border-bottom: 1px solid $basic-border-color;
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    padding: 0 20px;
+    text-align: left;
+    color: #333;
+    background-color: #fff;
+    border-bottom: 1px solid $basic-border-color;
 
-        &:hover {
-            background-color: $basic-aid-blue-color;
-            color: #FFF;
-            cursor: pointer;
-        }
-
-        &:last-child {
-            border-bottom: none;
-        }
+    &:hover {
+      background-color: $basic-aid-blue-color;
+      color: #fff;
+      cursor: pointer;
     }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 .drop-down-panel {
-    display: inline-block;
-    width: 100px;
-    height: 200px;
-    border: 1px solid $basic-border-color;
-    background-color: #FFF;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  width: 100px;
+  height: 200px;
+  border: 1px solid $basic-border-color;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .drop-down-icon {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 5px solid $basic-imp-color;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 2.5px solid transparent;
-    vertical-align: middle; 
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid $basic-imp-color;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 2.5px solid transparent;
+  vertical-align: middle;
 
-    &.up {
-        margin-bottom: 2.5px;
-        border-top: none;
-        border-bottom: 5px solid $basic-imp-color;        
-    }
+  &.up {
+    margin-bottom: 2.5px;
+    border-top: none;
+    border-bottom: 5px solid $basic-imp-color;
+  }
 }
 
-
-
 .line {
-    display: inline-block;
-    width: 100%;
-    height: 0;
-    border: none;
-    border-top: 1px solid $basic-border-color;
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 1px solid $basic-border-color;
 }
 
 .active-item {
-    border-radius: 2px;
-    background-color: $basic-aid-color;
-    color: #FFF;
+  border-radius: 2px;
+  background-color: $basic-aid-color;
+  color: #fff;
 }
 .rc-calendar-picker {
   padding-top: 30px;
@@ -531,8 +526,9 @@
 .rc-calendar-input-wrap {
   margin-bottom: 40px;
 }
-.rc-calendar-input, .rc-time-picker-input {
-  text-align: center!important;
+.rc-calendar-input,
+.rc-time-picker-input {
+  text-align: center !important;
   outline: none;
 }
 .range-picker-extra-picker-wrap {
@@ -544,7 +540,7 @@
   border-bottom: 1px solid #e9e9e9;
   display: flex;
 
-  &> div{
+  & > div {
     width: 50%;
     text-align: center;
   }
@@ -555,29 +551,27 @@
   padding: 10px;
   border-bottom: 1px solid #e9e9e9;
 }
-.range-picker-extra-footer-wrap>a{
+.range-picker-extra-footer-wrap > a {
   margin-right: 10px;
   color: #2d84e5;
   cursor: pointer;
   &:last-child {
     margin-right: 0;
   }
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 }
-.rc-calendar-footer-btn>a{
+.rc-calendar-footer-btn > a {
   color: #2d84e5;
-  &:hover{
+  &:hover {
     color: #2d84e5;
     text-decoration: underline;
   }
 }
-.rc-calendar-range-right .rc-calendar-time-picker-panel{
-  left: 0!important;
+.rc-calendar-range-right .rc-calendar-time-picker-panel {
+  left: 0 !important;
 }
-
-
 
 .file-upload {
   display: flex;
