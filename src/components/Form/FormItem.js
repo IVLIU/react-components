@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
- * @Last Modified by: zsj
- * @Last Modified time: 2018-06-04 22:30:34
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-06-05 19:57:49
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -107,9 +107,15 @@ export default class FormItem extends Component {
     })
   }
   renderChildren() {
-    const { children, placeholder, data, field } = this.props
+    const { children, placeholder, data, field, showInfo } = this.props
     const { hasError } = this.state
     const { value } = data[field] || {}
+
+    if (showInfo) {
+      return <div className="form-item-info">
+        {value}
+      </div>
+    }
     return children ? React.cloneElement(children, {
       onChange: this.handleInput,
       onBlur: this.handleBlur,

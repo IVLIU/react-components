@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:00:25
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-18 16:52:24
+ * @Last Modified time: 2018-06-05 19:55:25
  */
 import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
@@ -58,7 +58,7 @@ export default class Form extends Component {
     return ret
   }
   renderChildrens (children) {
-    const { data } = this.props
+    const { data, showInfo } = this.props
     if (Array.isArray(children)) {
       return Children.map(children, child => {
         return this.renderChildrens(child)
@@ -68,7 +68,8 @@ export default class Form extends Component {
     if (children.type && children.type.name === FormItem.name) {
       return cloneElement(children, {
         id: this.id,
-        data
+        data,
+        showInfo
       })
     }
 
@@ -98,5 +99,7 @@ Form.propTypes = {
    * 表单对应的数据
    * 针对该数据会生成最终的表单数据
    */
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  /** 以信息形式展示表单 */
+  showInfo: PropTypes.string
 }
