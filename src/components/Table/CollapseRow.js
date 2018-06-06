@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 10:43:53
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-05 17:00:36
+ * @Last Modified time: 2018-06-06 10:53:00
  */
 import React, { Component, Fragment } from 'react'
 // import PropTypes from 'prop-types'
@@ -53,6 +53,8 @@ const CollapseRow = Row =>
         'has-expand': expandRowRender,
         'show-expand': showExpand
       }, className)
+      const expand = showExpand ? expandRowRender(rowData, rowIndex, columns) : null
+      console.log(expand)
       return (
         <Fragment>
           <Row {...others}
@@ -60,11 +62,11 @@ const CollapseRow = Row =>
             onClick={this.toggleShow}
             className={classes}/>
           {
-            showExpand
+            showExpand && expand
               ? <tr className="table-body-expand-row">
                 <td colSpan={rowHasChild ? columns.length + 1 : columns.length}>
                   <div className="table-body-expand-row-wrap">
-                    {expandRowRender(rowData, rowIndex, columns)}
+                    {expand}
                   </div>
                 </td>
               </tr>
