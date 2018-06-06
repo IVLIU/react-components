@@ -116,6 +116,7 @@ td {
 .table-body-expand-row-wrap {
   position: relative;
   &::before{
+    z-index: 1;
     content: "";
     display: block;
     width: 100%;
