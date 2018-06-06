@@ -1,13 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
-<<<<<<< HEAD
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-04 11:34:31
-=======
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-07 11:16:23
->>>>>>> 4768b6934e400eb7347030e9cfb7ee00ea783db7
+ * @Last Modified by: zsj
+ * @Last Modified time: 2018-06-06 11:02:53
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -40,7 +35,7 @@ const baseModalStyle = {
  * 弹框组件
  */
 export default class Modal extends Component {
-  getResultStyle (style = {}) {
+  getResultStyle(style = {}) {
     const { isOpen } = this.props
     if (!isOpen) {
       return null
@@ -51,7 +46,7 @@ export default class Modal extends Component {
     })
     return ret
   }
-  render () {
+  render() {
     const {
       title,
       children,

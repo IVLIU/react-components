@@ -13,7 +13,7 @@ class App extends Component {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route path='/dropdownlist' component={DropDownListTest}/>
-        <Route path='/table' component={TableTest}/>
+        <Route path='/select' component={TableTest}/>
         <Route path='/pagination' component={PaginationTest}/>
         <Route path='/modal' component={ModalTest}/>
       </Switch>)

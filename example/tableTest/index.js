@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  Table, Label, Icon
+  Table, Label, Icon,  Selector
 } from '../../src/index'
 import autobind from 'autobind-decorator';
 
