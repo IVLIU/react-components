@@ -6,8 +6,13 @@ import {
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
   Pagination, LabelSelect, TimePicker, CheckboxSelect,
+<<<<<<< HEAD
   RadioButton, Popover, FileUpload, TRIGGER, POSITION
   // ErrorBoundary, errorDecorator
+=======
+  Switch,
+  RadioButton, Popover, FileUpload, TRIGGER, POSITION
+>>>>>>> 93a490659059d68ee28bde9535fb9b28a5110501
 } from '../../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -153,7 +158,10 @@ const columns = [{
   width: 80
 }]
 
+<<<<<<< HEAD
 // @errorDecorator()
+=======
+>>>>>>> 93a490659059d68ee28bde9535fb9b28a5110501
 export default class Home extends Component {
   constructor () {
     super()
@@ -299,7 +307,11 @@ export default class Home extends Component {
           <div className="col-6">
             可展开的table
             <Table columns={columns}
-              expandRowRender={this.expandRowRender}
+              expandRowRender={() => (
+                <Table columns={columns}
+                  striped
+                  data={tableData} />
+              )}
               defaultRenderExpand
               sortKey="times"
               sortFlag="desc"
@@ -427,6 +439,9 @@ export default class Home extends Component {
     const { current } = this.state
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Switch onChange={console.log}/>
+        <Switch defaultValue={false} onChange={console.log}/>
+        <Switch disabled onChange={console.log}/>
         <FileUpload onChange={console.log}/>
         <Popover trigger={TRIGGER.CLICK} position={POSITION.TOP} content="这是内容这是内容这是内容">
           <Button>Popover</Button>
