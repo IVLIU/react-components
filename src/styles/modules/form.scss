@@ -598,6 +598,7 @@
   border: 1px solid $basic-border-color;
   display: inline-block;
   cursor: pointer;
+  font-size: 12px;
 
   &.disabled {
     cursor: not-allowed;
