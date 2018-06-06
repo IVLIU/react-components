@@ -1,7 +1,13 @@
 #### 基本使用
-一组Checkbox, 自动包含值，name,onchange等维护,
-注：当值为object时，若想设置默认值，则应用该值的引用
-``` js
+
+一组 Checkbox, 自动包含值，name,onchange 等维护,
+注：当值为 object 时，若想设置默认值，则应用该值的引用
+
+```js
+// tdp中使用CheckboxGroup
+import { Checkbox } from "@common/lib";
+Checkbox.CheckboxGroup;
+
 const dfValue = {
   a: 1
 };
@@ -10,12 +16,16 @@ const dfValue = {
     <Checkbox label="选择1" value={dfValue} />
     <Checkbox label="选择2" value={{ a: 2 }} />
   </CheckboxGroup>
-</div>
+</div>;
 ```
 
 #### 禁用状态
 
-``` js
+```js
+// tdp中使用CheckboxGroup
+import { Checkbox } from "@common/lib";
+Checkbox.CheckboxGroup;
+
 const dfValue = {
   a: 1
 };
@@ -24,5 +34,5 @@ const dfValue = {
     <Checkbox label="选择1" value={dfValue} />
     <Checkbox label="选择2" value={{ a: 2 }} />
   </CheckboxGroup>
-</div>
+</div>;
 ```
