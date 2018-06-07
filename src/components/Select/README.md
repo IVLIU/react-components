@@ -133,3 +133,8 @@ const options = [
   </div>
 </div>;
 ```
+
+#### changelog
+
+2018-06-07
+1，修改文档
