@@ -2,38 +2,38 @@
 
 最基本的输入框
 
-``` js
+```js
 const onChange = v => {
-  console.log(v)
+  console.log(v);
 };
 
 <div className="row">
   <div className="col-4">
-    <Input onChange={onChange}/>
+    <Input onChange={onChange} />
   </div>
-</div>
+</div>;
 ```
 
-基本的textarea
+基本的 textarea
 
-``` js
+```js
 const onChange = v => {
-  console.log(v)
+  console.log(v);
 };
 
 <div className="row">
   <div className="col-4">
-    <Input type="textarea" onChange={onChange}/>
+    <Input type="textarea" onChange={onChange} />
   </div>
-</div>
+</div>;
 ```
 
 包含内容长度的输入框
 
-``` js
+```js
 <div className="row">
   <div className="col-4">
-    <Input type="textarea" max={200}/>
+    <Input type="textarea" max={200} />
   </div>
 </div>
 ```
@@ -43,34 +43,39 @@ const onChange = v => {
 disabled 禁用样式
 包含默认值
 
-``` js
+```js
 <div>
   <div className="row">
     <div className="col-4">
-      <Input disabled defaultValue="这是默认value"/>
+      <Input disabled defaultValue="这是默认value" />
     </div>
   </div>
   <div className="row">
     <div className="col-4">
-      <Input disabled type="textarea"/>
+      <Input disabled type="textarea" />
     </div>
   </div>
 </div>
 ```
 
-hasError 错误时样式，集成表单组件时，当验证失效时，会自动注入hasError属性
+hasError 错误时样式，集成表单组件时，当验证失效时，会自动注入 hasError 属性
 
-``` js
+```js
 <div>
   <div className="row">
     <div className="col-4">
-      <Input hasError/>
+      <Input hasError />
     </div>
   </div>
   <div className="row">
     <div className="col-4">
-      <Input hasError type="textarea"/>
+      <Input hasError type="textarea" />
     </div>
   </div>
 </div>
 ```
+
+#### changeLog
+
+2018-6-11 zsj
+1, 增加 input trim()

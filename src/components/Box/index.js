@@ -14,7 +14,7 @@ import NoResult from '../NoResult'
  */
 @pureRender
 export default class Box extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     const { defaultOpen = true } = this.props
     this.state = {
@@ -22,7 +22,7 @@ export default class Box extends Component {
     }
   }
   @autobind
-  isEmptyObj (obj) {
+  isEmptyObj(obj) {
     if (!obj) return false
     for (let key in obj) {
       if (obj[key]) {
@@ -31,7 +31,7 @@ export default class Box extends Component {
     }
     return false
   }
-  isBoxShow () {
+  isBoxShow() {
     const { data, isLoading } = this.props
     // 正在加载时，展示Box
     if (isLoading) {
@@ -46,13 +46,13 @@ export default class Box extends Component {
     }
   }
   @autobind
-  toggleOpen (e) {
+  toggleOpen(e) {
     e.preventDefault()
     this.setState({
       open: !this.state.open
     })
   }
-  renderTitle () {
+  renderTitle() {
     const { title, collapse, toggleRender } = this.props
     const { open } = this.state
     return (
@@ -75,7 +75,7 @@ export default class Box extends Component {
       </div>
     )
   }
-  render () {
+  render() {
     const {
       className,
       title,
@@ -106,17 +106,15 @@ export default class Box extends Component {
             height: contentHeight ? parseInt(contentHeight, 10) : ''
           }}
         >
-          {
-            error ? (
-              <NoResult desc={error} />
-            ) : isLoading ? (
-              <Loading className="box-loading" size="lg" />
-            ) : show ? (
-              children
-            ) : (
-              <NoResult desc={emptyDesc} />
-            )
-          }
+          {error ? (
+            <NoResult desc={error} />
+          ) : isLoading ? (
+            <Loading className="box-loading" size="lg" />
+          ) : show ? (
+            children
+          ) : (
+            <NoResult desc={emptyDesc} />
+          )}
         </div>
       </div>
     )
@@ -128,7 +126,7 @@ Box.defaultProps = {
 Box.propTypes = {
   /** 盒子的标题，可以省略 */
   title: PropTypes.any,
-  /** 盒子依赖的数据，会根据是否有该数据而判断是否展示数据为空 */
+  /** 盒子依赖的数据，会根据是否有该数据而判断是否展示数据为空, 当data为boolean的时候，直接判断是否展示盒子依赖的数据 */
   data: PropTypes.any,
   /** 数据为空时展示的描述 */
   emptyDesc: PropTypes.string,
