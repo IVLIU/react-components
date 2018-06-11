@@ -5,15 +5,14 @@ import TabTest from "./tabTest/index"
 import TableTest from "./tableTest/index"
 import PaginationTest from "./paginationTest/"
 import ModalTest from "./modalTest/"
-import DropDownListTest from "./dropDownListTest/"
+import InputTest from "./inputTest/"
 
 class App extends Component {
   render() {
     return (
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/dropdownlist' component={DropDownListTest}/>
-        <Route path='/select' component={TableTest}/>
+        <Route path='/input' component={InputTest}/>
         <Route path='/pagination' component={PaginationTest}/>
         <Route path='/modal' component={ModalTest}/>
       </Switch>)

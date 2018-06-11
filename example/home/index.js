@@ -6,13 +6,8 @@ import {
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownList, Loading,
   Pagination, LabelSelect, TimePicker, CheckboxSelect,
-<<<<<<< HEAD
-  RadioButton, Popover, FileUpload, TRIGGER, POSITION
-  // ErrorBoundary, errorDecorator
-=======
   Switch,
   RadioButton, Popover, FileUpload, TRIGGER, POSITION
->>>>>>> 93a490659059d68ee28bde9535fb9b28a5110501
 } from '../../src/index'
 import iconText from '@/images/svg/alert.svg'
 const RadioGroup = Radio.RadioGroup
@@ -158,10 +153,6 @@ const columns = [{
   width: 80
 }]
 
-<<<<<<< HEAD
-// @errorDecorator()
-=======
->>>>>>> 93a490659059d68ee28bde9535fb9b28a5110501
 export default class Home extends Component {
   constructor () {
     super()

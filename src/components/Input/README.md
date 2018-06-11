@@ -74,8 +74,3 @@ hasError 错误时样式，集成表单组件时，当验证失效时，会自�
   </div>
 </div>
 ```
-
-#### changeLog
-
-2018-6-11 zsj
-1, 增加 input trim()
