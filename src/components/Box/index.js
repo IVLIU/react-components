@@ -138,6 +138,6 @@ Box.propTypes = {
   collapse: PropTypes.bool,
   /** 自定义折叠按钮 */
   toggleRender: PropTypes.func,
-  /** 自定义盒子高度 */
+  /** 自定义盒子内容高度 */
   contentHeight: PropTypes.string
 }
