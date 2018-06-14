@@ -2,16 +2,17 @@ import React, { Component } from 'react'
 import Checkbox from '../Checkbox'
 import autobind from 'autobind-decorator'
 
+// 多选
 const SelectTable = WrapedComponent =>
   class SelectTable extends Component {
-    constructor () {
+    constructor() {
       super()
       this.state = {
         selectedRows: []
       }
     }
     @autobind
-    handleSelectAll (e) {
+    handleSelectAll(e) {
       const { data, handleSelectChanged } = this.props
       let ret = []
       if (e.checked) {
@@ -23,7 +24,7 @@ const SelectTable = WrapedComponent =>
       handleSelectChanged && handleSelectChanged(ret)
     }
     @autobind
-    handleSelectRow (e, row) {
+    handleSelectRow(e, row) {
       const checked = e.checked
       const { selectedRows } = this.state
       const { handleSelectChanged } = this.props
@@ -38,7 +39,7 @@ const SelectTable = WrapedComponent =>
       })
       handleSelectChanged && handleSelectChanged(selectedRows)
     }
-    addSelectHeader (columns, select) {
+    addSelectHeader(columns, select) {
       if (!select) {
         return columns
       }
@@ -46,24 +47,31 @@ const SelectTable = WrapedComponent =>
       const { selectedRows } = this.state
       ret.unshift({
         key: '',
-        title: <Checkbox label="全选" onChange={(e, v, target) => this.handleSelectAll(target)} />,
+        title: (
+          <Checkbox
+            label="全选"
+            onChange={(e, v, target) => this.handleSelectAll(target)}
+          />
+        ),
         render: (item, row) => {
-          return <Checkbox
-            checked={selectedRows.indexOf(row) >= 0}
-            onChange={(e, v, target) => this.handleSelectRow(target, row)} />
+          return (
+            <Checkbox
+              checked={selectedRows.indexOf(row) >= 0}
+              onChange={(e, v, target) => this.handleSelectRow(target, row)}
+            />
+          )
         },
         width: 80
       })
       return ret
     }
 
-    render () {
+    render() {
       const { select, columns, ...others } = this.props
       const retColumns = this.addSelectHeader(columns, select)
-      return <WrapedComponent
-        columns={retColumns}
-        select={select}
-        {...others}/>
+      return (
+        <WrapedComponent columns={retColumns} select={select} {...others} />
+      )
     }
   }
 export default SelectTable
