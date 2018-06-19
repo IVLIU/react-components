@@ -3,50 +3,32 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import autobind from 'autobind-decorator'
 import Label from '../Label'
+import { controledInputDecorator } from '../Common/ControledInput'
 
+const mapDefaultToValue = (v, { options, multi }) => {
+  return v || (multi ? [] : options[0] ? '' : options[0].value)
+}
+const mapValueToValue = v => v
 /**
  * 标签选择控件
  */
+@controledInputDecorator(mapDefaultToValue, mapValueToValue)
 export default class LabelSelect extends Component {
-  constructor (props) {
-    super(props)
-    const { defaultValue, multi, options } = props
-    this.state = {
-      value: defaultValue || multi ? [] : options[0].value
-    }
-  }
-  componentWillReceiveProps (nextProps) {
-    const { defaultValue, value } = nextProps
-    const { defaultValue: curDefault } = this.props
-    if (curDefault !== defaultValue) {
-      this.setState({
-        value: defaultValue
-      })
-      return
-    }
-    if (value !== undefined) {
-      this.setState({
-        value
-      })
-    }
-  }
   isAllSelected (value) {
     const { options } = this.props
     return value.length === options.length
   }
   @autobind
   selectAll () {
-    const { onChange } = this.props
-    if (!this.props.multi) return
-    this.setState({
-      value: []
-    })
-    onChange && onChange([])
+    const { multi, props, disabled } = this.props
+    if (multi || disabled) return
+    props.onChange([])
   }
   handleSelectChange (item) {
-    const { multi, onChange } = this.props
-    const { value } = this.state
+    const { multi, props, disabled } = this.props
+    const { value, onChange } = props
     let ret = item.value
+    if (disabled) return
 
     if (multi) {
       const index = value.indexOf(ret)
@@ -62,9 +44,6 @@ export default class LabelSelect extends Component {
         return
       }
     }
-    this.setState({
-      value: ret
-    })
     // 全部选中， 和都没选是一样的
     if (this.isAllSelected(value)) {
       ret = []
@@ -72,9 +51,12 @@ export default class LabelSelect extends Component {
     onChange && onChange(ret)
   }
   render () {
-    const { className, options, multi, showAll, locale, ...others } = this.props
-    const classes = classNames('label-select', className)
-    const { value } = this.state
+    const { className, disabled, options, props, multi, showAll, locale, ...others } = this.props
+    const classes = classNames({
+      'label-select': true,
+      disabled
+    }, className)
+    const { value } = props
     const isAllActive = multi && !value.length
     return (
       <div className={classes} {...others}>
@@ -110,7 +92,7 @@ export default class LabelSelect extends Component {
 }
 LabelSelect.defaultProps = {
   showAll: true,
-  multi: true,
+  multi: false,
   locale: 'zh_CN'
 }
 LabelSelect.propTypes = {
