@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-19 20:52:37
+ * @Last Modified time: 2018-06-20 14:52:18
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -42,6 +42,10 @@ export default class Modal extends Component {
       return null
     }
     const ret = {}
+
+    // 设置最大高度
+    baseModalStyle.content.maxHeight = window.innerHeight - 100
+
     Object.keys(baseModalStyle).forEach(key => {
       ret[key] = Object.assign(baseModalStyle[key], style[key])
     })

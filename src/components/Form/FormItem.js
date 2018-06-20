@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-05 19:57:49
+ * @Last Modified time: 2018-06-20 11:10:52
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -125,15 +125,19 @@ export default class FormItem extends Component {
     }) : ''
   }
   render() {
-    const { label, labelWidth = '100px', labelStyle, className, style } = this.props
+    const { label, labelWidth = '100px', labelStyle, className, style, hasColon } = this.props
     const { hasError } = this.state
     const lwidth = labelWidth.indexOf('px') > 0 ? labelWidth : labelWidth + 'px'
     const classes = classNames('form-group form-item-group', className)
+    const labelClasses = classNames('form-item-title-label', {
+      required: this.isRequired,
+      hasColon
+    })
     return (
       <div className={classes} style={style}>
-        <div className={`form-item-title-label ${this.isRequired ? 'required' : ''}`}
+        <div className={labelClasses}
           style={{ flex: `0 0 ${lwidth}`, ...labelStyle }}>
-          <span>{label}</span> :
+          <span>{label}</span>{hasColon ? ' :' : ''}
         </div>
         <div className={`form-item-input ${hasError ? 'has-error' : ''}`}>
           {this.renderChildren()}
@@ -144,7 +148,8 @@ export default class FormItem extends Component {
 }
 FormItem.displayName = 'FormItem'
 FormItem.defaultProps = {
-  trigger: 'input'
+  trigger: 'input',
+  hasColon: true
 }
 FormItem.propTypes = {
   /** 表单元素的标签 */
@@ -164,5 +169,7 @@ FormItem.propTypes = {
   /** 验证规则 */
   validators: PropTypes.array,
   /** placeholder */
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  /** 是否有冒号 */
+  hasColon: PropTypes.boolean
 }

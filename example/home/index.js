@@ -409,7 +409,7 @@ export default class Home extends Component {
           handleEnsure={this.closeModal.bind(this)}
           handleCancel={this.closeModal.bind(this)}
           contentLabel="TestModal">
-          <div>
+          <div style={{height: 1000}}>
             这是Modal里面的内容
           </div>
         </Modal>
