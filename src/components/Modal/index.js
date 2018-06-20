@@ -1,13 +1,14 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
- * @Last Modified by: zsj
- * @Last Modified time: 2018-06-06 11:02:53
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-06-19 20:52:37
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactModal from 'react-modal'
 import classNames from 'classnames'
+import Button from '../Button'
 import closeIcon from '../../images/svg/close.svg'
 
 const baseModalStyle = {
@@ -85,12 +86,8 @@ export default class Modal extends Component {
         <div className="modal-footer">
           {!footer ? (
             <div className="footer-btn-wrap">
-              <button className="btn btn-cancel" onClick={handleCancel}>
-                {btnCancelTxt}
-              </button>
-              <button className="btn btn-ensure" onClick={handleEnsure}>
-                {btnEnsureTxt}
-              </button>
+              <Button type="cancel" width={80} onClick={handleCancel}>{btnCancelTxt}</Button>
+              <Button type="primary" width={80} onClick={handleEnsure}>{btnEnsureTxt}</Button>
             </div>
           ) : (
             footer

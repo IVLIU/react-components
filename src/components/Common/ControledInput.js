@@ -2,14 +2,12 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-16 19:34:47
+ * @Last Modified time: 2018-06-19 19:34:29
  */
 import React, { Component } from 'react'
-import pureRender from 'pure-render-decorator'
 import autobind from 'autobind-decorator'
 
 const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
-  @pureRender
   class RetComponent extends Component {
     constructor (props) {
       super(props)
@@ -37,6 +35,8 @@ const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
       onChange && onChange(ret)
     }
     render () {
+      const { value } = this.state
+      console.log(value)
       let defaultProps = Object.assign({}, this.props)
       const props = {
         value: this.state.value,
@@ -46,6 +46,7 @@ const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
       if ('defaultValue' in defaultProps) {
         delete defaultProps.defaultValue
       }
+      console.log(props)
       return <WrapComponent {...defaultProps} props={props} />
     }
   }
