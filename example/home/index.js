@@ -409,7 +409,7 @@ export default class Home extends Component {
           handleEnsure={this.closeModal.bind(this)}
           handleCancel={this.closeModal.bind(this)}
           contentLabel="TestModal">
-          <div>
+          <div style={{height: 1000}}>
             这是Modal里面的内容
           </div>
         </Modal>
@@ -457,7 +457,7 @@ export default class Home extends Component {
         <DateRange onChange={console.log} />
         <RangeBtn className="mgb20"/>
         <LabelSelect onChange={console.log} defaultValue={2} options={listItems}/>
-        <LabelSelect onChange={console.log} defaultValue={[2, 3]} options={listItems} multi/>
+        <LabelSelect onChange={console.log} disabled defaultValue={[2, 3]} options={listItems} multi/>
         <LabelSelect onChange={console.log} showAll={false} options={listItems} multi/>
         <Pagination current={current} total={25} onChange={this.handlePageChange.bind(this)}/>
         <Loading size="lg"/>

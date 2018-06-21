@@ -369,6 +369,17 @@
     .Select-control {
       @include disabledStyle();
     }
+    .Select-value-label {
+      color: #999!important;
+    }
+    .multi-select-value {
+      cursor: not-allowed;
+      color: #999;
+      border-color: #999;
+      svg {
+        fill: #999!important;
+      }
+    }
   }
 }
 
