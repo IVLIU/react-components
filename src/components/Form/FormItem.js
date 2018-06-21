@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-20 11:10:52
+ * @Last Modified time: 2018-06-21 15:45:46
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -43,6 +43,13 @@ export default class FormItem extends Component {
         return validator.required
       })
       : false
+  }
+  componentWillReceiveProps = (nextProps) => {
+    const { data, field } = this.props
+    const fieldData = data[field]
+    if (JSON.stringify(nextProps.data[field]) !== JSON.stringify(fieldData)) {
+      this.handleInput(nextProps.data[field].value, true)
+    }
   }
   validateItem(value) {
     const { validators } = this
