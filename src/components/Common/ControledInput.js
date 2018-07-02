@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-19 19:34:29
+ * @Last Modified time: 2018-06-26 14:54:23
  */
 import React, { Component } from 'react'
 import autobind from 'autobind-decorator'
@@ -36,17 +36,15 @@ const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
     }
     render () {
       const { value } = this.state
-      console.log(value)
       let defaultProps = Object.assign({}, this.props)
       const props = {
-        value: this.state.value,
+        value,
         onChange: this.handleChange
       }
 
       if ('defaultValue' in defaultProps) {
         delete defaultProps.defaultValue
       }
-      console.log(props)
       return <WrapComponent {...defaultProps} props={props} />
     }
   }

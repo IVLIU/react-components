@@ -125,7 +125,6 @@ const Button = require('../Button').default;
 class FormDatas extends React.Component {
   handleSubmit () {
     const ret = this.form.validateAndSubmit()
-    console.log(ret)
   }
   render () {
     return (

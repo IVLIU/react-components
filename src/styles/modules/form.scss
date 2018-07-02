@@ -118,8 +118,11 @@
       }
     }
   }
-  .form-item-input {
-    flex: 1;
+}
+.form-item-input {
+  flex: 1;
+  .label-select {
+    margin-top: 5px;
   }
 }
 .radio {
