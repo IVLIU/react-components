@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-20 14:52:18
+ * @Last Modified time: 2018-07-03 20:47:33
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -47,7 +47,7 @@ export default class Modal extends Component {
     baseModalStyle.content.maxHeight = window.innerHeight - 100
 
     Object.keys(baseModalStyle).forEach(key => {
-      ret[key] = Object.assign(baseModalStyle[key], style[key])
+      ret[key] = Object.assign({}, baseModalStyle[key], style[key])
     })
     return ret
   }
@@ -58,7 +58,7 @@ export default class Modal extends Component {
       footer,
       handleCancel,
       handleEnsure,
-      style,
+      style = {},
       closable,
       btnCancelTxt,
       btnEnsureTxt,
