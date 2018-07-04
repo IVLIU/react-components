@@ -24,14 +24,9 @@ $pt-transition-duration: 100ms !default;
 }
 .popover {
   position: relative;
-  // transform: scale(1);
   display: inline-block;
   border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(16,22,26,.1), 0 2px 4px rgba(16,22,26,.2), 0 8px 24px rgba(16,22,26,.2);
-  // &.popover-enter {
-  //   transform: scale(0.3);
-  // }
-  
   &-arrow {
     position: absolute;
     width: 30px;
