@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { findDOMNode } from 'react-dom'
 
 import Picker from 'rc-calendar/lib/Picker'
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar'
@@ -61,6 +62,21 @@ export default class DateRangePicker extends Component {
     const { props } = this.props
     this.setState({
       value: mapDefaultToValue(props.value)
+    })
+  }
+  componentDidMount = () => {
+    document.addEventListener('click', this.hide)
+  }
+  componentWillUnmount = () => {
+    document.removeEventListener('click', this.hide)
+  }
+  hide = (e) => {
+    const picker = document.querySelector('.rc-calendar')
+    if (!picker) return
+    if (e.target === findDOMNode(this.input)) return
+    if (picker.contains(e.target)) return
+    this.setState({
+      open: false
     })
   }
   componentWillReceiveProps (nextProps) {
@@ -139,6 +155,7 @@ export default class DateRangePicker extends Component {
 
     const calendar = (
       <RangeCalendar
+        ref={picker => (this.picker = picker)}
         disabled={disabled}
         onOk={this.onOk}
         showToday={false}
@@ -152,6 +169,7 @@ export default class DateRangePicker extends Component {
     )
     return (
       <Picker
+        ref={input => (this.input = input)}
         style={style}
         className={className}
         disabled={disabled}
@@ -164,14 +182,12 @@ export default class DateRangePicker extends Component {
       >
         {
           ({ value }) => {
-            return (<span>
-              <Input
-                placeholder="请选择时间"
-                disabled={disabled}
-                readOnly
-                defaultValue={this.formatDisplayValue(value)}
-              />
-            </span>)
+            return <Input
+              placeholder="请选择时间"
+              disabled={disabled}
+              readOnly
+              defaultValue={this.formatDisplayValue(value)}
+            />
           }
         }
       </Picker>)

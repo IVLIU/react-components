@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 10:43:53
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-06 10:53:00
+ * @Last Modified time: 2018-06-26 14:54:37
  */
 import React, { Component, Fragment } from 'react'
 // import PropTypes from 'prop-types'
@@ -54,7 +54,6 @@ const CollapseRow = Row =>
         'show-expand': showExpand
       }, className)
       const expand = showExpand ? expandRowRender(rowData, rowIndex, columns) : null
-      console.log(expand)
       return (
         <Fragment>
           <Row {...others}

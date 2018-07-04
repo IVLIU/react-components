@@ -4,3 +4,7 @@ export default {
   RangeBtn,
   DateRange
 }
+export {
+  RangeBtn,
+  DateRange
+}
