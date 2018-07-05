@@ -21,7 +21,7 @@ export default class LabelSelect extends Component {
   @autobind
   selectAll () {
     const { multi, props, disabled } = this.props
-    if (multi || disabled) return
+    if (!multi || disabled) return
     props.onChange([])
   }
   handleSelectChange (item) {
