@@ -43,9 +43,9 @@ export const timeRange = (currentLocale) => {
   ]
 }
 
-export const btnTimeRange = (currentLocale) =>
+export const btnTimeRange = (currentLocale, max7d = false) =>
   timeRange(currentLocale)
-    .slice(2)
+    .slice(max7d ? 3 : 2)
     .map(item => ({
       label: item.name,
       value: item.value

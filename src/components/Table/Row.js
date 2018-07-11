@@ -28,8 +28,8 @@ export default class Row extends Component {
     const content = render ? render(columnData, rowData, otherStatus) : columnData
     const classes = classNames({
       'table-row-item': true,
-      'pdl20': align === 'left',
-      'pdr20': align === 'right',
+      'pdl10': align === 'left',
+      'pdr10': align === 'right',
       limit
     })
     return (
