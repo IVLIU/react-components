@@ -19,9 +19,9 @@ export default class TabPanel extends Component {
     })
   }
   componentWillReceiveProps (nextProps) {
-    const { index, header, keys, updateChildPanel, active } = nextProps
+    const { index, header, headerkey, keys, updateChildPanel, active } = nextProps
 
-    if (header !== this.props.header) {
+    if (headerkey !== this.props.headerkey) {
       updateChildPanel(index, {
         header,
         key: keys,
