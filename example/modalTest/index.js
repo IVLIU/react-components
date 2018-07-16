@@ -2,7 +2,7 @@
  * @Author: zsj
  * @Date: 2018-03-20 10:51:45
  * @Last Modified by: zsj
- * @Last Modified time: 2018-03-27 10:53:05
+ * @Last Modified time: 2018-07-16 16:40:04
  */
 // 模版测试文件
 import React, { Component } from 'react'
@@ -14,8 +14,9 @@ class ModalTest extends Component {
   constructor () {
     super()
     this.state = {
-      current: 0
+      isOpen: true
     }
+    this.toggle = this.toggle.bind(this)
   }
   static propTypes = {
 
@@ -23,10 +24,16 @@ class ModalTest extends Component {
   static defaultProps = {
 
   }
+  toggle() {
+    this.setState({
+      isOpen: false
+    })
+  }
   render () {
     return (
-      <Modal appElement={document.querySelector('#app')} isOpen={true} title="测试Modal"
-        contentLabel="TestModal">
+      <Modal appElement={document.querySelector('#app')} isOpen={this.state.isOpen} title="测试Modal"
+        contentLabel="TestModal"
+        handleCancel={this.toggle}>
         <div>
           这是Modal里面的内容
         </div>

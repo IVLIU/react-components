@@ -3,9 +3,9 @@ var webpack = require('webpack')
 var config = require('../../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 // var env = process.env.NODE_ENV.trim()
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 var path = require('path')
 var fs = require('fs')
@@ -19,6 +19,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
+  mode: "development",
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },

@@ -96,3 +96,4 @@ class BaseModal extends React.Component {
 #### changLog
 
 1, 增加默认的 modal 样式，如果没有传入 className 则默认使用 modal-content 的样式
+2, 修改 getResultStyle 当 isOpen 为 false 的时候，返回{}, 2018-7-16

@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:52:04
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-04-03 16:59:06
+ * @Last Modified by: zsj
+ * @Last Modified time: 2018-07-16 10:26:44
  */
 import React from 'react'
 import ControledInput from '../Common/ControledInput'
@@ -13,6 +13,7 @@ import delIcon from '@/images/svg/del_icon.svg'
 import RSelect from 'react-select'
 import PropTypes from 'prop-types'
 
+// 设置默认显示的defaultValue
 const mapDefaultToValue = (value, props) => {
   const { multi, options } = props
   // 没传
@@ -79,8 +80,8 @@ Select.propTypes = {
   disabled: PropTypes.bool,
   /** 是否可清空 */
   clearable: PropTypes.bool,
-  /** 默认值 */
-  defaultValue: PropTypes.any,
+  /** 默认值，且数组是不能包含对象 */
+  defaultValue: PropTypes.array,
   /** change回调 */
   onChange: PropTypes.func,
   /** 可选主题颜色 default, white */

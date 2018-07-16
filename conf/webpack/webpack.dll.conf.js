@@ -42,8 +42,12 @@ const plugin = [
 
 module.exports = {
   devtool: 'source-map',
+  mode: 'production',
   entry: {
     dll: lib
+  },
+  optimization: {
+    minimize: true
   },
   output: {
     path: outputPath,
