@@ -38,11 +38,10 @@ const plugin = [
   })
   // moment默认引用全部语言包
   // new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /(zh-cn)\.js/)
-];
+]
 
 module.exports = {
   devtool: 'source-map',
-  mode: 'production',
   entry: {
     dll: lib
   },
@@ -60,4 +59,4 @@ module.exports = {
     library: '[name]'
   },
   plugins: plugin
-};
+}
