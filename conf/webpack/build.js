@@ -50,7 +50,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       chunks: false,
       chunkModules: false
     }) + '\n\n')
-
+    // fs.writeFileSync('./stats.json', stats, 'utf8')
     copyLibToTip()
 
     console.log(chalk.cyan('  Build complete.\n'))

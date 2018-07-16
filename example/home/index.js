@@ -4,7 +4,7 @@ import {
   Button, Input, MultiInput, Select,
   Radio, Checkbox, Form, Modal,
   Code, Tab, Icon, Table, Label,
-  Box, Alert, Dropdown, DropdownList, Loading,
+  Box, Alert, Dropdown, DropdownInput, DropdownList, Loading,
   Pagination, LabelSelect, TimePicker, CheckboxSelect,
   Switch,
   RadioButton, Popover, FileUpload, TRIGGER, POSITION
@@ -432,6 +432,7 @@ export default class Home extends Component {
     const { current } = this.state
     return (
       <div className="container" style={{width: '1200px'}}>
+        <DropdownInput defaultOpen defaultValue="aaa" onChange={console.log}/>
         <Switch onChange={console.log}/>
         <Switch defaultValue={false} onChange={console.log}/>
         <Switch disabled onChange={console.log}/>

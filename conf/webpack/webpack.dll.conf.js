@@ -36,6 +36,8 @@ const plugin = [
     compress: { warnings: false },
     output: { comments: false }
   })
+  // moment默认引用全部语言包
+  // new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /(zh-cn)\.js/)
 ];
 
 module.exports = {

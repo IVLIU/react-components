@@ -9,11 +9,16 @@ import pureRender from 'pure-render-decorator'
  */
 @pureRender
 export default class Dropdown extends Component {
-  constructor () {
-    super()
-    this.state = {
-      open: false
-    }
+  state = {
+    open: this.props.defaultOpen || false
+  }
+  componentWillMount = () => {
+    console.log(this.props.defaultOpen)
+    setTimeout(() => {
+      this.setState({
+        open: this.props.defaultOpen || false
+      })
+    }, 0)
   }
   componentDidMount () {
     const { trigger } = this.props
@@ -114,5 +119,7 @@ Dropdown.propTypes = {
   /** dropdown展示的内容 */
   overlay: PropTypes.any,
   /** 触发展示的方式 */
-  trigger: PropTypes.oneOf(['click', 'hover'])
+  trigger: PropTypes.oneOf(['click', 'hover']),
+  /** 是否默认展开 */
+  defaultOpen: PropTypes.bool
 }

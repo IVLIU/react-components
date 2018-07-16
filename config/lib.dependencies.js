@@ -1,14 +1,17 @@
 // 资源依赖包，提前编译
 
 const lib = [
+  // 'react',
+  'react-dom',
   // 'react-router-dom',
-  'react-json-pretty',
+  // 'react-json-pretty',
   // 'redux',
   // 'redux-saga',
-  'react-modal',
-  'react-select',
+  // 'react-modal',
+  // 'react-select',
   'moment',
   'autobind-decorator',
+  'pure-render-decorator',
   // 'react-bootstrap-daterangepicker'
   // 'echarts',
   // 'zrender',

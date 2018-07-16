@@ -1,0 +1,38 @@
+Hash: bbf440db3bcb7f2df98d
+Version: webpack 3.11.0
+Time: 14172ms
+               Asset     Size  Chunks                    Chunk Names
+    static/js/lib.js   306 kB       0  [emitted]  [big]  lib
+  static/css/lib.css  91.4 kB       0  [emitted]         lib
+static/js/lib.js.map  1.91 MB       0  [emitted]         lib
+   [2] ./node_modules/.babel-runtime@6.26.0/helpers/classCallCheck.js 208 bytes {0} [built]
+   [4] ./node_modules/.babel-runtime@6.26.0/helpers/inherits.js 1.11 kB {0} [built]
+   [5] ./node_modules/.babel-runtime@6.26.0/helpers/createClass.js 904 bytes {0} [built]
+   [6] ./node_modules/.classnames@2.2.5/index.js 1.1 kB {0} [built]
+   [7] ./node_modules/.babel-runtime@6.26.0/helpers/extends.js 544 bytes {0} [built]
+   [8] ./node_modules/.babel-runtime@6.26.0/core-js/object/get-prototype-of.js 104 bytes {0} [built]
+   [9] ./node_modules/.babel-runtime@6.26.0/helpers/jsx.js 1.46 kB {0} [built]
+  [10] ./node_modules/.babel-runtime@6.26.0/helpers/objectWithoutProperties.js 280 bytes {0} [built]
+  [11] ./node_modules/.babel-runtime@6.26.0/core-js/object/get-own-property-descriptor.js 115 bytes {0} [built]
+  [12] delegated ../../node_modules/.autobind-decorator@2.1.0/lib/index.js from dll-reference dll 42 bytes {0} [built]
+  [17] delegated ../../node_modules/.pure-render-decorator@1.2.1/index.js from dll-reference dll 42 bytes {0} [built]
+  [21] ./node_modules/.babel-runtime@6.26.0/core-js/object/assign.js 94 bytes {0} [built]
+  [80] ./src/index.js + 86 modules 337 kB {0} [built]
+  [81] ./src/styles/index.scss 41 bytes {0} [built]
+ [143] ./node_modules/.rc-pagination@1.16.2/assets/index.css 41 bytes {0} [built]
+    + 158 hidden modules
+Child extract-text-webpack-plugin node_modules/.extract-text-webpack-plugin@3.0.2/dist node_modules/.css-loader@0.28.11/index.js??ref--7-1!node_modules/.react-select@1.2.1/dist/react-select.css:
+       [0] ./node_modules/.css-loader@0.28.11??ref--7-1!./node_modules/.react-select@1.2.1/dist/react-select.css 25.8 kB {0} [built]
+       [1] ./node_modules/.css-loader@0.28.11/lib/css-base.js 2.26 kB {0} [built]
+Child extract-text-webpack-plugin node_modules/.extract-text-webpack-plugin@3.0.2/dist node_modules/.css-loader@0.28.11/index.js??ref--7-1!node_modules/.rc-time-picker@3.3.1/assets/index.css:
+       [0] ./node_modules/.css-loader@0.28.11??ref--7-1!./node_modules/.rc-time-picker@3.3.1/assets/index.css 8.68 kB {0} [built]
+       [1] ./node_modules/.css-loader@0.28.11/lib/css-base.js 2.26 kB {0} [built]
+Child extract-text-webpack-plugin node_modules/.extract-text-webpack-plugin@3.0.2/dist node_modules/.css-loader@0.28.11/index.js??ref--7-1!node_modules/.rc-pagination@1.16.2/assets/index.css:
+       [0] ./node_modules/.css-loader@0.28.11??ref--7-1!./node_modules/.rc-pagination@1.16.2/assets/index.css 14.4 kB {0} [built]
+       [1] ./node_modules/.css-loader@0.28.11/lib/css-base.js 2.26 kB {0} [built]
+Child extract-text-webpack-plugin node_modules/.extract-text-webpack-plugin@3.0.2/dist node_modules/.css-loader@0.28.11/index.js??ref--7-1!node_modules/.rc-calendar@9.6.0/assets/index.css:
+       [0] ./node_modules/.css-loader@0.28.11??ref--7-1!./node_modules/.rc-calendar@9.6.0/assets/index.css 71.5 kB {0} [built]
+       [1] ./node_modules/.css-loader@0.28.11/lib/css-base.js 2.26 kB {0} [built]
+Child extract-text-webpack-plugin node_modules/.extract-text-webpack-plugin@3.0.2/dist node_modules/.css-loader@0.28.11/index.js??ref--11-1!node_modules/.sass-loader@6.0.7/lib/loader.js??ref--11-2!src/styles/index.scss:
+       [0] ./node_modules/.css-loader@0.28.11??ref--11-1!./node_modules/.sass-loader@6.0.7/lib/loader.js??ref--11-2!./src/styles/index.scss 279 kB {0} [built]
+       [1] ./node_modules/.css-loader@0.28.11/lib/css-base.js 2.26 kB {0} [built]

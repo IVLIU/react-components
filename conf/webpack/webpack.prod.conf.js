@@ -32,10 +32,12 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   externals: {
     react: 'react',
-    reactDom: 'react-dom'
+    // reactDom: 'react-dom',
+    // autobindDecorator: 'autobind-decorator',
+    // pureRenderDecorator: 'pure-render-decorator',
+    // moment: 'moment'
   },
   plugins: [
-    new NyanProgressPlugin(),
     new webpack.DefinePlugin({
       'process.env': env,
       __ENV__
