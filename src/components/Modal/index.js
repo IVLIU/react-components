@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-03 20:47:33
+ * @Last Modified by: zsj
+ * @Last Modified time: 2018-07-16 16:46:45
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -39,7 +39,7 @@ export default class Modal extends Component {
   getResultStyle(style = {}) {
     const { isOpen } = this.props
     if (!isOpen) {
-      return null
+      return {}
     }
     const ret = {}
 
@@ -66,6 +66,7 @@ export default class Modal extends Component {
       ...other
     } = this.props
     const classes = classNames(className, 'modal-content')
+    console.log('dd', this.getResultStyle(style))
     return (
       <ReactModal
         className={`${classes}`}
@@ -90,8 +91,12 @@ export default class Modal extends Component {
         <div className="modal-footer">
           {!footer ? (
             <div className="footer-btn-wrap">
-              <Button type="cancel" width={80} onClick={handleCancel}>{btnCancelTxt}</Button>
-              <Button type="primary" width={80} onClick={handleEnsure}>{btnEnsureTxt}</Button>
+              <Button type="cancel" width={80} onClick={handleCancel}>
+                {btnCancelTxt}
+              </Button>
+              <Button type="primary" width={80} onClick={handleEnsure}>
+                {btnEnsureTxt}
+              </Button>
             </div>
           ) : (
             footer
