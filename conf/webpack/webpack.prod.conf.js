@@ -16,6 +16,7 @@ let envMatch = /^build:([a-z]+)$/.exec(process.env.npm_lifecycle_event)
 const __ENV__ = envMatch ? JSON.stringify(envMatch[1]):JSON.stringify('dev')
 
 var webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -34,20 +35,23 @@ var webpackConfig = merge(baseWebpackConfig, {
     react: 'react',
     reactDom: 'react-dom'
   },
+  optimization: {
+    minimize: true
+  },
   plugins: [
     new NyanProgressPlugin(),
     new webpack.DefinePlugin({
       'process.env': env,
       __ENV__
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        drop_debugger: true
-        // drop_console: true
-      },
-      sourceMap: true
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false,
+    //     drop_debugger: true
+    //     // drop_console: true
+    //   },
+    //   sourceMap: true
+    // }),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].css'),

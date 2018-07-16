@@ -27,21 +27,25 @@ const plugin = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify("production")
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    mangle: {
-      except: ['$', 'exports', 'require']
-    },
-    exclude: /\.min\.js$/,
-    // mangle:true,
-    compress: { warnings: false },
-    output: { comments: false }
-  })
+  // new webpack.optimize.UglifyJsPlugin({
+  //   mangle: {
+  //     except: ['$', 'exports', 'require']
+  //   },
+  //   exclude: /\.min\.js$/,
+  //   // mangle:true,
+  //   compress: { warnings: false },
+  //   output: { comments: false }
+  // })
 ];
 
 module.exports = {
   devtool: 'source-map',
+  mode: 'production',
   entry: {
     dll: lib
+  },
+  optimization: {
+    minimize: true
   },
   output: {
     path: outputPath,

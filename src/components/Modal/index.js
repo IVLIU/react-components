@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
  * @Last Modified by: zsj
- * @Last Modified time: 2018-07-16 16:46:45
+ * @Last Modified time: 2018-07-16 17:00:30
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -66,7 +66,6 @@ export default class Modal extends Component {
       ...other
     } = this.props
     const classes = classNames(className, 'modal-content')
-    console.log('dd', this.getResultStyle(style))
     return (
       <ReactModal
         className={`${classes}`}
