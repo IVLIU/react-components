@@ -22,26 +22,27 @@ const plugin = [
      * 和 output.library 一样即可。
      */
     name: '[name]',
-    context: __dirname,
+    context: __dirname
   }),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify("production")
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    mangle: {
-      except: ['$', 'exports', 'require']
-    },
-    exclude: /\.min\.js$/,
-    // mangle:true,
-    compress: { warnings: false },
-    output: { comments: false }
   })
+  // new webpack.optimize.UglifyJsPlugin({
+  //   mangle: {
+  //     except: ['$', 'exports', 'require']
+  //   },
+  //   exclude: /\.min\.js$/,
+  //   // mangle:true,
+  //   compress: { warnings: false },
+  //   output: { comments: false }
+  // })
   // moment默认引用全部语言包
   // new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /(zh-cn)\.js/)
 ]
 
 module.exports = {
   devtool: 'source-map',
+  mode: 'production',
   entry: {
     dll: lib
   },

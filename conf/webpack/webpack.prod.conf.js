@@ -32,7 +32,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     libraryTarget: 'umd'
   },
   externals: {
-    react: 'react',
+    react: 'react'
     // reactDom: 'react-dom',
     // autobindDecorator: 'autobind-decorator',
     // pureRenderDecorator: 'pure-render-decorator',
