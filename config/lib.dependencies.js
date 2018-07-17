@@ -2,7 +2,7 @@
 
 const lib = [
   // 'react',
-  'react-dom',
+  // 'react-dom',
   // 'react-router-dom',
   // 'react-json-pretty',
   // 'redux',
