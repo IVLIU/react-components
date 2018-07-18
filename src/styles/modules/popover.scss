@@ -70,7 +70,6 @@ $tooltip-arrow-inner-color: $tooltip-bg;
   visibility: visible;
   line-height: $line-height-base;
   font-size: $font-size-base;
-  // background-color:rgba(0, 0, 0, 0.05);
   padding: $tooltip-shadow-width;
   opacity: $tooltip-opacity;
 
@@ -82,8 +81,8 @@ $tooltip-arrow-inner-color: $tooltip-bg;
 // Wrapper for the tooltip content
 .popover-inner {
   padding: 15px 20px;
-  min-width: 150px;
-  max-width: 250px;
+  // min-width: 150px;
+  // max-width: 250px;
   color: $tooltip-color;
   text-align: left;
   text-decoration: none;

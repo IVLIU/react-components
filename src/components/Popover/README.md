@@ -42,3 +42,6 @@ const POSITION = require('./constant.js').POSITION;
 </div>
 
 ```
+#### changeLog
+1, 去掉popover的最小宽带和最大宽度的限制   2018-7-18 zsj
+
