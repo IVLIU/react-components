@@ -30,6 +30,9 @@ const format = v => {
 moment.locale('zh-cn')
 
 const mapDefaultToValue = (defaultValue = 'seven_days') => {
+  if (Array.isArray(defaultValue)) {
+    return defaultValue
+  }
   const ret = typeof defaultValue === 'string'
     ? getStartAndEndTime(defaultValue)
     : defaultValue
@@ -72,6 +75,7 @@ export default class DateRangePicker extends Component {
   }
   hide = (e) => {
     const picker = document.querySelector('.rc-calendar')
+    if (e.target.className.indexOf('rc-time') >= 0) return
     if (!picker) return
     if (e.target === findDOMNode(this.input)) return
     if (picker.contains(e.target)) return

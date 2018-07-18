@@ -455,7 +455,10 @@ export default class Home extends Component {
           title="事件类型"
           options={listItems} className="mgb20"/>
         <RadioButton options={listItems} className="mgb20"/>
-        <DateRange onChange={console.log} />
+        <DateRange onChange={console.log} defaultValue={{
+          start: new Date('2018-05-03'),
+          end: Date.now()
+        }} />
         <RangeBtn className="mgb20"/>
         <LabelSelect onChange={console.log} defaultValue={2} options={listItems}/>
         <LabelSelect onChange={console.log} disabled defaultValue={[2, 3]} options={listItems} multi/>
