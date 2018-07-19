@@ -24,6 +24,9 @@
         a {
             color: #2d84e5;
         }
+        &::after {
+            color: #2d84e5;
+        }
     }
 }
 .rc-pagination-disabled {
@@ -50,7 +53,6 @@
 .tip-pagination:focus {
     outline: none;
 }
-
 .tip-pagination .rc-pagination-jump-prev:after,
 .tip-pagination .rc-pagination-jump-next:after {
     font-size: 14px;
