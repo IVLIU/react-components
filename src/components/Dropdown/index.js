@@ -13,7 +13,6 @@ export default class Dropdown extends Component {
     open: this.props.defaultOpen || false
   }
   componentWillMount = () => {
-    console.log(this.props.defaultOpen)
     setTimeout(() => {
       this.setState({
         open: this.props.defaultOpen || false

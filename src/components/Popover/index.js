@@ -34,8 +34,6 @@ export default class Popover extends Component {
       trigger, position
     } = this.props
     const { visible } = this.state
-    // const { styles, show } = this.state
-    // const classes = classNames('popover-wrap', className)
     return (
       <Tooltip
         prefixCls="popover"
