@@ -28,15 +28,12 @@ export default class Switch extends PureComponent {
       disabled
     })
     return (
-      <div className={classes}>
+      <div className={classes}
+        onClick={() => !disabled && onChange(!value)} >
         {
           itemMap.map(item => {
-            const itemClasses = classNames('switch-item', {
-              active: item.value === value
-            })
             return <span key={item.label}
-              onClick={() => !disabled && onChange(item.value)}
-              className={itemClasses}>
+              className="switch-item">
               {item.label}
             </span>
           })
