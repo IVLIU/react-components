@@ -23,7 +23,8 @@ const baseComponents = {
   label: join('Label/index.js'),
   Loading: join('Loading/index.js'),
   Modal: join('Modal/index.js'),
-  PageTitle: join('PageTitle/index.js')
+  PageTitle: join('PageTitle/index.js'),
+  switch: join('Switch/index.js')
 }
 const dataComponents = {
   alert: join('Alert/index.js'),
@@ -36,6 +37,7 @@ const dataComponents = {
   Pagination: join('Pagination/index.js'),
   dropdown: join('Dropdown/index.js'),
   dropdownList: join('DropdownList/index.js'),
+  dropdownInput: join('DropdownInput/index.js'),
   noResult: join('NoResult/index.js')
 }
 const formComponents = {
@@ -50,6 +52,7 @@ const formComponents = {
   checkbox: join('Checkbox/Checkbox.js'),
   checkboxGroup: join('Checkbox/CheckboxGroup.js'),
   checkboxSelect: join('CheckBoxSelect/index.js'),
+  fileUpload: join('FileUpload/index.js'),
   labelSelect: join('LabelSelect/index.js'),
   form: join('Form/Form.js'),
   formItem: join('Form/FormItem.js')

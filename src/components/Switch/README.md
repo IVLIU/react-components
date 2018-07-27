@@ -1,7 +1,7 @@
 #### 基本使用
 
 ``` js
-<Switch onChange={console.log} defaultValue={false}>
+<Switch onChange={console.log} defaultValue={false} />
 ```
 
 可更改文字
@@ -15,5 +15,5 @@ const defaultMap = [{
   value: true
 }];
 
-<Switch itemMap={defaultMap} onChange={console.log} defaultValue={false}>
+<Switch itemMap={defaultMap} onChange={console.log} />
 ```

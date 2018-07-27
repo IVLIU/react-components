@@ -1,3 +1,8 @@
+### 2018-07-27
+- Switch 新增组件
+- DropdownInput 新增组件
+- 文档更新
+
 ### 2018-05-18
 - DateRangePicker更新为antdesign
 ### 2018-05-09

@@ -2,6 +2,11 @@
 
 ``` js
 <FileUpload
+  onChange={console.log}/>
+```
+
+``` js
+<FileUpload
   onChange={console.log}
   hasError/>
 ```

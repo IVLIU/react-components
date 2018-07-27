@@ -18,7 +18,7 @@ const Overlay = ({title, onChange, close, onEnsure, defaultValue}) => (
   </div>
 )
 
-export default class CheckboxSelect extends PureComponent {
+export default class DropdownInput extends PureComponent {
   static propTypes = {
     /** 标题 */
     title: PropTypes.string,
