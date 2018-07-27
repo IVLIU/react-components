@@ -4,8 +4,7 @@
 注：当值为 object 时，若想设置默认值，则应用该值的引用
 
 ```js
-// tdp中使用CheckboxGroup
-import { Checkbox } from "@common/lib";
+const Checkbox = require('../Checkbox').default;
 Checkbox.CheckboxGroup;
 
 const dfValue = {
@@ -22,8 +21,7 @@ const dfValue = {
 #### 禁用状态
 
 ```js
-// tdp中使用CheckboxGroup
-import { Checkbox } from "@common/lib";
+const Checkbox = require('../Checkbox').default;
 Checkbox.CheckboxGroup;
 
 const dfValue = {

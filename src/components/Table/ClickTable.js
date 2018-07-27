@@ -3,10 +3,9 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 14:26:28
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-04-24 19:26:05
+ * @Last Modified time: 2018-07-27 11:23:56
  */
 import React, { Component } from 'react'
-import autobind from 'autobind-decorator'
 import classNames from 'classnames'
 
 const ClickTable = WrapedComponent =>
@@ -21,8 +20,7 @@ const ClickTable = WrapedComponent =>
         this.changeActive(data[0], 0)
       }
     }
-    @autobind
-    changeActive (row, index) {
+    changeActive = (row, index) => {
       const { clickable, expandOnly, handleRowClick } = this.props
       if (!(clickable || expandOnly)) return
 

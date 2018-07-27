@@ -28,6 +28,6 @@ Button.displayName = 'Button'
 Button.propTypes = {
   /** 按钮类型：默认类型, primary, secondary, cancel, link */
   type: PropTypes.string,
-  /** 支持直接传宽度属性 */
-  width: PropTypes.num
+  /** 支持直接传宽度属性, 传200这样的，不要带单位 */
+  width: PropTypes.string
 }

@@ -1,7 +1,7 @@
 #### 基本使用
 按钮式Radio
 
-```
+``` js
 const listItems = [{
   label: '修改密码',
   value: 'edit'

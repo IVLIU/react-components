@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 export default class NoResult extends Component {
   static propTypes = {
+    /** 无数据时的描述 */
     desc: PropTypes.string
   }
   static defaultProps = {

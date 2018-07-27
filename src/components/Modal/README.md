@@ -1,5 +1,7 @@
 #### 基本使用
 
+- 可以设置底部的按钮的文字
+
 ```js
 const Button = require("../Button").default;
 class BaseModal extends React.Component {
@@ -32,6 +34,8 @@ class BaseModal extends React.Component {
           title="测试Modal"
           handleEnsure={this.closeModal.bind(this)}
           handleCancel={this.closeModal.bind(this)}
+          btnCancelTxt="关闭"
+          btnEnsureTxt="上传！"
           contentLabel="TestModal"
         >
           <div>这是Modal里面的内容</div>

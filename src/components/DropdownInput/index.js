@@ -1,7 +1,5 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import pureRender from 'pure-render-decorator'
-import autobind from 'autobind-decorator'
 import classNames from 'classnames'
 
 import Input from '../Input'
@@ -20,8 +18,7 @@ const Overlay = ({title, onChange, close, onEnsure, defaultValue}) => (
   </div>
 )
 
-@pureRender
-export default class CheckboxSelect extends Component {
+export default class CheckboxSelect extends PureComponent {
   static propTypes = {
     /** 标题 */
     title: PropTypes.string,
@@ -48,14 +45,12 @@ export default class CheckboxSelect extends Component {
       })
     }
   }
-  @autobind
-  handleSelectChange (value) {
+  handleSelectChange = (value) => {
     this.setState({
       value
     })
   }
-  @autobind
-  handleEnsure (close) {
+  handleEnsure = (close) => {
     const { onChange } = this.props
     onChange && onChange(this.state.value)
     this.setState({

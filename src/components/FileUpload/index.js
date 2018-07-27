@@ -5,12 +5,12 @@ import autobind from 'autobind-decorator'
 
 import Input from '../Input'
 import Button from '../Button'
-import { controledInputDecorator } from '../Common/ControledInput'
+import controledInput from '../Common/ControledInput'
 
 const mapDefaultToValue = v => ({ name: v })
 const mapValueToValue = e => e.target.files[0]
 
-@controledInputDecorator(mapDefaultToValue, mapValueToValue)
+@controledInput(mapDefaultToValue, mapValueToValue)
 export default class componentName extends Component {
   static propTypes = {
     /** 事件回调 */

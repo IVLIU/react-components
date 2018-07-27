@@ -1,35 +1,23 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Icon from '../Icon'
 import iconArrow from '@/images/svg/coor-arrow.svg'
-import pureRender from 'pure-render-decorator'
-import autobind from 'autobind-decorator'
 import Loading from '../Loading'
 import NoResult from '../NoResult'
+import { isObject, isEmpty } from 'lodash'
 
 /**
  * 基本的盒子，用于组成页面的各个小容器
  * 可设置标题，自带Loading样式，自身可判断是否有数据而进行展示/隐藏
  */
-@pureRender
-export default class Box extends Component {
+export default class Box extends PureComponent {
   constructor(props) {
     super(props)
     const { defaultOpen = true } = this.props
     this.state = {
       open: defaultOpen
     }
-  }
-  @autobind
-  isEmptyObj(obj) {
-    if (!obj) return false
-    for (let key in obj) {
-      if (obj[key]) {
-        return true
-      }
-    }
-    return false
   }
   isBoxShow() {
     const { data, isLoading } = this.props
@@ -39,14 +27,13 @@ export default class Box extends Component {
     }
     if (Array.isArray(data)) {
       return data.length
-    } else if (typeof data === 'object') {
-      return this.isEmptyObj(data)
+    } else if (isObject(data)) {
+      return isEmpty(data)
     } else {
       return data && data !== 0
     }
   }
-  @autobind
-  toggleOpen(e) {
+  toggleOpen = (e) => {
     e.preventDefault()
     this.setState({
       open: !this.state.open

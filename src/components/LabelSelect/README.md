@@ -14,7 +14,7 @@ const listItems = [{
   label: '不删除',
   value: 'd'
 }];
-<LabelSelect onChange={console.log} options={listItems} multi={false}/>
+<LabelSelect onChange={console.log} options={listItems}/>
 ```
 
 ##### 多选
@@ -34,8 +34,8 @@ const listItems = [{
 }];
 
 <div>
-<LabelSelect className="mgb20" onChange={console.log} options={listItems}/>
-<LabelSelect onChange={console.log} showAll={false} options={listItems}/>
+<LabelSelect className="mgb20" onChange={console.log} multi options={listItems}/>
+<LabelSelect onChange={console.log} showAll={false} multi options={listItems}/>
 </div>
 
 ```

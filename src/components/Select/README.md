@@ -3,32 +3,6 @@
 最基本的多选，单选，打开控制台看输出的值
 
 ```js
-/** 是否是多选 */
-multi: PropTypes.bool,
-/**
- * 选项
- * {
- *   label: '标签',
- *   value: '值'
- * }
- */
-options: PropTypes.array,
-/** 错误状态 */
-hasError: PropTypes.bool,
-/** disabled状态 */
-disabled: PropTypes.bool,
-/** 是否可清空 */
-clearable: PropTypes.bool,
-/** 默认值 */
-/** defaultValue: 选项中的value的值，当multi多选的时候，可以传一个数组 */
-defaultValue: PropTypes.any,
-/** change回调 */
-onChange: PropTypes.func,
-/** 可选主题颜色 default, white */
-theme: PropTypes.string
-```
-
-```js
 const options = [
   {
     label: "111",

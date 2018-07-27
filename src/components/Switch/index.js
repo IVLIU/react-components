@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { controledInputDecorator } from '../Common/ControledInput'
+import ControledInput from '../Common/ControledInput'
 
 const defaultMap = [{
   label: '关闭',
@@ -11,14 +11,21 @@ const defaultMap = [{
   value: true
 }]
 
-@controledInputDecorator(
+/**
+ * 开关
+ */
+@ControledInput(
   v => v,
   v => v
 )
 export default class Switch extends PureComponent {
   static propTypes = {
     /** 开关对应的Item和值 */
-    itemMap: PropTypes.obj
+    itemMap: PropTypes.obj,
+    /** 变化回调 */
+    onChange: PropTypes.func,
+    /** 默认值 */
+    defaultValue: PropTypes.bool
   }
   render () {
     const { props, itemMap = defaultMap, className, disabled } = this.props

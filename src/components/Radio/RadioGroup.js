@@ -2,13 +2,12 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:41
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-09 10:19:04
+ * @Last Modified time: 2018-07-26 19:37:31
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { controledInputDecorator } from '../Common/ControledInput'
-import autobind from 'autobind-decorator'
+import controledInput from '../Common/ControledInput'
 
 let id = 0
 const mapDefaultToValue = value => value
@@ -17,14 +16,13 @@ const mapValueToValue = value => value
  * Radio组, 自动包含值，name,onchange等维护
  * 可针对form组件进行使用
  */
-@controledInputDecorator(mapDefaultToValue, mapValueToValue)
+@controledInput(mapDefaultToValue, mapValueToValue)
 export default class RadioGroup extends Component {
   componentWillMount () {
     const { name } = this.props
     this.name = name || `radio-group-name-${++id}`
   }
-  @autobind
-  handleChange (e, value) {
+  handleChange = (e, value) => {
     const { props } = this.props
     props.onChange && props.onChange(value)
   }

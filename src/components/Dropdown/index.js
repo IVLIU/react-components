@@ -1,14 +1,11 @@
-import React, { Component, cloneElement } from 'react'
+import React, { PureComponent, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import autobind from 'autobind-decorator'
-import pureRender from 'pure-render-decorator'
 
 /**
  * 基本的Dropdown组件，可在其上针对业务逻辑进行封装
  */
-@pureRender
-export default class Dropdown extends Component {
+export default class Dropdown extends PureComponent {
   state = {
     open: this.props.defaultOpen || false
   }
@@ -28,8 +25,7 @@ export default class Dropdown extends Component {
   componentWillUnmount () {
     window.removeEventListener('click', this.handleWindowClick)
   }
-  @autobind
-  handleWindowClick (e) {
+  handleWindowClick = (e) => {
     const { open } = this.state
     const wrap = this.wrap
 
@@ -42,14 +38,12 @@ export default class Dropdown extends Component {
       })
     }
   }
-  @autobind
-  close () {
+  close = () => {
     this.setState({
       open: false
     })
   }
-  @autobind
-  toggleShow (e) {
+  toggleShow = (e) => {
     e.stopPropagation()
     const { trigger } = this.props
     if (trigger !== 'click') {
@@ -59,8 +53,7 @@ export default class Dropdown extends Component {
       open: !this.state.open
     })
   }
-  @autobind
-  onMouseEnter () {
+  onMouseEnter = () => {
     const { trigger } = this.props
     if (trigger !== 'hover') {
       return
@@ -69,8 +62,7 @@ export default class Dropdown extends Component {
       open: true
     })
   }
-  @autobind
-  onMouseLeave () {
+  onMouseLeave = () => {
     const { trigger } = this.props
     if (trigger !== 'hover') {
       return

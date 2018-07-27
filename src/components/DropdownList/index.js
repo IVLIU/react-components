@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import pureRender from 'pure-render-decorator'
 import DropDown from '../Dropdown'
 import classNames from 'classnames'
-import autobind from 'autobind-decorator'
+import ControllInput from '../Common/ControledInput'
+import { find } from 'lodash'
 
 const Overlay = ({ close, listItems, handleChange, defaultValue }) => {
   return <ul className="dropdown-list-content">
@@ -25,47 +25,22 @@ const Overlay = ({ close, listItems, handleChange, defaultValue }) => {
 /**
  * 在Dropdown组件上封装的list组件
  */
-@pureRender
-export default class DropdownList extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      curValue: props.children
-    }
-  }
-
-  componentWillMount () {
-    this.setDefaultValue(this.props)
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const { defaultValue } = nextProps
-
-    if (defaultValue !== this.props.defaultValue) {
-      this.setDefaultValue(nextProps)
-    }
-  }
-
-  setDefaultValue (props) {
-    const { defaultValue, listItems } = props
+@ControllInput(
+  (defaultValue, props) => {
+    const { listItems, children } = props
 
     if (defaultValue || defaultValue === 0 || defaultValue === false) {
-      const curValue = listItems.find(item => item.value === defaultValue)
-      curValue && this.setState({
-        curValue: curValue.label
-      })
+      const item = find(listItems, { value: defaultValue })
+      return item ? item.label : children
     }
-  }
-
-  @autobind
-  handleChange (item, close) {
-    const { onChange, changeValue } = this.props
-    onChange && onChange(item.value)
-    if (changeValue) {
-      this.setState({
-        curValue: item.label
-      })
-    }
+    return children
+  },
+  value => value
+)
+export default class DropdownList extends PureComponent {
+  handleChange = (item, close) => {
+    const { props } = this.props
+    props.onChange && props.onChange(item.value)
     close()
   }
   renderOverlayList () {
@@ -74,8 +49,10 @@ export default class DropdownList extends Component {
   }
 
   render () {
-    const { trigger, listItems, className, changeValue, ...others } = this.props
-    const { curValue } = this.state
+    const { trigger, listItems, className, props, children, changeValue, ...others } = this.props
+    const { value } = props
+    const item = find(listItems, { value })
+    const label = item ? item.label : children
     const classes = classNames('dropdown-list', className)
     return (
       <DropDown
@@ -84,7 +61,7 @@ export default class DropdownList extends Component {
         overlay={this.renderOverlayList()}
         {...others}>
         <div className="dropdown-tirgger-item">
-          {curValue}
+          {label}
         </div>
       </DropDown>
     )

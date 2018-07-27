@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:10
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-03-28 10:46:05
+ * @Last Modified time: 2018-07-27 11:09:54
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -14,7 +14,19 @@ let id = 0
  * Checkbox组, 自动包含值，name,onchange等维护
  * 可针对form组件进行使用
  */
-class CheckboxGroup extends Component {
+@ControledInput(
+  v => v,
+  v => v
+)
+export default class CheckboxGroup extends Component {
+  static propTypes = {
+    /** 默认值 */
+    defaultValue: PropTypes.any,
+    /** onchange事件 */
+    onChange: PropTypes.any,
+    /** disabled状态 */
+    disabled: PropTypes.bool
+  }
   componentWillMount () {
     const { name } = this.props
     this.name = name || `checkbox-group-name-${++id}`
@@ -23,7 +35,7 @@ class CheckboxGroup extends Component {
   onMounted (child) {
     this.children.push(child)
   }
-  handleChange (e, val, con) {
+  handleChange () {
     const { props: controled } = this.props
     const { children } = this
     const ret = children
@@ -65,16 +77,3 @@ class CheckboxGroup extends Component {
     )
   }
 }
-CheckboxGroup.propTypes = {
-  /** 默认值 */
-  defaultValue: PropTypes.any,
-  /** onchange事件 */
-  onChange: PropTypes.any,
-  /** disabled状态 */
-  disabled: PropTypes.bool
-}
-
-const mapDefaultToValue = value => value
-const mapValueToValue = value => value
-
-export default ControledInput(CheckboxGroup, mapDefaultToValue, mapValueToValue)

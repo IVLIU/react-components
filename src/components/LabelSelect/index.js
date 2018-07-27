@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import autobind from 'autobind-decorator'
 import Label from '../Label'
-import { controledInputDecorator } from '../Common/ControledInput'
+import ControledInput from '../Common/ControledInput'
 
 const mapDefaultToValue = (v, { options, multi }) => {
   return v || (multi ? [] : options[0] ? '' : options[0].value)
@@ -12,7 +12,7 @@ const mapValueToValue = v => v
 /**
  * 标签选择控件
  */
-@controledInputDecorator(mapDefaultToValue, mapValueToValue)
+@ControledInput(mapDefaultToValue, mapValueToValue)
 export default class LabelSelect extends Component {
   isAllSelected (value) {
     const { options } = this.props

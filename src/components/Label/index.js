@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import pureRender from 'pure-render-decorator'
 
-@pureRender
-export default class Label extends Component {
+export default class Label extends PureComponent {
   render () {
     const { type, children, light,
       className, closable,

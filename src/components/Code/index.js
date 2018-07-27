@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import jsonFormat from 'json-format'
 import JSONPretty from 'react-json-pretty'
@@ -6,7 +6,7 @@ import JSONPretty from 'react-json-pretty'
 /**
  * 针对代码块的统一封装，提供table,json两种格式
  */
-export default class Code extends Component {
+export default class Code extends PureComponent {
   renderCodeTable (data) {
     const { labelWidth } = this.props
     return (<table className="code-table">

@@ -2,21 +2,16 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-26 14:54:23
+ * @Last Modified time: 2018-07-26 17:15:54
  */
 import React, { Component } from 'react'
-import autobind from 'autobind-decorator'
 
-const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
+export default (mapDefaultToValue, MapValueToValue) => (WrapComponent) =>
   class RetComponent extends Component {
-    constructor (props) {
-      super(props)
-      const { defaultValue } = props
-      this.state = {
-        value: mapDefaultToValue(defaultValue, props)
-      }
+    state = {
+      value: mapDefaultToValue(this.props.defaultValue, this.props)
     }
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps(nextProps) {
       const { defaultValue } = this.props
       const { defaultValue: d } = nextProps
       if (d !== defaultValue) {
@@ -25,8 +20,7 @@ const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
         })
       }
     }
-    @autobind
-    handleChange (value, ...others) {
+    handleChange = (value, ...others) => {
       const { onChange } = this.props
       const ret = MapValueToValue(value, this.props, ...others)
       this.setState({
@@ -34,7 +28,7 @@ const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
       })
       onChange && onChange(ret)
     }
-    render () {
+    render() {
       const { value } = this.state
       let defaultProps = Object.assign({}, this.props)
       const props = {
@@ -48,11 +42,3 @@ const controledInput = (WrapComponent, mapDefaultToValue, MapValueToValue) => {
       return <WrapComponent {...defaultProps} props={props} />
     }
   }
-  return RetComponent
-}
-
-export default controledInput
-
-export const controledInputDecorator = (mapDefaultToValue, MapValueToValue) => (WrapComponent) => {
-  return controledInput(WrapComponent, mapDefaultToValue, MapValueToValue)
-}

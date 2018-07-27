@@ -2,8 +2,18 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import controledInput from '../Common/ControledInput'
+import _ from 'lodash'
 
-class RangeBtn extends Component {
+const mapDefaultToValue = (defaultValue, { options = [] }) => {
+  if (defaultValue === undefined) {
+    return options[0] ? options[0].value : defaultValue
+  }
+  return defaultValue
+}
+const mapValuetoValue = item => item.value
+
+@controledInput(mapDefaultToValue, mapValuetoValue)
+export default class RadioButton extends Component {
   render () {
     const {
       className,
@@ -16,7 +26,7 @@ class RangeBtn extends Component {
     const { value, onChange } = this.props.props
     return (
       <div className={classes} {...others}>
-        {options.map(item => {
+        {_.map(options, item => {
           const itemClasses = classNames('radio-btn-item', {
             active: item.value === value
           })
@@ -34,7 +44,7 @@ class RangeBtn extends Component {
     )
   }
 }
-RangeBtn.propTypes = {
+RadioButton.propTypes = {
   /** 选项列表，遵循各选项格式 包含label,value字段 */
   options: PropTypes.array,
   /** 默认值 */
@@ -42,13 +52,3 @@ RangeBtn.propTypes = {
   /** change回调 */
   onChange: PropTypes.func
 }
-
-const mapDefaultToValue = (defaultValue, { options = [] }) => {
-  if (defaultValue === undefined) {
-    return options[0] ? options[0].value : defaultValue
-  }
-  return defaultValue
-}
-const mapValuetoValue = item => item.value
-
-export default controledInput(RangeBtn, mapDefaultToValue, mapValuetoValue)

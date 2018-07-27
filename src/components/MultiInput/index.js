@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-04 19:40:52
- * @Last Modified by: zsj
- * @Last Modified time: 2018-07-25 10:18:59
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-07-26 19:56:18
  */
 import React, { Component } from 'react'
 import { Creatable } from 'react-select'
@@ -11,48 +11,29 @@ import 'react-select/dist/react-select.css'
 import PropTypes from 'prop-types'
 import delIcon from '@/images/svg/del_icon.svg'
 import classNames from 'classnames'
-import autobind from 'autobind-decorator'
+import ControledInput from '../Common/ControledInput'
 
+@ControledInput(
+  (defaultValue = []) => defaultValue,
+  value => value.map(item => item.value)
+)
 export default class MultiInput extends Component {
-  constructor() {
-    super()
-    this.state = {
-      value: []
-    }
-  }
-  componentWillMount() {
-    const { defaultValue = [] } = this.props
-    const options = defaultValue.length
-      ? defaultValue.map(item => {
-        return {
-          value: item,
-          label: item
-        }
-      })
-      : []
-    if (defaultValue.length) {
-      this.setState({
-        value: options
-      })
-    }
-  }
   showPromptTxt(label) {
     return '"' + label + '"   逗号或回车结束'
   }
-  @autobind
-  handleChange(value) {
-    const { onChange, disabled } = this.props
+  handleChange = (value) => {
+    const { props, disabled } = this.props
     if (disabled) {
       return
     }
     this.setState({
       value
     })
-    onChange && onChange(value.map(item => item.value))
+    props.onChange(value)
   }
   render() {
-    const { placeholder, hasError, className, disabled } = this.props
-    const { value } = this.state
+    const { placeholder, props, hasError, className, disabled } = this.props
+    const { value } = props
     const classes = classNames('select', 'no-arrow', {
       error: hasError
     }, className)
@@ -62,7 +43,10 @@ export default class MultiInput extends Component {
         placeholder={placeholder}
         multi
         disabled={disabled}
-        value={value}
+        value={value.map(item => ({
+          value: item,
+          label: item
+        }))}
         clearRenderer={() => <svg className="del-icon"><use xlinkHref={delIcon} /></svg>}
         arrowRenderer={() => null}
         valueComponent={d => <MultiSelectValue {...d} />}

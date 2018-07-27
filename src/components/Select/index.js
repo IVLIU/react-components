@@ -1,10 +1,10 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:52:04
- * @Last Modified by: zsj
- * @Last Modified time: 2018-07-16 10:26:44
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-07-26 19:39:47
  */
-import React from 'react'
+import React, { PureComponent } from 'react'
 import ControledInput from '../Common/ControledInput'
 import classNames from 'classnames'
 import MultiSelectValue from '../MultiInput/MultiSelectValue'
@@ -30,36 +30,37 @@ const mapValueToValue = (value, props) => {
     ? value.map(item => item.value)
     : value ? value.value : ''
 }
-
-const Select = (props) => {
-  const { options, className, hasError,
-    multi, disabled, props: controled,
-    clearable, theme, ...others } = props
-  const classes = classNames('select', {
-    error: hasError,
-    [theme]: true
-  }, className)
-  const config = {
-    multi,
-    disabled,
-    clearable,
-    valueComponent: d => <MultiSelectValue {...d} />
+@ControledInput(mapDefaultToValue, mapValueToValue)
+export default class Select extends PureComponent {
+  render() {
+    const { options, className, hasError,
+      multi, disabled, props: controled,
+      clearable, theme, ...others } = this.props
+    const config = {
+      multi,
+      disabled,
+      clearable,
+      valueComponent: d => <MultiSelectValue {...d} />
+    }
+    const classes = classNames('select', {
+      error: hasError,
+      [theme]: true
+    }, className)
+    if (!multi) {
+      delete config.valueComponent
+    }
+    return (
+      <RSelect
+        className={classes}
+        options={options}
+        clearRenderer={() => <Icon className="del-icon" link={delIcon} />}
+        arrowRenderer={({ isOpen }) => <span className={`drop-down-icon ${isOpen ? 'up' : ''}`}></span>}
+        {...others}
+        {...config}
+        {...controled}/>
+    )
   }
-  if (!multi) {
-    delete config.valueComponent
-  }
-  return (
-    <RSelect
-      className={classes}
-      options={options}
-      clearRenderer={() => <Icon className="del-icon" link={delIcon} />}
-      arrowRenderer={({ isOpen }) => <span className={`drop-down-icon ${isOpen ? 'up' : ''}`}></span>}
-      {...others}
-      {...config}
-      {...controled}/>
-  )
 }
-
 Select.defaultProps = {
   theme: 'default'
 }
@@ -87,4 +88,3 @@ Select.propTypes = {
   /** 可选主题颜色 default, white */
   theme: PropTypes.string
 }
-export default ControledInput(Select, mapDefaultToValue, mapValueToValue)

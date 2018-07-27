@@ -11,7 +11,7 @@ import moment from 'moment'
 import 'rc-calendar/assets/index.css'
 import 'rc-time-picker/assets/index.css'
 
-import { controledInputDecorator } from '../Common/ControledInput'
+import ControledInput from '../Common/ControledInput'
 import { ranges, getStartAndEndTime } from './constant'
 import Input from '../Input'
 import autobind from 'autobind-decorator'
@@ -46,7 +46,7 @@ const mapValuetoValue = (value) => ({
   end: +value[1]
 })
 
-@controledInputDecorator(mapDefaultToValue, mapValuetoValue)
+@ControledInput(mapDefaultToValue, mapValuetoValue)
 export default class DateRangePicker extends Component {
   static propTypes = {
     /** 默认值, 'seven_days'时间区间，或者{start, end}对象 */
