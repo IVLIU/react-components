@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:00:25
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-05 19:55:25
+ * @Last Modified time: 2018-07-30 17:24:17
  */
 import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
@@ -16,6 +16,9 @@ import formDataMap from './formDataMap'
  */
 let id = 0
 export default class Form extends Component {
+  state = {
+    reset: false
+  }
   componentWillMount () {
     const { data } = this.props
     let dataMap = {}
@@ -50,6 +53,28 @@ export default class Form extends Component {
 
     return this.getCurData(dataMap)
   }
+  /**
+   * 重新初始化表单
+   * @public
+   */
+  reset () {
+    const { data } = this.props
+    let dataMap = {}
+    Object.keys(data).forEach(key => {
+      dataMap[key] = {
+        value: data[key].value,
+        isOk: true
+      }
+    })
+    formDataMap.set(this.id, dataMap)
+    this.setState({
+      reset: true
+    }, () => {
+      this.setState({
+        reset: false
+      })
+    })
+  }
   getCurData (dataMap) {
     let ret = {}
     Object.keys(dataMap).forEach(key => {
@@ -59,6 +84,7 @@ export default class Form extends Component {
   }
   renderChildrens (children) {
     const { data, showInfo } = this.props
+    const { reset } = this.state
     if (Array.isArray(children)) {
       return Children.map(children, child => {
         return this.renderChildrens(child)
@@ -69,7 +95,8 @@ export default class Form extends Component {
       return cloneElement(children, {
         id: this.id,
         data,
-        showInfo
+        showInfo,
+        reset
       })
     }
 

@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:37
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-26 17:15:54
+ * @Last Modified time: 2018-07-30 17:21:03
  */
 import React, { Component } from 'react'
 
@@ -12,9 +12,9 @@ export default (mapDefaultToValue, MapValueToValue) => (WrapComponent) =>
       value: mapDefaultToValue(this.props.defaultValue, this.props)
     }
     componentWillReceiveProps(nextProps) {
-      const { defaultValue } = this.props
+      const { defaultValue, reset } = this.props
       const { defaultValue: d } = nextProps
-      if (d !== defaultValue) {
+      if (d !== defaultValue || reset) {
         this.setState({
           value: d
         })

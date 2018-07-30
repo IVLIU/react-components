@@ -45,17 +45,21 @@ export default class DropdownList extends PureComponent {
   }
 
   render () {
-    const { trigger, listItems, className, props, children, changeValue, ...others } = this.props
+    const { trigger, disabled, listItems, className, props, children, changeValue, ...others } = this.props
     const { value } = props
     const item = find(listItems, item => item.value === value)
     const label = changeValue
       ? item ? item.label : children
       : children
-    const classes = classNames('dropdown-list', className)
+    const classes = classNames({
+      'dropdown-list': true,
+      disabled
+    }, className)
     return (
       <DropDown
         trigger={trigger}
         className={classes}
+        disabled={disabled}
         overlay={this.renderOverlayList()}
         {...others}>
         <div className="dropdown-tirgger-item">

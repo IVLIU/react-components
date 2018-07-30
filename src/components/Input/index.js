@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import Base from './Input'
 import TextArea from './Textarea'
 import TextAreaWithMax from './TextareaWithMax'
-import ControledInput from '../Common/ControledInput'
 
-@ControledInput(
-  v => v,
-  e => e.target.value
-)
 export default class Input extends Component {
   static propTypes = {
     /** 输入内容改变时的回调 */

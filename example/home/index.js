@@ -343,6 +343,9 @@ export default class Home extends Component {
     const res = this.refs.input.validateAndSubmit()
     console.log(res)
   }
+  reset () {
+    this.refs.input.reset()
+  }
   renderForm () {
     return (
       <Form data={field} ref="input">
@@ -385,6 +388,7 @@ export default class Home extends Component {
           </FormItem>
         </div>
         <Button onClick={this.Submit.bind(this)} type="secondary">提交</Button>
+        <Button onClick={this.reset.bind(this)} type="primary">重置</Button>
       </Form>
     )
   }

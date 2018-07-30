@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-06-21 15:45:46
+ * @Last Modified time: 2018-07-30 17:29:35
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -16,13 +16,8 @@ import formDataMap from './formDataMap'
  * 直接填充表单组件的内容即可
  */
 export default class FormItem extends Component {
-  constructor() {
-    super()
-    this.handleInput = this.handleInput.bind(this)
-    this.handleBlur = this.handleBlur.bind(this)
-    this.state = {
-      hasError: false
-    }
+  state = {
+    hasError: false
   }
   componentWillMount() {
     const { data, field, id } = this.props
@@ -48,6 +43,9 @@ export default class FormItem extends Component {
     const { data, field } = this.props
     const fieldData = data[field]
     if (JSON.stringify(nextProps.data[field]) !== JSON.stringify(fieldData)) {
+      this.handleInput(nextProps.data[field].value, true)
+    }
+    if (nextProps.reset) {
       this.handleInput(nextProps.data[field].value, true)
     }
   }
@@ -77,10 +75,9 @@ export default class FormItem extends Component {
     })
     return ret
   }
-  handleInput(value, first) {
+  handleInput = (value, first) => {
     const { field, onChange } = this.props
     let isOk = this.validateItem(value, 'input')
-
     if (this.trigger === 'input') {
       if (!isOk && !first) {
         this.setState({
@@ -99,7 +96,7 @@ export default class FormItem extends Component {
     })
     onChange && onChange(value)
   }
-  handleBlur(e) {
+  handleBlur = (e) => {
     const value = e.target.value
     const { field } = this.props
     if (this.trigger !== 'blur') return
@@ -114,7 +111,7 @@ export default class FormItem extends Component {
     })
   }
   renderChildren() {
-    const { children, placeholder, data, field, showInfo } = this.props
+    const { children, placeholder, data, field, showInfo, reset } = this.props
     const { hasError } = this.state
     const { value } = data[field] || {}
 
@@ -128,7 +125,8 @@ export default class FormItem extends Component {
       onBlur: this.handleBlur,
       defaultValue: value,
       placeholder,
-      hasError
+      hasError,
+      reset
     }) : ''
   }
   render() {

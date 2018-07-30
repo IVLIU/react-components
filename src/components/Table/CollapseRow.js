@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 10:43:53
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-26 14:43:24
+ * @Last Modified time: 2018-07-30 19:52:44
  */
 import React, { Component, Fragment } from 'react'
 // import PropTypes from 'prop-types'
@@ -34,7 +34,6 @@ const CollapseRow = Row =>
     @autobind
     toggleShow (...args) {
       const { expandRowRender, onClick, expandOnly } = this.props
-      console.log('click')
 
       this.setState({
         show: !this.state.show

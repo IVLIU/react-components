@@ -45,8 +45,8 @@ export default class Dropdown extends PureComponent {
   }
   toggleShow = (e) => {
     e.stopPropagation()
-    const { trigger } = this.props
-    if (trigger !== 'click') {
+    const { trigger, disabled } = this.props
+    if (trigger !== 'click' || disabled) {
       return
     }
     this.setState({
@@ -54,8 +54,8 @@ export default class Dropdown extends PureComponent {
     })
   }
   onMouseEnter = () => {
-    const { trigger } = this.props
-    if (trigger !== 'hover') {
+    const { trigger, disabled } = this.props
+    if (trigger !== 'hover' || disabled) {
       return
     }
     this.setState({
@@ -82,9 +82,10 @@ export default class Dropdown extends PureComponent {
     )
   }
   render () {
-    const { className, children, overlay, trigger, ...others } = this.props
+    const { className, children, overlay, disabled, trigger, ...others } = this.props
     const { open } = this.state
     const classes = classNames('dropdown', className, {
+      disabled,
       open,
       hover: trigger === 'hover'
     })
