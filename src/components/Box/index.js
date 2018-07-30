@@ -28,7 +28,7 @@ export default class Box extends PureComponent {
     if (Array.isArray(data)) {
       return data.length
     } else if (isObject(data)) {
-      return isEmpty(data)
+      return !isEmpty(data)
     } else {
       return data && data !== 0
     }
