@@ -487,7 +487,9 @@ export default class Home extends Component {
         </DropdownList>
         <DropdownList style={{
           width: 300
-        }} onChange={console.log} className="mgb20" listItems={listItems}>
+        }} onChange={console.log}
+        defaultValue={2}
+        className="mgb20" listItems={listItems}>
           操作
         </DropdownList>
         <Box data={true}>

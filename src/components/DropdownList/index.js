@@ -27,13 +27,9 @@ const Overlay = ({ close, listItems, handleChange, defaultValue }) => {
  */
 @ControllInput(
   (defaultValue, props) => {
-    const { listItems, children } = props
-
-    if (defaultValue || defaultValue === 0 || defaultValue === false) {
-      const item = find(listItems, { value: defaultValue })
-      return item ? item.label : children
-    }
-    return children
+    const { listItems } = props
+    const item = find(listItems, { value: defaultValue })
+    return item ? item.value : ''
   },
   value => value
 )
@@ -51,8 +47,10 @@ export default class DropdownList extends PureComponent {
   render () {
     const { trigger, listItems, className, props, children, changeValue, ...others } = this.props
     const { value } = props
-    const item = find(listItems, { value })
-    const label = item ? item.label : children
+    const item = find(listItems, item => item.value === value)
+    const label = changeValue
+      ? item ? item.label : children
+      : children
     const classes = classNames('dropdown-list', className)
     return (
       <DropDown
