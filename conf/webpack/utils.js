@@ -1,6 +1,6 @@
 var path = require('path')
 var config = require('../../config')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var fs = require('fs')
 
 exports.assetsPath = function (_path) {
@@ -19,7 +19,6 @@ exports.getDllPath = function (p) {
 
 exports.cssLoaders = function (options) {
   options = options || {}
-  let prod = process.env.NODE_ENV === 'production'
   var cssLoader = {
     loader: 'css-loader',
     options: {
@@ -43,12 +42,8 @@ exports.cssLoaders = function (options) {
       })
     }
 
-    // Extract CSS when that option is specified
-    // (which is the case during production build)
     if (options.extract) {
-      return ExtractTextPlugin.extract({
-        use: loaders
-      })
+      return [MiniCssExtractPlugin.loader].concat(loaders)
     } else {
       return ['style-loader'].concat(loaders)
     }
