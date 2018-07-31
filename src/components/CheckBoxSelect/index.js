@@ -54,10 +54,9 @@ export default class CheckboxSelect extends PureComponent {
   componentWillReceiveProps = (nextProps) => {
     const { defaultValue: nextDefault } = nextProps
     const { defaultValue } = this.props
-
-    if (defaultValue !== nextDefault) {
+    if (JSON.stringify(defaultValue) !== JSON.stringify(nextDefault)) {
       this.setState({
-        value: defaultValue
+        value: nextDefault
       })
     }
   }
