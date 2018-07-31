@@ -454,7 +454,7 @@ export default class Home extends Component {
           <Button>Popover</Button>
         </Popover>
         <CheckboxSelect
-          defaultValue={['dddddddd']}
+          defaultValue={[2, 3]}
           onChange={console.log}
           title="事件类型"
           options={listItems} className="mgb20"/>

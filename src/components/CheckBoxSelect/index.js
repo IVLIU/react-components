@@ -5,7 +5,6 @@ import classNames from 'classnames'
 import Checkbox from '../Checkbox'
 import DropDown from '../Dropdown'
 import Button from '../Button'
-import ControledInput from '../Common/ControledInput'
 
 const { CheckboxGroup } = Checkbox
 
@@ -29,11 +28,6 @@ const Overlay = (props) => {
     </div>
   )
 }
-
-@ControledInput(
-  v => v,
-  v => v
-)
 export default class CheckboxSelect extends PureComponent {
   static propTypes = {
     /** 选项列表，包含label, value字段 */
@@ -45,23 +39,51 @@ export default class CheckboxSelect extends PureComponent {
     /** 回调事件 */
     onChange: PropTypes.func
   }
+  state = {
+    value: ''
+  }
+  componentWillMount = () => {
+    const { defaultValue } = this.props
+    console.log(defaultValue)
+    if (defaultValue !== undefined) {
+      this.setState({
+        value: defaultValue
+      })
+    }
+  }
+  componentWillReceiveProps = (nextProps) => {
+    const { defaultValue: nextDefault } = nextProps
+    const { defaultValue } = this.props
+
+    if (defaultValue !== nextDefault) {
+      this.setState({
+        value: defaultValue
+      })
+    }
+  }
   handleEnsure = (close) => {
-    const { onChange, value } = this.props.props
+    const { onChange } = this.props
+    const { value } = this.state
     onChange && onChange(value)
     close()
   }
+  handleChange = value => {
+    this.setState({
+      value
+    })
+  }
   renderOverlay () {
-    const { options, title, props } = this.props
-    const { onChange, value } = props
+    const { options, title } = this.props
+    const { value } = this.state
     return <Overlay options={options}
       title={title}
       defaultValue={value}
       onEnsure={this.handleEnsure}
-      onChange={onChange}/>
+      onChange={this.handleChange}/>
   }
   render () {
-    const { title, className, options, props, defaultOpen } = this.props
-    const { value } = props
+    const { title, className, options, defaultOpen } = this.props
+    const { value } = this.state
     const valueStr = options
       .filter(item => value.includes(item.value))
       .map(item => item.label)
