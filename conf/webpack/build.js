@@ -14,13 +14,15 @@ var spinner = ora('building for production...')
 var fs = require('fs')
 spinner.start()
 
+const projectName = process.env.ENV_PROJECT || 'tip';
+
 function copyLibToTip () {
   const staticPath = p => path.join(__dirname, '../../dist/static', p)
-  const tipPath = p => path.join(__dirname, '../../../tip', p)
+  const tipPath = p => path.join(__dirname, '../../../' + projectName, p)
   const sourceList = {
     [staticPath('css/lib.css')]: 'src/styles/index.css',
     [staticPath('js/lib.js')]: 'src/common/lib.js',
-    [path.join(__dirname, '../dll/*')]: 'conf/dll/'
+    [path.join(__dirname, '../dll/*')]: (projectName === 'tip' ? 'conf/dll/' : 'config/dll/')
   }
   Object.keys(sourceList).forEach(from => {
     const to = tipPath(sourceList[from])
