@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -ex
 rm -f package.lock.json
-node ./bin/check-version.js
+ENV_PROJECT=$project node ./bin/check-version.js
