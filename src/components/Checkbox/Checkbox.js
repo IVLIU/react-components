@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:00
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-03-28 11:01:13
+ * @Last Modified time: 2018-08-01 17:31:37
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -42,13 +42,13 @@ export default class Checkbox extends Component {
     onChange && onChange(e, value, this)
   }
   render () {
-    const { label, defaultChecked, name, value, className, disabled, ...others } = this.props
+    const { label, defaultChecked, name, value, className, disabled, style, ...others } = this.props
     const { checked } = this.state
     const classes = classNames('checkbox-label', className, {
       disabled
     })
     return (
-      <label htmlFor={this.id} className={classes}>
+      <label htmlFor={this.id} className={classes} style={style}>
         <input
           className="checkbox"
           type="checkbox"
