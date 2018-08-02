@@ -479,6 +479,7 @@ export default class Home extends Component {
           trigger="hover"
           onChange={console.log}
           changeValue
+          afterChange
           className="mgb20"
           defaultValue={2}
           listItems={listItems}>
