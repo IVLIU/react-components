@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-28 15:30:27
- * @Last Modified by: zsj
- * @Last Modified time: 2018-07-16 17:00:30
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-08-01 17:49:33
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -90,10 +90,10 @@ export default class Modal extends Component {
         <div className="modal-footer">
           {!footer ? (
             <div className="footer-btn-wrap">
-              <Button type="cancel" width={80} onClick={handleCancel}>
+              <Button type="cancel" width="80" onClick={handleCancel}>
                 {btnCancelTxt}
               </Button>
-              <Button type="primary" width={80} onClick={handleEnsure}>
+              <Button type="primary" width="80" onClick={handleEnsure}>
                 {btnEnsureTxt}
               </Button>
             </div>
