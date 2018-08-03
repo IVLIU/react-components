@@ -5,11 +5,15 @@ import classNames from 'classnames'
 import ControllInput from '../Common/ControledInput'
 import { find } from 'lodash'
 
-const Overlay = ({ close, listItems, handleChange, defaultValue }) => {
+const Overlay = ({ close, listItems, afterChange, handleChange, defaultValue }) => {
   return <ul className="dropdown-list-content">
     {
-      listItems.map((item, index) => {
-        if (item.value !== defaultValue) {
+      listItems
+        .filter(item => {
+          if (!afterChange) return true
+          return item.value !== defaultValue
+        })
+        .map((item, index) => {
           return (
             <li className="dropdown-list-item"
               key={index}
@@ -17,8 +21,7 @@ const Overlay = ({ close, listItems, handleChange, defaultValue }) => {
               {item.label}
             </li>
           )
-        }
-      })
+        })
     }
   </ul>
 }
@@ -40,8 +43,8 @@ export default class DropdownList extends PureComponent {
     close()
   }
   renderOverlayList () {
-    const { listItems, defaultValue } = this.props
-    return <Overlay listItems={listItems} handleChange={this.handleChange} defaultValue={defaultValue}/>
+    const { listItems, props, afterChange } = this.props
+    return <Overlay listItems={listItems} afterChange={afterChange} handleChange={this.handleChange} defaultValue={props.value}/>
   }
 
   render () {
