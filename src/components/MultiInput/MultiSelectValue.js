@@ -12,11 +12,10 @@ export default class MultiSelectValue extends React.Component {
       marginTop: '3px',
       fill: '#2d84e5'
     }
-    console.log('remove', onRemove)
     return (
       <div className="multi-select-value">
         <span>{value.label || value.value}</span>
-        <span onClick={() => { console.log('gotoremove'); return onRemove(value) }} style={{ cursor: 'pointer' }}>
+        <span onClick={() => { return onRemove(value) }} style={{ cursor: 'pointer' }}>
           <svg style={delIconStyle}>
             <use xlinkHref={delIconCavity} />
           </svg>

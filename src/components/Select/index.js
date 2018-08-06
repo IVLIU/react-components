@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:52:04
  * @Last Modified by: zsj
- * @Last Modified time: 2018-08-06 15:08:37
+ * @Last Modified time: 2018-08-06 17:53:55
  */
 import React, { PureComponent } from 'react'
 import ControledInput from '../Common/ControledInput'
@@ -47,7 +47,6 @@ export default class Select extends PureComponent {
       disabled,
       clearable,
       valueComponent: d => {
-        console.log('dd', d)
         return <MultiSelectValue {...d} />
       }
     }

@@ -44,7 +44,6 @@ export default class CheckboxSelect extends PureComponent {
   }
   componentWillMount = () => {
     const { defaultValue } = this.props
-    console.log(defaultValue)
     if (defaultValue !== undefined) {
       this.setState({
         value: defaultValue
