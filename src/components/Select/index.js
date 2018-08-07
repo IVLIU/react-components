@@ -2,12 +2,12 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:52:04
  * @Last Modified by: zsj
- * @Last Modified time: 2018-08-06 17:53:55
+ * @Last Modified time: 2018-08-07 18:41:19
  */
 import React, { PureComponent } from 'react'
 import ControledInput from '../Common/ControledInput'
 import classNames from 'classnames'
-import MultiSelectValue from '../MultiInput/MultiSelectValue'
+// import MultiSelectValue from '../MultiInput/MultiSelectValue'
 import Icon from '../Icon'
 import delIcon from '@/images/svg/del_icon.svg'
 import RSelect from 'react-select'
@@ -45,10 +45,8 @@ export default class Select extends PureComponent {
     const config = {
       multi,
       disabled,
-      clearable,
-      valueComponent: d => {
-        return <MultiSelectValue {...d} />
-      }
+      clearable
+      // valueComponent: d => <MultiSelectValue {...d} />
     }
     const classes = classNames(
       'select',

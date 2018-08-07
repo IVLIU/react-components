@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import {
-  Select
-} from '../../src/index';
+// import {
+//   Select
+// } from '../../src/index';
+// import {
+//   Select
+// } from '../../dist/static/js/lib';
 const options = [
   {
     label: "111",

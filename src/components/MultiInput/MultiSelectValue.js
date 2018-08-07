@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import delIconCavity from '@/images/svg/del_icon_cavity.svg'
+// import { Value } from '../../../build/dll/dll'
+// import autobind from 'autobind-decorator'
 
 export default class MultiSelectValue extends React.Component {
   render() {
@@ -15,7 +17,7 @@ export default class MultiSelectValue extends React.Component {
     return (
       <div className="multi-select-value">
         <span>{value.label || value.value}</span>
-        <span onClick={() => { return onRemove(value) }} style={{ cursor: 'pointer' }}>
+        <span onClick={() => onRemove(value)} style={{ cursor: 'pointer' }}>
           <svg style={delIconStyle}>
             <use xlinkHref={delIconCavity} />
           </svg>
