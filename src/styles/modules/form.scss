@@ -401,36 +401,36 @@
     cursor: default;
   }
 }
-.Select-multi-value-wrapper {
-  max-height: 55px;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  &::-webkit-scrollbar-thumb {
-    display: none;
-  }
-  .Select-value {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #2d84e5;
-    border-radius: 4px;
-    color: #2d84e5;
-    height: 20px;
-    padding: 0 5px;
-    font-size: 12px;
-    margin-left: 10px;
-    margin-top: 5px;
-    flex-direction: row-reverse;
-    background-color: transparent;
-    .Select-value-icon {
-      border: none;
-    }
-    &:hover {
-      background-color: transparent;
-    }
-  }
-}
+// .Select-multi-value-wrapper {
+//   max-height: 55px;
+//   overflow-y: scroll;
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     display: none;
+//   }
+//   .Select-value {
+//     display: inline-flex;
+//     align-items: center;
+//     border: 1px solid #2d84e5;
+//     border-radius: 4px;
+//     color: #2d84e5;
+//     height: 20px;
+//     padding: 0 5px;
+//     font-size: 12px;
+//     margin-left: 10px;
+//     margin-top: 5px;
+//     flex-direction: row-reverse;
+//     background-color: transparent;
+//     .Select-value-icon {
+//       border: none;
+//     }
+//     &:hover {
+//       background-color: transparent;
+//     }
+//   }
+// }
 
 .delete-icon {
   display: inline-block;
