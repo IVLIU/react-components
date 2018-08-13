@@ -39,7 +39,15 @@ var webpackConfig = merge(baseWebpackConfig, {
           warnings: false
         }
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: {
+          discardComments: {removeAll: true},
+          // 避免 cssnano 重新计算 z-index
+          safe: true
+        },
+        canPrint: false
+      })
     ]
   },
   plugins: [
