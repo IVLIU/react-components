@@ -6,13 +6,14 @@ import TableTest from "./tableTest/index"
 import PaginationTest from "./paginationTest/"
 import ModalTest from "./modalTest/"
 import InputTest from "./inputTest/"
+import SelectTest from "./selectTest/"
 
 class App extends Component {
   render() {
     return (
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/input' component={InputTest}/>
+        <Route path='/select' component={SelectTest}/>
         <Route path='/pagination' component={PaginationTest}/>
         <Route path='/modal' component={ModalTest}/>
       </Switch>)

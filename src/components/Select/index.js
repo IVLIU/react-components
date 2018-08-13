@@ -1,13 +1,13 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:52:04
- * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-26 19:39:47
+ * @Last Modified by: zsj
+ * @Last Modified time: 2018-08-07 18:41:19
  */
 import React, { PureComponent } from 'react'
 import ControledInput from '../Common/ControledInput'
 import classNames from 'classnames'
-import MultiSelectValue from '../MultiInput/MultiSelectValue'
+// import MultiSelectValue from '../MultiInput/MultiSelectValue'
 import Icon from '../Icon'
 import delIcon from '@/images/svg/del_icon.svg'
 import RSelect from 'react-select'
@@ -26,26 +26,36 @@ const mapDefaultToValue = (value, props) => {
 }
 const mapValueToValue = (value, props) => {
   const { multi } = props
-  return multi
-    ? value.map(item => item.value)
-    : value ? value.value : ''
+  return multi ? value.map(item => item.value) : value ? value.value : ''
 }
 @ControledInput(mapDefaultToValue, mapValueToValue)
 export default class Select extends PureComponent {
   render() {
-    const { options, className, hasError,
-      multi, disabled, props: controled,
-      clearable, theme, ...others } = this.props
+    const {
+      options,
+      className,
+      hasError,
+      multi,
+      disabled,
+      props: controled,
+      clearable,
+      theme,
+      ...others
+    } = this.props
     const config = {
       multi,
       disabled,
-      clearable,
-      valueComponent: d => <MultiSelectValue {...d} />
+      clearable
+      // valueComponent: d => <MultiSelectValue {...d} />
     }
-    const classes = classNames('select', {
-      error: hasError,
-      [theme]: true
-    }, className)
+    const classes = classNames(
+      'select',
+      {
+        error: hasError,
+        [theme]: true
+      },
+      className
+    )
     if (!multi) {
       delete config.valueComponent
     }
@@ -54,10 +64,13 @@ export default class Select extends PureComponent {
         className={classes}
         options={options}
         clearRenderer={() => <Icon className="del-icon" link={delIcon} />}
-        arrowRenderer={({ isOpen }) => <span className={`drop-down-icon ${isOpen ? 'up' : ''}`}></span>}
+        arrowRenderer={({ isOpen }) => (
+          <span className={`drop-down-icon ${isOpen ? 'up' : ''}`} />
+        )}
         {...others}
         {...config}
-        {...controled}/>
+        {...controled}
+      />
     )
   }
 }
