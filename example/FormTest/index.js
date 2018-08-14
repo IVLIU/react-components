@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
-import { Form, Input, Radio, Select, MultiInput, Button } from '../../src/index'
+// import { Form, Input, Radio, Select, MultiInput, Button } from '../../src/index'
+import {
+  Form,
+  Input,
+  Radio,
+  Select,
+  MultiInput,
+  Button
+} from '../../dist/static/js/lib.js'
 const FormItem = Form.Item
 const RadioGroup = Radio.RadioGroup
 const field = {
   name: {
-    value: '',
+    value: 'ddss',
     validators: [
       {
         required: true
@@ -26,7 +34,7 @@ const field = {
     ]
   },
   phone: {
-    value: '',
+    value: 'dd',
     validators: [
       {
         required: true
@@ -34,7 +42,7 @@ const field = {
     ]
   },
   phone_ensure: {
-    value: '',
+    value: 'ddsd',
     validators: [
       {
         required: true
@@ -48,7 +56,7 @@ const field = {
     trigger: 'blur'
   },
   hobby: {
-    value: '',
+    value: 'basketball',
     options: [
       {
         label: '篮球',

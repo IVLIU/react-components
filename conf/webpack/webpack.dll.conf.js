@@ -1,11 +1,11 @@
 /* webpack --config  webpack.dll.config.js --progress */
 
-const path = require('path');
-const webpack = require('webpack');
-const lib = require('../../config/lib.dependencies');
+const path = require('path')
+const webpack = require('webpack')
+const lib = require('../../config/lib.dependencies')
 const shelljs = require('shelljs')
 
-const outputPath = path.join(__dirname, '../dll');
+const outputPath = path.join(__dirname, '../dll')
 shelljs.rm('-r', outputPath)
 
 const plugin = [
@@ -25,7 +25,7 @@ const plugin = [
     context: __dirname
   }),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify("production")
+    'process.env.NODE_ENV': JSON.stringify('production')
   })
   // new webpack.optimize.UglifyJsPlugin({
   //   mangle: {
@@ -46,9 +46,9 @@ module.exports = {
   entry: {
     dll: lib
   },
-  optimization: {
-    minimize: true
-  },
+  // optimization: {
+  //   minimize: false
+  // },
   output: {
     path: outputPath,
     filename: '[name].[hash].js',

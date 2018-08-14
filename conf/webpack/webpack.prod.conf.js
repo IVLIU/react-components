@@ -30,19 +30,20 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   optimization: {
     minimizer: [
-      // 替代之前的压缩方式
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: false,
-        uglifyOptions: {
-          warnings: false
-        }
-      }),
+      // 替代之前的压缩方式,
+      // zsj, 压缩Form有问题
+      // new UglifyJsPlugin({
+      //   cache: true,
+      //   parallel: true,
+      //   sourceMap: false,
+      //   uglifyOptions: {
+      //     warnings: false
+      //   }
+      // }),
       new OptimizeCSSAssetsPlugin({
         cssProcessor: require('cssnano'),
         cssProcessorOptions: {
-          discardComments: {removeAll: true},
+          discardComments: { removeAll: true },
           // 避免 cssnano 重新计算 z-index
           safe: true
         },
@@ -72,9 +73,7 @@ if (config.build.productionGzip) {
       asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp(
-        '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
-        ')$'
+        '\\.(' + config.build.productionGzipExtensions.join('|') + ')$'
       ),
       threshold: 10240,
       minRatio: 0.8
@@ -83,7 +82,8 @@ if (config.build.productionGzip) {
 }
 
 if (config.build.bundleAnalyzerReport) {
-  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
