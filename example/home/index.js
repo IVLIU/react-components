@@ -6,7 +6,7 @@ import {
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownInput, DropdownList, Loading,
   Pagination, LabelSelect, TimePicker, CheckboxSelect,
-  Switch,
+  Switch, Timeline,
   RadioButton, Popover, FileUpload, TRIGGER, POSITION
   // ErrorBoundary, errorDecorator
 } from '../../src/index'
@@ -436,6 +436,12 @@ export default class Home extends Component {
     const { current } = this.state
     return (
       <div className="container" style={{width: '1200px'}}>
+        <Timeline hasDesc>
+          <Timeline.Item dot="28" desc="03:20:00 — 03:50:20">Create a services site 2015-09-01</Timeline.Item>
+          <Timeline.Item dot="2">Solve initial network problems 2015-09-01</Timeline.Item>
+          <Timeline.Item dot="218">Technical testing 2015-09-01</Timeline.Item>
+          <Timeline.Item dot="28">Network problems being solved 2015-09-01</Timeline.Item>
+        </Timeline>
         <DropdownInput defaultOpen defaultValue="aaa" onChange={console.log}/>
         <Switch onChange={console.log}/>
         <Switch defaultValue={false} onChange={console.log}/>
