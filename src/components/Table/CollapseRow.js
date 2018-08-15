@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 10:43:53
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-30 19:52:44
+ * @Last Modified time: 2018-08-15 16:20:05
  */
 import React, { Component, Fragment } from 'react'
 // import PropTypes from 'prop-types'
@@ -62,7 +62,7 @@ const CollapseRow = Row =>
             className={classes}/>
           {
             showExpand && expand
-              ? <tr className="table-body-expand-row">
+              ? <tr className="table-body-expand-row" key={`expand-row-${rowIndex}`}>
                 <td colSpan={rowHasChild ? columns.length + 1 : columns.length}>
                   <div className="table-body-expand-row-wrap">
                     {expand}

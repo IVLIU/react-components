@@ -49,7 +49,7 @@
   padding-left: 0;
 }
 
-[class*="col-"]:last-child {
+[class*="col-"]:last-child:not(:only-child) {
   padding-right: 0;
 }
 
