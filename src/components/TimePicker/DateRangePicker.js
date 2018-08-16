@@ -75,7 +75,7 @@ export default class DateRangePicker extends Component {
   }
   hide = (e) => {
     const picker = document.querySelector('.rc-calendar')
-    if (e.target.className && e.target.className.indexOf('rc-time') >= 0) return
+    if ((typeof e.target.className === 'string') && e.target.className.indexOf('rc-time') >= 0) return
     if (!picker) return
     if (e.target === findDOMNode(this.input)) return
     if (picker.contains(e.target)) return
