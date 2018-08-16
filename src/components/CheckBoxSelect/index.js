@@ -49,6 +49,9 @@ export default class CheckboxSelect extends PureComponent {
     /** 支持搜索 */
     withSearch: PropTypes.boolean
   }
+  static defaultProps = {
+    withSearch: false
+  }
   state = {
     value: '',
     searchTxt: ''
@@ -87,7 +90,7 @@ export default class CheckboxSelect extends PureComponent {
     })
   }
   renderOverlay () {
-    const { options, title, withSearch = false } = this.props
+    const { options, title, withSearch } = this.props
     const { value, searchTxt } = this.state
     return <Overlay options={options}
       title={title}
