@@ -4,6 +4,8 @@ import classNames from 'classnames'
 
 import Checkbox from '../Checkbox'
 import DropDown from '../Dropdown'
+import Icon from '../Icon'
+import closeIcon from '@/images/svg/close.svg'
 import Button from '../Button'
 import Input from '../Input'
 
@@ -47,10 +49,13 @@ export default class CheckboxSelect extends PureComponent {
     /** 回调事件 */
     onChange: PropTypes.func,
     /** 支持搜索 */
-    withSearch: PropTypes.boolean
+    withSearch: PropTypes.boolean,
+    /** 删除回调 */
+    onDelete: PropTypes.oneOfType([null, PropTypes.func])
   }
   static defaultProps = {
-    withSearch: false
+    withSearch: false,
+    onDelete: null
   }
   state = {
     value: '',
@@ -89,6 +94,10 @@ export default class CheckboxSelect extends PureComponent {
       value
     })
   }
+  handleDelete = (evt) => {
+    evt.stopPropagation()
+    this.props.onDelete()
+  }
   renderOverlay () {
     const { options, title, withSearch } = this.props
     const { value, searchTxt } = this.state
@@ -102,13 +111,13 @@ export default class CheckboxSelect extends PureComponent {
       onChange={this.handleChange}/>
   }
   render () {
-    const { title, className, options, defaultOpen } = this.props
+    const { title, className, options, defaultOpen, onDelete } = this.props
     const { value } = this.state
     const valueStr = options
       .filter(item => value.includes(item.value))
       .map(item => item.label)
       .join(',')
-    const classes = classNames('checkbox-select-wrap', className)
+    const classes = classNames('checkbox-select-wrap', (onDelete ? className + ' can-delete' : className))
     return (
       <div className={classes}>
         <DropDown overlay={this.renderOverlay()} defaultOpen={defaultOpen}>
@@ -117,6 +126,10 @@ export default class CheckboxSelect extends PureComponent {
             <p className="checkbox-select-result-value" title={valueStr}>
               {valueStr}
             </p>
+            { onDelete
+              ? <Icon className="close-icon" link={closeIcon} onClick={this.handleDelete}/>
+              : ''
+            }
           </div>
         </DropDown>
       </div>
