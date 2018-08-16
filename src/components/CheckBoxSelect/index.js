@@ -5,19 +5,27 @@ import classNames from 'classnames'
 import Checkbox from '../Checkbox'
 import DropDown from '../Dropdown'
 import Button from '../Button'
+import Input from '../Input'
 
 const { CheckboxGroup } = Checkbox
 
 const Overlay = (props) => {
-  const {options, title, onChange, close, onEnsure, defaultValue} = props
+  const {options, title, onChange, close, onEnsure, defaultValue, withSearch, searchTxt, onSearch} = props
   return (
     <div className="checkbox-select-content">
       <h3 className="checkbox-select-content-title">{title}</h3>
+      {
+        withSearch
+          ? <Input onChange={(val) => onSearch(val)} className="checkbox-select-search-input"/>
+          : ''
+      }
       <CheckboxGroup className="checkbox-select-content-checkbox"
         defaultValue={defaultValue}
         onChange={onChange}>
         {
-          options.map(item => <Checkbox label={item.label} value={item.value} />)
+          (withSearch && searchTxt.trim() !== '')
+            ? options.filter((item) => item.label.includes(searchTxt)).map(item => <Checkbox label={item.label} value={item.value} />)
+            : options.map(item => <Checkbox label={item.label} value={item.value} />)
         }
       </CheckboxGroup>
       <div className="checkbox-select-button-wrap">
@@ -37,10 +45,13 @@ export default class CheckboxSelect extends PureComponent {
     /** 默认值 */
     defaultValue: PropTypes.array,
     /** 回调事件 */
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    /** 支持搜索 */
+    withSearch: PropTypes.boolean
   }
   state = {
-    value: ''
+    value: '',
+    searchTxt: ''
   }
   componentWillMount = () => {
     const { defaultValue } = this.props
@@ -65,17 +76,25 @@ export default class CheckboxSelect extends PureComponent {
     onChange && onChange(value)
     close()
   }
+  handleSearch = (val) => {
+    this.setState({
+      searchTxt: val
+    })
+  }
   handleChange = value => {
     this.setState({
       value
     })
   }
   renderOverlay () {
-    const { options, title } = this.props
-    const { value } = this.state
+    const { options, title, withSearch = false } = this.props
+    const { value, searchTxt } = this.state
     return <Overlay options={options}
       title={title}
       defaultValue={value}
+      withSearch={withSearch}
+      searchTxt={searchTxt}
+      onSearch={this.handleSearch}
       onEnsure={this.handleEnsure}
       onChange={this.handleChange}/>
   }

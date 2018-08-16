@@ -1,3 +1,5 @@
+### 2018-08-16
+- CheckboxSelect 组件新增选项检索功能(withSearch)
 ### 2018-08-14
 - Timeline 新增组件
 ### 2018-07-27
