@@ -7,6 +7,8 @@
 import React, { PureComponent } from 'react'
 import classNames from 'classnames'
 import ControledInput from '../Common/ControledInput'
+import Icon from '../Icon'
+import searchIcon from '@/images/svg/search.svg'
 
 @ControledInput(
   v => v,
@@ -14,7 +16,7 @@ import ControledInput from '../Common/ControledInput'
 )
 export default class Input extends PureComponent {
   render() {
-    const { type, hasError, className, props: controled, ...others } = this.props
+    const { type, isSearch, hasError, className, props: controled, ...others } = this.props
     const classes = classNames(
       'input',
       {
@@ -22,6 +24,12 @@ export default class Input extends PureComponent {
       },
       className
     )
-    return <input className={classes} type={type} {...others} {...controled} />
+    return <div className="input-wrapper">
+      <input className={classes} placeholder={isSearch ? '搜索相关内容' : ''} type={type} {...others} {...controled} />
+      { isSearch
+        ? <Icon className="search-icon" link={searchIcon}/>
+        : ''
+      }
+    </div>
   }
 }

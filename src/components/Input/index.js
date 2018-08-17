@@ -10,6 +10,8 @@ export default class Input extends Component {
     onChange: PropTypes.func,
     /** 默认值 */
     defaultValue: PropTypes.string,
+    /** 是否显示搜索图标 */
+    isSearch: PropTypes.bool,
     /** 主动修改组件值时候的值， @see controled input */
     value: PropTypes.string,
     /** 类型 */
@@ -23,7 +25,8 @@ export default class Input extends Component {
     ])
   }
   static defaultProps = {
-    type: 'text'
+    type: 'text',
+    isSearch: false
   }
 
   render() {

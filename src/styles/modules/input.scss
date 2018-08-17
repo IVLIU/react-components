@@ -1,0 +1,10 @@
+.input-wrapper {
+  display: inline;
+  position: relative;
+  .search-icon {
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    fill: #6B7283;
+  }
+}

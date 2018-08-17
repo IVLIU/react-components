@@ -18,7 +18,7 @@ const Overlay = (props) => {
       <h3 className="checkbox-select-content-title">{title}</h3>
       {
         withSearch
-          ? <Input onChange={(val) => onSearch(val)} className="checkbox-select-search-input"/>
+          ? <Input isSearch={true} onChange={(val) => onSearch(val)} className="checkbox-select-search-input"/>
           : ''
       }
       <CheckboxGroup className="checkbox-select-content-checkbox"
