@@ -18,6 +18,18 @@
     top: 13px;
     width: 0;
   }
+  .close-icon {
+    fill: #A53C3C;
+    margin-top: 8px;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+  }
+}
+.can-delete {
+  .checkbox-select-result::after {
+    right: 30px;
+  }
 }
 .checkbox-select-result-label {
   margin-right: 10px;
@@ -48,9 +60,14 @@
   margin-bottom: 14px;
   margin-top: -6px;
 }
+.checkbox-select-search-input {
+  margin-bottom: 5px;
+}
 .checkbox-select-content-checkbox{
   border: 1px solid #e0e2e1;
   padding: 20px 10px;
+  max-height: 300px;
+  overflow-y: auto;
   .checkbox-label {
     display: block;
   }
