@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<path fill="#1C374B" d="M9.818,1.094c-3.187,0-5.771,2.583-5.771,5.771H15.59C15.59,3.677,13.006,1.094,9.818,1.094z"/>
-<path fill="#1C374B" d="M7.486,9.1c0.72,0,1.303-0.584,1.303-1.303H6.183C6.183,8.516,6.767,9.1,7.486,9.1z"/>
-<path fill="#1C374B" d="M12.513,9.1c0.72,0,1.304-0.584,1.304-1.303h-2.607C11.209,8.516,11.793,9.1,12.513,9.1z"/>
-<path fill="#1C374B" d="M4.047,9.72H15.59c0,0,1.012,1.345-0.346,3.226c-1.769,2.452-2.695,3.104,0.035,5.523
-	C15.738,18.876,4.047,21.076,4.047,9.72z"/>
-</svg>
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1531981418664" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4177" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M502.6816 56.0128a295.424 295.424 0 0 0-295.4752 295.4752H798.208a295.424 295.424 0 0 0-295.5264-295.4752zM383.2832 465.92c36.864 0 66.7136-29.9008 66.7136-66.7136H316.5696c0 36.8128 29.9008 66.7136 66.7136 66.7136zM640.6656 465.92c36.864 0 66.7648-29.9008 66.7648-66.7136H573.952A66.7136 66.7136 0 0 0 640.6656 465.92zM207.2064 497.664H798.208s51.8144 68.864-17.7152 165.1712c-90.5728 125.5424-137.984 158.9248 1.792 282.7776 23.5008 20.8384-575.0784 133.4784-575.0784-447.9488z" p-id="4178"></path></svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="cross-hover">
+        <rect id="Rectangle-6" fill="#2D84E5" opacity="0.800000012" x="0" y="0" width="20" height="16" rx="5"></rect>
+        <path d="M9,7 L9,4 L11,4 L11,7 L14,7 L14,9 L11,9 L11,12 L9,12 L9,9 L6,9 L6,7 L9,7 Z" id="Combined-Shape" fill="#FFFFFF" stroke="#FFFFFF"></path>
+    </g>
+</svg>

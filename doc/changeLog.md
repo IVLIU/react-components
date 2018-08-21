@@ -1,3 +1,10 @@
+### 2018-08-17
+- Input 组件新增搜索图标(isSearch)
+
+### 2018-08-16
+- CheckboxSelect 组件新增选项检索功能(withSearch)
+- CheckboxSelect 组件新增删除钩子(onDelete)
+- DropdownInput 组件新增删除钩子(onDelete)
 ### 2018-08-14
 - Timeline 新增组件
 ### 2018-07-27

@@ -4,20 +4,30 @@ import classNames from 'classnames'
 
 import Checkbox from '../Checkbox'
 import DropDown from '../Dropdown'
+import Icon from '../Icon'
+import closeIcon from '@/images/svg/close.svg'
 import Button from '../Button'
+import Input from '../Input'
 
 const { CheckboxGroup } = Checkbox
 
 const Overlay = (props) => {
-  const {options, title, onChange, close, onEnsure, defaultValue} = props
+  const {options, title, onChange, close, onEnsure, defaultValue, withSearch, searchTxt, onSearch} = props
   return (
     <div className="checkbox-select-content">
       <h3 className="checkbox-select-content-title">{title}</h3>
+      {
+        withSearch
+          ? <Input isSearch={true} onChange={(val) => onSearch(val)} className="checkbox-select-search-input"/>
+          : ''
+      }
       <CheckboxGroup className="checkbox-select-content-checkbox"
         defaultValue={defaultValue}
         onChange={onChange}>
         {
-          options.map((item, index) => <Checkbox key={`${item.label}-${index}`} label={item.label} value={item.value} />)
+          (withSearch && searchTxt.trim() !== '')
+            ? options.filter((item) => item.label.includes(searchTxt)).map((item, index) => <Checkbox key={`${item.label}-${index}`} label={item.label} value={item.value} />)
+            : options.map((item, index) => <Checkbox key={`${item.label}-${index}`} label={item.label} value={item.value} />)
         }
       </CheckboxGroup>
       <div className="checkbox-select-button-wrap">
@@ -37,10 +47,19 @@ export default class CheckboxSelect extends PureComponent {
     /** 默认值 */
     defaultValue: PropTypes.array,
     /** 回调事件 */
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    /** 支持搜索 */
+    withSearch: PropTypes.boolean,
+    /** 删除回调 */
+    onDelete: PropTypes.oneOfType([null, PropTypes.func])
+  }
+  static defaultProps = {
+    withSearch: false,
+    onDelete: null
   }
   state = {
-    value: ''
+    value: '',
+    searchTxt: ''
   }
   componentWillMount = () => {
     const { defaultValue } = this.props
@@ -65,28 +84,40 @@ export default class CheckboxSelect extends PureComponent {
     onChange && onChange(value)
     close()
   }
+  handleSearch = (val) => {
+    this.setState({
+      searchTxt: val
+    })
+  }
   handleChange = value => {
     this.setState({
       value
     })
   }
+  handleDelete = (evt) => {
+    evt.stopPropagation()
+    this.props.onDelete()
+  }
   renderOverlay () {
-    const { options, title } = this.props
-    const { value } = this.state
+    const { options, title, withSearch } = this.props
+    const { value, searchTxt } = this.state
     return <Overlay options={options}
       title={title}
       defaultValue={value}
+      withSearch={withSearch}
+      searchTxt={searchTxt}
+      onSearch={this.handleSearch}
       onEnsure={this.handleEnsure}
       onChange={this.handleChange}/>
   }
   render () {
-    const { title, className, options, defaultOpen } = this.props
+    const { title, className, options, defaultOpen, onDelete } = this.props
     const { value } = this.state
     const valueStr = options
       .filter(item => value.includes(item.value))
       .map(item => item.label)
       .join(',')
-    const classes = classNames('checkbox-select-wrap', className)
+    const classes = classNames('checkbox-select-wrap', (onDelete ? className + ' can-delete' : className))
     return (
       <div className={classes}>
         <DropDown overlay={this.renderOverlay()} defaultOpen={defaultOpen}>
@@ -95,6 +126,10 @@ export default class CheckboxSelect extends PureComponent {
             <p className="checkbox-select-result-value" title={valueStr}>
               {valueStr}
             </p>
+            { onDelete
+              ? <Icon className="close-icon" link={closeIcon} onClick={this.handleDelete}/>
+              : ''
+            }
           </div>
         </DropDown>
       </div>

@@ -6,6 +6,9 @@ import Input from '../Input'
 import DropDown from '../Dropdown'
 import Button from '../Button'
 
+import Icon from '../Icon'
+import closeIcon from '@/images/svg/close.svg'
+
 const Overlay = ({title, onChange, close, onEnsure, defaultValue}) => (
   <div className="checkbox-select-content">
     <h3 className="checkbox-select-content-title">{title}</h3>
@@ -23,7 +26,9 @@ export default class DropdownInput extends PureComponent {
     /** 标题 */
     title: PropTypes.string,
     /** 默认值 */
-    defaultValue: PropTypes.array
+    defaultValue: PropTypes.array,
+    /** 删除回调 */
+    onDelete: PropTypes.oneOfType([null, PropTypes.func])
   }
   state = {
     value: '',
@@ -50,6 +55,10 @@ export default class DropdownInput extends PureComponent {
       value
     })
   }
+  handleDelete = (evt) => {
+    evt.stopPropagation()
+    this.props.onDelete()
+  }
   handleEnsure = (close) => {
     const { onChange } = this.props
     onChange && onChange(this.state.value)
@@ -69,9 +78,9 @@ export default class DropdownInput extends PureComponent {
   }
 
   render () {
-    const { title, className, defaultOpen, style } = this.props
+    const { title, className, defaultOpen, onDelete, style } = this.props
     const { resultValue } = this.state
-    const classes = classNames('checkbox-select-wrap', className)
+    const classes = classNames('checkbox-select-wrap', (onDelete ? className + ' can-delete' : className))
     return (
       <div className={classes} style={style}>
         <DropDown overlay={this.renderOverlay()} defaultOpen={defaultOpen}>
@@ -80,6 +89,10 @@ export default class DropdownInput extends PureComponent {
             <p className="checkbox-select-result-value" title={resultValue}>
               {resultValue}
             </p>
+            { onDelete
+              ? <Icon className="close-icon" link={closeIcon} onClick={this.handleDelete}/>
+              : ''
+            }
           </div>
         </DropDown>
       </div>
