@@ -10,7 +10,7 @@ class Timeline extends PureComponent {
   }
 
   render() {
-    const { children, hasDesc, className, ...others } = this.props
+    const { children, hasDesc, className, style } = this.props
     const classes = classNames({
       'timeline': true,
       'has-desc': hasDesc
@@ -21,7 +21,7 @@ class Timeline extends PureComponent {
       })
     )
     return (
-      <ul className={classes} {...others}>
+      <ul className={classes} style={style}>
         {items}
       </ul>
     )

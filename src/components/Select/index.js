@@ -1,8 +1,8 @@
 /*
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:52:04
- * @Last Modified by: zsj
- * @Last Modified time: 2018-08-07 18:41:19
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-08-15 17:44:47
  */
 import React, { PureComponent } from 'react'
 import ControledInput from '../Common/ControledInput'
@@ -40,7 +40,7 @@ export default class Select extends PureComponent {
       props: controled,
       clearable,
       theme,
-      ...others
+      style
     } = this.props
     const config = {
       multi,
@@ -67,7 +67,7 @@ export default class Select extends PureComponent {
         arrowRenderer={({ isOpen }) => (
           <span className={`drop-down-icon ${isOpen ? 'up' : ''}`} />
         )}
-        {...others}
+        style={style}
         {...config}
         {...controled}
       />

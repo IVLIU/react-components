@@ -1,8 +1,8 @@
 /*
  * @Author: zsj
  * @Date: 2018-02-12 15:58:08
- * @Last Modified by: zsj
- * @Last Modified time: 2018-08-14 14:33:24
+ * @Last Modified by: wangweixin@threatbook.cn
+ * @Last Modified time: 2018-08-15 17:43:34
  */
 
 import React, { Component } from 'react'
@@ -22,10 +22,10 @@ class PageTitle extends Component {
     name: ''
   }
   render() {
-    const { name, children, className, ...others } = this.props
+    const { name, children, className, style } = this.props
     const classes = classNames('row page-max-title', className)
     return (
-      <div className={classes} {...others}>
+      <div className={classes} style={style}>
         {children}
         {name}
       </div>

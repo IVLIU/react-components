@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:00:25
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-30 17:24:17
+ * @Last Modified time: 2018-08-15 17:37:23
  */
 import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
@@ -112,10 +112,10 @@ export default class Form extends Component {
     return children
   }
   render () {
-    const { children, className, data, ...others } = this.props
+    const { children, className, style } = this.props
     const classes = classNames('form', className)
     return (
-      <div className={classes} {...others}>
+      <div className={classes} style={style}>
         {this.renderChildrens(children)}
       </div>
     )

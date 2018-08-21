@@ -48,7 +48,7 @@ export default class DropdownList extends PureComponent {
   }
 
   render () {
-    const { trigger, disabled, listItems, className, props, children, changeValue, ...others } = this.props
+    const { trigger, disabled, listItems, className, props, children, changeValue, style } = this.props
     const { value } = props
     const item = find(listItems, item => item.value === value)
     const label = changeValue
@@ -63,8 +63,8 @@ export default class DropdownList extends PureComponent {
         trigger={trigger}
         className={classes}
         disabled={disabled}
-        overlay={this.renderOverlayList()}
-        {...others}>
+        style={style}
+        overlay={this.renderOverlayList()}>
         <div className="dropdown-tirgger-item">
           {label}
         </div>

@@ -26,11 +26,11 @@ export default class FileUpload extends Component {
   }
 
   render () {
-    const { hasError, className, props: controled, ...others } = this.props
+    const { hasError, className, props: controled, style } = this.props
     const classes = classNames('file-upload', className)
     const { onChange, value } = controled
     return (
-      <div className={classes} {...others}>
+      <div className={classes} style={style}>
         <input type="file" onChange={onChange}
           ref={input => (this.input = input)}
           className="file-upload-hide"/>

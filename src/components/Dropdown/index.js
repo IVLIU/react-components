@@ -82,7 +82,7 @@ export default class Dropdown extends PureComponent {
     )
   }
   render () {
-    const { className, children, overlay, disabled, trigger, ...others } = this.props
+    const { className, children, overlay, disabled, trigger, style } = this.props
     const { open } = this.state
     const classes = classNames('dropdown', className, {
       disabled,
@@ -91,10 +91,10 @@ export default class Dropdown extends PureComponent {
     })
     return (
       <div className={classes}
+        style={style}
         ref={ wrap => { this.wrap = wrap }}
         onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}
-        {...others}>
+        onMouseLeave={this.onMouseLeave}>
         {cloneElement(children, {
           ref: trigger => { this.trigger = trigger },
           onClick: this.toggleShow

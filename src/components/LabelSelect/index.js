@@ -51,7 +51,7 @@ export default class LabelSelect extends Component {
     onChange && onChange(ret)
   }
   render () {
-    const { className, disabled, options, props, multi, showAll, locale, ...others } = this.props
+    const { className, disabled, options, props, multi, showAll, locale, style } = this.props
     const classes = classNames({
       'label-select': true,
       disabled
@@ -59,7 +59,7 @@ export default class LabelSelect extends Component {
     const { value } = props
     const isAllActive = multi && !value.length
     return (
-      <div className={classes} {...others}>
+      <div className={classes} style={style}>
         {
           showAll && multi
             ? <Label className="label-select-item"

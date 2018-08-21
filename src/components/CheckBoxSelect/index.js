@@ -17,7 +17,7 @@ const Overlay = (props) => {
         defaultValue={defaultValue}
         onChange={onChange}>
         {
-          options.map(item => <Checkbox label={item.label} value={item.value} />)
+          options.map((item, index) => <Checkbox key={`${item.label}-${index}`} label={item.label} value={item.value} />)
         }
       </CheckboxGroup>
       <div className="checkbox-select-button-wrap">

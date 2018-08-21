@@ -42,6 +42,6 @@ module.exports = merge(baseWebpackConfig, {
       hash: false,
       includeSourcemap: false
     }]),
-    new FriendlyErrorsPlugin()
+    // new FriendlyErrorsPlugin()
   ]
 })

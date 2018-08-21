@@ -19,6 +19,14 @@ export default class Box extends PureComponent {
       open: defaultOpen
     }
   }
+  componentWillReceiveProps = (nextProps) => {
+    const { defaultOpen } = nextProps
+    if (defaultOpen !== this.props.defaultOpen) {
+      this.setState({
+        open: defaultOpen
+      })
+    }
+  }
   isBoxShow() {
     const { data, isLoading } = this.props
     // 正在加载时，展示Box
@@ -35,9 +43,11 @@ export default class Box extends PureComponent {
   }
   toggleOpen = (e) => {
     e.preventDefault()
+    const open = !this.state.open
     this.setState({
-      open: !this.state.open
+      open
     })
+    this.props.onToggle(open)
   }
   renderTitle() {
     const { title, collapse, toggleRender } = this.props
@@ -70,12 +80,10 @@ export default class Box extends PureComponent {
       isLoading,
       border,
       contentHeight,
-      toggleRender,
       collapse,
-      data,
       emptyDesc,
       error,
-      ...others
+      style
     } = this.props
     const { open } = this.state
     const classes = classNames('box', className, {
@@ -85,7 +93,7 @@ export default class Box extends PureComponent {
     })
     const show = this.isBoxShow()
     return (
-      <div className={classes} {...others}>
+      <div className={classes} style={style}>
         {title ? this.renderTitle() : null}
         <div
           className="box-content"

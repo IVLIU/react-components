@@ -38,7 +38,6 @@ module.exports = {
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
-      
       {
         test: /\.svg$/,
         loaders: [{
@@ -48,7 +47,7 @@ module.exports = {
           options: {
             cacheDirectory: true
           }
-        },{
+        }, {
           loader: 'react-svg-loader',
           options: {
             svgo: {

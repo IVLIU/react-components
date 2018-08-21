@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:50:52
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-30 19:52:02
+ * @Last Modified time: 2018-08-21 15:14:39
  */
 import React, { PureComponent } from 'react'
 import classNames from 'classnames'
@@ -14,7 +14,7 @@ import ControledInput from '../Common/ControledInput'
 )
 export default class Input extends PureComponent {
   render() {
-    const { type, hasError, className, props: controled, ...others } = this.props
+    const { type, hasError, className, props: controled, style, ...others } = this.props
     const classes = classNames(
       'input',
       {
@@ -22,6 +22,6 @@ export default class Input extends PureComponent {
       },
       className
     )
-    return <input className={classes} type={type} {...others} {...controled} />
+    return <input className={classes} type={type} style={style} {...controled} {...others} />
   }
 }

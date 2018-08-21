@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-07 17:12:42
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-05-28 10:55:04
+ * @Last Modified time: 2018-08-21 15:13:54
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -17,10 +17,11 @@ export default class Button extends Component {
     const classes = classNames(`btn btn-${type}`, className)
     return (
       <button className={classes}
+        {...others}
         style={{
           ...style,
           width: width + 'px'
-        }} {...others}>{children}</button>
+        }}>{children}</button>
     )
   }
 }

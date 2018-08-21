@@ -10,9 +10,9 @@ import 'rc-pagination/assets/index.css'
  */
 export default class Pagination extends Component {
   render () {
-    const { className, ...others } = this.props
+    const { className, style } = this.props
     const classes = classNames('tip-pagination', className)
-    return <RCPagination className={classes} {...others} />
+    return <RCPagination className={classes} style={style} />
   }
 }
 Pagination.propTypes = {

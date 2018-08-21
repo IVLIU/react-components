@@ -12,10 +12,10 @@ export default class NoResult extends Component {
   }
 
   render () {
-    const { desc, className, ...others } = this.props
+    const { desc, className, style } = this.props
     const classes = classNames('no-result', className)
     return (
-      <div className={classes} {...others}>
+      <div className={classes} style={style}>
         {desc}
       </div>
     )

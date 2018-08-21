@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:01:33
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-30 17:29:35
+ * @Last Modified time: 2018-08-21 17:41:55
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -111,7 +111,7 @@ export default class FormItem extends Component {
     })
   }
   renderChildren() {
-    const { children, placeholder, data, field, showInfo, reset } = this.props
+    const { children, placeholder, data, field, showInfo } = this.props
     const { hasError } = this.state
     const { value } = data[field] || {}
 
@@ -125,8 +125,7 @@ export default class FormItem extends Component {
       onBlur: this.handleBlur,
       defaultValue: value,
       placeholder,
-      hasError,
-      reset
+      hasError
     }) : ''
   }
   render() {

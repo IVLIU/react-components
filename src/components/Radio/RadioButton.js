@@ -20,12 +20,12 @@ export default class RadioButton extends Component {
       props: controled,
       disabled,
       options,
-      ...others
+      style
     } = this.props
     const classes = classNames('radio-btn', disabled, className)
-    const { value, onChange } = this.props.props
+    const { value, onChange } = controled
     return (
-      <div className={classes} {...others}>
+      <div className={classes} style={style}>
         {_.map(options, item => {
           const itemClasses = classNames('radio-btn-item', {
             active: item.value === value

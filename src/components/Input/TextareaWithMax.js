@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:51:18
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-01-22 11:30:36
+ * @Last Modified time: 2018-08-15 17:38:47
  */
 import React, { Component } from 'react'
 import pureRender from 'pure-render-decorator'
@@ -49,9 +49,8 @@ export default class Textarea extends Component {
     })
   }
   render () {
-    const { defaultValue, max, onChange,
-      onInput, className, placeholder,
-      hasError, disabled, ...others } = this.props
+    const { defaultValue, max, className, placeholder,
+      hasError, disabled, style } = this.props
     const { value, focus } = this.state
 
     if (max) {
@@ -65,7 +64,7 @@ export default class Textarea extends Component {
       )
       return (
         <div className={classes}>
-          <div {...others}
+          <div style={style}
             contentEditable={disabled ? 'false' : 'true'}
             className="textarea-content"
             onInput={this.handleChange}

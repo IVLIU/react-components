@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import jsonFormat from 'json-format'
 import JSONPretty from 'react-json-pretty'
 
@@ -20,7 +21,7 @@ export default class Code extends PureComponent {
         {
           Object.keys(data).map((item, index) => {
             return (
-              <tr className="code-tr-content" key={index}>
+              <tr className="code-tr-content" key={item}>
                 <td className="key" style={{ width: labelWidth }}>{item}</td>
                 <td className="value">
                   {
@@ -46,9 +47,10 @@ export default class Code extends PureComponent {
     return <JSONPretty json={data} />
   }
   render () {
-    const { data, type, labelWidth, ...others } = this.props
+    const { data, type, className, style } = this.props
+    const classes = classNames('code-wrap', className)
     return (
-      <div className="code-wrap" {...others}>
+      <div className={classes} style={style}>
         {
           type === 'json'
             ? this.renderJson(JSON.stringify(data))

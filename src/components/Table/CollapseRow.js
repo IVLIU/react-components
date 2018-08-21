@@ -3,7 +3,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 10:43:53
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-08-15 16:20:05
+ * @Last Modified time: 2018-08-17 15:53:13
  */
 import React, { Component, Fragment } from 'react'
 // import PropTypes from 'prop-types'
@@ -56,7 +56,7 @@ const CollapseRow = Row =>
       const expand = showExpand ? expandRowRender(rowData, rowIndex, columns) : null
       return (
         <Fragment>
-          <Row {...others}
+          <Row key={`base-row-${rowIndex}`} {...others}
             expandShow={showExpand}
             onClick={this.toggleShow}
             className={classes}/>

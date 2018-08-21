@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-12-15 11:02:10
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-27 11:09:54
+ * @Last Modified time: 2018-08-15 17:30:09
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -64,12 +64,12 @@ export default class CheckboxGroup extends Component {
       : ''
   }
   render () {
-    const { className, disabled } = this.props
+    const { className, disabled, style } = this.props
     const classes = classNames('checkbox-group', className, {
       disabled
     })
     return (
-      <div className={classes}>
+      <div className={classes} style={style}>
         {
           this.renderChildren()
         }

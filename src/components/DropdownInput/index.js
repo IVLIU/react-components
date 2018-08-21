@@ -69,11 +69,11 @@ export default class DropdownInput extends PureComponent {
   }
 
   render () {
-    const { title, className, defaultOpen } = this.props
+    const { title, className, defaultOpen, style } = this.props
     const { resultValue } = this.state
     const classes = classNames('checkbox-select-wrap', className)
     return (
-      <div className={classes}>
+      <div className={classes} style={style}>
         <DropDown overlay={this.renderOverlay()} defaultOpen={defaultOpen}>
           <div className="checkbox-select-result">
             <span className="checkbox-select-result-label">{title}</span>

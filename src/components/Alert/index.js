@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2017-11-30 15:11:38
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-07-26 19:47:53
+ * @Last Modified time: 2018-08-15 17:27:06
  */
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
@@ -27,14 +27,14 @@ const typeMap = {
  */
 export default class Alert extends PureComponent {
   render() {
-    const { message, description, type, className, ...others } = this.props
+    const { message, description, type, className, style } = this.props
     const classes = classNames(
       'base-alert',
       `base-alert-${type}`,
       className
     )
     return (
-      <div data-show="true" className={classes} {...others}>
+      <div data-show="true" className={classes} style={style}>
         {
           typeMap[type]
             ? <Icon className="base-alert-icon" link={typeMap[type]} />

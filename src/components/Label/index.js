@@ -6,7 +6,7 @@ export default class Label extends PureComponent {
   render () {
     const { type, children, light,
       className, closable,
-      maxWidth, ...others } = this.props
+      maxWidth, style, ...others } = this.props
     const classes = classNames(
       'label',
       `label-${type}`,
@@ -18,13 +18,14 @@ export default class Label extends PureComponent {
       className
     )
     const retStyle = {
+      ...style,
       maxWidth
     }
     return (
       <span className={classes}
         style={retStyle}
-        title={typeof children === 'string' ? children : ''}
-        {...others}>
+        {...others}
+        title={typeof children === 'string' ? children : ''}>
         {children}
       </span>
     )
