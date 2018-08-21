@@ -13,7 +13,6 @@ import 'rc-time-picker/assets/index.css'
 
 import ControledInput from '../Common/ControledInput'
 import { ranges, getStartAndEndTime } from './constant'
-import Input from '../Input'
 import autobind from 'autobind-decorator'
 
 // const timePickerElement = (
@@ -186,11 +185,12 @@ export default class DateRangePicker extends Component {
       >
         {
           ({ value }) => {
-            return <Input
+            return <input
+              className="input"
               placeholder="请选择时间"
               disabled={disabled}
               readOnly
-              defaultValue={this.formatDisplayValue(value)}
+              value={this.formatDisplayValue(value)}
             />
           }
         }
