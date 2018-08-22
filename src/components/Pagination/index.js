@@ -9,10 +9,33 @@ import 'rc-pagination/assets/index.css'
  * @see https://github.com/react-component/pagination
  */
 export default class Pagination extends Component {
+  handleClick = (direction, hasPrev, hasNext) => {
+    const { onChange, current } = this.props
+    return () => {
+      if (direction === 'prev' && !hasPrev) return
+      if (direction === 'next' && !hasNext) return
+      const newPage = direction === 'prev' ? current - 1 : current + 1
+      onChange(newPage)
+    }
+  }
+  renderBasic (classes) {
+    const { itemNum, current, pageSize } = this.props
+    const hasPrev = current > 1
+    const hasNext = itemNum === pageSize
+    console.log(hasNext, itemNum, pageSize)
+    return <ul className={classes} unselectable="unselectable">
+      <li onClick={this.handleClick('prev', hasPrev, hasNext)} title="上一页" class={`${!hasPrev ? 'rc-pagination-disabled' : ''} rc-pagination-prev`}><a class="rc-pagination-item-link"></a></li>
+      <li onClick={this.handleClick('next', hasPrev, hasNext)} title="下一页" class={`${!hasNext ? 'rc-pagination-disabled' : ''} rc-pagination-next`}><a class="rc-pagination-item-link"></a></li>
+    </ul>
+  }
   render () {
-    const { className, style } = this.props
+    const { className, total, ...others } = this.props
     const classes = classNames('tip-pagination', className)
-    return <RCPagination className={classes} style={style} />
+
+    if (total < 1) {
+      return this.renderBasic(classes)
+    }
+    return <RCPagination className={classes} total={total} {...others} />
   }
 }
 Pagination.propTypes = {
