@@ -2,7 +2,7 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-01-18 17:50:52
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-08-21 17:45:07
+ * @Last Modified time: 2018-08-22 17:29:45
  */
 import React, { PureComponent } from 'react'
 import classNames from 'classnames'
@@ -24,12 +24,12 @@ export default class Input extends PureComponent {
       },
       className
     )
-    return <div className="input-wrapper">
-      <input className={classes} placeholder={isSearch ? '搜索相关内容' : ''} type={type} {...others} {...controled} />
-      { isSearch
-        ? <Icon className="search-icon" link={searchIcon}/>
-        : ''
-      }
-    </div>
+    if (isSearch) {
+      return <div className="input-wrapper">
+        <input className={classes} placeholder={isSearch ? '搜索相关内容' : ''} type={type} {...others} {...controled} />
+        <Icon className="search-icon" link={searchIcon}/>
+      </div>
+    }
+    return <input className={classes} placeholder={isSearch ? '搜索相关内容' : ''} type={type} {...others} {...controled} />
   }
 }
