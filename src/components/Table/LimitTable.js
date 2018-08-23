@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import autobind from 'autobind-decorator'
+import _ from 'lodash'
 
 // 限制展示数量
 const LimitTable = WrapedComponent =>
@@ -25,7 +26,7 @@ const LimitTable = WrapedComponent =>
       this.initData(this.props)
     }
     componentWillReceiveProps(nextProps) {
-      if (JSON.stringify(nextProps) !== JSON.stringify(this.props)) {
+      if (!_.isEqual(this.props.data, nextProps.data)) {
         this.initData(nextProps)
       }
     }
