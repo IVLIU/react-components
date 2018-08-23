@@ -28,6 +28,7 @@ const baseComponents = {
 }
 const dataComponents = {
   alert: join('Alert/index.js'),
+  truncate: join('Truncate/index.js'),
   popover: join('Popover/index.js'),
   box: join('Box/index.js'),
   table: join('Table/Base.js'),

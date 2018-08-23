@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 import TextTruncate from 'react-text-truncate'
 import classNames from 'classnames'
 
-export default class index extends PureComponent {
+/**
+ * 文字截断
+ */
+export default class Truncate extends PureComponent {
   state = {
     expand: false,
     truncated: false
@@ -12,7 +15,7 @@ export default class index extends PureComponent {
     /** 是否默认展开 */
     defaultExpand: PropTypes.bool,
     /** 超过多少行开始截断 */
-    line: PropTypes.num,
+    line: PropTypes.number,
     /** 展开的提示 */
     more: PropTypes.node,
     /** 收起的提示 */
