@@ -3,10 +3,11 @@
  * @Author: wangweixin@threatbook.cn
  * @Date: 2018-04-20 14:26:28
  * @Last Modified by: wangweixin@threatbook.cn
- * @Last Modified time: 2018-08-15 17:45:24
+ * @Last Modified time: 2018-08-23 17:51:18
  */
 import React, { Component } from 'react'
 import classNames from 'classnames'
+import _ from 'lodash'
 
 const ClickTable = WrapedComponent =>
   class ClickTable extends Component {
@@ -18,6 +19,15 @@ const ClickTable = WrapedComponent =>
       const shoudInitData = (clickable || expandOnly) && Boolean(data[0])
       if (shoudInitData) {
         this.changeActive(data[0], 0)
+      }
+    }
+    componentWillReceiveProps = (nextProps) => {
+      const { data, clickable, expandOnly } = this.props
+      if (!_.isEqual(data, nextProps.data)) {
+        const shoudInitData = (clickable || expandOnly) && Boolean(nextProps.data[0])
+        if (shoudInitData) {
+          this.changeActive(nextProps.data[0], 0)
+        }
       }
     }
     changeActive = (row, index) => {
