@@ -6,7 +6,7 @@ import {
   Code, Tab, Icon, Table, Label,
   Box, Alert, Dropdown, DropdownInput, DropdownList, Loading,
   Pagination, LabelSelect, TimePicker, CheckboxSelect,
-  Switch, Timeline,
+  Switch, Timeline, Truncate,
   RadioButton, Popover, FileUpload, TRIGGER, POSITION
   // ErrorBoundary, errorDecorator
 } from '../../src/index'
@@ -436,6 +436,9 @@ export default class Home extends Component {
     const { current } = this.state
     return (
       <div className="container" style={{width: '1200px'}}>
+        <div style={{width: 200}}>
+          <Truncate line={2}>水电费水电费是的分水电费水电费是的分水电费水电费是的分水电费水电费是的分水电费水电费是的分水电费水电费是的分</Truncate>
+        </div>
         <Timeline hasDesc>
           <Timeline.Item dot="28" desc="03:20:00 — 03:50:20">Create a services site 2015-09-01</Timeline.Item>
           <Timeline.Item dot="2">Solve initial network problems 2015-09-01</Timeline.Item>
